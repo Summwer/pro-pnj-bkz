@@ -21,7 +21,7 @@ We've given some instances in `implement_low_dim.sh` to solve LWE challenge with
 
 
 
-We test an LWE instance in detail and return the actual basis quality(we regard "slope" as a basis quality representation) and actual cost(in practical cost model with threads = 32 and gpus = 2 * 3039Ti GPUS (sec)) after each pnj-BKZ(beta,J,tours) reduction, one can run it by the following command
+We test an LWE instance in detail and return the actual basis quality(we regard "slope" as a basis quality representation) and actual cost(in practical cost model with threads = 32 and gpus = 2 * (RTX3090 GPU) (sec)) after each pnj-BKZ(beta,J,tours) reduction, one can run it by the following command
 
 .. code-block:: bash
 
