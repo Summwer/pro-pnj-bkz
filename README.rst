@@ -1,27 +1,26 @@
 
 ******************************
-G6K - GPU - Tensor - two - step
+progressive pnj-BKZ
 ******************************
 
-We add some files in `G6K - GPU Tensor` to run a two-step mode for solving u-SVP problem in G6K-GPU with a blocksize selection method. One should first generate the blocksize strategy in https://github.com/Summwer/lwe-estimator-with-pnjbkz/tree/main/cpp. Then run the following command:
-```
-source ./activate
-python lwe_challenge_last_pump.py 40 --lwe/alpha 0.025 --threads 32 --gpus 2 --verbose True --pump/down_sieve True --pump/saturation_error "ignore" --bkz/blocksizes "[(91,8,1),(104,8,1)]"
-```
-It means that use blocksize strategy $(\beta,{\rm jump},{\rm tours}) \in$ [(91,8,1),(104,8,1)], 32 threads and 2 gpus to solve LWE challenge with $(n,\alpha)$ = (40,0.025). 
+Before implement our code, please follow the compile guidance in the topic **G6K - GPU Tensor** We add some files in `G6K - GPU Tensor` to run a two-step mode for solving u-SVP problem in G6K-GPU with a blocksize selection method. One should first generate the blocksize strategy in https://github.com/Summwer/lwe-estimator-with-pnjbkz/tree/main/cpp. Then run the following command:
+.. code-block:: bash
+    source ./activate
+    python lwe_challenge_last_pump.py 40 --lwe/alpha 0.025 --threads 32 --gpus 2 --verbose True --pump/down_sieve True --pump/saturation_error "ignore" --bkz/blocksizes "[(91,8,1),(104,8,1)]"
+
+It means that use blocksize strategy `(beta,J,tours) in [(91,8,1),(104,8,1)]`, 32 threads and 2 gpus to solve LWE challenge with `(n,alpha) = (40,0.025)`. 
 
 
 We've given some instances in `implement_low_dim.sh` to solve LWE challenge with strategy in default g6k, bssa, or enumbs and obtain the cost information in Table 4 in https://eprint.iacr.org/2022/1343.
-
-```
-./implement_low_dim.sh
-```
+.. code-block:: bash
+    ./implement_low_dim.sh
 
 
-We test an LWE instance in detail and return the actual basis quality(we regard "slope" as a basis quality representation) and actual cost(in practical cost model with threads = 32 and gpus = 2 * 3039Ti GPUS (sec)) after each pnj-BKZ$(\beta,J, {\rm tours})$ reduction, one can run it by the following command
-```
-./quality-predict-test.sh
-```
+
+We test an LWE instance in detail and return the actual basis quality(we regard "slope" as a basis quality representation) and actual cost(in practical cost model with threads = 32 and gpus = 2 * 3039Ti GPUS (sec)) after each pnj-BKZ(beta,J,tours) reduction, one can run it by the following command
+.. code-block:: bash
+    ./quality-predict-test.sh
+
 and get the 'Simulation' column for LWE challenge ($40,0.035$) in Table 5 in https://eprint.iacr.org/2022/1343.
 
 ******************************
