@@ -1,0 +1,9 @@
+-------------------------
+Primal attack, LWE challenge n=40, alpha=0.0350
+Chose 187 samples. Predict solution at bkz-114 + svp-148
+
+GSO precision:  qd
+Intial Slope = -0.03524
+
+Without otf, would expect solution at pump-129, estimate time cost = 12481.468 s 
+Starting svp pump_{37, 151, 22}, n_max = 129

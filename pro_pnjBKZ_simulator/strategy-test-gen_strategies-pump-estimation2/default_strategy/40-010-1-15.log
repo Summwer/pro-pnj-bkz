@@ -1,0 +1,5 @@
+Time cost for generating Strategy: 0.115797 s
+[10 (-0.081080), cost = 142.000000 s]+pump(42,98,5)
+[10]Time cost for pnj-BKZ = 0.04 h,
+Time cost for pump = 0.14 h,
+Total time cost = 0.18 h.

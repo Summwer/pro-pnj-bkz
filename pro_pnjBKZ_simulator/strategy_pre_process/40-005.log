@@ -1,0 +1,25 @@
+-------------------------
+Primal attack, LWE challenge n=40, alpha=0.0050
+Chose 89 samples. Predict solution at bkz-40 + svp-48
+
+GSO precision:  double
+Intial Slope = -0.09576
+
+Starting a pnjBKZ-51 tour. 
+ k:0, b:46, f:0 , RAM cost: 0.0932 GB  k:0, b:47, f:1 , RAM cost: 0.0977 GB  k:0, b:48, f:2 , RAM cost: 0.0977 GB  k:0, b:49, f:3 , RAM cost: 0.0979 GB  k:0, b:50, f:4 , RAM cost: 0.0979 GB  k:0, b:51, f:5 , RAM cost: 0.0979 GB  k:0, b:52, f:6 , RAM cost: 0.0981 GB  k:0, b:53, f:7 , RAM cost: 0.0981 GB  k:0, b:54, f:8 , RAM cost: 0.0981 GB  k:0, b:55, f:9 , RAM cost: 0.0984 GB  k:0, b:56, f:10 , RAM cost: 0.0984 GB  k:0, b:57, f:11 , RAM cost: 0.0984 GB  k:0, b:58, f:12 , RAM cost: 0.0986 GB  k:0, b:59, f:13 , RAM cost: 0.0986 GB  k:0, b:60, f:14 , RAM cost: 0.0986 GB  k:0, b:61, f:15 , RAM cost: 0.0986 GB  k:0, b:62, f:16 , RAM cost: 0.0986 GB  k:0, b:63, f:17 , RAM cost: 0.0986 GB  k:1, b:63, f:17 , RAM cost: 0.0986 GB  k:2, b:63, f:17 , RAM cost: 0.0996 GB  k:3, b:63, f:17 , RAM cost: 0.0996 GB  k:4, b:63, f:17 , RAM cost: 0.0996 GB  k:5, b:63, f:17 , RAM cost: 0.0996 GB  k:6, b:63, f:17 , RAM cost: 0.0996 GB  k:7, b:63, f:17 , RAM cost: 0.0996 GB  k:8, b:63, f:17 , RAM cost: 0.0996 GB  k:9, b:63, f:17 , RAM cost: 0.0996 GB  k:10, b:63, f:17 , RAM cost: 0.0996 GB  k:11, b:63, f:17 , RAM cost: 0.0996 GB  k:12, b:63, f:17 , RAM cost: 0.0996 GB  k:13, b:63, f:17 , RAM cost: 0.0996 GB  k:14, b:63, f:17 , RAM cost: 0.0996 GB  k:15, b:63, f:17 , RAM cost: 0.0996 GB  k:16, b:63, f:17 , RAM cost: 0.0996 GB  k:17, b:63, f:17 , RAM cost: 0.0996 GB  k:18, b:63, f:17 , RAM cost: 0.0996 GB  k:19, b:63, f:17 , RAM cost: 0.0996 GB  k:20, b:63, f:17 , RAM cost: 0.0996 GB  k:21, b:63, f:17 , RAM cost: 0.0996 GB slope: -0.05283, walltime: 14.780 sec
+Starting a pnjBKZ-52 tour. 
+ k:0, b:46, f:0 , RAM cost: 0.0996 GB slope: -0.05282, walltime: 15.097 sec
+Starting a pnjBKZ-53 tour. 
+ k:0, b:47, f:0 , RAM cost: 0.0996 GB slope: -0.05311, walltime: 15.465 sec
+Starting a pnjBKZ-54 tour. 
+ k:0, b:47, f:0 , RAM cost: 0.0961 GB slope: -0.05310, walltime: 15.821 sec
+Starting a pnjBKZ-55 tour. 
+ k:0, b:48, f:0 , RAM cost: 0.0961 GB slope: -0.05343, walltime: 16.219 sec
+Starting a pnjBKZ-60 tour. 
+ k:0, b:50, f:0 , RAM cost: 0.0964 GB slope: -0.05340, walltime: 17.434 sec
+Starting a pnjBKZ-62 tour. 
+ k:0, b:51, f:0 , RAM cost: 0.1087 GB slope: -0.05341, walltime: 18.580 sec
+Starting a pnjBKZ-65 tour. 
+ k:0, b:53, f:0 , RAM cost: 0.1109 GB slope: -0.05400, walltime: 19.853 sec
+Finished! TT=19.85 sec
+(17, -10, 6, 0, 11, 14, -5, -4, -9, 3, -2, -2, -15, -1, -8, 1, 3, -3, 2, -16, 3, -5, -1, 4, 2, -1, -4, 6, -5, -5, -15, 13, -1, -2, -6, -11, 13, 12, -4, 8, 9, 3, -4, 10, -4, -12, 10, -25, 7, -8, -4, 0, -6, 9, -3, 4, -3, 4, 10, -4, -3, -7, -2, 5, 0, 2, -15, -18, -11, -2, 7, -5, 11, -1, -1, -9, 4, 1, 21, -3, 6, 14, 7, 1, 13, -19, 3, -12, 8, -1)

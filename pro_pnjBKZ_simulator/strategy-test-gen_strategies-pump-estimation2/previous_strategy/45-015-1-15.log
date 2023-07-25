@@ -1,0 +1,101 @@
+Previous Strategy:
+n = 45, alpha = 0.015, b= 70, jump = 1, goal_margin = 1.50Find BKZ strategy: BKZ-50 -> 95
+Simulating optimal strategy: 50->51
+Simulating optimal strategy: 50->51 finished
+Simulating optimal strategy: 50->52
+Simulating optimal strategy: 50->52 finished
+Simulating optimal strategy: 50->53
+Simulating optimal strategy: 50->53 finished
+Simulating optimal strategy: 50->54
+Simulating optimal strategy: 50->54 finished
+Simulating optimal strategy: 50->55
+Simulating optimal strategy: 50->55 finished
+Simulating optimal strategy: 50->56
+Simulating optimal strategy: 50->56 finished
+Simulating optimal strategy: 50->57
+Simulating optimal strategy: 50->57 finished
+Simulating optimal strategy: 50->58
+Simulating optimal strategy: 50->58 finished
+Simulating optimal strategy: 50->59
+Simulating optimal strategy: 50->59 finished
+Simulating optimal strategy: 50->60
+Simulating optimal strategy: 50->60 finished
+Simulating optimal strategy: 50->61
+Simulating optimal strategy: 50->61 finished
+Simulating optimal strategy: 50->62
+Simulating optimal strategy: 50->62 finished
+Simulating optimal strategy: 50->63
+Simulating optimal strategy: 50->63 finished
+Simulating optimal strategy: 50->64
+Simulating optimal strategy: 50->64 finished
+Simulating optimal strategy: 50->65
+Simulating optimal strategy: 50->65 finished
+Simulating optimal strategy: 50->66
+Simulating optimal strategy: 50->66 finished
+Simulating optimal strategy: 50->67
+Simulating optimal strategy: 50->67 finished
+Simulating optimal strategy: 50->68
+Simulating optimal strategy: 50->68 finished
+Simulating optimal strategy: 50->69
+Simulating optimal strategy: 50->69 finished
+Simulating optimal strategy: 50->70
+Simulating optimal strategy: 50->70 finished
+Simulating optimal strategy: 50->71
+Simulating optimal strategy: 50->71 finished
+Simulating optimal strategy: 50->72
+Simulating optimal strategy: 50->72 finished
+Simulating optimal strategy: 50->73
+Simulating optimal strategy: 50->73 finished
+Simulating optimal strategy: 50->74
+Simulating optimal strategy: 50->74 finished
+Simulating optimal strategy: 50->75
+Simulating optimal strategy: 50->75 finished
+Simulating optimal strategy: 50->76
+Simulating optimal strategy: 50->76 finished
+Simulating optimal strategy: 50->77
+Simulating optimal strategy: 50->77 finished
+Simulating optimal strategy: 50->78
+Simulating optimal strategy: 50->78 finished
+Simulating optimal strategy: 50->79
+Simulating optimal strategy: 50->79 finished
+Simulating optimal strategy: 50->80
+Simulating optimal strategy: 50->80 finished
+Simulating optimal strategy: 50->81
+Simulating optimal strategy: 50->81 finished
+Simulating optimal strategy: 50->82
+Simulating optimal strategy: 50->82 finished
+Simulating optimal strategy: 50->83
+Simulating optimal strategy: 50->83 finished
+Simulating optimal strategy: 50->84
+Simulating optimal strategy: 50->84 finished
+Simulating optimal strategy: 50->85
+Simulating optimal strategy: 50->85 finished
+Simulating optimal strategy: 50->86
+Simulating optimal strategy: 50->86 finished
+Simulating optimal strategy: 50->87
+Simulating optimal strategy: 50->87 finished
+Simulating optimal strategy: 50->88
+Simulating optimal strategy: 50->88 finished
+Simulating optimal strategy: 50->89
+Simulating optimal strategy: 50->89 finished
+Simulating optimal strategy: 50->90
+Simulating optimal strategy: 50->90 finished
+Simulating optimal strategy: 50->91
+Simulating optimal strategy: 50->91 finished
+Simulating optimal strategy: 50->92
+Simulating optimal strategy: 50->92 finished
+Simulating optimal strategy: 50->93
+Simulating optimal strategy: 50->93 finished
+Simulating optimal strategy: 50->94
+Simulating optimal strategy: 50->94 finished
+Simulating optimal strategy: 50->95
+Simulating optimal strategy: 50->95 finished
+Time cost for generate blocksizes strategy: 87.916679 s
+[14.87045391709083, 14.829379969378671, 14.788251687548808, 14.74706680015738, 14.705823562383753, 14.664520429157891, 14.623155540675665, 14.58172682818846, 14.54023265305727, 14.498671795287937, 14.457045501817214, 14.415357455482956, 14.373773396311151, 14.332289208850547, 14.29090077147481, 14.249603954973576, 14.208394621105139, 14.167268621108816, 14.126221794175008, 14.085249965870917, 14.044348946519728, 14.003514529531083, 13.962742489680448, 13.922028581335066, 13.881368536624029, 13.840758063549844, 13.800192844039033, 13.759668531929025, 13.719180750888675, 13.678725092269758, 13.638297112886649, 13.597892332721596, 13.557506232552901, 13.51713425150358, 13.476771784508095, 13.436414179695124, 13.396056735684477, 13.355694698796935, 13.315323260176056, 13.274937552821953, 13.23453264853779, 13.194103554791024, 13.15364521149276, 13.113152487700539, 13.07262017825206, 13.03210384026258, 12.991846129035128, 12.951659181349038, 12.911499701355043, 12.871302815133042, 12.831044025998859, 12.79072645933535, 12.750328227290378, 12.70990562146446, 12.669381838719001, 12.62878776223218, 12.588065110608039, 12.547294909676163, 12.506397122307488, 12.465389755850694, 12.424256539695328, 12.38301210249407, 12.341646944454347, 12.300138427627248, 12.258510966150647, 12.216729021533691, 12.17480831038693, 12.132713037881631, 12.090479479321985, 12.048081567111577, 12.005508210557801, 11.962742871803696, 11.919794073109603, 11.87668338006137, 11.833380677593526, 11.789924509306097, 11.746246353191696, 11.702368890057574, 11.658296549955695, 11.613996190932898, 11.569514701098, 11.524789377930169, 11.479859667484728, 11.434739718201794, 11.389403232699516, 11.343831954970783, 11.298057904083652, 11.252112622258354, 11.206189883733801, 11.160483477111244, 11.130079552467734, 11.099454226279915, 11.068603825664171, 11.037524582719524, 11.006212631239865, 10.974664003287963, 10.942874625624773, 10.910840315987379, 10.87855677920846, 10.846019603170069, 10.813224254584082, 10.780166074591454, 10.746840274172133, 10.713241929357201, 10.679365976234608, 10.645207205739602, 10.610760258220765, 10.576019617772538, 10.540979606324886, 10.505634377480883, 10.469977910093066, 10.434004001569583, 10.397706260901685, 10.361078101404486, 10.324112733163979, 10.286803155184163, 10.249142147229808, 10.211122261362211, 10.17273581316777, 10.133974872682368, 10.094831255018521, 10.055296510707185, 10.015361915772354, 9.975018461564282, 9.93425684438673, 9.893067454965584, 9.851440367820762, 9.809365330621597, 9.766831753628297, 9.72382869934984, 9.680344872583099, 9.63636861104048, 9.597241789983766, 9.579484607052585, 9.545454087465101, 9.507684296683264, 9.46423306862484, 9.418588726130883, 9.373157514415913, 9.325741394183776, 9.283198269415585, 9.233872094670083, 9.187162462684674, 9.135253774113826, 9.090346783408851, 9.03834897603872, 8.98780822891541, 8.935726088984339, 8.884805420790425, 8.832937549804445, 8.778956818475699, 8.726981172492314, 8.671759194664613, 8.6177657954243, 8.560483684726611, 8.506219239438856, 8.449522559612166, 8.39168554518525, 8.332217755002443, 8.273307941529382, 8.216112439671129, 8.156104917697041, 8.099297223105724, 8.036306126044606, 7.97508895219485, 7.914062315898189, 7.849924310755356, 7.7896844402679255, 7.723745617134535, 7.6610342135372935, 7.599363485392362, 7.535188348807295, 7.469190147377023, 7.405774831709292, 7.344932458263264, 7.3009709869038195, 7.274085455754419]
+Predict slope = -0.041267
+50->( 64 * 5 ( -0.046165 ), cost = 219.4725 s )-> 57->( 68 * 1 ( -0.045262 ), cost = 63.0213 s )-> 61->( 74 * 1 ( -0.044073 ), cost = 108.4186 s )-> 66->( 79 * 1 ( -0.042890 ), cost = 258.8056 s )-> 71->( 88 * 1 ( -0.041267 ), cost = 1046.2646 s )-> 78+pump(61,116,12)
+[64,64,64,64,64,68,74,79,88]
+Time cost for pnj-BKZ = 0.47 h,
+Time cost for pump = 0.99 h,
+Total time cost = 1.46 h.
+

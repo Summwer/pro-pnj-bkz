@@ -1,0 +1,25 @@
+Git status: 
+commit d74dc24fb344badb8d71b085cf092d3aecf700bd
+Merge: 52c58d6 387a460
+Author: Marc Stevens <cr-marcstevens@users.noreply.github.com>
+
+    Merge pull request #12 from verdiverdiverdi/lwe_gpu_chal
+	modified:   cuda/GPUStreamGeneral.cu
+	modified:   g6k/algorithms/bkz.py
+	modified:   g6k/algorithms/ducas18.py
+	modified:   g6k/algorithms/pump.py
+	modified:   g6k/siever.pyx
+	modified:   g6k/utils/cli.py
+	modified:   g6k/utils/lwe_estimation.py
+	modified:   g6k/utils/stats.py
+	modified:   g6k/utils/util.py
+	modified:   kernel/control.cpp
+	modified:   kernel/db.inl
+	modified:   kernel/gpu_sieve.cpp
+	modified:   lwe_challenge.py
+	modified:   rebuild.sh
+	modified:   svp_challenge.py
+	g6k/algorithms/pump_modified.py
+=================
+rebuild.sh --noyr
+=================

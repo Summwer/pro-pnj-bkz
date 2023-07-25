@@ -1,0 +1,25 @@
+-------------------------
+Primal attack, LWE challenge n=45, alpha=0.0050
+Chose 112 samples. Predict solution at bkz-40 + svp-50
+
+GSO precision:  double
+Intial Slope = -0.08710
+
+Starting a pnjBKZ-51 tour. 
+ k:0, b:46, f:0 , RAM cost: 0.0951 GB  k:0, b:47, f:1 , RAM cost: 0.1010 GB  k:0, b:48, f:2 , RAM cost: 0.1010 GB  k:0, b:49, f:3 , RAM cost: 0.1010 GB  k:0, b:50, f:4 , RAM cost: 0.1010 GB  k:0, b:51, f:5 , RAM cost: 0.1010 GB  k:0, b:52, f:6 , RAM cost: 0.1010 GB  k:0, b:53, f:7 , RAM cost: 0.1010 GB  k:0, b:54, f:8 , RAM cost: 0.1010 GB  k:0, b:55, f:9 , RAM cost: 0.1010 GB  k:0, b:56, f:10 , RAM cost: 0.1010 GB  k:0, b:57, f:11 , RAM cost: 0.1010 GB  k:0, b:58, f:12 , RAM cost: 0.1011 GB  k:0, b:59, f:13 , RAM cost: 0.1011 GB  k:0, b:60, f:14 , RAM cost: 0.1011 GB  k:0, b:61, f:15 , RAM cost: 0.1011 GB  k:0, b:62, f:16 , RAM cost: 0.1011 GB  k:0, b:63, f:17 , RAM cost: 0.1016 GB  k:1, b:63, f:17 , RAM cost: 0.1016 GB  k:2, b:63, f:17 , RAM cost: 0.1016 GB  k:3, b:63, f:17 , RAM cost: 0.1016 GB  k:4, b:63, f:17 , RAM cost: 0.1016 GB  k:5, b:63, f:17 , RAM cost: 0.1016 GB  k:6, b:63, f:17 , RAM cost: 0.1016 GB  k:7, b:63, f:17 , RAM cost: 0.1016 GB  k:8, b:63, f:17 , RAM cost: 0.1016 GB  k:9, b:63, f:17 , RAM cost: 0.1016 GB  k:10, b:63, f:17 , RAM cost: 0.1016 GB  k:11, b:63, f:17 , RAM cost: 0.1021 GB  k:12, b:63, f:17 , RAM cost: 0.1021 GB  k:13, b:63, f:17 , RAM cost: 0.1021 GB  k:14, b:63, f:17 , RAM cost: 0.1023 GB  k:15, b:63, f:17 , RAM cost: 0.1023 GB  k:16, b:63, f:17 , RAM cost: 0.1023 GB  k:17, b:63, f:17 , RAM cost: 0.1023 GB  k:18, b:63, f:17 , RAM cost: 0.1023 GB  k:19, b:63, f:17 , RAM cost: 0.1023 GB  k:20, b:63, f:17 , RAM cost: 0.1023 GB  k:21, b:63, f:17 , RAM cost: 0.1023 GB  k:22, b:63, f:17 , RAM cost: 0.1023 GB  k:23, b:63, f:17 , RAM cost: 0.1023 GB  k:24, b:63, f:17 , RAM cost: 0.1023 GB  k:25, b:63, f:17 , RAM cost: 0.1023 GB  k:26, b:63, f:17 , RAM cost: 0.1023 GB  k:27, b:63, f:17 , RAM cost: 0.1023 GB  k:28, b:63, f:17 , RAM cost: 0.1023 GB  k:29, b:63, f:17 , RAM cost: 0.1023 GB  k:30, b:63, f:17 , RAM cost: 0.1023 GB  k:31, b:63, f:17 , RAM cost: 0.1023 GB  k:32, b:63, f:17 , RAM cost: 0.1023 GB  k:33, b:63, f:17 , RAM cost: 0.1023 GB  k:34, b:63, f:17 , RAM cost: 0.1023 GB  k:35, b:63, f:17 , RAM cost: 0.1023 GB  k:36, b:63, f:17 , RAM cost: 0.1023 GB  k:37, b:63, f:17 , RAM cost: 0.1023 GB  k:38, b:63, f:17 , RAM cost: 0.1023 GB  k:39, b:63, f:17 , RAM cost: 0.1023 GB  k:40, b:63, f:17 , RAM cost: 0.1023 GB  k:41, b:63, f:17 , RAM cost: 0.1023 GB  k:42, b:63, f:17 , RAM cost: 0.1023 GB  k:43, b:63, f:17 , RAM cost: 0.1027 GB  k:44, b:63, f:17 , RAM cost: 0.1027 GB  k:45, b:63, f:17 , RAM cost: 0.1027 GB  k:46, b:63, f:17 , RAM cost: 0.1027 GB  k:47, b:63, f:17 , RAM cost: 0.1027 GB slope: -0.05421, walltime: 27.681 sec
+Starting a pnjBKZ-52 tour. 
+ k:0, b:46, f:0 , RAM cost: 0.1027 GB slope: -0.05356, walltime: 28.241 sec
+Starting a pnjBKZ-53 tour. 
+ k:0, b:47, f:0 , RAM cost: 0.1027 GB slope: -0.05358, walltime: 28.811 sec
+Starting a pnjBKZ-54 tour. 
+ k:0, b:47, f:0 , RAM cost: 0.1075 GB slope: -0.05355, walltime: 29.360 sec
+Starting a pnjBKZ-55 tour. 
+ k:0, b:48, f:0 , RAM cost: 0.1075 GB slope: -0.05360, walltime: 30.004 sec
+Starting a pnjBKZ-60 tour. 
+ k:0, b:50, f:0 , RAM cost: 0.1130 GB slope: -0.05341, walltime: 31.305 sec
+Starting a pnjBKZ-62 tour. 
+ k:0, b:51, f:0 , RAM cost: 0.1223 GB slope: -0.05333, walltime: 32.529 sec
+Starting a pnjBKZ-65 tour. 
+ k:0, b:53, f:0 , RAM cost: 0.1242 GB slope: -0.05335, walltime: 33.944 sec
+Finished! TT=33.94 sec
+(-2, -11, 6, 10, 5, 2, 1, -2, -5, -1, 6, -9, 6, 7, -1, -9, 14, -3, -13, -2, 3, -6, 11, -3, -1, -6, 1, 9, -19, -7, -19, -15, 14, 0, -8, 22, -5, 0, 1, -17, -7, -18, 9, -3, -2, -4, 0, -2, -5, 16, 17, 3, -7, 31, -6, 7, 7, -2, -5, -16, -8, 3, -15, 8, 0, -7, 5, 24, 11, -7, 3, 15, -11, 2, -20, -11, 8, -7, 1, -1, 23, 0, -9, 15, 6, 4, -17, -2, 16, 14, -8, -4, 3, 2, 4, 19, 6, 4, 15, 3, 16, 4, 5, 7, -3, 6, 4, -1, -18, -5, -5, 4, -1)

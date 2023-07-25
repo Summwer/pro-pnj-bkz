@@ -1,0 +1,544 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 4.2.1
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2016 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Sun May 29 12:40:16 2022
+
+# Variables
+ 
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# default
+.SHELLFLAGS := -c
+# environment
+PROVIDE_FULLSTACK_ACTION = true
+# environment
+XDG_SESSION_CLASS = user
+# environment
+VSCODE_AGENT_FOLDER = /home/cryptothesis/.vscode-server
+# environment
+XDG_SESSION_TYPE = tty
+# environment
+VSCODE_LOG_NATIVE = false
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# default
+MAKE_VERSION := 4.2.1
+# makefile
+CURDIR := /home/cryptothesis/summer/G6K-GPU-Tensor-new1
+# makefile
+SHELL = /bin/sh
+# environment
+VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"42e84e0914b17800d483f69e299e1b00.zh-cn","_translationsConfigFile":"/home/cryptothesis/.vscode-server/data/clp/42e84e0914b17800d483f69e299e1b00.zh-cn/tcf.json","_cacheRoot":"/home/cryptothesis/.vscode-server/data/clp/42e84e0914b17800d483f69e299e1b00.zh-cn","_resolvedLanguagePackCoreLocation":"/home/cryptothesis/.vscode-server/data/clp/42e84e0914b17800d483f69e299e1b00.zh-cn/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5","_corruptedFile":"/home/cryptothesis/.vscode-server/data/clp/42e84e0914b17800d483f69e299e1b00.zh-cn/corrupted.info","_languagePackSupport":true}
+# environment
+_ = /home/cryptothesis/.vscode-server/bin/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5/node
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# 'override' directive
+GNUMAKEFLAGS := 
+# makefile (from 'Makefile', line 4)
+PYTHONSOURCES := g6k/siever_params.pxd g6k/siever.pxd g6k/decl.pxd g6k/siever_params.pyx g6k/siever.pyx
+# environment
+MAKELEVEL := 0
+# environment
+XDG_DATA_DIRS = /usr/local/share:/usr/share:/var/lib/snapd/desktop
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# environment
+LC_NAME = zh_CN.UTF-8
+# environment
+VSCODE_CWD = /home/cryptothesis
+# environment
+SSH_CONNECTION = 127.0.0.1 38346 127.0.0.1 2233
+# environment
+PATH = /home/cryptothesis/.vscode-server/bin/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5/bin/remote-cli:/home/cryptothesis/.vscode-server/bin/da15b6fd3ef856477bf6f4fb29ba1b7af717770d/bin/remote-cli:/home/cryptothesis/.local/bin:/home/cryptothesis/.cargo/bin:/home/cryptothesis/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/cuda-11.4/bin:/usr/local/cuda-11.4/bin:/home/cryptothesis/hadoop-3.3.2/bin
+# environment
+GOLANG_EXECUTABLE = go
+# environment
+XDG_RUNTIME_DIR = /run/user/1000
+# environment
+THREE_SCALE_USER_TOKEN = 207c527cfc2a6b8dcf4fa43ad7a976da
+# environment
+VSCODE_LOG_STACK = false
+# environment
+LC_NUMERIC = zh_CN.UTF-8
+# environment
+VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-ab893e9d-f5a8-40be-a085-e610a453eb2e.sock
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+# environment
+UUID = 1f513a2d-7e46-46dc-9b71-284ff510cd5f
+# automatic
+%F = $(notdir $%)
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+PWD = /home/cryptothesis/summer/G6K-GPU-Tensor-new1
+ 
+# default
+.LOADED := 
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/cryptothesis
+# environment
+LOGNAME = cryptothesis
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# automatic
++F = $(notdir $+)
+# environment
+TELEMETRY_ID = 772dc470-d1e7-4113-b7f4-b43bd4fde879
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+LC_TIME = zh_CN.UTF-8
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# makefile (from 'Makefile', line 2)
+KERNELHEADERS := kernel/siever.h kernel/thread_pool.hpp kernel/statistics.hpp kernel/random.hpp kernel/compat.hpp kernel/cpuperformance.hpp kernel/parallel_algorithms.hpp kernel/db.inl kernel/simhash.inl kernel/siever.inl kernel/hash_table.inl cuda/GPUStreamGeneral.h cuda/cuda_tensor_wmma.hpp
+# environment
+SHLVL = 0
+# environment
+XDG_SESSION_ID = 36263
+# environment
+USER = cryptothesis
+# environment
+LC_MONETARY = zh_CN.UTF-8
+# makefile
+ 
+.DEFAULT_GOAL := all
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+LC_TELEPHONE = zh_CN.UTF-8
+# default
+MAKE_COMMAND := make
+# environment
+UTM_SOURCE = vscode
+# default
+.VARIABLES := 
+# automatic
+*F = $(notdir $*)
+# makefile
+MAKEFLAGS = pqrR
+# environment
+MFLAGS = -pqrR
+# environment
+SSH_CLIENT = 127.0.0.1 38346 2233
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+RECOMMENDER_API_URL = https://gw.api.openshift.io//api/v2
+# environment
+BROWSER = /home/cryptothesis/.vscode-server/bin/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5/bin/helpers/browser.sh
+# environment
+VSCODE_HANDLES_SIGPIPE = true
+# makefile (from 'Makefile', line 3)
+KERNELSOURCES := kernel/test_lsh.cpp kernel/control.cpp kernel/triple_sieve_mt.cpp kernel/cpuperf.cpp kernel/gpu_sieve.cpp kernel/params.cpp kernel/sieving.cpp kernel/triple_sieve.cpp kernel/bgj1_sieve.cpp cuda/bench_sieving.cpp cuda/bench_quality.cpp cuda/GPUStreamGeneral.cu
+# default
+MAKEFILES := 
+# automatic
+<F = $(notdir $<)
+# automatic
+^F = $(notdir $^)
+# environment
+LC_MEASUREMENT = zh_CN.UTF-8
+# environment
+LC_ALL = C
+# environment
+LC_PAPER = zh_CN.UTF-8
+# default
+SUFFIXES := 
+ 
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# environment
+LC_IDENTIFICATION = zh_CN.UTF-8
+# default
+.RECIPEPREFIX := 
+# environment
+LC_ADDRESS = zh_CN.UTF-8
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# makefile (from 'Makefile', line 1)
+SUBDIRS := kernel
+# environment
+LANG = C
+# environment
+VSCODE_EXTHOST_WILL_SEND_SOCKET = true
+# environment
+MOTD_SHOWN = pam
+# variable set hash-table stats:
+# Load=87/1024=8%, Rehash=0, Collisions=14/120=12%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+ 
+# kernel (device 2067, inode 11930967): 34 files, no impossibilities.
+# g6k (device 2067, inode 11930589): 16 files, no impossibilities.
+# . (device 2067, inode 11930527): 45 files, no impossibilities.
+# cuda (device 2067, inode 11930575): 15 files, no impossibilities.
+
+# 110 files, no impossibilities in 4 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+# Not a target:
+kernel/bgj1_sieve.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-24 10:20:52.000995148
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+kernel/control.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-29 15:51:03.617070851
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+kernel/triple_sieve.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-24 10:20:52.004995162
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+kernel/sieving.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-24 10:20:52.004995162
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+g6k/decl.pxd:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-24 10:20:52.000995148
+#  File has been updated.
+#  Successfully updated.
+
+all: Makefile.local kernel/libG6K.so g6k/siever.so
+#  Phony target (prerequisite of .PHONY).
+#  Command line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
+
+# Not a target:
+kernel/simhash.inl:
+#  Implicit rule search has been done.
+ 
+#  Last modified 2022-03-24 10:20:52.004995162
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+kernel/statistics.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-24 10:20:52.004995162
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+kernel/random.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-24 10:20:52.000995148
+#  File has been updated.
+#  Successfully updated.
+
+.PHONY: all kernel clean
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+g6k/siever_params.pyx:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-24 10:20:52.000995148
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+cuda/GPUStreamGeneral.cu:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-28 15:16:24.894547331
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+ 
+kernel/compat.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-24 10:20:52.000995148
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+kernel/hash_table.inl:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-24 10:20:52.000995148
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+cuda/bench_sieving.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-24 10:20:51.996995133
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+cuda/GPUStreamGeneral.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-24 10:20:51.996995133
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-24 10:20:51.988995105
+#  File has been updated.
+#  Successfully updated.
+
+kernel:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+rebuild:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 9):
+	./rebuild.sh $(G6KREBUILDARGS)
+
+# Not a target:
+kernel/siever.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-24 10:20:52.004995162
+#  File has been updated.
+#  Successfully updated.
+
+Makefile.local:
+#  Implicit rule search has not been done.
+#  Last modified 2022-04-25 19:36:35.018246798
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 12):
+	./rebuild.sh --onlyconf $(G6KREBUILDARGS)
+
+# Not a target:
+kernel/test_lsh.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-24 10:20:52.004995162
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+g6k/siever.pyx:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-24 10:20:52.000995148
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+kernel/db.inl:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-24 10:20:52.000995148
+#  File has been updated.
+#  Successfully updated.
+
+g6k/siever.so: Makefile.local kernel/libG6K.so kernel/siever.h kernel/thread_pool.hpp kernel/statistics.hpp kernel/random.hpp kernel/compat.hpp kernel/cpuperformance.hpp kernel/parallel_algorithms.hpp kernel/db.inl kernel/simhash.inl kernel/siever.inl kernel/hash_table.inl cuda/GPUStreamGeneral.h cuda/cuda_tensor_wmma.hpp g6k/siever_params.pxd g6k/siever.pxd g6k/decl.pxd g6k/siever_params.pyx g6k/siever.pyx
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := g6k/siever.so
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := Makefile.local kernel/libG6K.so kernel/siever.h kernel/thread_pool.hpp kernel/statistics.hpp kernel/random.hpp kernel/compat.hpp kernel/cpuperformance.hpp kernel/parallel_algorithms.hpp kernel/db.inl kernel/simhash.inl kernel/siever.inl kernel/hash_table.inl cuda/GPUStreamGeneral.h cuda/cuda_tensor_wmma.hpp g6k/siever_params.pxd g6k/siever.pxd g6k/decl.pxd g6k/siever_params.pyx g6k/siever.pyx
+# automatic
+# | := 
+# automatic
+# < := Makefile.local
+# automatic
+# ^ := Makefile.local kernel/libG6K.so kernel/siever.h kernel/thread_pool.hpp kernel/statistics.hpp kernel/random.hpp kernel/compat.hpp kernel/cpuperformance.hpp kernel/parallel_algorithms.hpp kernel/db.inl kernel/simhash.inl kernel/siever.inl kernel/hash_table.inl cuda/GPUStreamGeneral.h cuda/cuda_tensor_wmma.hpp g6k/siever_params.pxd g6k/siever.pxd g6k/decl.pxd g6k/siever_params.pyx g6k/siever.pyx
+# automatic
+# ? := Makefile.local kernel/libG6K.so kernel/siever.h kernel/thread_pool.hpp kernel/statistics.hpp kernel/random.hpp kernel/compat.hpp kernel/cpuperformance.hpp kernel/parallel_algorithms.hpp kernel/db.inl kernel/simhash.inl kernel/siever.inl kernel/hash_table.inl cuda/GPUStreamGeneral.h cuda/cuda_tensor_wmma.hpp g6k/siever_params.pxd g6k/siever.pxd g6k/decl.pxd g6k/siever_params.pyx g6k/siever.pyx
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from 'Makefile', line 18):
+	-rm g6k/*.cpp g6k/*.so
+	python setup.py clean
+	python setup.py build_ext --inplace
+
+# Not a target:
+kernel/thread_pool.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-24 10:20:52.004995162
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+kernel/params.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-24 10:20:52.000995148
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+clean: Makefile.local
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 23):
+	for dir in "${SUBDIRS}"; do make -C "$${dir}" clean; done
+	-rm -rf build
+	-rm -f g6k/*.cpp g6k/*.so
+
+# Not a target:
+kernel/cpuperformance.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-24 10:20:52.000995148
+#  File has been updated.
+#  Successfully updated.
+
+kernel/libG6K.so: Makefile.local kernel/siever.h kernel/thread_pool.hpp kernel/statistics.hpp kernel/random.hpp kernel/compat.hpp kernel/cpuperformance.hpp kernel/parallel_algorithms.hpp kernel/db.inl kernel/simhash.inl kernel/siever.inl kernel/hash_table.inl cuda/GPUStreamGeneral.h cuda/cuda_tensor_wmma.hpp kernel/test_lsh.cpp kernel/control.cpp kernel/triple_sieve_mt.cpp kernel/cpuperf.cpp kernel/gpu_sieve.cpp kernel/params.cpp kernel/sieving.cpp kernel/triple_sieve.cpp kernel/bgj1_sieve.cpp cuda/bench_sieving.cpp cuda/bench_quality.cpp cuda/GPUStreamGeneral.cu
+#  Implicit rule search has not been done.
+#  Last modified 2022-04-25 19:43:22.502792369
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 15):
+	$(MAKE) -C kernel libG6K.so
+
+# Not a target:
+kernel/triple_sieve_mt.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-24 10:20:52.004995162
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+g6k/siever_params.pxd:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-24 10:20:52.000995148
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+cuda/bench_quality.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-24 10:20:51.996995133
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+kernel/siever.inl:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-24 10:20:52.004995162
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+kernel/parallel_algorithms.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-24 10:20:52.000995148
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+kernel/gpu_sieve.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-25 19:36:29.334183382
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+cuda/cuda_tensor_wmma.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-24 10:20:51.996995133
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+kernel/cpuperf.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-24 10:20:52.000995148
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+g6k/siever.pxd:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-24 10:20:52.000995148
+#  File has been updated.
+#  Successfully updated.
+
+# files hash-table stats:
+# Load=41/1024=4%, Rehash=0, Collisions=5/109=5%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 142 / storage = 2166 B / avg = 15 B
+# current buf: size = 8162 B / used = 2166 B / count = 142 / avg = 15 B
+
+# strcache performance: lookups = 190 / hit rate = 25%
+# hash-table stats:
+# Load=142/8192=2%, Rehash=0, Collisions=12/190=6%
+# Finished Make data base on Sun May 29 12:40:16 2022
+
+ 
