@@ -49,6 +49,7 @@ from g6k.siever_params import SieverParams
 from g6k.utils.lwe_estimation import gsa_params, primal_lattice_basis
 from g6k.utils.cost import dim4free_wrapper, default_dim4free_fun, practical_pump_cost,dims4free, get_k1_k2_pump,theo_dim4free_fun1
 from g6k.utils.stats import dummy_tracer
+from pump_estimation import pro_sieve_estimation_20230609
 
 from os import mkdir
 import os
@@ -211,6 +212,11 @@ def store_svp_midmat(d,g6k):
     fn.close()
     
     
+#1. Compare BKZ-only mode with two-step mode
+#To prove that in the same time cost, the norm of b0 after a Pump is shorter than that after a BKZ. 
+#2. Compare G6K-default mode with two-step mode
+#fixed time cost, after a BKZ/Pump in the same fixed time cost
+#To prove that the reduced basis quality after BKZ reduction is better than that after a Pump reduction in the same reduction cost.
 def BKZ_Pump_comparison(n,alpha, d, prebeta, bkz_beta = None , pump_dsvp = None , pump_f = None):
     
     params = SieverParams(threads = 32, gpus = 2)
@@ -258,6 +264,10 @@ def BKZ_Pump_comparison(n,alpha, d, prebeta, bkz_beta = None , pump_dsvp = None 
     g6k.lll(0, g6k.full_n)
     print("ln(||b0||) = %f. \n" %log(g6k.M.get_r(0, 0)))
     
+    log_rr = [log(g6k.M.get_r(i, i)) for i in range(d)]
+    log_FSC_BKZ,_,_,_ = pro_sieve_estimation_20230609(log_rr,q, alpha)
+    
+    print("log_FSC_BKZ:", log_FSC_BKZ)
     
     #--------------------------pump test---------------------------#
     
@@ -269,10 +279,6 @@ def BKZ_Pump_comparison(n,alpha, d, prebeta, bkz_beta = None , pump_dsvp = None 
     print("Intial Slope = %.5f\n\n" % slope)
     d = g6k.full_n
     
-    # if get_pump_dim(d,T_BKZ) != None:
-    # n_max = min(d,int(58 + 2.85 * log(T_BKZ * params.threads)/log(2.)))
-    # f = dim4free_wrapper(default_dim4free_fun,n_max)
-    # llb = d - n_max
     if(pump_dsvp == None or pump_f == None):
         print(pump_dsvp,d)
         llb,n_max,f = get_pump_dim(d,T_BKZ)
@@ -285,57 +291,20 @@ def BKZ_Pump_comparison(n,alpha, d, prebeta, bkz_beta = None , pump_dsvp = None 
     print("walltime: %f sec." % T_pump)
     g6k.lll(0, g6k.full_n)
     print("ln(||b0||) = %f. \n" %log(g6k.M.get_r(0, 0)))
-    # file.close()
+    
+    log_rr = [log(g6k.M.get_r(i, i)) for i in range(d)]
+    log_FSC_pump,_,_,_ = pro_sieve_estimation_20230609(log_rr,q, alpha)
+    
+    print("log_FSC_pump:", log_FSC_pump)
+    
 
-
-
-# dim = 60
-# bkz_beta = 28
-# pump_dsvp = dim
-# f = dim4free_wrapper(dims4free, pump_dsvp)
-# # f = dim4free_wrapper(theo_dim4free_fun1, pump_dsvp)
-# # f = dim4free_wrapper(default_dim4free_fun, pump_dsvp)
-# BKZ_Pump_comparison(dim, bkz_beta , pump_dsvp, f)
-
-
-
-# dim = 80
-# bkz_beta = 30
-# pump_dsvp = dim
-# f = dim4free_wrapper(dims4free, pump_dsvp)
-# # f = dim4free_wrapper(theo_dim4free_fun1, pump_dsvp)
-# # f = dim4free_wrapper(default_dim4free_fun, pump_dsvp)
-# BKZ_Pump_comparison(dim, bkz_beta , pump_dsvp, f)
-
-
-
-# (n, alpha, d) = (50, 0.020, 206)
-# (n, alpha, d) = (40, 0.025, 172)
-# (n, alpha, d) = (80, 0.005, 271)
-
-# n_alpha_d = [(80,0.005,271)]
-# (n, alpha, d) = (40,0.040,191)
-# prebeta = 30
-# bkz_beta = 80
-# pump_dsvp = None
-# f = None
-# # f = dim4free_wrapper(dims4free, pump_dsvp)
-# # f = dim4free_wrapper(theo_dim4free_fun1, pump_dsvp)
-# # f = dim4free_wrapper(default_dim4free_fun, pump_dsvp)
-# BKZ_Pump_comparison(n,alpha, d, prebeta, bkz_beta , pump_dsvp, f)
-
-(n, alpha, d) = (40, 0.025, 172)
-(n, alpha, d) = (40, 0.005, 90)
 
 prebeta = 50
 bkz_beta = 80
 pump_dsvp = None
 f = None
-# f = dim4free_wrapper(dims4free, pump_dsvp)
-# f = dim4free_wrapper(theo_dim4free_fun1, pump_dsvp)
-# f = dim4free_wrapper(default_dim4free_fun, pump_dsvp)
-#(80, 0.005, 271), 
-# for (n,alpha,d) in [(40, 0.025, 172),(60,0.010,222)]:
-# for (n,alpha,d) in [(55,0.020,231), (45,0.030,202), (40,0.040,191)]:
-for (n,alpha,d) in [(40, 0.020, 163), (45, 0.010, 166), (50,0.010,184), (55,0.005,184), (60,0.005,199), (65,0.005,219)]:
+
+for (n,alpha,d) in [(40, 0.020, 163), (40, 0.025, 172), (50,0.010,184), (65,0.005,219), (50,0.025, 220), (55, 0.020, 230), (75, 0.010, 281), (90,0.005, 307)]:
     BKZ_Pump_comparison(n,alpha, d, prebeta, bkz_beta , pump_dsvp, f)
+    
+    

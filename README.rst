@@ -29,6 +29,15 @@ We test an LWE instance in detail and return the actual basis quality(we regard 
 
 and get the 'Simulation' column for LWE challenge ($40,0.035$) in Table 5 in https://eprint.iacr.org/2022/1343.
 
+
+Call
+.. code-block:: bash
+
+    python module_comparison.py
+
+could output the norm of ||b0|| and PSC estimation after pnj-BKZ/pump reduction in the same time cost and get the Table 1 and Table 2 in https://eprint.iacr.org/2022/1343.
+
+
 ******************************
 G6K - GPU Tensor
 ******************************

@@ -49,7 +49,7 @@ from g6k.utils.util import load_lwe_challenge,load_lwe_challenge_mid
 
 # from g6k.utils.lwe_estimation import gsa_params, primal_lattice_basis
 from g6k.utils.lwe_estimation import gsa_params, primal_lattice_basis
-from pro_pnjBKZ_simulator.codes.pump_estimation import pro_sieve_estimation_20230609
+from pump_estimation import pro_sieve_estimation_20230609
 # from six.moves import range
 
 #from pro_pnj_bkz_optimization import *
@@ -296,7 +296,7 @@ def lwe_kernel(arg0, params=None, seed=None):
                 break
             
             
-    log_rr = [log(g6k.M.get_r(i, i)) for i in range(d)]
+     
     pump_time,llb,beta_pump,f = pro_sieve_estimation_20230609(log_rr,q, alpha)
             
     n_max= 145
