@@ -6,6 +6,7 @@ progressive pnj-BKZ
 Please use gcc-8.5 to compile the files, and firstly run
 
 .. code-block:: bash
+
    git clone https://github.com/cr-marcstevens/parallel-hashmap
    ./rebuild.sh
 
