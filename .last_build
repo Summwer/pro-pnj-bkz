@@ -1,25 +1,19 @@
 Git status: 
-commit d74dc24fb344badb8d71b085cf092d3aecf700bd
-Merge: 52c58d6 387a460
-Author: Marc Stevens <cr-marcstevens@users.noreply.github.com>
+commit d9f25fe1716a630b3273fa25df0dec7e4bdc6de9
+Author: summwer <15091002@buaa.edu.cn>
 
-    Merge pull request #12 from verdiverdiverdi/lwe_gpu_chal
-	modified:   cuda/GPUStreamGeneral.cu
-	modified:   g6k/algorithms/bkz.py
-	modified:   g6k/algorithms/ducas18.py
-	modified:   g6k/algorithms/pump.py
-	modified:   g6k/siever.pyx
-	modified:   g6k/utils/cli.py
-	modified:   g6k/utils/lwe_estimation.py
-	modified:   g6k/utils/stats.py
-	modified:   g6k/utils/util.py
-	modified:   kernel/control.cpp
-	modified:   kernel/db.inl
-	modified:   kernel/gpu_sieve.cpp
-	modified:   lwe_challenge.py
-	modified:   rebuild.sh
-	modified:   svp_challenge.py
-	g6k/algorithms/pump_modified.py
+    update log
+
+	modified:   .last_build
+	modified:   Makefile.local
+	modified:   kernel/bgj1_sieve.o
+	modified:   kernel/control.o
+	modified:   kernel/cpuperf.o
+	modified:   kernel/gpu_sieve.o
+	modified:   kernel/params.o
+	modified:   kernel/sieving.o
+	modified:   kernel/triple_sieve.o
+	modified:   kernel/triple_sieve_mt.o
 =================
-rebuild.sh --noyr
+rebuild.sh 
 =================
