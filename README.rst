@@ -3,9 +3,10 @@
 progressive pnj-BKZ
 ******************************
 
-Please use gcc-8.5 to compile the files, rund 
+Please use gcc-8.5 to compile the files, and firstly run
 
 .. code-block:: bash
+   git clone https://github.com/cr-marcstevens/parallel-hashmap
    ./rebuild.sh
 
 Before implement our code, please follow the compile guidance in the topic **G6K - GPU Tensor** We add some files in `G6K - GPU Tensor`(https://github.com/WvanWoerden/G6K-GPU-Tensor) to run a two-step mode for solving u-SVP problem in G6K-GPU with a blocksize selection method. One should first generate the blocksize strategy in https://github.com/Summwer/lwe-estimator-with-pnjbkz/tree/main/cpp. Then run the following command:
