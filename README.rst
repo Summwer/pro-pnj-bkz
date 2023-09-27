@@ -44,7 +44,7 @@ Call
 
     python module_comparison.py
 
-could output the norm of ||b0|| and PSC estimation after pnj-BKZ/pump reduction in the same time cost and get the Table 1 and Table 2 in https://eprint.iacr.org/2022/1343.
+could output the norm of $\lVert {\bf{b}}_0 \rVert$ and PSC estimation after pnj-BKZ/pump reduction in the same time cost and get the Table 1 and Table 2 in https://eprint.iacr.org/2022/1343.
 
 
 ******************************

@@ -262,24 +262,24 @@ def lwe_kernel(arg0, params=None, seed=None):
             g6k.lll(0, g6k.full_n)
             
             #write the mid result of basis
-            alpha_ = int(alpha*1000)
-            filename = 'lwechallenge/%03d-%03d-midmat.txt' % (n, alpha_)
-            fn = open(filename, "w")
-            fn.write(str(n)+'\n')
-            fn.write(str(m)+'\n')
-            fn.write(str(q)+'\n')
-            fn.write(str(alpha)+'\n')
-            fn.write('[')
-            for i in range(g6k.M.B.nrows):
-                fn.write('[')
-                for j in range(g6k.M.B.ncols):
-                    fn.write(str(g6k.M.B[i][j]))
-                    if j<g6k.M.B.ncols-1:
-                        fn.write(' ')
-                if i < g6k.M.B.nrows-1:
-                    fn.write(']\n')
-            fn.write(']]')
-            fn.close()
+            # alpha_ = int(alpha*1000)
+            # filename = 'lwechallenge/%03d-%03d-midmat.txt' % (n, alpha_)
+            # fn = open(filename, "w")
+            # fn.write(str(n)+'\n')
+            # fn.write(str(m)+'\n')
+            # fn.write(str(q)+'\n')
+            # fn.write(str(alpha)+'\n')
+            # fn.write('[')
+            # for i in range(g6k.M.B.nrows):
+            #     fn.write('[')
+            #     for j in range(g6k.M.B.ncols):
+            #         fn.write(str(g6k.M.B[i][j]))
+            #         if j<g6k.M.B.ncols-1:
+            #             fn.write(' ')
+            #     if i < g6k.M.B.nrows-1:
+            #         fn.write(']\n')
+            # fn.write(']]')
+            # fn.close()
 
 
             T_BKZ = time.time() - T0_BKZ
@@ -304,7 +304,7 @@ def lwe_kernel(arg0, params=None, seed=None):
      
         # pump_time,llb,beta_pump,f = pro_sieve_estimation_20230609(log_rr,q, alpha)
                 
-        n_max= 145
+        n_max= 135
         
         llb = d - beta_pump
         f = max(0, beta_pump - n_max)
