@@ -106,62 +106,71 @@ Entry Siever::sample(unsigned int large)
 
     size_t fullS = cdb.size();
 
-    // if (large || fullS < 200 + 10*n || !params.sample_by_sums)
-    // {
-    //     std::fill(e.x.begin(), e.x.end(), 0);
-    //     size_t np = n / 2;
-    //     np = (large > 3) ? 0 : np;
-    //     for (size_t j = np; j < n; ++j){
-    //         e.x[j] = (rng() % 5) - 2*(j < n-1); // Making sure the last cordinate is non-zero
-    //         for (size_t l = 0; l < large; ++l)
-    //         {
-    //             e.x[j] += (rng() % 7) - 3*(j < n-1);
-    //         }
-    //     }
-
-    //     recompute_data_for_entry_babai<Recompute::recompute_all_and_consider_otf_lift>(e,np);
-    //     return e;
-    // }
-
-    //Gauss sampler
-    // if (large || fullS < 200 + 10*n || !params.sample_by_sums){
-    if(true){
+    // super fast sampler
+    if (large > 1000)
+    {
         std::fill(e.x.begin(), e.x.end(), 0);
-        size_t np = 0;
-        unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
-        std::default_random_engine generator(seed);
-        float s = *(std::max_element(sqrt_rr.begin(),sqrt_rr.end()));
-        // for(size_t i = 0; i<n; ++i){
-        //     std::cerr<<sqrt_rr[i]<<" ";
-        // }
-        // std::cerr<<std::endl;
-        // std::cerr<<sqrt_rr.end()-sqrt_rr.begin()<<std::endl;
-        // auto maxposition = std::max_element(sqrt_rr.begin(),sqrt_rr.end());
-        // std::cerr<<*maxposition<<std::endl;
-        float sigma;
-        for (size_t j = np; j<n; ++j){
-            sigma = s/sqrt_rr[j];
-            std::normal_distribution<double> distribution(0.0, n);
-            //std::normal_distribution<double> distribution(0.0, sigma);
-            e.x[j] = round(distribution(generator));
-
-            // std::cerr<<sigma<<","<<e.x[j]<<" ";
+        for(size_t t = 0; t < n/2; t++ ){
+            size_t i = rng() % n;
+            e.x[i] = 1;
         }
 
-        // e.x[n-1] = 1; //Why the last one must be non-zero??
-        // std::cerr<<std::endl;
-        
-        recompute_data_for_entry_babai<Recompute::recompute_all_and_consider_otf_lift>(e,np);
-
-
+        recompute_data_for_entry_babai<Recompute::recompute_all>(e,0);
         return e;
-
     }
+
+
+    if (large || fullS < 200 + 10*n || !params.sample_by_sums)
+    {
+        std::fill(e.x.begin(), e.x.end(), 0);
+        size_t np = n / 2;
+        np = (large > 3) ? 0 : np;
+        for (size_t j = np; j < n; ++j){
+            e.x[j] = (rng() % 5) - 2*(j < n-1); // Making sure the last cordinate is non-zero
+            for (size_t l = 0; l < large; ++l)
+            {
+                e.x[j] += (rng() % 7) - 3*(j < n-1);
+            }
+        }
+
+        recompute_data_for_entry_babai<Recompute::recompute_all_and_consider_otf_lift>(e,np);
+        return e;
+    }
+
+
+    // otherwise, i.e. if large == false && fullS >= 0
+
+    size_t max_trial = 2 + std::pow(fullS, .3);
+
+    CompressedEntry* fast_cdb = &(cdb.front());
+
+    size_t partial = 5 * std::pow(fullS, .6);
+
+    size_t i = (rng() % partial);
+    size_t j = (rng() % partial);
+
+    for (unsigned int trial=0;;++trial)
+    {
+        ++j;
+        unsigned int w = 0;
+        for (size_t k = 0; k < XPC_WORD_LEN; ++k)
+        {
+            w += __builtin_popcountl(fast_cdb[i].c[k] ^ fast_cdb[j].c[k]);
+        }
+
+        if (w< XPC_SAMPLING_THRESHOLD || w > (XPC_BIT_LEN - XPC_SAMPLING_THRESHOLD) || trial > max_trial)
+        {
+            if (i==j) continue;
+            ZT sign = w < XPC_SAMPLING_THRESHOLD/2 ? -1 : 1;
+            e.x = db[cdb[i].i].x;
+            addsub_vec(e.x,  db[cdb[j].i].x, static_cast<ZT>(sign));
+            recompute_data_for_entry<Recompute::recompute_all_and_consider_otf_lift>(e);
+            // refresh_entry(e);
+            return e;
+        }
+    }
+
 }
-
-
-
-
 
 // x_full is a pointer to a (temporary) buffer, len is the non-normalized length.
 inline void Siever::lift_and_compare(ZT * const x_full, FT len, LFT const * const helper)

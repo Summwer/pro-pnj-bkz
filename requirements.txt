@@ -8,3 +8,5 @@ pytest
 requests
 scipy
 multiprocessing-logging
+psutil
+mpmath

@@ -113,7 +113,11 @@ def lwe_kernel(arg0, params=None, seed=None):
     extra_dim4free = params.pop("bkz/extra_dim4free")
     jump = params.pop("bkz/jump")
     dim4free_fun = params.pop("bkz/dim4free_fun")
+    
+    
     pump_params = pop_prefixed_params("pump", params)
+    beta_pump = pump_params.pop("dsvp")
+    # print(beta_pump)
     fpylll_crossover = params.pop("bkz/fpylll_crossover")
     
     tours = params.pop("bkz/tours")
@@ -160,12 +164,12 @@ def lwe_kernel(arg0, params=None, seed=None):
     # target_norm = max( target_norm, 0.98 * full_gh)
 
     
-    B_=load_lwe_challenge_mid(n=n, alpha=alpha)
-    if B_ is not None:
-        B = B_
-    else: 
-        B = primal_lattice_basis(A, c, q, m=m)
-    # B = primal_lattice_basis(A, c, q, m=m) #debug
+    # B_=load_lwe_challenge_mid(n=n, alpha=alpha)
+    # if B_ is not None:
+    #     B = B_
+    # else: 
+    #     B = primal_lattice_basis(A, c, q, m=m)
+    B = primal_lattice_basis(A, c, q, m=m) #debug
 
     g6k = Siever(B, params)
     print("GSO precision: ", g6k.M.float_type)
@@ -295,66 +299,70 @@ def lwe_kernel(arg0, params=None, seed=None):
             if g6k.M.get_r(0, 0) <= target_norm or g6k.M.B[0][-1] == 1 or g6k.M.B[0][-1] == -1:
                 break
             
-            
-     
-    pump_time,llb,beta_pump,f = pro_sieve_estimation_20230609(log_rr,q, alpha)
-            
-    n_max= 145
-    T0_pump = time.time()
-    print("Without otf, would expect solution at pump_{%d, %d, %d},n_max = %d, estimate time cost = %.3f s " % (llb, beta_pump , f, n_max, pump_time)) # noqa
-            
-    if(beta_pump - f > n_max):
-        # beta_pump  = n_max + f
-        # llb = d - beta_pump
-        f = beta_pump - n_max
+    if not(g6k.M.get_r(0, 0) <= target_norm or g6k.M.B[0][-1] == 1 or g6k.M.B[0][-1] == -1):
         
-    if(beta_pump - f <= n_max):
+     
+        # pump_time,llb,beta_pump,f = pro_sieve_estimation_20230609(log_rr,q, alpha)
+                
+        n_max= 145
+        
+        llb = d - beta_pump
+        f = max(0, beta_pump - n_max)
+        T0_pump = time.time()
+        print("Without otf, would expect solution at pump_{%d, %d, %d},n_max = %d, estimate time cost = %.3f s " % (llb, beta_pump , f, n_max, pump_time)) # noqa
+                
+        # if(beta_pump - f > n_max):
+        #     # beta_pump  = n_max + f
+        #     # llb = d - beta_pump
+        #     f = beta_pump - n_max
+            
+        # if(beta_pump - f <= n_max):
         if verbose:
             print()
             print( "Starting svp pump_{%d, %d, %d}" % (llb, d-llb, f) ) # noqa
             sys.stdout.flush()
-                
+                    
 
-    _, max_RAM_cost = pump(g6k, tracer, llb, d-llb, f, verbose=verbose, goal_r0=target_norm * (d - llb)/(1.*d),**pump_params)
+        _, max_RAM_cost = pump(g6k, tracer, llb, d-llb, f, verbose=verbose, goal_r0=target_norm * (d - llb)/(1.*d),**pump_params)
 
 
-    if verbose:
-        T_pump = time.time() - T0_pump
-        slope = basis_quality(g6k.M)["/"]
-        fmt = "slope: %.5f, T_pump = %.3f sec, RAM_pump = %.3f GB, walltime: %.3f sec"
-        print(fmt % (slope,T_pump, max_RAM_cost, time.time()-T0))
+        if verbose:
+            T_pump = time.time() - T0_pump
+            slope = basis_quality(g6k.M)["/"]
+            fmt = "slope: %.5f, T_pump = %.3f sec, RAM_pump = %.3f GB, walltime: %.3f sec"
+            print(fmt % (slope,T_pump, max_RAM_cost, time.time()-T0))
 
-                
+                    
 
-    # if g6k.M.get_r(0, 0) <= target_norm:
-    #     break
-            
-    g6k.lll(0, g6k.full_n)
-            
-            
         # if g6k.M.get_r(0, 0) <= target_norm:
         #     break
-    
-    
-    #write the result of basis after last pump
-    alpha_ = int(alpha*1000)
-    filename = 'lwechallenge/%03d-%03d-last-pump.txt' % (n, alpha_)
-    fn = open(filename, "w")
-    fn.write(str(n)+'\n')
-    fn.write(str(m)+'\n')
-    fn.write(str(q)+'\n')
-    fn.write(str(alpha)+'\n')
-    fn.write('[')
-    for i in range(g6k.M.B.nrows):
+                
+        g6k.lll(0, g6k.full_n)
+                
+                
+            # if g6k.M.get_r(0, 0) <= target_norm:
+            #     break
+        
+        
+        #write the result of basis after last pump
+        alpha_ = int(alpha*1000)
+        filename = 'lwechallenge/%03d-%03d-last-pump.txt' % (n, alpha_)
+        fn = open(filename, "w")
+        fn.write(str(n)+'\n')
+        fn.write(str(m)+'\n')
+        fn.write(str(q)+'\n')
+        fn.write(str(alpha)+'\n')
         fn.write('[')
-        for j in range(g6k.M.B.ncols):
-            fn.write(str(g6k.M.B[i][j]))
-            if j<g6k.M.B.ncols-1:
-                fn.write(' ')
-        if i < g6k.M.B.nrows-1:
-            fn.write(']\n')
-    fn.write(']]')
-    fn.close()
+        for i in range(g6k.M.B.nrows):
+            fn.write('[')
+            for j in range(g6k.M.B.ncols):
+                fn.write(str(g6k.M.B[i][j]))
+                if j<g6k.M.B.ncols-1:
+                    fn.write(' ')
+            if i < g6k.M.B.nrows-1:
+                fn.write(']\n')
+        fn.write(']]')
+        fn.close()
 
 
     if g6k.M.get_r(0, 0) <= target_norm or g6k.M.B[0][-1] == 1 or g6k.M.B[0][-1] == -1:
