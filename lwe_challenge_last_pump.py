@@ -309,7 +309,7 @@ def lwe_kernel(arg0, params=None, seed=None):
         llb = d - beta_pump
         f = max(0, beta_pump - n_max)
         T0_pump = time.time()
-        print("Without otf, would expect solution at pump_{%d, %d, %d},n_max = %d, estimate time cost = %.3f s " % (llb, beta_pump , f, n_max, pump_time)) # noqa
+        print("Without otf, would expect solution at pump_{%d, %d, %d},n_max = %d" % (llb, beta_pump , f, n_max)) # noqa
                 
         # if(beta_pump - f > n_max):
         #     # beta_pump  = n_max + f

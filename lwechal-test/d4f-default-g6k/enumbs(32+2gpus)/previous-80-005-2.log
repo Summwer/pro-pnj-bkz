@@ -1,0 +1,10 @@
+-------------------------
+Primal attack, LWE challenge n=80, alpha=0.0050
+Chose 270 samples. Predict solution at bkz-100 + svp-132
+
+GSO precision:  qd
+||b_1|| = 41229241, target_norm = 417447
+Intial Slope = -0.06533, dim = 271, dvol = 725.6903453631992
+
+Blocksize Strategy: []
+
