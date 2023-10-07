@@ -223,8 +223,8 @@ def get_k1_k2_pnj(beta, sieve):
 # threads = 32, gpus = 2, test pump
 def get_k1_k2_pump(beta):
     if beta >=0 and beta <10:
-        k1 = 0 
-        k2 = 0
+        k1 = -1
+        k2 = -1
     elif beta>=10 and beta<=60:
         k1 = 0.035657
         k2 = -2.317327
@@ -244,6 +244,8 @@ def get_k1_k2_pump(beta):
     #     k1 = 0.3642 
     #     k2 = - 24.398 
     return k1,k2
+
+
 
 
 

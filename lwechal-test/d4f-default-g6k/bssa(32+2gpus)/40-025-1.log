@@ -1,12 +1,0 @@
--------------------------
-Primal attack, LWE challenge n=40, alpha=0.0250
-Chose 171 samples. Predict solution at bkz-89 + svp-117
-
-GSO precision:  qd
-||b_1|| = 2563201, target_norm = 410914
-Intial Slope = -0.06660, dim = 172, dvol = 331.9735338747317
-
-Blocksize Strategy: [(79, 8, 3)]
-
-Starting a pnjBKZ-79-8 tour. 
- k:0, b:62, f:0 , RAM cost: 0.1146 GB  k:0, b:70, f:8 , RAM cost: 1.6515 GB  k:0, b:78, f:16 , RAM cost: 1.6563 GB  k:0, b:86, f:24 , RAM cost: 1.6585 GB  k:0, b:91, f:29 , RAM cost: 1.6586 GB  k:8, b:91, f:29 , RAM cost: 1.6628 GB  k:16, b:91, f:29 , RAM cost: 1.6649 GB  k:24, b:91, f:29 , RAM cost: 1.6690 GB  k:32, b:91, f:29 , RAM cost: 1.6730 GB  k:40, b:91, f:29 , RAM cost: 1.6773 GB  k:48, b:91, f:29 , RAM cost: 1.6812 GB  k:56, b:91, f:29 , RAM cost: 1.6815 GB  k:64, b:91, f:29 , RAM cost: 1.6834 GB  k:72, b:91, f:29 , RAM cost: 1.6852 GB 
