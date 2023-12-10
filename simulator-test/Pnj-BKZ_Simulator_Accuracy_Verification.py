@@ -324,7 +324,7 @@ def show_gs_slope_figure4(dir,log_gs_length,sim_log_gs_lengths,n,dimension,alpha
 def ratio_txt(dir,log_gs_length,sim_log_gs_lengths,n,dimension,alpha_,square_error1,Blocksize,Jump,N,test_number):
     f = open(dir+"/ratio, n=%d, alpha = %s, dimension = %d, Blocksize = %d, Jump = %d, #Current Tours= %d.txt"%(n,alpha_,dimension,Blocksize,Jump,N+1), "w")
     for _ in range(0,dimension):
-        f.write(str(sim_log_gs_lengths[_]/log_gs_length[_])+' ')
+        f.write(str(exp(sim_log_gs_lengths[_])/exp(log_gs_length[_]))+' ')
     f.close()
     
 def Ratio_figure(dir,log_gs_length,sim_log_gs_lengths,n,dimension,alpha_,square_error1,Blocksize,Jump,N,test_number):
@@ -363,18 +363,19 @@ def Ratio_figure(dir,log_gs_length,sim_log_gs_lengths,n,dimension,alpha_,square_
     plt.figure(figsize=(16, 9), dpi=100)
     plt.xlabel('Index', fontsize=24)
     plt.ylabel('Ratio', fontsize=24)
-    plt.scatter(x, ratio1,s=24,marker="*",c='k',edgecolors='k', label=r"$\mathrm{Real}(  \ln_{}{\left \| \left \| \mathbf{b}_{i}^* \right \|  \right \| }) / \mathrm{Sim}  (\ln_{}{\left \| \left \| \mathbf{b}_{i}^* \right \|  \right \| }), \mathrm{Tours}=1$")
-    plt.scatter(x, ratio4,s=16,marker="^",c='none',edgecolors='b', label=r"$\mathrm{Real}(  \ln_{}{\left \| \left \| \mathbf{b}_{i}^* \right \|  \right \| }) / \mathrm{Sim}  (\ln_{}{\left \| \left \| \mathbf{b}_{i}^* \right \|  \right \| }), \mathrm{Tours}=%d$"%Current_Tours1)
-    plt.scatter(x, ratio8,s=16,marker="o",c='r',edgecolors='r', label=r"$\mathrm{Real}(  \ln_{}{\left \| \left \| \mathbf{b}_{i}^* \right \|  \right \| }) / \mathrm{Sim}  (\ln_{}{\left \| \left \| \mathbf{b}_{i}^* \right \|  \right \| }), \mathrm{Tours}=%d$"%Current_Tours2)
+    plt.scatter(x, ratio1,s=24,marker="*",c='k',edgecolors='k', label=r"$\mathrm{Real}(  {\left \| \left \| \mathbf{b}_{i}^* \right \|  \right \| }) / \mathrm{Sim}  ({\left \| \left \| \mathbf{b}_{i}^* \right \|  \right \| }), \mathrm{Tours}=1$")
+    plt.scatter(x, ratio4,s=16,marker="^",c='none',edgecolors='b', label=r"$\mathrm{Real}(  {\left \| \left \| \mathbf{b}_{i}^* \right \|  \right \| }) / \mathrm{Sim}  ({\left \| \left \| \mathbf{b}_{i}^* \right \|  \right \| }), \mathrm{Tours}=%d$"%Current_Tours1)
+    plt.scatter(x, ratio8,s=16,marker="o",c='r',edgecolors='r', label=r"$\mathrm{Real}(  {\left \| \left \| \mathbf{b}_{i}^* \right \|  \right \| }) / \mathrm{Sim}  ({\left \| \left \| \mathbf{b}_{i}^* \right \|  \right \| }), \mathrm{Tours}=%d$"%Current_Tours2)
     #plt.plot(x, ratio1, 'ok', label='Real ||bi*||/ Sim ||bi*|| Tours=1')
     #plt.plot(x, ratio8, '^b', label='Real ||bi*||/ Sim ||bi*|| Tours=8')
-    plt.ylim(0.9,1.1)
+    plt.ylim(0.875,1.125)
     dimension=len(ratio1)
     plt.plot([1,dimension],[1,1],c='k')
-    plt.plot([1,dimension],[1.05,1.05],c='k',linestyle='--')
-    plt.plot([1,dimension],[0.95,0.95],c='k',linestyle='--')
-    plt.plot([1,dimension],[1.025,1.025],c='k',linestyle=':')
-    plt.plot([1,dimension],[0.975,0.975],c='k',linestyle=':')
+    plt.plot([1,dimension],[1.075,1.075],c='k',linestyle='--')
+    plt.plot([1,dimension],[0.925,0.925],c='k',linestyle='--')
+    plt.plot([1,dimension],[1.05,1.05],c='k',linestyle=':')
+    plt.plot([1,dimension],[0.95,0.95],c='k',linestyle=':')
+
     plt.tick_params(labelsize=20)
 
     plt.legend(fontsize=20, loc = 'upper right')
@@ -408,9 +409,9 @@ def compute_square_error(list1,list2,flag = 1):
 #=========================================input==============================================
 
 if __name__ == "__main__":
-    n, d, alpha_, jump, Pumpdown, Blocksize, Tours, test_number  = 75,252,"005",5,"True",95,12,1
+    # n, d, alpha_, jump, Pumpdown, Blocksize, Tours, test_number  = 75,252,"005",5,"True",95,12,1
     
-    # n, d, alpha_, jump, Pumpdown, Blocksize, Tours, test_number  = 75,252,"005",9,"True",95,12,1
+    n, d, alpha_, jump, Pumpdown, Blocksize, Tours, test_number  = 75,252,"005",9,"True",95,12,1
 
     #Blocksizes=[95,95,95,95,95,95,95,95]
     #Sim_Blocksizes=[95,95,95,95,95,95,95,95]
