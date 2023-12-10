@@ -219,3 +219,49 @@ def primal_lattice_basis(A, c, q, m=None):
     B = B[n:]
 
     return B
+
+
+
+
+
+
+def primal_lattice_basis_randomly(A, c, q, m=None):
+    """
+    Construct primal lattice basis for LWE challenge (primal attack)
+    ``(A,c)`` defined modulo ``q``.
+
+    :param A: LWE matrix, in dimension m*n
+    :param c: LWE vector, in dimension m
+    :param q: integer modulus
+    :param m: number of samples to use (``None`` means all)
+
+    :output param B: SVP matrix, in dimension m+n+1
+
+    """
+    if m is None:
+        m = A.nrows
+    elif m > A.nrows:
+        raise ValueError("Only m=%d samples available." % A.nrows)
+    n = A.ncols
+
+    B = IntegerMatrix(m+n+1, m+1) 
+    indices = []
+    for i in range(m+1):
+        index = randint(0,A.nrows-1)
+        while(index in indices):
+            index = randint(0,A.nrows-1)
+        indices.append(index)
+        
+    
+    for i in range(m):
+        for j in range(n):
+            B[j, i] = A[indices[i], j]
+        B[i+n, i] = q
+        B[-1, i] = c[indices[i]]
+    B[-1, -1] = 1
+
+    B = LLL.reduction(B)
+    assert(B[:n] == IntegerMatrix(n, m+1))
+    B = B[n:]
+
+    return B

@@ -9,7 +9,7 @@ Please use gcc-8.5 to compile the files, and firstly run
 
    git clone https://github.com/cr-marcstevens/parallel-hashmap
    python=PYTHON3 ./bootstrap.sh -j 30 #threads for compiling
-   ./rebuild.sh -j 30 #threads for compiling
+   ./rebuild.sh --noyr -j 30 #threads for compiling
 
 Before implement our code, please follow the compile guidance in the topic **G6K - GPU Tensor** We add some files in `G6K - GPU Tensor`(https://github.com/WvanWoerden/G6K-GPU-Tensor) to run a two-step mode for solving u-SVP problem in G6K-GPU with a blocksize selection method. One should first generate the blocksize strategy in https://github.com/Summwer/lwe-estimator-with-pnjbkz/tree/main/cpp. Then run the following command:
 
@@ -17,34 +17,25 @@ Before implement our code, please follow the compile guidance in the topic **G6K
 .. code-block:: bash
 
     source ./activate
-    python lwe_challenge_last_pump.py 40 --lwe/alpha 0.025 --threads 32 --gpus 2 --verbose True --pump/down_sieve True --pump/saturation_error "ignore" --bkz/blocksizes "[(91,8,1),(104,8,1)]"
+    python lwe_challenge_last_pump.py 40 --lwe/alpha 0.025 --threads 32 --gpus 2 --verbose True --pump/down_sieve True --pump/saturation_error "skip" --bkz/blocksizes "[(89,9,1),(114,10,1)]" 
 
 It means that use blocksize strategy `(beta,J,tours) in [(91,8,1),(104,8,1)]`, 32 threads and 2 gpus to solve LWE challenge with `(n,alpha) = (40,0.025)`. 
 
+We've given some instances in `implement_low_dim.sh` to solve LWE challenge with strategy in default g6k, bssa, or enumbs and obtain the cost information in Table 4. It stores the test result in the folder `lwechal-test`.
 
-We've given some instances in `implement_low_dim.sh` to solve LWE challenge with strategy in default g6k, bssa, or enumbs and obtain the cost information in Table 4 in https://eprint.iacr.org/2022/1343.
+The LWE instance in detail, including the actual basis quality(we regard "slope" as a basis quality representation) and actual cost(in practical cost model with threads = 32 and gpus = 2 * (RTX3090 GPU) (sec)) after each pnj-BKZ(beta,J,tours) reduction, also obatained from the above code. We select the process information of LWE challenge ($40,0.030$)  as 'Practical' column in Table 5. 
 
 .. code-block:: bash
 
     ./implement_low_dim.sh
 
 
-
-We test an LWE instance in detail and return the actual basis quality(we regard "slope" as a basis quality representation) and actual cost(in practical cost model with threads = 32 and gpus = 2 * (RTX3090 GPU) (sec)) after each pnj-BKZ(beta,J,tours) reduction, one can run it by the following command
-
-.. code-block:: bash
-
-    ./quality-predict-test.sh
-
-and get the 'Simulation' column for LWE challenge ($40,0.035$) in Table 5 in https://eprint.iacr.org/2022/1343.
-
-
 Call
 .. code-block:: bash
 
-    python module_comparison.py
+    python module_comparison.py | tee module_comparison.log
 
-could output the norm of $\lVert {\bf{b}}_0 \rVert$ and PSC estimation after pnj-BKZ/pump reduction in the same time cost and get the Table 1 and Table 2 in https://eprint.iacr.org/2022/1343.
+could output the norm of $\lVert {\bf{b}}_0 \rVert$ and PSC estimation after pnj-BKZ/pump reduction in the same time cost, we've stored them in the module_comparison.log, it shows the Table 1 and Table 2 in https://eprint.iacr.org/2022/1343.
 
 
 

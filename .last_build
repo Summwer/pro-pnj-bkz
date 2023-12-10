@@ -1,4 +1,5 @@
 Git status: 
+<<<<<<< HEAD
 commit 7b11b03f75f33b249b8986de4ae697137504b9a8
 Author: summwer <15091002@buaa.edu.cn>
 
@@ -21,6 +22,35 @@ Author: summwer <15091002@buaa.edu.cn>
 	modified:   kernel/triple_sieve.o
 	modified:   kernel/triple_sieve_mt.o
 	modified:   lwe_challenge.py
+=======
+commit c4727a21ff70ec81668602bcee96b4d3b7764e6f
+Author: summwer <15091002@buaa.edu.cn>
+
+    fix bug on sampler
+
+	modified:   .last_build
+	modified:   Makefile.local
+	modified:   README.rst
+	modified:   __pycache__/pump_estimation.cpython-38.pyc
+	modified:   g6k/algorithms/pump.py
+	deleted:    g6k/algorithms/pump_modified.py
+	modified:   g6k/utils/lwe_estimation.py
+	modified:   kernel/bgj1_sieve.o
+	modified:   kernel/sieving.o
+	modified:   logs/lwe_challenge_last_pump,cryptothesis-HP-Z8-G4-Workstation,2023-09-27_14:38,b'2023-09-27'-b'main'-b'088c629'.log
+	modified:   lwe_challenge_last_pump.py
+	modified:   lwechal-test/d4f-default-g6k/bssa(32+2gpus)/40-025-1.log
+	modified:   lwechal-test/default_g6k_main(32+2gpus)/40-025.log
+	modified:   lwechallenge/040-025-last-pump.txt
+	modified:   lwechallenge/040-030-last-pump.txt
+	modified:   lwechallenge/040-030-solution.txt
+	modified:   lwechallenge/045-020-last-pump.txt
+	modified:   lwechallenge/050-015-last-pump.txt
+	modified:   lwechallenge/050-015-solution.txt
+	modified:   lwechallenge/080-005-last-pump.txt
+	modified:   lwechallenge/080-005-solution.txt
+	modified:   pump_estimation.py
+>>>>>>> 96f7bfed91ccf56534cd646ca2de6d56a3d619d8
 =================
 rebuild.sh --noyr
 =================

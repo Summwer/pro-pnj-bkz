@@ -1,7 +1,7 @@
 EXTRAFLAGS= -DNOYR=1 -DPOPCOUNT=0 -DMAX_SIEVING_DIM=160 -DGPUVECNUM=65536 -DHAVE_CUDA
 HAVE_CUDA=1
 CUDA_PATH=/usr/local/cuda
-NVCC=/usr/local/cuda-11.4/bin/nvcc
+NVCC=/usr/local/cuda/bin/nvcc
 CUDA_FLAGS=-lineinfo -I/usr/local/cuda/include -I../parallel-hashmap
 CUDA_LIBS=-L/usr/local/cuda/lib64 -Wl,-rpath=/usr/local/cuda/lib64 -lcudart -L/usr/local/cuda/lib64/stubs -Wl,-rpath=/usr/local/cuda/lib64/stubs -lcuda -lcublas -lcurand
 CUDA_CXX=

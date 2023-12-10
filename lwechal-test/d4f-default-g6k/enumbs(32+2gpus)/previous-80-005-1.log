@@ -1,18 +1,0 @@
--------------------------
-Primal attack, LWE challenge n=80, alpha=0.0050
-Chose 270 samples. Predict solution at bkz-100 + svp-132
-
-GSO precision:  qd
-||b_1|| = 41229241, target_norm = 417447
-Intial Slope = -0.06533, dim = 271, dvol = 725.6903453631992
-
-Blocksize Strategy: [(89, 9, 1), (90, 9, 1), (117, 10, 3), (119, 10, 1)]
-
-Starting a pnjBKZ-89-9 tour. 
- k:0, b:71, f:0 , RAM cost: 0.2223 GB  k:0, b:80, f:9 , RAM cost: 1.8312 GB  k:0, b:89, f:18 , RAM cost: 1.8419 GB  k:0, b:98, f:27 , RAM cost: 1.8506 GB  k:0, b:101, f:30 , RAM cost: 1.8581 GB  k:9, b:101, f:30 , RAM cost: 1.8762 GB  k:18, b:101, f:30 , RAM cost: 1.9053 GB  k:27, b:101, f:30 , RAM cost: 1.9055 GB  k:36, b:101, f:30 , RAM cost: 1.9057 GB  k:45, b:101, f:30 , RAM cost: 1.9113 GB  k:54, b:101, f:30 , RAM cost: 1.9265 GB  k:63, b:101, f:30 , RAM cost: 1.9295 GB  k:72, b:101, f:30 , RAM cost: 1.9328 GB  k:81, b:101, f:30 , RAM cost: 1.9356 GB  k:90, b:101, f:30 , RAM cost: 1.9376 GB  k:99, b:101, f:30 , RAM cost: 1.9380 GB  k:108, b:101, f:30 , RAM cost: 1.9403 GB  k:117, b:101, f:30 , RAM cost: 1.9424 GB  k:126, b:101, f:30 , RAM cost: 1.9445 GB  k:135, b:101, f:30 , RAM cost: 1.9467 GB  k:144, b:101, f:30 , RAM cost: 1.9487 GB  k:153, b:101, f:30 , RAM cost: 1.9487 GB  k:162, b:101, f:30 , RAM cost: 1.9506 GB  k:170, b:101, f:30 , RAM cost: 1.9529 GB  k:179, b:92, f:21 , RAM cost: 1.9549 GB  k:188, b:83, f:12 , RAM cost: 1.9569 GB  k:197, b:74, f:3 , RAM cost: 1.9590 GB  k:200, b:71, f:0  , RAM cost: 1.9590 GB  
-slope: -0.05425,||b_1|| = 41229241, target_norm = 417447, BKZ cost: 1474.935 s, walltime: 1474.939 sec, memory cost = 1.96 GB 
-Starting a pnjBKZ-90-9 tour. 
- k:0, b:72, f:0 , RAM cost: 1.9610 GB  k:0, b:81, f:9 , RAM cost: 1.9855 GB  k:0, b:90, f:18 , RAM cost: 1.9856 GB  k:0, b:99, f:27 , RAM cost: 1.9856 GB  k:0, b:102, f:30 , RAM cost: 1.9856 GB  k:9, b:102, f:30 , RAM cost: 1.9872 GB  k:18, b:102, f:30 , RAM cost: 1.9871 GB  k:27, b:102, f:30 , RAM cost: 1.9891 GB  k:36, b:102, f:30 , RAM cost: 1.9894 GB  k:45, b:102, f:30 , RAM cost: 1.9894 GB  k:54, b:102, f:30 , RAM cost: 1.9893 GB  k:63, b:102, f:30 , RAM cost: 1.9893 GB  k:72, b:102, f:30 , RAM cost: 1.9897 GB  k:81, b:102, f:30 , RAM cost: 1.9897 GB  k:90, b:102, f:30 , RAM cost: 1.9898 GB  k:99, b:102, f:30 , RAM cost: 1.9894 GB  k:108, b:102, f:30 , RAM cost: 1.9898 GB  k:117, b:102, f:30 , RAM cost: 1.9896 GB  k:126, b:102, f:30 , RAM cost: 1.9899 GB  k:135, b:102, f:30 , RAM cost: 1.9900 GB  k:144, b:102, f:30 , RAM cost: 1.9921 GB  k:153, b:102, f:30 , RAM cost: 1.9921 GB  k:162, b:102, f:30 , RAM cost: 1.9940 GB  k:169, b:102, f:30 , RAM cost: 1.9962 GB  k:178, b:93, f:21 , RAM cost: 1.9982 GB  k:187, b:84, f:12 , RAM cost: 1.9979 GB  k:196, b:75, f:3 , RAM cost: 1.9987 GB  k:199, b:72, f:0  , RAM cost: 1.9990 GB  
-slope: -0.04916,||b_1|| = 41229241, target_norm = 417447, BKZ cost: 1453.145 s, walltime: 2928.093 sec, memory cost = 2.00 GB 
-Starting a pnjBKZ-117-10 tour. 
- k:0, b:97, f:0 , RAM cost: 1.9989 GB  k:0, b:107, f:10 , RAM cost: 6.2731 GB  k:0, b:117, f:20 , RAM cost: 6.2785 GB  k:0, b:127, f:30 , RAM cost: 6.2817 GB  k:0, b:129, f:32 , RAM cost: 6.2844 GB  k:10, b:129, f:32 , RAM cost: 6.2858 GB  k:20, b:129, f:32 , RAM cost: 6.2887 GB  k:30, b:129, f:32 , RAM cost: 6.2926 GB  k:40, b:129, f:32 , RAM cost: 6.2929 GB  k:50, b:129, f:32 , RAM cost: 6.2947 GB  k:60, b:129, f:32 , RAM cost: 6.2976 GB 

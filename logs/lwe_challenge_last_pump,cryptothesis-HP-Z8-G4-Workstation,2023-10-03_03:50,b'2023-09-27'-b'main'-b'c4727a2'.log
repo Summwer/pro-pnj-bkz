@@ -1,0 +1,36 @@
+WARNING:        root:2023/10/03 04:32:08 CST: saturation 0.470 at [b:77 P: 51 - 128 / 179], radius 1.333, goal: 0.500
+ INFO:        root:2023/10/03 04:32:08 CST: Could not reach saturation, progress may slow.
+ INFO:        root:2023/10/03 04:32:08 CST: saturation issue: breaking pump.
+WARNING:        root:2023/10/03 04:33:40 CST: saturation 0.434 at [b:79 P: 61 - 140 / 179], radius 1.333, goal: 0.500
+ INFO:        root:2023/10/03 04:33:40 CST: Could not reach saturation, progress may slow.
+ INFO:        root:2023/10/03 04:33:40 CST: saturation issue: breaking pump.
+WARNING:        root:2023/10/03 04:33:51 CST: saturation 0.449 at [b:75 P: 69 - 144 / 179], radius 1.333, goal: 0.500
+ INFO:        root:2023/10/03 04:33:51 CST: Could not reach saturation, progress may slow.
+ INFO:        root:2023/10/03 04:33:51 CST: saturation issue: breaking pump.
+WARNING:        root:2023/10/03 04:34:01 CST: saturation 0.439 at [b:73 P: 75 - 148 / 179], radius 1.333, goal: 0.500
+ INFO:        root:2023/10/03 04:34:01 CST: Could not reach saturation, progress may slow.
+ INFO:        root:2023/10/03 04:34:01 CST: saturation issue: breaking pump.
+WARNING:        root:2023/10/03 04:34:17 CST: saturation 0.403 at [b:70 P: 82 - 152 / 179], radius 1.333, goal: 0.500
+ INFO:        root:2023/10/03 04:34:17 CST: Could not reach saturation, progress may slow.
+ INFO:        root:2023/10/03 04:34:17 CST: saturation issue: breaking pump.
+WARNING:        root:2023/10/03 04:34:32 CST: saturation 0.413 at [b:68 P: 88 - 156 / 179], radius 1.333, goal: 0.500
+ INFO:        root:2023/10/03 04:34:32 CST: Could not reach saturation, progress may slow.
+ INFO:        root:2023/10/03 04:34:32 CST: saturation issue: breaking pump.
+WARNING:        root:2023/10/03 04:34:48 CST: saturation 0.390 at [b:68 P: 92 - 160 / 179], radius 1.333, goal: 0.500
+ INFO:        root:2023/10/03 04:34:48 CST: Could not reach saturation, progress may slow.
+ INFO:        root:2023/10/03 04:34:48 CST: saturation issue: breaking pump.
+WARNING:        root:2023/10/03 04:35:05 CST: saturation 0.439 at [b:67 P: 97 - 164 / 179], radius 1.333, goal: 0.500
+ INFO:        root:2023/10/03 04:35:05 CST: Could not reach saturation, progress may slow.
+ INFO:        root:2023/10/03 04:35:05 CST: saturation issue: breaking pump.
+WARNING:        root:2023/10/03 04:35:23 CST: saturation 0.428 at [b:67 P: 101 - 168 / 179], radius 1.333, goal: 0.500
+ INFO:        root:2023/10/03 04:35:23 CST: Could not reach saturation, progress may slow.
+ INFO:        root:2023/10/03 04:35:23 CST: saturation issue: breaking pump.
+WARNING:        root:2023/10/03 04:35:42 CST: saturation 0.394 at [b:66 P: 106 - 172 / 179], radius 1.333, goal: 0.500
+ INFO:        root:2023/10/03 04:35:42 CST: Could not reach saturation, progress may slow.
+ INFO:        root:2023/10/03 04:35:42 CST: saturation issue: breaking pump.
+WARNING:        root:2023/10/03 04:35:56 CST: saturation 0.413 at [b:64 P: 112 - 176 / 179], radius 1.333, goal: 0.500
+ INFO:        root:2023/10/03 04:35:56 CST: Could not reach saturation, progress may slow.
+ INFO:        root:2023/10/03 04:35:56 CST: saturation issue: breaking pump.
+WARNING:        root:2023/10/03 04:36:11 CST: saturation 0.396 at [b:59 P: 120 - 179 / 179], radius 1.333, goal: 0.500
+ INFO:        root:2023/10/03 04:36:11 CST: Could not reach saturation, progress may slow.
+ INFO:        root:2023/10/03 04:36:11 CST: saturation issue: breaking pump.

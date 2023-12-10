@@ -37,10 +37,9 @@ from math import log,sqrt
 from fpylll import BKZ as fplll_bkz
 from fpylll.algorithms.bkz2 import BKZReduction
 from fpylll.tools.quality import basis_quality
-from fpylll.util import gaussian_heuristic as gh
 
 from g6k.algorithms.bkz import pump_n_jump_bkz_tour
-from g6k.algorithms.our_pump import pump
+from g6k.algorithms.pump import pump
 # from g6k.algorithms.pump_cpu import pump
 from g6k.siever import Siever
 from g6k.utils.cli import parse_args, run_all, pop_prefixed_params
@@ -49,10 +48,7 @@ from g6k.utils.util import load_lwe_challenge,load_lwe_challenge_mid
 
 # from g6k.utils.lwe_estimation import gsa_params, primal_lattice_basis
 from g6k.utils.lwe_estimation import gsa_params, primal_lattice_basis
-from pump_estimation import pro_sieve_estimation_20230609
-# from six.moves import range
-
-#from pro_pnj_bkz_optimization import *
+from pump_estimation import pump_estimation
 
 
 def lwe_kernel(arg0, params=None, seed=None):
@@ -116,7 +112,14 @@ def lwe_kernel(arg0, params=None, seed=None):
     
     
     pump_params = pop_prefixed_params("pump", params)
-    beta_pump = pump_params.pop("dsvp")
+    if "dsvp" in pump_params:
+        beta_pump = pump_params.pop("dsvp")
+    else:
+        beta_pump = None
+    # if "succ_prob" in pump_params:
+    #     succ_prob = pump_params.pop("succ_prob")
+    # else:
+    #     succ_prob = None
     # print(beta_pump)
     fpylll_crossover = params.pop("bkz/fpylll_crossover")
     
@@ -170,6 +173,8 @@ def lwe_kernel(arg0, params=None, seed=None):
     # else: 
     #     B = primal_lattice_basis(A, c, q, m=m)
     B = primal_lattice_basis(A, c, q, m=m) #debug
+    
+    
 
     g6k = Siever(B, params)
     print("GSO precision: ", g6k.M.float_type)
@@ -296,13 +301,16 @@ def lwe_kernel(arg0, params=None, seed=None):
             
             T0_BKZ = time.time()
 
-            if g6k.M.get_r(0, 0) <= target_norm or g6k.M.B[0][-1] == 1 or g6k.M.B[0][-1] == -1:
+            if g6k.M.get_r(0, 0) <= target_norm: #or g6k.M.B[0][-1] == 1 or g6k.M.B[0][-1] == -1:
                 break
             
-    if not(g6k.M.get_r(0, 0) <= target_norm or g6k.M.B[0][-1] == 1 or g6k.M.B[0][-1] == -1):
-        
-     
-        # pump_time,llb,beta_pump,f = pro_sieve_estimation_20230609(log_rr,q, alpha)
+    if not(g6k.M.get_r(0, 0) <= target_norm ):#or g6k.M.B[0][-1] == 1 or g6k.M.B[0][-1] == -1):
+        if(beta_pump is None):
+            rr = [g6k.M.get_r(i,i) for i in range(d)]
+            # if(succ_prob is not None):
+            #     beta_pump = pump_estimation(rr,q, alpha, succ_prob = succ_prob)
+            # else:
+            beta_pump = min(d, pump_estimation(rr,q, alpha)[1] + 1)
                 
         n_max= 135
         
@@ -365,7 +373,7 @@ def lwe_kernel(arg0, params=None, seed=None):
         fn.close()
 
 
-    if g6k.M.get_r(0, 0) <= target_norm or g6k.M.B[0][-1] == 1 or g6k.M.B[0][-1] == -1:
+    if g6k.M.get_r(0, 0) <= target_norm: #or g6k.M.B[0][-1] == 1 or g6k.M.B[0][-1] == -1:
         print("Finished! TT=%.2f sec" % (time.time() - T0))
         print(g6k.M.B[0])
         alpha_ = int(alpha*1000)
