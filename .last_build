@@ -1,19 +1,26 @@
 Git status: 
-commit d9f25fe1716a630b3273fa25df0dec7e4bdc6de9
+commit 7b11b03f75f33b249b8986de4ae697137504b9a8
 Author: summwer <15091002@buaa.edu.cn>
 
-    update log
+    v1. final version for eurocrypt
 
 	modified:   .last_build
-	modified:   Makefile.local
+	modified:   .vscode/configurationCache.log
+	modified:   .vscode/dryrun.log
+	modified:   .vscode/targets.log
+	modified:   __pycache__/cost.cpython-38.pyc
+	modified:   __pycache__/pump_estimation.cpython-38.pyc
+	modified:   cuda/GPUStreamGeneral.o
+	modified:   g6k/siever.cpp
+	modified:   g6k/siever.pyx
+	modified:   implement_low_dim.sh
 	modified:   kernel/bgj1_sieve.o
 	modified:   kernel/control.o
-	modified:   kernel/cpuperf.o
 	modified:   kernel/gpu_sieve.o
-	modified:   kernel/params.o
 	modified:   kernel/sieving.o
 	modified:   kernel/triple_sieve.o
 	modified:   kernel/triple_sieve_mt.o
+	modified:   lwe_challenge.py
 =================
-rebuild.sh 
+rebuild.sh --noyr
 =================

@@ -47,6 +47,21 @@ Call
 could output the norm of $\lVert {\bf{b}}_0 \rVert$ and PSC estimation after pnj-BKZ/pump reduction in the same time cost and get the Table 1 and Table 2 in https://eprint.iacr.org/2022/1343.
 
 
+
+We also implement the experiment about pnj-BKZ simulator in `simulator-test` folder, the file `Pnj-BKZ_Simulator_Accuracy_Verification.py` is used to draw the figure about the comparison between actual reduced gs-lengths and our simulated gs-lengths. One can run 
+.. code-block:: bash
+
+python Pnj-BKZ_Simulator_Accuracy_Verification.py
+
+
+in the folder `simulator-test` and obtain the Figure 4 in  https://eprint.iacr.org/2022/1343.pdf. The `Pnj-BKZ_Simulator_HKZ_Reduction_Verification.py` shows that the actual reduced gs-lengths is HKZ-reduced and get the Figure 3 in  https://eprint.iacr.org/2022/1343.pdf. One can run it by 
+.. code-block:: bash
+
+python Pnj-BKZ_Simulator_HKZ_Reduction_Verification.py
+
+
+
+
 ******************************
 G6K - GPU Tensor
 ******************************

@@ -75,12 +75,13 @@ cdef class Siever(object):
                 raise ValueError("Siever requires UinvT enabled")
 
         elif isinstance(M, IntegerMatrix):
-            if M.nrows >= 170:
-                float_type = "qd"
-            elif M.nrows >= 160:
-                float_type = "qd"
-            else:
-                float_type = "long double"
+            #if M.nrows >= 170:
+            #    float_type = "qd"
+            #elif M.nrows >= 160:
+            #    float_type = "qd"
+            #else:
+            #    float_type = "long double"
+            float_type = "dd"
 
             M = GSO.Mat(M, float_type=float_type,
                         U=IntegerMatrix.identity(M.nrows, int_type=M.int_type),

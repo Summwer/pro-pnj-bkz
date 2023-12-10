@@ -1,7 +1,7 @@
 make --dry-run --keep-going --print-directory
-make: Entering directory '/home/cryptothesis/summer/G6K-GPU-Tensor-new1'
+make: Entering directory '/home/cryptothesis/summer/pro-pnj-bkz'
 rm g6k/*.cpp g6k/*.so
 python setup.py clean
 python setup.py build_ext --inplace
-make: Leaving directory '/home/cryptothesis/summer/G6K-GPU-Tensor-new1'
+make: Leaving directory '/home/cryptothesis/summer/pro-pnj-bkz'
  

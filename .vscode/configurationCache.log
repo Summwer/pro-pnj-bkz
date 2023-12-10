@@ -1,1 +1,1 @@
-{"buildTargets":[],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[]},"fileIndex":[]}}
+{"buildTargets":["Makefile.local","all","clean","g6k/siever.so","kernel","kernel/libG6K.so","rebuild"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[]},"fileIndex":[]}}

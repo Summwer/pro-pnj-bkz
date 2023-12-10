@@ -6,19 +6,24 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun May 29 12:40:16 2022
+# Make data base, printed on Tue Oct 17 20:57:58 2023
 
 # Variables
- 
 
+# 'override' directive
+GNUMAKEFLAGS := 
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
 ?F = $(notdir $?)
+# environment
+CONDA_TOOLCHAIN_BUILD = x86_64-conda-linux-gnu
+# environment
+STRINGS = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-strings
 # default
 .SHELLFLAGS := -c
 # environment
-PROVIDE_FULLSTACK_ACTION = true
+GPROF = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-gprof
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -26,9 +31,9 @@ VSCODE_AGENT_FOLDER = /home/cryptothesis/.vscode-server
 # environment
 XDG_SESSION_TYPE = tty
 # environment
-VSCODE_LOG_NATIVE = false
-# automatic
-?D = $(patsubst %/,%,$(dir $?))
+OBJCOPY = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-objcopy
+# environment
+CPPFLAGS = -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem /home/cryptothesis/miniconda3/include
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # automatic
@@ -36,105 +41,189 @@ VSCODE_LOG_NATIVE = false
 # default
 MAKE_VERSION := 4.2.1
 # makefile
-CURDIR := /home/cryptothesis/summer/G6K-GPU-Tensor-new1
+CURDIR := /home/cryptothesis/summer/pro-pnj-bkz
+# environment
+CXX = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-c++
 # makefile
 SHELL = /bin/sh
 # environment
-VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"42e84e0914b17800d483f69e299e1b00.zh-cn","_translationsConfigFile":"/home/cryptothesis/.vscode-server/data/clp/42e84e0914b17800d483f69e299e1b00.zh-cn/tcf.json","_cacheRoot":"/home/cryptothesis/.vscode-server/data/clp/42e84e0914b17800d483f69e299e1b00.zh-cn","_resolvedLanguagePackCoreLocation":"/home/cryptothesis/.vscode-server/data/clp/42e84e0914b17800d483f69e299e1b00.zh-cn/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5","_corruptedFile":"/home/cryptothesis/.vscode-server/data/clp/42e84e0914b17800d483f69e299e1b00.zh-cn/corrupted.info","_languagePackSupport":true}
+NM = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-nm
 # environment
-_ = /home/cryptothesis/.vscode-server/bin/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5/node
+VSCODE_NLS_CONFIG = {"locale":"zh-cn","osLocale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"61bf19065f3e2d2923c646dfd3ddbe58.zh-cn","_translationsConfigFile":"/home/cryptothesis/.vscode-server/data/clp/61bf19065f3e2d2923c646dfd3ddbe58.zh-cn/tcf.json","_cacheRoot":"/home/cryptothesis/.vscode-server/data/clp/61bf19065f3e2d2923c646dfd3ddbe58.zh-cn","_resolvedLanguagePackCoreLocation":"/home/cryptothesis/.vscode-server/data/clp/61bf19065f3e2d2923c646dfd3ddbe58.zh-cn/6c3e3dba23e8fadc360aed75ce363ba185c49794","_corruptedFile":"/home/cryptothesis/.vscode-server/data/clp/61bf19065f3e2d2923c646dfd3ddbe58.zh-cn/corrupted.info","_languagePackSupport":true}
+# environment
+_ = /home/cryptothesis/.vscode-server/bin/6c3e3dba23e8fadc360aed75ce363ba185c49794/node
+# environment
+CFLAGS = -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/cryptothesis/miniconda3/include
+# environment
+F90 = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-gfortran
 # makefile (from 'Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
-# 'override' directive
-GNUMAKEFLAGS := 
+# environment
+JAVA_HOME_CONDA_BACKUP = /usr/lib/jvm/java-8-openjdk-amd64
+# environment
+GCC = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-gcc
+# environment
+GCC_NM = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-gcc-nm
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
 # makefile (from 'Makefile', line 4)
 PYTHONSOURCES := g6k/siever_params.pxd g6k/siever.pxd g6k/decl.pxd g6k/siever_params.pyx g6k/siever.pyx
+# environment
+CXXFLAGS = -fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/cryptothesis/miniconda3/include
 # environment
 MAKELEVEL := 0
 # environment
 XDG_DATA_DIRS = /usr/local/share:/usr/share:/var/lib/snapd/desktop
 # environment
+ADDR2LINE = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-addr2line
+# environment
 DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
-VSCODE_VERBOSE_LOGGING = true
+CC = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-cc
+# environment
+CXX_FOR_BUILD = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-c++
+# environment
+_CONDA_PYTHON_SYSCONFIGDATA_NAME = _sysconfigdata_x86_64_conda_cos6_linux_gnu
+# environment
+LESSOPEN = | /usr/bin/lesspipe %s
 # environment
 LC_NAME = zh_CN.UTF-8
 # environment
+CPP = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-cpp
+# environment
 VSCODE_CWD = /home/cryptothesis
 # environment
-SSH_CONNECTION = 127.0.0.1 38346 127.0.0.1 2233
+ELFEDIT = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-elfedit
 # environment
-PATH = /home/cryptothesis/.vscode-server/bin/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5/bin/remote-cli:/home/cryptothesis/.vscode-server/bin/da15b6fd3ef856477bf6f4fb29ba1b7af717770d/bin/remote-cli:/home/cryptothesis/.local/bin:/home/cryptothesis/.cargo/bin:/home/cryptothesis/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/cuda-11.4/bin:/usr/local/cuda-11.4/bin:/home/cryptothesis/hadoop-3.3.2/bin
+SSH_CONNECTION = 127.0.0.1 52868 127.0.0.1 2233
 # environment
-GOLANG_EXECUTABLE = go
+PATH = /home/cryptothesis/.vscode-server/bin/6c3e3dba23e8fadc360aed75ce363ba185c49794/bin/remote-cli:/home/cryptothesis/.vscode-server/bin/da15b6fd3ef856477bf6f4fb29ba1b7af717770d/bin/remote-cli:/home/cryptothesis/.local/bin:/home/cryptothesis/.cargo/bin:/home/cryptothesis/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/cuda-11.4/bin:/usr/local/cuda-11.4/bin:/home/cryptothesis/hadoop-3.3.2/bin
+# environment
+LD = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-ld
+# environment
+C_INCLUDE_PATH = /usr/local/cuda-11.4/include
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
-THREE_SCALE_USER_TOKEN = 207c527cfc2a6b8dcf4fa43ad7a976da
+FFLAGS = -fopenmp -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/cryptothesis/miniconda3/include
 # environment
-VSCODE_LOG_STACK = false
+RSTUDIO_WHICH_R = /home/cryptothesis/miniconda3/bin/R
 # environment
-LC_NUMERIC = zh_CN.UTF-8
+LIBRARY_PATH = :/home/cryptothesis/lib:/home/cryptothesis/lib
 # environment
-VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-ab893e9d-f5a8-40be-a085-e610a453eb2e.sock
+JAVA_LD_LIBRARY_PATH_BACKUP = 
+# environment
+DEBUG_FFLAGS = -fopenmp -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/cryptothesis/miniconda3/include -fopenmp -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fcheck=all -fbacktrace -fimplicit-none -fvar-tracking-assignments -ffunction-sections -pipe
+# environment
+CPATH = :/home/cryptothesis/include:/home/cryptothesis/include
+# environment
+LD_GOLD = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-ld.gold
+# environment
+CONDA_PREFIX = /home/cryptothesis/miniconda3
+# environment
+AR = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-ar
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-51c5ce44-d1e4-4c78-9263-9b2497d6451d.sock
+# environment
+LDFLAGS = -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/home/cryptothesis/miniconda3/lib -Wl,-rpath-link,/home/cryptothesis/miniconda3/lib -L/home/cryptothesis/miniconda3/lib
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
-UUID = 1f513a2d-7e46-46dc-9b71-284ff510cd5f
+CMAKE_PREFIX_PATH = /home/cryptothesis/miniconda3:/home/cryptothesis/miniconda3/x86_64-conda-linux-gnu/sysroot/usr
+# environment
+LS_COLORS = 
+# environment
+CPLUS_INCLUDE_PATH = /usr/local/cuda-11.4/include
+# environment
+SIZE = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-size
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_PIPE_LOGGING = true
+CONDA_EXE = /home/cryptothesis/miniconda3/bin/conda
 # environment
-PWD = /home/cryptothesis/summer/G6K-GPU-Tensor-new1
- 
+MATHJAX_DIR = /lib/python3.9/site-packages/notebook/static/components/MathJax
+# environment
+PWD = /home/cryptothesis/summer/pro-pnj-bkz
 # default
 .LOADED := 
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
+RANLIB = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-ranlib
+# environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 HOME = /home/cryptothesis
 # environment
+LD_LIBRARY_PATH = /usr/local/lib:/usr/local/cuda-11.4/lib64:/home/cryptothesis/lib
+# environment
+LESSCLOSE = /usr/bin/lesspipe %s %s
+# environment
 LOGNAME = cryptothesis
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# environment
+CONDA_PROMPT_MODIFIER = (base) 
+# environment
+build_alias = x86_64-conda-linux-gnu
 # automatic
 +F = $(notdir $+)
 # environment
-TELEMETRY_ID = 772dc470-d1e7-4113-b7f4-b43bd4fde879
+CXXFILT = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-c++filt
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
 LC_TIME = zh_CN.UTF-8
+# environment
+CONDA_DEFAULT_ENV = base
 # default
 MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
+# environment
+CONDA_TOOLCHAIN_HOST = x86_64-conda-linux-gnu
 # makefile (from 'Makefile', line 2)
-KERNELHEADERS := kernel/siever.h kernel/thread_pool.hpp kernel/statistics.hpp kernel/random.hpp kernel/compat.hpp kernel/cpuperformance.hpp kernel/parallel_algorithms.hpp kernel/db.inl kernel/simhash.inl kernel/siever.inl kernel/hash_table.inl cuda/GPUStreamGeneral.h cuda/cuda_tensor_wmma.hpp
+KERNELHEADERS := kernel/siever.h kernel/thread_pool.hpp kernel/statistics.hpp kernel/random.hpp kernel/compat.hpp kernel/cpuperformance.hpp kernel/parallel_algorithms.hpp kernel/db.inl kernel/simhash.inl kernel/db_gauss.inl kernel/siever.inl kernel/hash_table.inl cuda/GPUStreamGeneral.h cuda/cuda_tensor_wmma.hpp
 # environment
 SHLVL = 0
 # environment
-XDG_SESSION_ID = 36263
+AS = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-as
+# environment
+GFORTRAN = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-gfortran
+# environment
+GCC_AR = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-gcc-ar
+# environment
+JAVA_HOME = /home/cryptothesis/miniconda3
+# environment
+XDG_SESSION_ID = 163025
 # environment
 USER = cryptothesis
 # environment
+SAGE_PKGS = /home/cryptothesis/miniconda3/var/lib/sage/installed
+# environment
+FC = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-gfortran
+# environment
 LC_MONETARY = zh_CN.UTF-8
 # makefile
- 
 .DEFAULT_GOAL := all
+# environment
+CONDA_BUILD_SYSROOT = /home/cryptothesis/miniconda3/x86_64-conda-linux-gnu/sysroot
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # environment
 LC_TELEPHONE = zh_CN.UTF-8
+# environment
+READELF = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-readelf
+# environment
+CONDA_SHLVL = 1
 # default
 MAKE_COMMAND := make
 # environment
-UTM_SOURCE = vscode
+F77 = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-gfortran
 # default
 .VARIABLES := 
 # automatic
@@ -144,32 +233,59 @@ MAKEFLAGS = pqrR
 # environment
 MFLAGS = -pqrR
 # environment
-SSH_CLIENT = 127.0.0.1 38346 2233
+SSH_CLIENT = 127.0.0.1 52868 2233
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
-RECOMMENDER_API_URL = https://gw.api.openshift.io//api/v2
+OBJDUMP = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-objdump
 # environment
-BROWSER = /home/cryptothesis/.vscode-server/bin/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5/bin/helpers/browser.sh
+BROWSER = /home/cryptothesis/.vscode-server/bin/6c3e3dba23e8fadc360aed75ce363ba185c49794/bin/helpers/browser.sh
+# environment
+STRIP = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-strip
 # environment
 VSCODE_HANDLES_SIGPIPE = true
 # makefile (from 'Makefile', line 3)
 KERNELSOURCES := kernel/test_lsh.cpp kernel/control.cpp kernel/triple_sieve_mt.cpp kernel/cpuperf.cpp kernel/gpu_sieve.cpp kernel/params.cpp kernel/sieving.cpp kernel/triple_sieve.cpp kernel/bgj1_sieve.cpp cuda/bench_sieving.cpp cuda/bench_quality.cpp cuda/GPUStreamGeneral.cu
 # default
 MAKEFILES := 
+# environment
+LC_NUMERIC = zh_CN.UTF-8
+# environment
+BUILD = x86_64-conda-linux-gnu
 # automatic
 <F = $(notdir $<)
+# environment
+CMAKE_ARGS = -DCMAKE_AR=/home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-ar -DCMAKE_CXX_COMPILER_AR=/home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-gcc-ar -DCMAKE_C_COMPILER_AR=/home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-gcc-ar -DCMAKE_RANLIB=/home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-ranlib -DCMAKE_CXX_COMPILER_RANLIB=/home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-gcc-ranlib -DCMAKE_C_COMPILER_RANLIB=/home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-gcc-ranlib -DCMAKE_LINKER=/home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-ld -DCMAKE_STRIP=/home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-strip
 # automatic
 ^F = $(notdir $^)
+# environment
+F95 = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-f95
+# environment
+GXX = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-g++
 # environment
 LC_MEASUREMENT = zh_CN.UTF-8
 # environment
 LC_ALL = C
 # environment
+JAVA_LD_LIBRARY_PATH = /home/cryptothesis/miniconda3/lib/server
+# environment
+FORTRANFLAGS = -fopenmp -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/cryptothesis/miniconda3/include
+# environment
+CONDA_PYTHON_EXE = /home/cryptothesis/miniconda3/bin/python
+# environment
+DEBUG_CPPFLAGS = -D_DEBUG -D_FORTIFY_SOURCE=2 -Og -isystem /home/cryptothesis/miniconda3/include
+# environment
+DEBUG_FORTRANFLAGS = -fopenmp -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/cryptothesis/miniconda3/include -fopenmp -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fcheck=all -fbacktrace -fimplicit-none -fvar-tracking-assignments -ffunction-sections -pipe
+# environment
 LC_PAPER = zh_CN.UTF-8
 # default
 SUFFIXES := 
- 
+# environment
+_CE_M = 
+# environment
+DEBUG_CFLAGS = -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe -isystem /home/cryptothesis/miniconda3/include
+# environment
+host_alias = x86_64-conda-linux-gnu
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
 # environment
@@ -180,16 +296,26 @@ LC_IDENTIFICATION = zh_CN.UTF-8
 LC_ADDRESS = zh_CN.UTF-8
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+CC_FOR_BUILD = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-cc
+# environment
+GCC_RANLIB = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-gcc-ranlib
 # makefile (from 'Makefile', line 1)
 SUBDIRS := kernel
 # environment
 LANG = C
 # environment
-VSCODE_EXTHOST_WILL_SEND_SOCKET = true
+FC_FOR_BUILD = /home/cryptothesis/miniconda3/bin/x86_64-conda-linux-gnu-gfortran
+# environment
+DEBUG_CXXFLAGS = -fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe -isystem /home/cryptothesis/miniconda3/include
 # environment
 MOTD_SHOWN = pam
+# environment
+_CE_CONDA = 
+# environment
+HOST = x86_64-conda-linux-gnu
 # variable set hash-table stats:
-# Load=87/1024=8%, Rehash=0, Collisions=14/120=12%
+# Load=152/1024=15%, Rehash=0, Collisions=26/185=14%
 
 # Pattern-specific Variable Values
 
@@ -197,52 +323,52 @@ MOTD_SHOWN = pam
 
 # Directories
 
- 
-# kernel (device 2067, inode 11930967): 34 files, no impossibilities.
-# g6k (device 2067, inode 11930589): 16 files, no impossibilities.
-# . (device 2067, inode 11930527): 45 files, no impossibilities.
-# cuda (device 2067, inode 11930575): 15 files, no impossibilities.
+# kernel (device 2067, inode 10863588): 35 files, no impossibilities.
+# g6k (device 2067, inode 10863580): 15 files, no impossibilities.
+# . (device 2067, inode 10839004): 57 files, no impossibilities.
+# cuda (device 2067, inode 10855402): 15 files, no impossibilities.
 
-# 110 files, no impossibilities in 4 directories.
+# 122 files, no impossibilities in 4 directories.
 
 # Implicit Rules
 
 # No implicit rules.
+ 
 
 # Files
 
 # Not a target:
 kernel/bgj1_sieve.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-24 10:20:52.000995148
+#  Last modified 2023-10-07 17:38:15.801178838
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 kernel/control.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-29 15:51:03.617070851
+#  Last modified 2023-10-07 17:38:15.805178866
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 kernel/triple_sieve.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-24 10:20:52.004995162
+#  Last modified 2023-10-07 17:38:15.885179432
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 kernel/sieving.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-24 10:20:52.004995162
+#  Last modified 2023-10-07 17:38:15.885179432
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 g6k/decl.pxd:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-24 10:20:52.000995148
+#  Last modified 2023-10-07 17:38:15.745178441
 #  File has been updated.
 #  Successfully updated.
 
@@ -259,22 +385,21 @@ all: Makefile.local kernel/libG6K.so g6k/siever.so
 # Not a target:
 kernel/simhash.inl:
 #  Implicit rule search has been done.
- 
-#  Last modified 2022-03-24 10:20:52.004995162
+#  Last modified 2023-10-07 17:38:15.885179432
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 kernel/statistics.hpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-24 10:20:52.004995162
+#  Last modified 2023-10-07 17:38:15.885179432
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 kernel/random.hpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-24 10:20:52.000995148
+#  Last modified 2023-10-07 17:38:15.885179432
 #  File has been updated.
 #  Successfully updated.
 
@@ -286,43 +411,42 @@ kernel/random.hpp:
 # Not a target:
 g6k/siever_params.pyx:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-24 10:20:52.000995148
+#  Last modified 2023-10-07 17:38:15.801178838
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 cuda/GPUStreamGeneral.cu:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-28 15:16:24.894547331
+#  Last modified 2023-10-07 17:38:15.677177959
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
- 
 kernel/compat.hpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-24 10:20:52.000995148
+#  Last modified 2023-10-07 17:38:15.805178866
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 kernel/hash_table.inl:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-24 10:20:52.000995148
+#  Last modified 2023-10-07 17:38:15.809178894
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 cuda/bench_sieving.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-24 10:20:51.996995133
+#  Last modified 2023-10-07 17:38:15.741178412
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 cuda/GPUStreamGeneral.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-24 10:20:51.996995133
+#  Last modified 2023-10-07 17:38:15.677177959
 #  File has been updated.
 #  Successfully updated.
 
@@ -335,7 +459,7 @@ cuda/GPUStreamGeneral.h:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-24 10:20:51.988995105
+#  Last modified 2023-10-07 17:38:15.405176031
 #  File has been updated.
 #  Successfully updated.
 
@@ -355,13 +479,20 @@ rebuild:
 # Not a target:
 kernel/siever.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-24 10:20:52.004995162
+#  Last modified 2023-10-07 17:38:15.885179432
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+kernel/db_gauss.inl:
+#  Implicit rule search has been done.
+#  Last modified 2023-10-07 17:38:15.805178866
 #  File has been updated.
 #  Successfully updated.
 
 Makefile.local:
 #  Implicit rule search has not been done.
-#  Last modified 2022-04-25 19:36:35.018246798
+#  Last modified 2023-10-07 19:21:49.95356461
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 12):
@@ -370,25 +501,25 @@ Makefile.local:
 # Not a target:
 kernel/test_lsh.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-24 10:20:52.004995162
+#  Last modified 2023-10-07 17:38:15.885179432
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 g6k/siever.pyx:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-24 10:20:52.000995148
+#  Last modified 2023-10-07 17:38:15.793178781
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 kernel/db.inl:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-24 10:20:52.000995148
+#  Last modified 2023-10-07 17:38:15.805178866
 #  File has been updated.
 #  Successfully updated.
 
-g6k/siever.so: Makefile.local kernel/libG6K.so kernel/siever.h kernel/thread_pool.hpp kernel/statistics.hpp kernel/random.hpp kernel/compat.hpp kernel/cpuperformance.hpp kernel/parallel_algorithms.hpp kernel/db.inl kernel/simhash.inl kernel/siever.inl kernel/hash_table.inl cuda/GPUStreamGeneral.h cuda/cuda_tensor_wmma.hpp g6k/siever_params.pxd g6k/siever.pxd g6k/decl.pxd g6k/siever_params.pyx g6k/siever.pyx
+g6k/siever.so: Makefile.local kernel/libG6K.so kernel/siever.h kernel/thread_pool.hpp kernel/statistics.hpp kernel/random.hpp kernel/compat.hpp kernel/cpuperformance.hpp kernel/parallel_algorithms.hpp kernel/db.inl kernel/simhash.inl kernel/db_gauss.inl kernel/siever.inl kernel/hash_table.inl cuda/GPUStreamGeneral.h cuda/cuda_tensor_wmma.hpp g6k/siever_params.pxd g6k/siever.pxd g6k/decl.pxd g6k/siever_params.pyx g6k/siever.pyx
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: ''
 #  File does not exist.
@@ -401,15 +532,15 @@ g6k/siever.so: Makefile.local kernel/libG6K.so kernel/siever.h kernel/thread_poo
 # automatic
 # * := 
 # automatic
-# + := Makefile.local kernel/libG6K.so kernel/siever.h kernel/thread_pool.hpp kernel/statistics.hpp kernel/random.hpp kernel/compat.hpp kernel/cpuperformance.hpp kernel/parallel_algorithms.hpp kernel/db.inl kernel/simhash.inl kernel/siever.inl kernel/hash_table.inl cuda/GPUStreamGeneral.h cuda/cuda_tensor_wmma.hpp g6k/siever_params.pxd g6k/siever.pxd g6k/decl.pxd g6k/siever_params.pyx g6k/siever.pyx
+# + := Makefile.local kernel/libG6K.so kernel/siever.h kernel/thread_pool.hpp kernel/statistics.hpp kernel/random.hpp kernel/compat.hpp kernel/cpuperformance.hpp kernel/parallel_algorithms.hpp kernel/db.inl kernel/simhash.inl kernel/db_gauss.inl kernel/siever.inl kernel/hash_table.inl cuda/GPUStreamGeneral.h cuda/cuda_tensor_wmma.hpp g6k/siever_params.pxd g6k/siever.pxd g6k/decl.pxd g6k/siever_params.pyx g6k/siever.pyx
 # automatic
 # | := 
 # automatic
 # < := Makefile.local
 # automatic
-# ^ := Makefile.local kernel/libG6K.so kernel/siever.h kernel/thread_pool.hpp kernel/statistics.hpp kernel/random.hpp kernel/compat.hpp kernel/cpuperformance.hpp kernel/parallel_algorithms.hpp kernel/db.inl kernel/simhash.inl kernel/siever.inl kernel/hash_table.inl cuda/GPUStreamGeneral.h cuda/cuda_tensor_wmma.hpp g6k/siever_params.pxd g6k/siever.pxd g6k/decl.pxd g6k/siever_params.pyx g6k/siever.pyx
+# ^ := Makefile.local kernel/libG6K.so kernel/siever.h kernel/thread_pool.hpp kernel/statistics.hpp kernel/random.hpp kernel/compat.hpp kernel/cpuperformance.hpp kernel/parallel_algorithms.hpp kernel/db.inl kernel/simhash.inl kernel/db_gauss.inl kernel/siever.inl kernel/hash_table.inl cuda/GPUStreamGeneral.h cuda/cuda_tensor_wmma.hpp g6k/siever_params.pxd g6k/siever.pxd g6k/decl.pxd g6k/siever_params.pyx g6k/siever.pyx
 # automatic
-# ? := Makefile.local kernel/libG6K.so kernel/siever.h kernel/thread_pool.hpp kernel/statistics.hpp kernel/random.hpp kernel/compat.hpp kernel/cpuperformance.hpp kernel/parallel_algorithms.hpp kernel/db.inl kernel/simhash.inl kernel/siever.inl kernel/hash_table.inl cuda/GPUStreamGeneral.h cuda/cuda_tensor_wmma.hpp g6k/siever_params.pxd g6k/siever.pxd g6k/decl.pxd g6k/siever_params.pyx g6k/siever.pyx
+# ? := Makefile.local kernel/libG6K.so kernel/siever.h kernel/thread_pool.hpp kernel/statistics.hpp kernel/random.hpp kernel/compat.hpp kernel/cpuperformance.hpp kernel/parallel_algorithms.hpp kernel/db.inl kernel/simhash.inl kernel/db_gauss.inl kernel/siever.inl kernel/hash_table.inl cuda/GPUStreamGeneral.h cuda/cuda_tensor_wmma.hpp g6k/siever_params.pxd g6k/siever.pxd g6k/decl.pxd g6k/siever_params.pyx g6k/siever.pyx
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=1/11=9%
 #  recipe to execute (from 'Makefile', line 18):
@@ -420,14 +551,14 @@ g6k/siever.so: Makefile.local kernel/libG6K.so kernel/siever.h kernel/thread_poo
 # Not a target:
 kernel/thread_pool.hpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-24 10:20:52.004995162
+#  Last modified 2023-10-07 17:38:15.885179432
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 kernel/params.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-24 10:20:52.000995148
+#  Last modified 2023-10-07 17:38:15.885179432
 #  File has been updated.
 #  Successfully updated.
 
@@ -450,13 +581,13 @@ clean: Makefile.local
 # Not a target:
 kernel/cpuperformance.hpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-24 10:20:52.000995148
+#  Last modified 2023-10-07 17:38:15.805178866
 #  File has been updated.
 #  Successfully updated.
 
-kernel/libG6K.so: Makefile.local kernel/siever.h kernel/thread_pool.hpp kernel/statistics.hpp kernel/random.hpp kernel/compat.hpp kernel/cpuperformance.hpp kernel/parallel_algorithms.hpp kernel/db.inl kernel/simhash.inl kernel/siever.inl kernel/hash_table.inl cuda/GPUStreamGeneral.h cuda/cuda_tensor_wmma.hpp kernel/test_lsh.cpp kernel/control.cpp kernel/triple_sieve_mt.cpp kernel/cpuperf.cpp kernel/gpu_sieve.cpp kernel/params.cpp kernel/sieving.cpp kernel/triple_sieve.cpp kernel/bgj1_sieve.cpp cuda/bench_sieving.cpp cuda/bench_quality.cpp cuda/GPUStreamGeneral.cu
+kernel/libG6K.so: Makefile.local kernel/siever.h kernel/thread_pool.hpp kernel/statistics.hpp kernel/random.hpp kernel/compat.hpp kernel/cpuperformance.hpp kernel/parallel_algorithms.hpp kernel/db.inl kernel/simhash.inl kernel/db_gauss.inl kernel/siever.inl kernel/hash_table.inl cuda/GPUStreamGeneral.h cuda/cuda_tensor_wmma.hpp kernel/test_lsh.cpp kernel/control.cpp kernel/triple_sieve_mt.cpp kernel/cpuperf.cpp kernel/gpu_sieve.cpp kernel/params.cpp kernel/sieving.cpp kernel/triple_sieve.cpp kernel/bgj1_sieve.cpp cuda/bench_sieving.cpp cuda/bench_quality.cpp cuda/GPUStreamGeneral.cu
 #  Implicit rule search has not been done.
-#  Last modified 2022-04-25 19:43:22.502792369
+#  Last modified 2023-10-07 19:28:44.208979547
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 15):
@@ -465,80 +596,81 @@ kernel/libG6K.so: Makefile.local kernel/siever.h kernel/thread_pool.hpp kernel/s
 # Not a target:
 kernel/triple_sieve_mt.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-24 10:20:52.004995162
+#  Last modified 2023-10-07 17:38:15.889179461
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 g6k/siever_params.pxd:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-24 10:20:52.000995148
+#  Last modified 2023-10-07 17:38:15.801178838
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 cuda/bench_quality.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-24 10:20:51.996995133
+ 
+#  Last modified 2023-10-07 17:38:15.741178412
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 kernel/siever.inl:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-24 10:20:52.004995162
+#  Last modified 2023-10-07 17:38:15.885179432
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 kernel/parallel_algorithms.hpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-24 10:20:52.000995148
+#  Last modified 2023-10-07 17:38:15.885179432
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 kernel/gpu_sieve.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-25 19:36:29.334183382
+#  Last modified 2023-10-07 17:38:15.805178866
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 cuda/cuda_tensor_wmma.hpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-24 10:20:51.996995133
+#  Last modified 2023-10-07 17:38:15.741178412
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 kernel/cpuperf.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-24 10:20:52.000995148
+#  Last modified 2023-10-07 17:38:15.805178866
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 g6k/siever.pxd:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-24 10:20:52.000995148
+#  Last modified 2023-10-07 17:38:15.793178781
 #  File has been updated.
 #  Successfully updated.
 
 # files hash-table stats:
-# Load=41/1024=4%, Rehash=0, Collisions=5/109=5%
+# Load=42/1024=4%, Rehash=0, Collisions=5/112=4%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 142 / storage = 2166 B / avg = 15 B
-# current buf: size = 8162 B / used = 2166 B / count = 142 / avg = 15 B
+# strcache buffers: 1 (0) / strings = 155 / storage = 2339 B / avg = 15 B
+# current buf: size = 8162 B / used = 2339 B / count = 155 / avg = 15 B
 
-# strcache performance: lookups = 190 / hit rate = 25%
+# strcache performance: lookups = 204 / hit rate = 24%
 # hash-table stats:
-# Load=142/8192=2%, Rehash=0, Collisions=12/190=6%
-# Finished Make data base on Sun May 29 12:40:16 2022
+# Load=155/8192=2%, Rehash=0, Collisions=12/204=6%
+# Finished Make data base on Tue Oct 17 20:57:58 2023
 
  

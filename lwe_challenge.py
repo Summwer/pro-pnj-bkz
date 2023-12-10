@@ -129,6 +129,8 @@ def lwe_kernel(arg0, params=None, seed=None):
     B = primal_lattice_basis(A, c, q, m=m)
 
     g6k = Siever(B, params)
+    
+    # g6k.M.float_type = "dd"
     print ("GSO precision: ", g6k.M.float_type)
 
     if dont_trace:
