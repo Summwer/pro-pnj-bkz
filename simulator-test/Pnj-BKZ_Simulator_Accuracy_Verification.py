@@ -40,7 +40,7 @@ def read_blocksizes(file_name):
 
 def read_file(n,alpha_,jump,Pumpdown,Blocksize,Tours,test_number,d):
     
-    dir = "gs-lengths-simulator/n=%d,alpha=%s,jump=%d,Pumpdown=%s,Blocksize=%d,Tours=%d/n=%d,alpha=%s,jump=%d,Pumpdown=%s,Blocksize=%d,Tours=%d,test_number=%dd=%d,/" %(n,alpha_,jump,Pumpdown,Blocksize,Tours, n,alpha_,jump,Pumpdown,Blocksize,Tours,test_number,d)
+    dir = "gs-lengths-simulator/n=%d,alpha=%s,jump=%d,Pumpdown=%s,Blocksize=%d,Tours=%d,d=%d,/n=%d,alpha=%s,jump=%d,Pumpdown=%s,Blocksize=%d,Tours=%d,test_number=%dd=%d,/" %(n,alpha_,jump,Pumpdown,Blocksize,Tours,d, n,alpha_,jump,Pumpdown,Blocksize,Tours,test_number,d)
     
     
 
@@ -259,7 +259,7 @@ def show_gs_slope_figure(dir,log_gs_length,sim_log_gs_lengths,n,dimension,alpha_
    
 
     plt.savefig(dir+"n=%d, alpha = %s, dimension = %d, Blocksize = %d, Jump = %d, #Current Tours= %d.png" %(n,alpha_,dimension,Blocksize,Jump,N+1))
-    plt.show()
+#    plt.show()
     plt.close()
     
 def show_gs_slope_figure2(dir,log_gs_length,sim_log_gs_lengths,CN_11_mid_log_gs,n,dimension,alpha_,square_error1,square_error2,Blocksize,Jump,N,test_number):
@@ -276,7 +276,7 @@ def show_gs_slope_figure2(dir,log_gs_length,sim_log_gs_lengths,CN_11_mid_log_gs,
 
     plt.savefig(dir+"Comparing figure, n=%d, alpha = %s, dimension = %d, Blocksize = %d, Jump = %d, #Current Tours= %d.png" %(n,alpha_,dimension,Blocksize,Jump,N+1))
     #plt.savefig(dir+"Comparing figure, dimension = %d, Blocksize = %d, Jump = %d, #Current Tours= %d.png" %(dimension,Blocksize,Jump,N+1))
-    plt.show()
+#    plt.show()
     plt.close()
     
 def show_gs_slope_figure3(dir,log_gs_length,sim_log_gs_lengths,n,dimension,alpha_,square_error1,Blocksize,Jump,N,test_number):
@@ -293,7 +293,7 @@ def show_gs_slope_figure3(dir,log_gs_length,sim_log_gs_lengths,n,dimension,alpha
     plt.tick_params(labelsize=22)
 
     plt.savefig(dir+"Comparing figure, n=%d, alpha = %s, dimension = %d, Blocksize = %d, Jump = %d, #Current Tours= %d.png" %(n,alpha_,dimension,Blocksize,Jump,N+1))
-    plt.show()
+#    plt.show()
     plt.close()
     
 def show_gs_slope_figure4(dir,log_gs_length,sim_log_gs_lengths,n,dimension,alpha_,square_error1,Blocksize,Jump,N,test_number):
@@ -317,7 +317,7 @@ def show_gs_slope_figure4(dir,log_gs_length,sim_log_gs_lengths,n,dimension,alpha
     plt.title("Dimension = %d, Blocksize = %d, Jump = %d, #Current Tours= %d" %(dimension,Blocksize,Jump,N+1), fontsize=14)
 
     plt.savefig(dir+"Ratio figure, n=%d, alpha = %s, dimension = %d, Blocksize = %d, Jump = %d, #Current Tours= %d.png" %(n,alpha_,dimension,Blocksize,Jump,N+1))
-    plt.show()
+#    plt.show()
     plt.close()
        
         
@@ -368,14 +368,13 @@ def Ratio_figure(dir,log_gs_length,sim_log_gs_lengths,n,dimension,alpha_,square_
     plt.scatter(x, ratio8,s=16,marker="o",c='r',edgecolors='r', label=r"$\mathrm{Real}(  {\left \| \left \| \mathbf{b}_{i}^* \right \|  \right \| }) / \mathrm{Sim}  ({\left \| \left \| \mathbf{b}_{i}^* \right \|  \right \| }), \mathrm{Tours}=%d$"%Current_Tours2)
     #plt.plot(x, ratio1, 'ok', label='Real ||bi*||/ Sim ||bi*|| Tours=1')
     #plt.plot(x, ratio8, '^b', label='Real ||bi*||/ Sim ||bi*|| Tours=8')
-    plt.ylim(0.875,1.125)
+    plt.ylim(0.85,1.15)
     dimension=len(ratio1)
     plt.plot([1,dimension],[1,1],c='k')
     plt.plot([1,dimension],[1.075,1.075],c='k',linestyle='--')
     plt.plot([1,dimension],[0.925,0.925],c='k',linestyle='--')
     plt.plot([1,dimension],[1.05,1.05],c='k',linestyle=':')
     plt.plot([1,dimension],[0.95,0.95],c='k',linestyle=':')
-
     plt.tick_params(labelsize=20)
 
     plt.legend(fontsize=20, loc = 'upper right')
@@ -409,18 +408,25 @@ def compute_square_error(list1,list2,flag = 1):
 #=========================================input==============================================
 
 if __name__ == "__main__":
-    # n, d, alpha_, jump, Pumpdown, Blocksize, Tours, test_number  = 75,252,"005",5,"True",95,12,1
+    #jump = 1
+    n, d, alpha_, jump, Pumpdown, Blocksize, Tours, test_number,  Total_test_number  = 75,252,"005",1,"True",85,12,1,20
+    #jump = 5
+    # n, d, alpha_, jump, Pumpdown, Blocksize, Tours, test_number,  Total_test_number  = 75,252,"005",5,"True",95,12,1,20
+    #jump = 9
+    # n, d, alpha_, jump, Pumpdown, Blocksize, Tours, test_number, Total_test_number = 75,252,"005",9,"True",95,12,1, 20
+    #jump = 12
+    # n, d, alpha_, jump, Pumpdown, Blocksize, Tours, test_number,Total_test_number  = 75,252,"005",12,"True",95,12,1, 19
     
-    n, d, alpha_, jump, Pumpdown, Blocksize, Tours, test_number  = 75,252,"005",9,"True",95,12,1
-
+    
     #Blocksizes=[95,95,95,95,95,95,95,95]
     #Sim_Blocksizes=[95,95,95,95,95,95,95,95]
     
-    #Blocksizes=[95,95,95,95,95,95,95,95,95,95,95,95]
-    #Sim_Blocksizes=[95,95,95,95,95,95,95,95,95,95,95,95]
-    
     Blocksizes=[95,95,95,95,95,95,95,95,95,95,95,95]
     Sim_Blocksizes=[95,95,95,95,95,95,95,95,95,95,95,95]
+    # Blocksizes=[100,100,100,100,100,100,100,100,100,100]
+    # Sim_Blocksizes=[100,100,100,100,100,100,100,100,100,100]
+    # Blocksizes=[95,95,95,95,95,95,95,95,95,95,95,95]
+    # Sim_Blocksizes=[95,95,95,95,95,95,95,95,95,95,95,95]
     
     #Blocksizes=[85,85,85,85,85,85,85,85,85,85,85,85]
     #Sim_Blocksizes=[85,85,85,85,85,85,85,85,85,85,85,85]
@@ -436,7 +442,8 @@ if __name__ == "__main__":
     #log_GS_lengths,GS_lengths,dir = read_file(n,alpha_,jump,Pumpdown,Blocksize,Tours,test_number,d) #read
     
     #Total_test_number represents the number of pnj-BKZ reduction experiments
-    Total_test_number = 20
+    
+    # Total_test_number = 3
     GS_sum = []
     for i in range(Total_test_number):
         log_GS_lengths,GS_lengths,dir = read_file(n,alpha_,jump,Pumpdown,Blocksize,Tours,i+1,d)
