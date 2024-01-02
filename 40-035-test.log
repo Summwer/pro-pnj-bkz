@@ -1,133 +1,0 @@
--------------------------
-Primal attack, LWE challenge n=40, alpha=0.0350
-Chose 187 samples. Predict solution at bkz-114 + svp-148
-
-GSO precision:  dd
-Intial Slope = -0.05972
-
-Starting a fpylll BKZ-10 tour. 
-slope: -0.05907, walltime: 2.084 sec
-Without otf, would expect solution at pump-144. n_max=75 in the given time.
-Starting a fpylll BKZ-11 tour. 
-slope: -0.05810, walltime: 9.051 sec
-Without otf, would expect solution at pump-144. n_max=81 in the given time.
-Starting a fpylll BKZ-12 tour. 
-slope: -0.05768, walltime: 14.206 sec
-Without otf, would expect solution at pump-144. n_max=83 in the given time.
-Starting a fpylll BKZ-13 tour. 
-slope: -0.05705, walltime: 20.694 sec
-Without otf, would expect solution at pump-144. n_max=84 in the given time.
-Starting a fpylll BKZ-14 tour. 
-slope: -0.05669, walltime: 25.763 sec
-Without otf, would expect solution at pump-144. n_max=85 in the given time.
-Starting a fpylll BKZ-15 tour. 
-slope: -0.05626, walltime: 32.260 sec
-Without otf, would expect solution at pump-144. n_max=86 in the given time.
-Starting a fpylll BKZ-16 tour. 
-slope: -0.05574, walltime: 38.460 sec
-Without otf, would expect solution at pump-144. n_max=87 in the given time.
-Starting a fpylll BKZ-17 tour. 
-slope: -0.05519, walltime: 45.438 sec
-Without otf, would expect solution at pump-144. n_max=87 in the given time.
-Starting a fpylll BKZ-18 tour. 
-slope: -0.05475, walltime: 51.993 sec
-Without otf, would expect solution at pump-144. n_max=88 in the given time.
-Starting a fpylll BKZ-19 tour. 
-slope: -0.05423, walltime: 59.795 sec
-Without otf, would expect solution at pump-144. n_max=89 in the given time.
-Starting a fpylll BKZ-20 tour. 
-slope: -0.05395, walltime: 65.779 sec
-Without otf, would expect solution at pump-144. n_max=89 in the given time.
-Starting a fpylll BKZ-21 tour. 
-slope: -0.05341, walltime: 74.030 sec
-Without otf, would expect solution at pump-144. n_max=89 in the given time.
-Starting a fpylll BKZ-22 tour. 
-slope: -0.05295, walltime: 82.270 sec
-Without otf, would expect solution at pump-144. n_max=90 in the given time.
-Starting a fpylll BKZ-23 tour. 
-slope: -0.05248, walltime: 91.111 sec
-Without otf, would expect solution at pump-144. n_max=90 in the given time.
-Starting a fpylll BKZ-24 tour. 
-slope: -0.05225, walltime: 97.264 sec
-Without otf, would expect solution at pump-144. n_max=91 in the given time.
-Starting a fpylll BKZ-25 tour. 
-slope: -0.05191, walltime: 106.661 sec
-Without otf, would expect solution at pump-144. n_max=91 in the given time.
-Starting a fpylll BKZ-26 tour. 
-slope: -0.05163, walltime: 114.628 sec
-Without otf, would expect solution at pump-144. n_max=91 in the given time.
-Starting a fpylll BKZ-27 tour. 
-slope: -0.05126, walltime: 124.737 sec
-Without otf, would expect solution at pump-144. n_max=92 in the given time.
-Starting a fpylll BKZ-28 tour. 
-slope: -0.05111, walltime: 131.126 sec
-Without otf, would expect solution at pump-144. n_max=92 in the given time.
-Starting a fpylll BKZ-29 tour. 
-slope: -0.05073, walltime: 142.507 sec
-Without otf, would expect solution at pump-144. n_max=92 in the given time.
-Starting a fpylll BKZ-30 tour. 
-slope: -0.05043, walltime: 152.567 sec
-Without otf, would expect solution at pump-144. n_max=92 in the given time.
-Starting a fpylll BKZ-31 tour. 
-slope: -0.05009, walltime: 164.541 sec
-Without otf, would expect solution at pump-144. n_max=93 in the given time.
-Starting a fpylll BKZ-32 tour. 
-slope: -0.04982, walltime: 175.485 sec
-Without otf, would expect solution at pump-144. n_max=93 in the given time.
-Starting a fpylll BKZ-33 tour. 
-slope: -0.04957, walltime: 188.103 sec
-Without otf, would expect solution at pump-144. n_max=93 in the given time.
-Starting a fpylll BKZ-34 tour. 
-slope: -0.04948, walltime: 198.956 sec
-Without otf, would expect solution at pump-144. n_max=94 in the given time.
-Starting a fpylll BKZ-35 tour. 
-slope: -0.04920, walltime: 213.762 sec
-Without otf, would expect solution at pump-144. n_max=94 in the given time.
-Starting a fpylll BKZ-36 tour. 
-slope: -0.04901, walltime: 228.378 sec
-Without otf, would expect solution at pump-144. n_max=94 in the given time.
-Starting a fpylll BKZ-37 tour. 
-slope: -0.04884, walltime: 243.196 sec
-Without otf, would expect solution at pump-144. n_max=94 in the given time.
-Starting a fpylll BKZ-38 tour. 
-slope: -0.04858, walltime: 258.629 sec
-Without otf, would expect solution at pump-144. n_max=95 in the given time.
-Starting a fpylll BKZ-39 tour. 
-slope: -0.04833, walltime: 275.391 sec
-Without otf, would expect solution at pump-144. n_max=95 in the given time.
-Starting a fpylll BKZ-40 tour. 
-slope: -0.04819, walltime: 291.406 sec
-Without otf, would expect solution at pump-144. n_max=95 in the given time.
-Starting a fpylll BKZ-41 tour. 
-slope: -0.04804, walltime: 308.802 sec
-Without otf, would expect solution at pump-144. n_max=95 in the given time.
-Starting a fpylll BKZ-42 tour. 
-slope: -0.04785, walltime: 328.280 sec
-Without otf, would expect solution at pump-144. n_max=96 in the given time.
-Starting a fpylll BKZ-43 tour. 
-slope: -0.04758, walltime: 349.986 sec
-Without otf, would expect solution at pump-144. n_max=96 in the given time.
-Starting a fpylll BKZ-44 tour. 
-slope: -0.04741, walltime: 370.064 sec
-Without otf, would expect solution at pump-144. n_max=96 in the given time.
-Starting a fpylll BKZ-45 tour. 
-slope: -0.04729, walltime: 393.070 sec
-Without otf, would expect solution at pump-144. n_max=96 in the given time.
-Starting a fpylll BKZ-46 tour. 
-slope: -0.04715, walltime: 452.396 sec
-Without otf, would expect solution at pump-144. n_max=97 in the given time.
-Starting a fpylll BKZ-47 tour. 
-slope: -0.04694, walltime: 543.293 sec
-Without otf, would expect solution at pump-144. n_max=98 in the given time.
-Starting a fpylll BKZ-48 tour. 
-slope: -0.04673, walltime: 642.986 sec
-Without otf, would expect solution at pump-144. n_max=98 in the given time.
-Starting a fpylll BKZ-49 tour. 
-slope: -0.04657, walltime: 748.054 sec
-Without otf, would expect solution at pump-144. n_max=99 in the given time.
-Starting a pnjBKZ-94 tour. 
- k:0, b:76, f:0 , RAM cost: 0.2615 GB  k:0, b:77, f:1 , RAM cost: 1.9100 GB  k:0, b:78, f:2 , RAM cost: 1.9147 GB  k:0, b:79, f:3 , RAM cost: 1.9196 GB  k:0, b:80, f:4 , RAM cost: 1.9261 GB  k:0, b:81, f:5 , RAM cost: 1.9297 GB  k:0, b:82, f:6 , RAM cost: 1.9343 GB  k:0, b:83, f:7 , RAM cost: 1.9421 GB  k:0, b:84, f:8 , RAM cost: 1.9459 GB  k:0, b:85, f:9 , RAM cost: 1.9466 GB  k:0, b:86, f:10 , RAM cost: 1.9488 GB  k:0, b:87, f:11 , RAM cost: 1.9513 GB  k:0, b:88, f:12 , RAM cost: 1.9538 GB  k:0, b:89, f:13 , RAM cost: 1.9549 GB  k:0, b:90, f:14 , RAM cost: 1.9568 GB  k:0, b:91, f:15 , RAM cost: 1.9588 GB  k:0, b:92, f:16 , RAM cost: 1.9603 GB  k:0, b:93, f:17 , RAM cost: 1.9624 GB  k:0, b:94, f:18 , RAM cost: 1.9633 GB  k:0, b:95, f:19 , RAM cost: 1.9645 GB  k:0, b:96, f:20 , RAM cost: 1.9655 GB  k:0, b:97, f:21 , RAM cost: 1.9660 GB  k:0, b:98, f:22 , RAM cost: 1.9668 GB  k:0, b:99, f:23 , RAM cost: 1.9672 GB  k:0, b:100, f:24 , RAM cost: 1.9690 GB  k:0, b:101, f:25 , RAM cost: 1.9708 GB  k:0, b:102, f:26 , RAM cost: 1.9708 GB  k:0, b:103, f:27 , RAM cost: 1.9731 GB  k:0, b:104, f:28 , RAM cost: 1.9736 GB  k:0, b:105, f:29 , RAM cost: 1.9736 GB  k:0, b:106, f:30 , RAM cost: 1.9756 GB  k:1, b:106, f:30 , RAM cost: 1.9774 GB  k:2, b:106, f:30 , RAM cost: 1.9787 GB  k:3, b:106, f:30 , RAM cost: 1.9787 GB  k:4, b:106, f:30 , RAM cost: 1.9787 GB  k:5, b:106, f:30 , RAM cost: 1.9805 GB  k:6, b:106, f:30 , RAM cost: 1.9812 GB  k:7, b:106, f:30 , RAM cost: 1.9830 GB  k:8, b:106, f:30 , RAM cost: 1.9847 GB  k:9, b:106, f:30 , RAM cost: 1.9863 GB  k:10, b:106, f:30 , RAM cost: 1.9882 GB  k:11, b:106, f:30 , RAM cost: 1.9882 GB  k:12, b:106, f:30 , RAM cost: 1.9882 GB  k:13, b:106, f:30 , RAM cost: 1.9900 GB  k:14, b:106, f:30 , RAM cost: 1.9900 GB  k:15, b:106, f:30 , RAM cost: 1.9902 GB  k:16, b:106, f:30 , RAM cost: 1.9902 GB  k:17, b:106, f:30 , RAM cost: 1.9902 GB  k:18, b:106, f:30 , RAM cost: 1.9903 GB  k:19, b:106, f:30 , RAM cost: 1.9902 GB  k:20, b:106, f:30 , RAM cost: 1.9921 GB  k:21, b:106, f:30 , RAM cost: 1.9929 GB  k:22, b:106, f:30 , RAM cost: 1.9929 GB  k:23, b:106, f:30 , RAM cost: 1.9931 GB  k:24, b:106, f:30 , RAM cost: 1.9932 GB  k:25, b:106, f:30 , RAM cost: 1.9932 GB  k:26, b:106, f:30 , RAM cost: 1.9952 GB  k:27, b:106, f:30 , RAM cost: 1.9950 GB  k:28, b:106, f:30 , RAM cost: 1.9953 GB  k:29, b:106, f:30 , RAM cost: 1.9954 GB  k:30, b:106, f:30 , RAM cost: 1.9972 GB  k:31, b:106, f:30 , RAM cost: 1.9970 GB  k:32, b:106, f:30 , RAM cost: 1.9971 GB  k:33, b:106, f:30 , RAM cost: 1.9973 GB  k:34, b:106, f:30 , RAM cost: 1.9973 GB  k:35, b:106, f:30 , RAM cost: 1.9973 GB  k:36, b:106, f:30 , RAM cost: 1.9991 GB  k:37, b:106, f:30 , RAM cost: 1.9992 GB  k:38, b:106, f:30 , RAM cost: 1.9992 GB  k:39, b:106, f:30 , RAM cost: 1.9992 GB  k:40, b:106, f:30 , RAM cost: 1.9991 GB  k:41, b:106, f:30 , RAM cost: 1.9991 GB  k:42, b:106, f:30 , RAM cost: 1.9993 GB  k:43, b:106, f:30 , RAM cost: 1.9989 GB  k:44, b:106, f:30 , RAM cost: 1.9993 GB  k:45, b:106, f:30 , RAM cost: 1.9993 GB  k:46, b:106, f:30 , RAM cost: 2.0007 GB  k:47, b:106, f:30 , RAM cost: 2.0008 GB  k:48, b:106, f:30 , RAM cost: 2.0012 GB  k:49, b:106, f:30 , RAM cost: 2.0012 GB  k:50, b:106, f:30 , RAM cost: 2.0011 GB  k:51, b:106, f:30 , RAM cost: 2.0012 GB  k:52, b:106, f:30 , RAM cost: 2.0013 GB  k:53, b:106, f:30 , RAM cost: 2.0013 GB  k:54, b:106, f:30 , RAM cost: 2.0013 GB  k:55, b:106, f:30 , RAM cost: 2.0011 GB  k:56, b:106, f:30 , RAM cost: 2.0021 GB  k:57, b:106, f:30 , RAM cost: 2.0040 GB  k:58, b:106, f:30 , RAM cost: 2.0056 GB  k:59, b:106, f:30 , RAM cost: 2.0057 GB  k:60, b:106, f:30 , RAM cost: 2.0060 GB  k:61, b:106, f:30 , RAM cost: 2.0060 GB  k:62, b:106, f:30 , RAM cost: 2.0056 GB  k:63, b:106, f:30 , RAM cost: 2.0059 GB  k:64, b:106, f:30 , RAM cost: 2.0058 GB  k:65, b:106, f:30 , RAM cost: 2.0061 GB  k:66, b:106, f:30 , RAM cost: 2.0059 GB  k:67, b:106, f:30 , RAM cost: 2.0061 GB  k:68, b:106, f:30 , RAM cost: 2.0058 GB  k:69, b:106, f:30 , RAM cost: 2.0061 GB  k:70, b:106, f:30 , RAM cost: 2.0059 GB  k:71, b:106, f:30 , RAM cost: 2.0061 GB  k:72, b:106, f:30 , RAM cost: 2.0060 GB  k:73, b:106, f:30 , RAM cost: 2.0059 GB  k:74, b:106, f:30 , RAM cost: 2.0059 GB  k:75, b:106, f:30 , RAM cost: 2.0062 GB  k:76, b:106, f:30 , RAM cost: 2.0062 GB  k:77, b:106, f:30 , RAM cost: 2.0059 GB  k:78, b:106, f:30 , RAM cost: 2.0059 GB  k:79, b:106, f:30 , RAM cost: 2.0062 GB  k:80, b:106, f:30 , RAM cost: 2.0061 GB  k:81, b:106, f:30 , RAM cost: 2.0061 GB  k:82, b:106, f:30 , RAM cost: 2.0063 GB  k:83, b:105, f:29 , RAM cost: 2.0063 GB  k:84, b:104, f:28 , RAM cost: 2.0061 GB  k:85, b:103, f:27 , RAM cost: 2.0063 GB  k:86, b:102, f:26 , RAM cost: 2.0062 GB  k:87, b:101, f:25 , RAM cost: 2.0061 GB  k:88, b:100, f:24 , RAM cost: 2.0063 GB  k:89, b:99, f:23 , RAM cost: 2.0062 GB  k:90, b:98, f:22 , RAM cost: 2.0062 GB  k:91, b:97, f:21 , RAM cost: 2.0062 GB  k:92, b:96, f:20 , RAM cost: 2.0063 GB  k:93, b:95, f:19 , RAM cost: 2.0063 GB  k:94, b:94, f:18 , RAM cost: 2.0061 GB  k:95, b:93, f:17 , RAM cost: 2.0063 GB  k:96, b:92, f:16 , RAM cost: 2.0060 GB  k:97, b:91, f:15 , RAM cost: 2.0063 GB  k:98, b:90, f:14 , RAM cost: 2.0063 GB  k:99, b:89, f:13 , RAM cost: 2.0060 GB  k:100, b:88, f:12 , RAM cost: 2.0064 GB  k:101, b:87, f:11 , RAM cost: 2.0064 GB  k:102, b:86, f:10 , RAM cost: 2.0063 GB  k:103, b:85, f:9 , RAM cost: 2.0064 GB  k:104, b:84, f:8 , RAM cost: 2.0063 GB  k:105, b:83, f:7 , RAM cost: 2.0065 GB  k:106, b:82, f:6 , RAM cost: 2.0064 GB  k:107, b:81, f:5 , RAM cost: 2.0063 GB  k:108, b:80, f:4 , RAM cost: 2.0065 GB  k:109, b:79, f:3 , RAM cost: 2.0062 GB  k:110, b:78, f:2 , RAM cost: 2.0061 GB  k:111, b:77, f:1 , RAM cost: 2.0062 GB  k:112, b:76, f:0  , RAM cost: 2.0061 GB  
-slope: -0.04108, walltime: 6146.524 sec
-Without otf, would expect solution at pump-140. n_max=108 in the given time.
-Starting a pnjBKZ-97 tour. 
- k:0, b:79, f:0 , RAM cost: 2.0063 GB  k:0, b:80, f:1 , RAM cost: 2.0467 GB  k:0, b:81, f:2 , RAM cost: 2.0467 GB  k:0, b:82, f:3 , RAM cost: 2.0470 GB  k:0, b:83, f:4 , RAM cost: 2.0468 GB  k:0, b:84, f:5 , RAM cost: 2.0467 GB  k:0, b:85, f:6 , RAM cost: 2.0467 GB  k:0, b:86, f:7 , RAM cost: 2.0467 GB  k:0, b:87, f:8 , RAM cost: 2.0467 GB  k:0, b:88, f:9 , RAM cost: 2.0468 GB  k:0, b:89, f:10 , RAM cost: 2.0468 GB  k:0, b:90, f:11 , RAM cost: 2.0467 GB  k:0, b:91, f:12 , RAM cost: 2.0467 GB  k:0, b:92, f:13 , RAM cost: 2.0467 GB  k:0, b:93, f:14 , RAM cost: 2.0468 GB  k:0, b:94, f:15 , RAM cost: 2.0466 GB  k:0, b:95, f:16 , RAM cost: 2.0468 GB  k:0, b:96, f:17 , RAM cost: 2.0469 GB  k:0, b:97, f:18 , RAM cost: 2.0470 GB  k:0, b:98, f:19 , RAM cost: 2.0470 GB  k:0, b:99, f:20 , RAM cost: 2.0471 GB  k:0, b:100, f:21 , RAM cost: 2.0470 GB  k:0, b:101, f:22 , RAM cost: 2.0474 GB  k:0, b:102, f:23 , RAM cost: 2.0472 GB  k:0, b:103, f:24 , RAM cost: 2.0477 GB  k:0, b:104, f:25 , RAM cost: 2.0475 GB  k:0, b:105, f:26 , RAM cost: 2.0475 GB  k:0, b:106, f:27 , RAM cost: 2.0477 GB  k:0, b:107, f:28 , RAM cost: 2.0475 GB  k:0, b:108, f:29 , RAM cost: 2.0478 GB  k:0, b:109, f:30 , RAM cost: 2.0478 GB  k:1, b:109, f:30 , RAM cost: 2.0477 GB  k:2, b:109, f:30 , RAM cost: 2.0476 GB  k:3, b:109, f:30 , RAM cost: 2.0480 GB  k:4, b:109, f:30 , RAM cost: 2.0480 GB  k:5, b:109, f:30 , RAM cost: 2.0480 GB  k:6, b:109, f:30 , RAM cost: 2.0479 GB 

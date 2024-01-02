@@ -167,12 +167,12 @@ def lwe_kernel(arg0, params=None, seed=None):
     # target_norm = max( target_norm, 0.98 * full_gh)
 
     
-    # B_=load_lwe_challenge_mid(n=n, alpha=alpha)
-    # if B_ is not None:
-    #     B = B_
-    # else: 
-    #     B = primal_lattice_basis(A, c, q, m=m)
-    B = primal_lattice_basis(A, c, q, m=m) #debug
+    B_=load_lwe_challenge_mid(n=n, alpha=alpha)
+    if B_ is not None:
+        B = B_
+    else: 
+        B = primal_lattice_basis(A, c, q, m=m)
+    # B = primal_lattice_basis(A, c, q, m=m) #debug
     
     
 
@@ -267,24 +267,24 @@ def lwe_kernel(arg0, params=None, seed=None):
             g6k.lll(0, g6k.full_n)
             
             #write the mid result of basis
-            # alpha_ = int(alpha*1000)
-            # filename = 'lwechallenge/%03d-%03d-midmat.txt' % (n, alpha_)
-            # fn = open(filename, "w")
-            # fn.write(str(n)+'\n')
-            # fn.write(str(m)+'\n')
-            # fn.write(str(q)+'\n')
-            # fn.write(str(alpha)+'\n')
-            # fn.write('[')
-            # for i in range(g6k.M.B.nrows):
-            #     fn.write('[')
-            #     for j in range(g6k.M.B.ncols):
-            #         fn.write(str(g6k.M.B[i][j]))
-            #         if j<g6k.M.B.ncols-1:
-            #             fn.write(' ')
-            #     if i < g6k.M.B.nrows-1:
-            #         fn.write(']\n')
-            # fn.write(']]')
-            # fn.close()
+            alpha_ = int(alpha*1000)
+            filename = 'lwechallenge/%03d-%03d-midmat.txt' % (n, alpha_)
+            fn = open(filename, "w")
+            fn.write(str(n)+'\n')
+            fn.write(str(m)+'\n')
+            fn.write(str(q)+'\n')
+            fn.write(str(alpha)+'\n')
+            fn.write('[')
+            for i in range(g6k.M.B.nrows):
+                fn.write('[')
+                for j in range(g6k.M.B.ncols):
+                    fn.write(str(g6k.M.B[i][j]))
+                    if j<g6k.M.B.ncols-1:
+                        fn.write(' ')
+                if i < g6k.M.B.nrows-1:
+                    fn.write(']\n')
+            fn.write(']]')
+            fn.close()
 
 
             T_BKZ = time.time() - T0_BKZ
@@ -312,7 +312,7 @@ def lwe_kernel(arg0, params=None, seed=None):
             # else:
             beta_pump = min(d, pump_estimation(rr,q, alpha)[1] + 1)
                 
-        n_max= 135
+        n_max= 143
         
         llb = d - beta_pump
         f = max(0, beta_pump - n_max)
