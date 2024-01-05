@@ -1,0 +1,3 @@
+[submodule "strategy-gen/strategy-gen/fpll"]
+	path = strategy-gen/strategy-gen/fpll
+	url = https://github.com/fplll/fplll
