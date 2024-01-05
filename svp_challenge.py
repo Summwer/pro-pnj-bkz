@@ -8,9 +8,7 @@ import copy
 import logging
 import pickle as pickler
 from collections import OrderedDict
-
 from fpylll.util import gaussian_heuristic
-
 from g6k.algorithms.workout import workout
 from g6k.siever import Siever
 from g6k.utils.cli import parse_args, run_all, pop_prefixed_params

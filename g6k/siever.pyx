@@ -81,7 +81,10 @@ cdef class Siever(object):
             #    float_type = "qd"
             #else:
             #    float_type = "long double"
-            float_type = "dd"
+            if M.nrows >=160:
+                float_type = "dd"
+            else:
+                float_type = "long double"
 
             M = GSO.Mat(M, float_type=float_type,
                         U=IntegerMatrix.identity(M.nrows, int_type=M.int_type),
