@@ -171,23 +171,23 @@ def pump(g6k, tracer, kappa, blocksize, dim4free, down_sieve=False, down_sat=Non
                     else:
                         g6k.extend_left(1)
 
-                    # if verbose:
-                    #     print_pump_state2(pump)
+                    if verbose:
+                        print_pump_state2(pump)
 
                     flast = g6k.l - kappa
                     if not wrapped_sieve(pump):
-                        if verbose:
+                        #if verbose:
                             # print_pump_state2(pump)
-                            RAM_cost = psutil.Process(os.getpid()).memory_info().rss / 1024 / 1024 / 1024
-                            if max_RAM_cost < RAM_cost:
-                                max_RAM_cost = RAM_cost
+                        RAM_cost = psutil.Process(os.getpid()).memory_info().rss / 1024 / 1024 / 1024
+                        if max_RAM_cost < RAM_cost:
+                            max_RAM_cost = RAM_cost
                         break
                     else:
-                        if verbose:
+                        #if verbose:
                             # print_pump_state2(pump)
-                            RAM_cost = psutil.Process(os.getpid()).memory_info().rss / 1024 / 1024 / 1024
-                            if max_RAM_cost < RAM_cost:
-                                max_RAM_cost = RAM_cost
+                        RAM_cost = psutil.Process(os.getpid()).memory_info().rss / 1024 / 1024 / 1024
+                        if max_RAM_cost < RAM_cost:
+                            max_RAM_cost = RAM_cost
 
             #print g6k.db_lift_probability()
 
@@ -197,7 +197,7 @@ def pump(g6k, tracer, kappa, blocksize, dim4free, down_sieve=False, down_sat=Non
 
             # Pump Down
             pump.phase = "down"
-            while (g6k.n > 3): # and (pump.insert_left_bound <= kappa+down_stop):
+            while (g6k.n > 3 and (pump.insert_left_bound <= kappa+down_stop)):
                 with tracer.context(("pump-step-down", "l:%d r:%d n:%d" % (g6k.l, g6k.r, g6k.n))):
                     with g6k.temp_params(saturation_ratio=pump.saturation_ratio_down):
                         # (try to) Insert
@@ -213,22 +213,24 @@ def pump(g6k, tracer, kappa, blocksize, dim4free, down_sieve=False, down_sat=Non
 
                         # Sieve (or Shrink db)
                         
+                        if verbose:
+                            print_pump_state2(pump)
         
                         if not pump.down_sieve:
                             g6k.resize_db(max(500, g6k.db_size() / g6k.params.db_size_base))
                         elif g6k.n > 50 and  not wrapped_sieve(pump): # 
-                            if verbose:
+                            #if verbose:
                                 # print_pump_state2(pump)
-                                RAM_cost = psutil.Process(os.getpid()).memory_info().rss / 1024 / 1024 / 1024
-                                if max_RAM_cost < RAM_cost:
-                                    max_RAM_cost = RAM_cost
+                            RAM_cost = psutil.Process(os.getpid()).memory_info().rss / 1024 / 1024 / 1024
+                            if max_RAM_cost < RAM_cost:
+                                max_RAM_cost = RAM_cost
                             break
                         else:
-                            if verbose:
-                                RAM_cost = psutil.Process(os.getpid()).memory_info().rss / 1024 / 1024 / 1024
-                                if max_RAM_cost < RAM_cost:
-                                    max_RAM_cost = RAM_cost
-                                print_pump_state2(pump)
+                            #if verbose:
+                            RAM_cost = psutil.Process(os.getpid()).memory_info().rss / 1024 / 1024 / 1024
+                            if max_RAM_cost < RAM_cost:
+                                max_RAM_cost = RAM_cost
+                            #print_pump_state2(pump)
 
     if (goal_r0 is not None and (g6k.M.get_r(kappa, kappa) <= goal_r0)):# or abs(g6k.M.B[kappa][-1]) == 1:
         print('Solution:', str(g6k.M.B[kappa]))

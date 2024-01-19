@@ -1,0 +1,24 @@
+WARNING:        root:2024/01/18 15:57:35 CST: saturation 0.439 at [b:68 P: 57 - 125 / 179], radius 1.333, goal: 0.500
+ INFO:        root:2024/01/18 15:57:35 CST: Could not reach saturation, progress may slow.
+ INFO:        root:2024/01/18 15:57:35 CST: saturation issue: weakening pump.
+WARNING:        root:2024/01/18 15:57:52 CST: saturation 0.402 at [b:67 P: 66 - 133 / 179], radius 1.333, goal: 0.500
+ INFO:        root:2024/01/18 15:57:52 CST: Could not reach saturation, progress may slow.
+ INFO:        root:2024/01/18 15:57:52 CST: saturation issue: weakening pump.
+WARNING:        root:2024/01/18 15:58:08 CST: saturation 0.372 at [b:66 P: 75 - 141 / 179], radius 1.333, goal: 0.500
+ INFO:        root:2024/01/18 15:58:08 CST: Could not reach saturation, progress may slow.
+ INFO:        root:2024/01/18 15:58:08 CST: saturation issue: weakening pump.
+WARNING:        root:2024/01/18 15:58:13 CST: saturation 0.207 at [b:70 P: 71 - 141 / 179], radius 1.333, goal: 0.250
+ INFO:        root:2024/01/18 15:58:13 CST: Could not reach saturation, progress may slow.
+ INFO:        root:2024/01/18 15:58:13 CST: saturation issue: weakening pump.
+WARNING:        root:2024/01/18 15:58:27 CST: saturation 0.389 at [b:68 P: 81 - 149 / 179], radius 1.333, goal: 0.500
+ INFO:        root:2024/01/18 15:58:27 CST: Could not reach saturation, progress may slow.
+ INFO:        root:2024/01/18 15:58:27 CST: saturation issue: weakening pump.
+WARNING:        root:2024/01/18 15:58:37 CST: saturation 0.194 at [b:71 P: 78 - 149 / 179], radius 1.333, goal: 0.250
+ INFO:        root:2024/01/18 15:58:37 CST: Could not reach saturation, progress may slow.
+ INFO:        root:2024/01/18 15:58:37 CST: saturation issue: weakening pump.
+WARNING:        root:2024/01/18 15:58:48 CST: saturation 0.374 at [b:67 P: 90 - 157 / 179], radius 1.333, goal: 0.500
+ INFO:        root:2024/01/18 15:58:48 CST: Could not reach saturation, progress may slow.
+ INFO:        root:2024/01/18 15:58:48 CST: saturation issue: weakening pump.
+WARNING:        root:2024/01/18 15:58:55 CST: saturation 0.228 at [b:69 P: 88 - 157 / 179], radius 1.333, goal: 0.250
+ INFO:        root:2024/01/18 15:58:55 CST: Could not reach saturation, progress may slow.
+ INFO:        root:2024/01/18 15:58:55 CST: saturation issue: weakening pump.

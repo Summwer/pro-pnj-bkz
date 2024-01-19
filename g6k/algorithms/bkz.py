@@ -161,15 +161,9 @@ def pump_n_jump_bkz_tour(g6k, tracer, blocksize, jump=1,
 
     pump_params["down_stop"] = dim4free+3
 
-    #pump_params["goal_r0"] = goal_r0
-    max_RAM_cost = 0
-    # T_pumps = []
-    # slopes = []
-    # ghs = []
 
-    # File = open(file_name,'w')
-    # File.write(str([g6k.M.get_r(_,_) for _ in range(g6k.M.B.ncols)]))
-    # File.write('\n')
+    max_RAM_cost = 0
+  
     for (kappa, beta, f) in indices:
         if verbose:
             print("\r k:%d, b:%d, f:%d , RAM cost: %.4f GB" % (kappa, beta, f, psutil.Process(os.getpid()).memory_info().rss / 1024 / 1024 / 1024), end=' ')
@@ -206,9 +200,14 @@ def pump_n_jump_bkz_tour(g6k, tracer, blocksize, jump=1,
         RAM_cost = psutil.Process(os.getpid()).memory_info().rss / 1024 / 1024 / 1024
         if max_RAM_cost < RAM_cost:
             max_RAM_cost = RAM_cost
-        
 
-    # pump_params["down_stop"] = blocksize - dim4free
+    
+    if verbose:
+        print("\r k:%d, b:%d, f:%d " % (d-(blocksize-dim4free), blocksize-dim4free, 0))
+        
+        sys.stdout.flush()
+
+    pump_params["down_stop"] = blocksize - dim4free
     
     T_0 = time.time()
     pump(g6k, tracer, d-(blocksize-dim4free), blocksize-dim4free, 0, **pump_params)

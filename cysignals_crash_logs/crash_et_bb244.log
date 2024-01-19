@@ -1,0 +1,197 @@
+GNU gdb (Ubuntu 9.2-0ubuntu1~20.04.1) 9.2
+Copyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word".
+[New LWP 2821321]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007f92ce9d2c7f in __GI___wait4 (pid=2821322, stat_loc=stat_loc@entry=0x0, 
+    options=options@entry=0, usage=usage@entry=0x0)
+    at ../sysdeps/unix/sysv/linux/wait4.c:27
+
+Stack backtrace
+---------------
+    stat_loc=stat_loc@entry=0x0, options=options@entry=0, 
+    usage=usage@entry=0x0) at ../sysdeps/unix/sysv/linux/wait4.c:27
+        resultvar = 18446744073709551104
+        sc_cancel_oldtype = 0
+        sc_ret = <optimized out>
+#1  0x00007f92ce9d2bfb in __GI___waitpid (pid=<optimized out>, 
+    stat_loc=stat_loc@entry=0x0, options=options@entry=0) at waitpid.c:38
+No locals.
+#2  0x00007f92cdc3cd9c in print_enhanced_backtrace ()
+    at build/src/cysignals/implementation.c:672
+        parent_pid = 2821279
+        pid = <optimized out>
+#3  sigdie (sig=sig@entry=11, 
+    s=s@entry=0x7f92cdc45f20 "Unhandled SIGSEGV: A segmentation fault occurred.") at build/src/cysignals/implementation.c:698
+No locals.
+#4  0x00007f92cdc3f483 in sigdie_for_sig (inside=0, sig=11)
+    at build/src/cysignals/implementation.c:256
+No locals.
+#5  cysigs_signal_handler (sig=11) at build/src/cysignals/implementation.c:361
+        inside = <optimized out>
+#6  <signal handler called>
+No locals.
+#7  __Pyx_PyInt_From_int (
+    value=<error reading variable: Cannot access memory at address 0x1c>)
+    at enumbs.cpp:6839
+        neg_one = -1
+        const_zero = 0
+        is_unsigned = 0
+        one = <optimized out>
+        little = <optimized out>
+        bytes = <optimized out>
+#8  __pyx_pf_6enumbs_6EnumBS___init__ (__pyx_v_self=0x7f929bd55210, 
+    __pyx_v_dim=0x0) at enumbs.cpp:2137
+        __pyx_t_2 = <optimized out>
+        __pyx_v_params = <optimized out>
+        __pyx_r = <optimized out>
+        __pyx_t_1 = 0x0
+        __pyx_lineno = 0
+        __pyx_filename = 0x0
+        __pyx_clineno = 0
+        __pyx_v_params = <optimized out>
+        __pyx_r = <optimized out>
+        __pyx_t_1 = <optimized out>
+        __pyx_t_2 = <optimized out>
+        __pyx_lineno = <optimized out>
+        __pyx_filename = <optimized out>
+        __pyx_clineno = <optimized out>
+#9  __pyx_pw_6enumbs_6EnumBS_1__init__ (__pyx_v_self=0x7f929bd55210, 
+    __pyx_args=<optimized out>, __pyx_kwds=<optimized out>) at enumbs.cpp:2112
+        __pyx_v_dim = 0x0
+        __pyx_lineno = 0
+        __pyx_filename = 0x0
+        __pyx_clineno = 0
+        __pyx_r = <optimized out>
+#10 0x00000000005d5fcf in _PyObject_MakeTpCall ()
+No symbol table info available.
+#11 0x000000000054ca58 in _PyEval_EvalFrameDefault ()
+No symbol table info available.
+#12 0x000000000054552a in _PyEval_EvalCodeWithName ()
+No symbol table info available.
+#13 0x00000000005d5a23 in _PyFunction_Vectorcall ()
+No symbol table info available.
+#14 0x0000000000547265 in _PyEval_EvalFrameDefault ()
+No symbol table info available.
+#15 0x000000000054552a in _PyEval_EvalCodeWithName ()
+No symbol table info available.
+#16 0x00000000005d5a23 in _PyFunction_Vectorcall ()
+No symbol table info available.
+#17 0x00000000005483b6 in _PyEval_EvalFrameDefault ()
+No symbol table info available.
+#18 0x00000000005d5846 in _PyFunction_Vectorcall ()
+No symbol table info available.
+#19 0x0000000000547265 in _PyEval_EvalFrameDefault ()
+No symbol table info available.
+#20 0x000000000054552a in _PyEval_EvalCodeWithName ()
+No symbol table info available.
+#21 0x0000000000684327 in PyEval_EvalCode ()
+No symbol table info available.
+#22 0x0000000000673a41 in ?? ()
+No symbol table info available.
+#23 0x0000000000673abb in ?? ()
+No symbol table info available.
+#24 0x0000000000673b61 in ?? ()
+No symbol table info available.
+#25 0x00000000006747e7 in PyRun_SimpleFileExFlags ()
+No symbol table info available.
+#26 0x00000000006b4072 in Py_RunMain ()
+No symbol table info available.
+#27 0x00000000006b43fd in Py_BytesMain ()
+No symbol table info available.
+#28 0x00007f92ce914083 in __libc_start_main (main=0x4c4510 <main>, argc=5, 
+    argv=0x7ffff401ef18, init=<optimized out>, fini=<optimized out>, 
+    rtld_fini=<optimized out>, stack_end=0x7ffff401ef08)
+    at ../csu/libc-start.c:308
+        self = <optimized out>
+        result = <optimized out>
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {7029776, 
+                3928459041487595709, 6137424, 140737287155472, 0, 0, 
+                -3928448750184683331, -3917800114220685123}, 
+              mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x5, 
+              0x7ffff401ef18}, data = {prev = 0x0, cleanup = 0x0, 
+              canceltype = 5}}}
+        not_first_call = <optimized out>
+#29 0x00000000005da67e in _start ()
+No symbol table info available.
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+Cython backtrace
+----------------
+#0  0x00007f92ce9d2c20 in __GI___wait4 () at /build/glibc-wuryBv/glibc-2.31/posix/../sysdeps/unix/sysv/linux/wait4.c:27
+#1  0x00007f92ce9d2bf0 in __GI___waitpid () at /build/glibc-wuryBv/glibc-2.31/posix/waitpid.c:38
+#2  0x00007f92cdc3cd69 in print_enhanced_backtrace () at /project/build/src/cysignals/implementation.c:672
+#3  0x00007f92cdc3ccf0 in sigdie () at /project/build/src/cysignals/implementation.c:698
+#4  0x00007f92cdc3f22c in sigdie_for_sig () at /project/build/src/cysignals/implementation.c:256
+#5  0x00007f92cdc3f210 in cysigs_signal_handler () at /project/build/src/cysignals/implementation.c:361
+#6  0x00007f92ceb213e0 in __restore_rt ()
+#7  0x00007f92a242127c in __Pyx_PyInt_From_int () at /home/cryptothesis/summer/pro-pnj-bkz/strategy_gen/enumbs.cpp:6839
+  6834                return PyLong_FromUnsignedLongLong((unsigned PY_LONG_LONG) value);
+  6835    #endif
+  6836            }
+  6837        } else {
+  6838            if (sizeof(int) <= sizeof(long)) {
+> 6839                return PyInt_FromLong((long) value);
+  6840    #ifdef HAVE_LONG_LONG
+  6841            } else if (sizeof(int) <= sizeof(PY_LONG_LONG)) {
+  6842                return PyLong_FromLongLong((PY_LONG_LONG) value);
+  6843    #endif
+#8  0x00007f92a242127c in __pyx_pf_6enumbs_6EnumBS___init__ () at /home/cryptothesis/summer/pro-pnj-bkz/strategy_gen/enumbs.cpp:2137
+  2132     *         cdef Params params
+  2133     *         print(params.threads)             # <<<<<<<<<<<<<<
+  2134     *         self._core = new EnumBS_c(params, dim)
+  2135     *
+  2136     */
+> 2137      __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_params->threads); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 12, __pyx_L1_error)
+  2138      __Pyx_GOTREF(__pyx_t_1);
+  2139      if (__Pyx_PrintOne(0, __pyx_t_1) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  2140      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  2141    
+#9  0x00007f92a2421230 in __pyx_pw_6enumbs_6EnumBS_1__init__ () at /home/cryptothesis/summer/pro-pnj-bkz/strategy_gen/enumbs.cpp:2112
+  2107      __pyx_L3_error:;
+  2108      __Pyx_AddTraceback("enumbs.EnumBS.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  2109      __Pyx_RefNannyFinishContext();
+  2110      return -1;
+  2111      __pyx_L4_argument_unpacking_done:;
+> 2112      __pyx_r = __pyx_pf_6enumbs_6EnumBS___init__(((struct __pyx_obj_6enumbs_EnumBS *)__pyx_v_self), __pyx_v_dim);
+  2113    
+  2114      /* function exit code */
+  2115      __Pyx_RefNannyFinishContext();
+  2116      return __pyx_r;
+#10 0x00000000005d5dd0 in _PyObject_MakeTpCall ()
+#11 0x0000000000546b40 in _PyEval_EvalFrameDefault ()
+#12 0x00000000005452c0 in _PyEval_EvalCodeWithName ()
+#13 0x00000000005d5690 in _PyFunction_Vectorcall ()
+#14 0x0000000000546b40 in _PyEval_EvalFrameDefault ()
+#15 0x00000000005452c0 in _PyEval_EvalCodeWithName ()
+#16 0x00000000005d5690 in _PyFunction_Vectorcall ()
+#17 0x0000000000546b40 in _PyEval_EvalFrameDefault ()
+#18 0x00000000005d5690 in _PyFunction_Vectorcall ()
+#19 0x0000000000546b40 in _PyEval_EvalFrameDefault ()
+#20 0x00000000005452c0 in _PyEval_EvalCodeWithName ()
+#21 0x0000000000684300 in PyEval_EvalCode ()
+#22 0x0000000000000000 in ?? ()
+#23 0x0000000000000000 in ?? ()
+#24 0x0000000000000000 in ?? ()
+#25 0x0000000000674650 in PyRun_SimpleFileExFlags ()
+#26 0x00000000006b3e60 in Py_RunMain ()
+#27 0x00000000006b43d0 in Py_BytesMain ()
+#28 0x00007f92ce913f90 in __libc_start_main () at /build/glibc-wuryBv/glibc-2.31/csu/../csu/libc-start.c:308
+#29 0x00000000005da650 in _start ()
+
+[Inferior 1 (process 2821279) detached]
+27	../sysdeps/unix/sysv/linux/wait4.c: No such file or directory.

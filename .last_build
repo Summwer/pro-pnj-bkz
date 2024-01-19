@@ -1,30 +1,37 @@
 Git status: 
-commit b15a450d613eab84a61ef7cc212ddbec75a4475b
+commit b6bc3e4f8325aa2b69ab7e47d97a4fd3f0bca42d
 Author: summwer <15091002@buaa.edu.cn>
 
-    enumbsGeneration-in-Python
+    update enfvironment
 
+  (commit or discard the untracked or modified content in submodules)
 	modified:   .last_build
 	modified:   Makefile.local
-	modified:   build/temp.linux-x86_64-3.8/g6k/siever.o
-	modified:   build/temp.linux-x86_64-3.8/g6k/siever_params.o
+	modified:   README.rst
 	modified:   cuda/GPUStreamGeneral.o
+	modified:   g6k-fplll (untracked content)
+	modified:   g6k-fpylll (untracked content)
+	modified:   g6k/algorithms/bkz.py
+	modified:   g6k/algorithms/pump.py
 	modified:   g6k/siever.cpp
-	modified:   g6k/siever.cpython-38-x86_64-linux-gnu.so
-	modified:   g6k/siever.pyx
-	modified:   g6k/siever_params.cpp
-	modified:   g6k/siever_params.cpython-38-x86_64-linux-gnu.so
-	modified:   g6k/utils/__pycache__/stats.cpython-38.pyc
-	modified:   g6k/utils/__pycache__/util.cpython-38.pyc
+	modified:   kernel/Makefile
 	modified:   kernel/bgj1_sieve.o
 	modified:   kernel/control.o
+	modified:   kernel/gpu_sieve.cpp
 	modified:   kernel/gpu_sieve.o
-	modified:   kernel/libG6K.so
 	modified:   kernel/sieving.o
 	modified:   kernel/triple_sieve.o
 	modified:   kernel/triple_sieve_mt.o
+	modified:   lwechallenge/040-025-last-pump.txt
+	modified:   lwechallenge/040-025-midmat-default-g6k.txt
+	modified:   lwechallenge/040-025-midmat.txt
+	modified:   lwechallenge/040-030-solution.txt
+	modified:   lwechallenge/040-035-midmat-default-g6k.txt
+	modified:   lwechallenge/060-010-solution.txt
+	modified:   lwechallenge/080-005-midmat.txt
+	modified:   lwechallenge/080-005-solution.txt
+	modified:   practical_cost_test.py
 	modified:   runchal2.sh
-	modified:   svp_challenge.py
 =================
-rebuild.sh -f -y -j 10 -m 128 --gpuvecnum 65536
+rebuild.sh -y
 =================

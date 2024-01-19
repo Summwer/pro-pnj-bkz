@@ -53,6 +53,18 @@ python Pnj-BKZ_Simulator_HKZ_Reduction_Verification.py
 
 
 
+One can test the cost of each Pump/PnjBKZ by implementing the file `practical_cost_test.py` by running 
+
+.. code-block:: bash
+
+python practical_cost_test.py
+
+The default setting is gpus=2, threads=32. 
+
+
+
+
+
 ******************************
 G6K - GPU Tensor
 ******************************

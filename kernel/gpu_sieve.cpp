@@ -16,7 +16,7 @@ size_t automaxbuckets(size_t max_nr_buckets, size_t dbsize)
 //        while (x < max_nr_buckets || x < 65536)
 //            x *= 2;
         max_nr_buckets = ((max_nr_buckets + 1023)/1024) * 1024;
-        std::cerr << "max_nr_buckets = " << max_nr_buckets << std::endl;
+        // std::cerr << "max_nr_buckets = " << max_nr_buckets << std::endl;
     }
     return max_nr_buckets;
 }

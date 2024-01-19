@@ -1,13 +1,13 @@
 #!/bin/bash
 
-gpus=4
+gpus=2
 threads=40
 run=1
 # run=seed
 
 tag=rampup8_dh32_highprecd
 
-dim=140
+dim=180
 
 loadmatrix=""
 #loadmatrix="--load_matrix <file> --workout/start_n <firstsievedim>"
