@@ -1,37 +1,46 @@
 Git status: 
-commit b6bc3e4f8325aa2b69ab7e47d97a4fd3f0bca42d
+commit 62ba561632add2cc2dcf813e18d39f9dbca8f1e3
 Author: summwer <15091002@buaa.edu.cn>
 
-    update enfvironment
+    enumbs
 
   (commit or discard the untracked or modified content in submodules)
 	modified:   .last_build
 	modified:   Makefile.local
-	modified:   README.rst
-	modified:   cuda/GPUStreamGeneral.o
-	modified:   g6k-fplll (untracked content)
+	modified:   ProPnjBKZ_for_lwe.py
+	modified:   g6k-fplll (modified content)
 	modified:   g6k-fpylll (untracked content)
-	modified:   g6k/algorithms/bkz.py
-	modified:   g6k/algorithms/pump.py
-	modified:   g6k/siever.cpp
-	modified:   kernel/Makefile
 	modified:   kernel/bgj1_sieve.o
 	modified:   kernel/control.o
-	modified:   kernel/gpu_sieve.cpp
 	modified:   kernel/gpu_sieve.o
 	modified:   kernel/sieving.o
 	modified:   kernel/triple_sieve.o
 	modified:   kernel/triple_sieve_mt.o
+	modified:   logs/lwe_challenge,cryptothesis-HP-Z8-G4-Workstation,2024-01-16_21:02,b'2024-01-06'-b'merge-enumbs-and-practical-cost-model'-b'b6bc3e4'.log
+	modified:   lwechal-test-dd/default_g6k_main(32+2gpus)/40-035.log
 	modified:   lwechallenge/040-025-last-pump.txt
-	modified:   lwechallenge/040-025-midmat-default-g6k.txt
 	modified:   lwechallenge/040-025-midmat.txt
-	modified:   lwechallenge/040-030-solution.txt
+	modified:   lwechallenge/040-025-solution.txt
 	modified:   lwechallenge/040-035-midmat-default-g6k.txt
-	modified:   lwechallenge/060-010-solution.txt
-	modified:   lwechallenge/080-005-midmat.txt
-	modified:   lwechallenge/080-005-solution.txt
-	modified:   practical_cost_test.py
 	modified:   runchal2.sh
+	modified:   strategy_gen/build/lib.linux-x86_64-cpython-38/enumbs.cpython-38-x86_64-linux-gnu.so
+	modified:   strategy_gen/build/temp.linux-x86_64-cpython-38/enumbs.o
+	modified:   strategy_gen/decl.pxd
+	modified:   strategy_gen/enumbs.cpp
+	modified:   strategy_gen/enumbs.cpython-38-x86_64-linux-gnu.so
+	modified:   strategy_gen/enumbs.pxd
+	modified:   strategy_gen/enumbs.pyx
+	modified:   strategy_gen/framework/Makefile
+	modified:   strategy_gen/framework/bkz_with_jump_simulator.cpp
+	modified:   strategy_gen/framework/bkz_with_jump_simulator.h
+	modified:   strategy_gen/framework/cost.h
+	modified:   strategy_gen/framework/enumbs.cpp
+	modified:   strategy_gen/framework/enumbs.h
+	modified:   strategy_gen/framework/libest.so
+	modified:   strategy_gen/framework/utils.cpp
+	modified:   strategy_gen/framework/utils.h
+	modified:   strategy_gen/setup.py
+	modified:   test.py
 =================
 rebuild.sh -y
 =================

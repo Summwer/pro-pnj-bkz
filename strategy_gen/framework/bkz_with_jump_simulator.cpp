@@ -1,7 +1,6 @@
 #include "bkz_with_jump_simulator.h"
 
 
-
 void BKZJSim::init(int d){
     cd.resize(d);
     FP_NR<FT> tmp_sum;

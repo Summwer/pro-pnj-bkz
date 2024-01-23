@@ -1,0 +1,44 @@
+GNU gdb (Ubuntu 10.2-0ubuntu1~20.04~1) 10.2
+Copyright (C) 2021 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word".
+(No debugging symbols found in /usr/lib/x86_64-linux-gnu/valgrind/memcheck-amd64-linux)
+0x00000000580f5eb7 in ?? ()
+
+Stack backtrace
+---------------
+No symbol table info available.
+#1  0x00000000580a8a70 in ?? ()
+No symbol table info available.
+#2  0x00000000580a4d6b in ?? ()
+No symbol table info available.
+#3  0x00000000580a65aa in ?? ()
+No symbol table info available.
+#4  0x00000000580f5fd5 in ?? ()
+No symbol table info available.
+#5  0x0000000000000000 in ?? ()
+No symbol table info available.
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+Cython backtrace
+----------------
+#0  0x0000000000000000 in ?? ()
+#1  0x0000000000000000 in ?? ()
+#2  0x0000000000000000 in ?? ()
+#3  0x0000000000000000 in ?? ()
+#4  0x0000000000000000 in ?? ()
+#5  0x0000000000000000 in ?? ()
+
+[Inferior 1 (process 524796) detached]

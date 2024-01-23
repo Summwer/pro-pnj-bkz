@@ -3,8 +3,8 @@
 #include "/usr/include/libalglib/stdafx.h"
 #include "/usr/include/libalglib/specialfunctions.h"
 
-using namespace std;
-using namespace fplll;
+// using namespace std;
+// using namespace fplll;
 
 class COST{
     public:
@@ -56,10 +56,11 @@ class COST{
         pair<double,double> pump_cost(int beta,int cost_model = 1);
         pair<double,double> bkz_cost(int d, int beta,int jump,int cost_model=1);
 
+        // Params params;
         
 
-        COST(Params params){
-            this->params = params;
+        COST(){ //Params params
+            // this->params = params;
         }
         // ~COST() {
         //     cout<<"COST: free function"<<endl;

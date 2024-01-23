@@ -13,7 +13,7 @@ loadmatrix=""
 #loadmatrix="--load_matrix <file> --workout/start_n <firstsievedim>"
 
 for ((; dim<=180; dim+=2)); do
-	
+
 	######### AUTOMATIC CONFIGURATION
 
 	fileprefix=svpchallenge_runs/svpchal_${dim}_${tag}
@@ -27,6 +27,7 @@ for ((; dim<=180; dim+=2)); do
 
 	dblimit=`echo "2.77 * e(l(4/3)*(($dim - $dfreemin - $oversieve)/2))" | bc -l | cut -d'.' -f1`
 
+
 	vecnum=`echo "sqrt( ${dblimit} * 2 ) * 2" | bc -l | cut -d'.' -f1`
 	if [ $vecnum -ge 65536 ]; then
 		vecnum=$(( (vecnum+1023)/1024 ))
@@ -34,6 +35,8 @@ for ((; dim<=180; dim+=2)); do
 	else
 		vecnum=65536
 	fi
+
+	echo $vecnum
 
 	maxsievedim=$(($dim - $dfreemin))
 	if [ $maxsievedim -gt 128 ]; then

@@ -14,9 +14,6 @@
             "framework/enumbs.h"
         ],
         "extra_compile_args": [
-            "-O3",
-            "-march=native",
-            "-Wp,-U_FORTIFY_SOURCE",
             "-fPIC",
             "-Ofast",
             "-march=native",
@@ -28,15 +25,15 @@
             "-Wextra",
             "-O3",
             "-march=native",
-            "-Wp,-D_FORTIFY_SOURCE=1"
+            "-Wp,-U_FORTIFY_SOURCE"
         ],
         "extra_link_args": [
             "-shared",
             "-pthread",
             "-L/home/cryptothesis/summer/pro-pnj-bkz/strategy_gen/framework",
             "-Wl,-rpath=/home/cryptothesis/summer/pro-pnj-bkz/strategy_gen/framework",
-            "-lalglib",
             "-lcurl",
+            "-lalglib",
             "-lmpfr",
             "-lgmp",
             "-lpthread",
@@ -50,7 +47,8 @@
         "language": "c++",
         "libraries": [
             "gmp",
-            "est"
+            "est",
+            "pthread"
         ],
         "name": "enumbs",
         "sources": [
@@ -1328,8 +1326,8 @@ typedef npy_clongdouble __pyx_t_5numpy_clongdouble_t;
  */
 typedef npy_cdouble __pyx_t_5numpy_complex_t;
 
-/* "enumbs.pxd":7
- * from decl cimport EnumBS as EnumBS_c
+/* "enumbs.pxd":8
+ * 
  * 
  * cdef class EnumBS(object):             # <<<<<<<<<<<<<<
  *     cdef EnumBS_c *_core
@@ -1532,6 +1530,23 @@ static CYTHON_INLINE int __Pyx_SetItemInt_Fast(PyObject *o, Py_ssize_t i, PyObje
   }
 #else
   #define __pyx_assertions_enabled() (!Py_OptimizeFlag)
+#endif
+
+/* ListAppend.proto */
+#if CYTHON_USE_PYLIST_INTERNALS && CYTHON_ASSUME_SAFE_MACROS
+static CYTHON_INLINE int __Pyx_PyList_Append(PyObject* list, PyObject* x) {
+    PyListObject* L = (PyListObject*) list;
+    Py_ssize_t len = Py_SIZE(list);
+    if (likely(L->allocated > len) & likely(len > (L->allocated >> 1))) {
+        Py_INCREF(x);
+        PyList_SET_ITEM(list, len, x);
+        __Pyx_SET_SIZE(list, len + 1);
+        return 0;
+    }
+    return PyList_Append(list, x);
+}
+#else
+#define __Pyx_PyList_Append(L,x) PyList_Append(L,x)
 #endif
 
 /* PyThreadStateGet.proto */
@@ -1943,6 +1958,8 @@ int __pyx_module_is_main_enumbs = 0;
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_TypeError;
 static PyObject *__pyx_builtin_ImportError;
+static const char __pyx_k_S[] = "S";
+static const char __pyx_k_i[] = "i";
 static const char __pyx_k_l[] = "l";
 static const char __pyx_k_dim[] = "dim";
 static const char __pyx_k_main[] = "__main__";
@@ -1984,6 +2001,7 @@ static PyObject *__pyx_n_s_EnumBS___reduce_cython;
 static PyObject *__pyx_n_s_EnumBS___setstate_cython;
 static PyObject *__pyx_n_s_EnumBS_get_strategy;
 static PyObject *__pyx_n_s_ImportError;
+static PyObject *__pyx_n_s_S;
 static PyObject *__pyx_n_s_TypeError;
 static PyObject *__pyx_n_s_cline_in_traceback;
 static PyObject *__pyx_n_s_dim;
@@ -1993,6 +2011,7 @@ static PyObject *__pyx_kp_s_enumbs_pyx;
 static PyObject *__pyx_n_s_float64;
 static PyObject *__pyx_n_s_get_strategy;
 static PyObject *__pyx_n_s_getstate;
+static PyObject *__pyx_n_s_i;
 static PyObject *__pyx_n_s_import;
 static PyObject *__pyx_n_s_int64;
 static PyObject *__pyx_n_s_l;
@@ -2036,12 +2055,12 @@ static PyObject *__pyx_codeobj__10;
 /* Late includes */
 #include "macros.h"
 
-/* "enumbs.pyx":11
+/* "enumbs.pyx":10
  * #function about EnumBS selection algorithm, to select an appropriate (blocksize,jump) strategy for reduction.
  * cdef class EnumBS(object):
  *     def __init__(self, dim):             # <<<<<<<<<<<<<<
- *         cdef Params params
- *         self._core = new EnumBS_c(params, dim)
+ *         #cdef Params params
+ * 
  */
 
 /* Python wrapper */
@@ -2073,7 +2092,7 @@ static int __pyx_pw_6enumbs_6EnumBS_1__init__(PyObject *__pyx_v_self, PyObject *
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 11, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 10, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
@@ -2084,7 +2103,7 @@ static int __pyx_pw_6enumbs_6EnumBS_1__init__(PyObject *__pyx_v_self, PyObject *
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 11, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 10, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("enumbs.EnumBS.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2098,7 +2117,6 @@ static int __pyx_pw_6enumbs_6EnumBS_1__init__(PyObject *__pyx_v_self, PyObject *
 }
 
 static int __pyx_pf_6enumbs_6EnumBS___init__(struct __pyx_obj_6enumbs_EnumBS *__pyx_v_self, PyObject *__pyx_v_dim) {
-  struct Params __pyx_v_params;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -2108,21 +2126,21 @@ static int __pyx_pf_6enumbs_6EnumBS___init__(struct __pyx_obj_6enumbs_EnumBS *__
   __Pyx_RefNannySetupContext("__init__", 0);
 
   /* "enumbs.pyx":13
- *     def __init__(self, dim):
- *         cdef Params params
- *         self._core = new EnumBS_c(params, dim)             # <<<<<<<<<<<<<<
+ *         #cdef Params params
  * 
+ *         self._core = new EnumBS_c(dim) #params,             # <<<<<<<<<<<<<<
  *         #self._core.print_param_setting()
+ * 
  */
   __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_dim); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 13, __pyx_L1_error)
-  __pyx_v_self->_core = new EnumBS(__pyx_v_params, __pyx_t_1);
+  __pyx_v_self->_core = new EnumBS(__pyx_t_1);
 
-  /* "enumbs.pyx":11
+  /* "enumbs.pyx":10
  * #function about EnumBS selection algorithm, to select an appropriate (blocksize,jump) strategy for reduction.
  * cdef class EnumBS(object):
  *     def __init__(self, dim):             # <<<<<<<<<<<<<<
- *         cdef Params params
- *         self._core = new EnumBS_c(params, dim)
+ *         #cdef Params params
+ * 
  */
 
   /* function exit code */
@@ -2136,7 +2154,7 @@ static int __pyx_pf_6enumbs_6EnumBS___init__(struct __pyx_obj_6enumbs_EnumBS *__
   return __pyx_r;
 }
 
-/* "enumbs.pyx":18
+/* "enumbs.pyx":19
  * 
  *     #def strategy_gen(self, dim, dvol):
  *     def __call__(self, l):             # <<<<<<<<<<<<<<
@@ -2177,7 +2195,7 @@ static PyObject *__pyx_pw_6enumbs_6EnumBS_3__call__(PyObject *__pyx_v_self, PyOb
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__call__") < 0)) __PYX_ERR(0, 18, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__call__") < 0)) __PYX_ERR(0, 19, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
@@ -2188,7 +2206,7 @@ static PyObject *__pyx_pw_6enumbs_6EnumBS_3__call__(PyObject *__pyx_v_self, PyOb
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__call__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 18, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__call__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 19, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("enumbs.EnumBS.__call__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2220,48 +2238,48 @@ static PyObject *__pyx_pf_6enumbs_6EnumBS_2__call__(struct __pyx_obj_6enumbs_Enu
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__call__", 0);
 
-  /* "enumbs.pyx":27
+  /* "enumbs.pyx":28
  *         """
  * 
  *         dim = len(l)             # <<<<<<<<<<<<<<
  *         cdef np.ndarray l0 = zeros(dim, dtype=float64)
  *         for i in range(dim):
  */
-  __pyx_t_1 = PyObject_Length(__pyx_v_l); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_t_1 = PyObject_Length(__pyx_v_l); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 28, __pyx_L1_error)
   __pyx_v_dim = __pyx_t_1;
 
-  /* "enumbs.pyx":28
+  /* "enumbs.pyx":29
  * 
  *         dim = len(l)
  *         cdef np.ndarray l0 = zeros(dim, dtype=float64)             # <<<<<<<<<<<<<<
  *         for i in range(dim):
  *             l0[i] = l[i]
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 29, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyInt_FromSsize_t(__pyx_v_dim); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_t_3 = PyInt_FromSsize_t(__pyx_v_dim); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 29, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 29, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_3);
   PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_3);
   __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 29, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_float64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_float64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 29, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 28, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 29, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 29, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 28, __pyx_L1_error)
+  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 29, __pyx_L1_error)
   __pyx_v_l0 = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "enumbs.pyx":29
+  /* "enumbs.pyx":30
  *         dim = len(l)
  *         cdef np.ndarray l0 = zeros(dim, dtype=float64)
  *         for i in range(dim):             # <<<<<<<<<<<<<<
@@ -2273,29 +2291,29 @@ static PyObject *__pyx_pf_6enumbs_6EnumBS_2__call__(struct __pyx_obj_6enumbs_Enu
   for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
     __pyx_v_i = __pyx_t_7;
 
-    /* "enumbs.pyx":30
+    /* "enumbs.pyx":31
  *         cdef np.ndarray l0 = zeros(dim, dtype=float64)
  *         for i in range(dim):
  *             l0[i] = l[i]             # <<<<<<<<<<<<<<
  * 
  *         sig_on()
  */
-    __pyx_t_5 = __Pyx_GetItemInt(__pyx_v_l, __pyx_v_i, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 30, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_GetItemInt(__pyx_v_l, __pyx_v_i, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 31, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    if (unlikely(__Pyx_SetItemInt(((PyObject *)__pyx_v_l0), __pyx_v_i, __pyx_t_5, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1) < 0)) __PYX_ERR(0, 30, __pyx_L1_error)
+    if (unlikely(__Pyx_SetItemInt(((PyObject *)__pyx_v_l0), __pyx_v_i, __pyx_t_5, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1) < 0)) __PYX_ERR(0, 31, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
 
-  /* "enumbs.pyx":32
+  /* "enumbs.pyx":33
  *             l0[i] = l[i]
  * 
  *         sig_on()             # <<<<<<<<<<<<<<
  *         self._core.enumbs_est_in_parallel(<double*> l0.data);
  *         #self._core.enumbs_est_in_parallel(dim, dvol);
  */
-  __pyx_t_8 = sig_on(); if (unlikely(__pyx_t_8 == ((int)0))) __PYX_ERR(0, 32, __pyx_L1_error)
+  __pyx_t_8 = sig_on(); if (unlikely(__pyx_t_8 == ((int)0))) __PYX_ERR(0, 33, __pyx_L1_error)
 
-  /* "enumbs.pyx":33
+  /* "enumbs.pyx":34
  * 
  *         sig_on()
  *         self._core.enumbs_est_in_parallel(<double*> l0.data);             # <<<<<<<<<<<<<<
@@ -2304,7 +2322,7 @@ static PyObject *__pyx_pf_6enumbs_6EnumBS_2__call__(struct __pyx_obj_6enumbs_Enu
  */
   __pyx_v_self->_core->enumbs_est_in_parallel(((double *)__pyx_v_l0->data));
 
-  /* "enumbs.pyx":35
+  /* "enumbs.pyx":36
  *         self._core.enumbs_est_in_parallel(<double*> l0.data);
  *         #self._core.enumbs_est_in_parallel(dim, dvol);
  *         sig_off()             # <<<<<<<<<<<<<<
@@ -2313,12 +2331,12 @@ static PyObject *__pyx_pf_6enumbs_6EnumBS_2__call__(struct __pyx_obj_6enumbs_Enu
  */
   sig_off();
 
-  /* "enumbs.pyx":36
+  /* "enumbs.pyx":37
  *         #self._core.enumbs_est_in_parallel(dim, dvol);
  *         sig_off()
  *         self.have_strategy_gen = True             # <<<<<<<<<<<<<<
  * 
- *     def get_strategy(self):
+ * 
  */
   __Pyx_INCREF(Py_True);
   __Pyx_GIVEREF(Py_True);
@@ -2326,7 +2344,7 @@ static PyObject *__pyx_pf_6enumbs_6EnumBS_2__call__(struct __pyx_obj_6enumbs_Enu
   __Pyx_DECREF(__pyx_v_self->have_strategy_gen);
   __pyx_v_self->have_strategy_gen = Py_True;
 
-  /* "enumbs.pyx":18
+  /* "enumbs.pyx":19
  * 
  *     #def strategy_gen(self, dim, dvol):
  *     def __call__(self, l):             # <<<<<<<<<<<<<<
@@ -2351,8 +2369,8 @@ static PyObject *__pyx_pf_6enumbs_6EnumBS_2__call__(struct __pyx_obj_6enumbs_Enu
   return __pyx_r;
 }
 
-/* "enumbs.pyx":38
- *         self.have_strategy_gen = True
+/* "enumbs.pyx":40
+ * 
  * 
  *     def get_strategy(self):             # <<<<<<<<<<<<<<
  * 
@@ -2377,6 +2395,8 @@ static PyObject *__pyx_pw_6enumbs_6EnumBS_5get_strategy(PyObject *__pyx_v_self, 
 static PyObject *__pyx_pf_6enumbs_6EnumBS_4get_strategy(struct __pyx_obj_6enumbs_EnumBS *__pyx_v_self) {
   int __pyx_v_strategy_size;
   PyArrayObject *__pyx_v_strategy = 0;
+  PyObject *__pyx_v_S = NULL;
+  int __pyx_v_i;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -2385,12 +2405,15 @@ static PyObject *__pyx_pf_6enumbs_6EnumBS_4get_strategy(struct __pyx_obj_6enumbs
   PyObject *__pyx_t_4 = NULL;
   PyObject *__pyx_t_5 = NULL;
   int __pyx_t_6;
+  int __pyx_t_7;
+  int __pyx_t_8;
+  int __pyx_t_9;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_strategy", 0);
 
-  /* "enumbs.pyx":40
+  /* "enumbs.pyx":42
  *     def get_strategy(self):
  * 
  *         assert(self.have_strategy_gen)             # <<<<<<<<<<<<<<
@@ -2399,15 +2422,15 @@ static PyObject *__pyx_pf_6enumbs_6EnumBS_4get_strategy(struct __pyx_obj_6enumbs
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(__pyx_assertions_enabled())) {
-    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_self->have_strategy_gen); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 40, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_self->have_strategy_gen); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 42, __pyx_L1_error)
     if (unlikely(!__pyx_t_1)) {
       PyErr_SetNone(PyExc_AssertionError);
-      __PYX_ERR(0, 40, __pyx_L1_error)
+      __PYX_ERR(0, 42, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "enumbs.pyx":41
+  /* "enumbs.pyx":43
  * 
  *         assert(self.have_strategy_gen)
  *         strategy_size = self._core.strategy_size()             # <<<<<<<<<<<<<<
@@ -2416,18 +2439,18 @@ static PyObject *__pyx_pf_6enumbs_6EnumBS_4get_strategy(struct __pyx_obj_6enumbs
  */
   __pyx_v_strategy_size = __pyx_v_self->_core->strategy_size();
 
-  /* "enumbs.pyx":43
+  /* "enumbs.pyx":45
  *         strategy_size = self._core.strategy_size()
  * 
  *         cdef np.ndarray strategy = zeros((strategy_size,3), dtype=int64)             # <<<<<<<<<<<<<<
  * 
  *         sig_on()
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 43, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_strategy_size); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 43, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_strategy_size); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 43, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_3);
   PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_3);
@@ -2435,36 +2458,36 @@ static PyObject *__pyx_pf_6enumbs_6EnumBS_4get_strategy(struct __pyx_obj_6enumbs
   __Pyx_GIVEREF(__pyx_int_3);
   PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_int_3);
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 43, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4);
   __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 43, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_int64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 43, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_int64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 43, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 43, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 43, __pyx_L1_error)
+  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 45, __pyx_L1_error)
   __pyx_v_strategy = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "enumbs.pyx":45
+  /* "enumbs.pyx":47
  *         cdef np.ndarray strategy = zeros((strategy_size,3), dtype=int64)
  * 
  *         sig_on()             # <<<<<<<<<<<<<<
  *         self._core.get_strategy(<long*> strategy.data)
  *         sig_off()
  */
-  __pyx_t_6 = sig_on(); if (unlikely(__pyx_t_6 == ((int)0))) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_6 = sig_on(); if (unlikely(__pyx_t_6 == ((int)0))) __PYX_ERR(0, 47, __pyx_L1_error)
 
-  /* "enumbs.pyx":46
+  /* "enumbs.pyx":48
  * 
  *         sig_on()
  *         self._core.get_strategy(<long*> strategy.data)             # <<<<<<<<<<<<<<
@@ -2473,17 +2496,69 @@ static PyObject *__pyx_pf_6enumbs_6EnumBS_4get_strategy(struct __pyx_obj_6enumbs
  */
   __pyx_v_self->_core->get_strategy(((long *)__pyx_v_strategy->data));
 
-  /* "enumbs.pyx":47
+  /* "enumbs.pyx":49
  *         sig_on()
  *         self._core.get_strategy(<long*> strategy.data)
  *         sig_off()             # <<<<<<<<<<<<<<
  * 
- *         #S = []
+ *         S = []
  */
   sig_off();
 
-  /* "enumbs.pyx":38
- *         self.have_strategy_gen = True
+  /* "enumbs.pyx":51
+ *         sig_off()
+ * 
+ *         S = []             # <<<<<<<<<<<<<<
+ *         for i in range(strategy_size):
+ *             S.append(tuple(strategy[i]))
+ */
+  __pyx_t_5 = PyList_New(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 51, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_v_S = ((PyObject*)__pyx_t_5);
+  __pyx_t_5 = 0;
+
+  /* "enumbs.pyx":52
+ * 
+ *         S = []
+ *         for i in range(strategy_size):             # <<<<<<<<<<<<<<
+ *             S.append(tuple(strategy[i]))
+ * 
+ */
+  __pyx_t_6 = __pyx_v_strategy_size;
+  __pyx_t_7 = __pyx_t_6;
+  for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
+    __pyx_v_i = __pyx_t_8;
+
+    /* "enumbs.pyx":53
+ *         S = []
+ *         for i in range(strategy_size):
+ *             S.append(tuple(strategy[i]))             # <<<<<<<<<<<<<<
+ * 
+ *         return S
+ */
+    __pyx_t_5 = __Pyx_GetItemInt(((PyObject *)__pyx_v_strategy), __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 53, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_4 = __Pyx_PySequence_Tuple(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 53, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __pyx_t_9 = __Pyx_PyList_Append(__pyx_v_S, __pyx_t_4); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 53, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  }
+
+  /* "enumbs.pyx":55
+ *             S.append(tuple(strategy[i]))
+ * 
+ *         return S             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __Pyx_INCREF(__pyx_v_S);
+  __pyx_r = __pyx_v_S;
+  goto __pyx_L0;
+
+  /* "enumbs.pyx":40
+ * 
  * 
  *     def get_strategy(self):             # <<<<<<<<<<<<<<
  * 
@@ -2491,8 +2566,6 @@ static PyObject *__pyx_pf_6enumbs_6EnumBS_4get_strategy(struct __pyx_obj_6enumbs
  */
 
   /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
@@ -2502,13 +2575,14 @@ static PyObject *__pyx_pf_6enumbs_6EnumBS_4get_strategy(struct __pyx_obj_6enumbs
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_strategy);
+  __Pyx_XDECREF(__pyx_v_S);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "enumbs.pyx":55
- *         #return S
+/* "enumbs.pyx":58
+ * 
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
  *         del self._core
@@ -2530,16 +2604,17 @@ static void __pyx_pf_6enumbs_6EnumBS_6__dealloc__(struct __pyx_obj_6enumbs_EnumB
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "enumbs.pyx":56
+  /* "enumbs.pyx":59
  * 
  *     def __dealloc__(self):
  *         del self._core             # <<<<<<<<<<<<<<
  * 
+ * 
  */
   delete __pyx_v_self->_core;
 
-  /* "enumbs.pyx":55
- *         #return S
+  /* "enumbs.pyx":58
+ * 
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
  *         del self._core
@@ -4011,6 +4086,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_EnumBS___setstate_cython, __pyx_k_EnumBS___setstate_cython, sizeof(__pyx_k_EnumBS___setstate_cython), 0, 0, 1, 1},
   {&__pyx_n_s_EnumBS_get_strategy, __pyx_k_EnumBS_get_strategy, sizeof(__pyx_k_EnumBS_get_strategy), 0, 0, 1, 1},
   {&__pyx_n_s_ImportError, __pyx_k_ImportError, sizeof(__pyx_k_ImportError), 0, 0, 1, 1},
+  {&__pyx_n_s_S, __pyx_k_S, sizeof(__pyx_k_S), 0, 0, 1, 1},
   {&__pyx_n_s_TypeError, __pyx_k_TypeError, sizeof(__pyx_k_TypeError), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
   {&__pyx_n_s_dim, __pyx_k_dim, sizeof(__pyx_k_dim), 0, 0, 1, 1},
@@ -4020,6 +4096,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_float64, __pyx_k_float64, sizeof(__pyx_k_float64), 0, 0, 1, 1},
   {&__pyx_n_s_get_strategy, __pyx_k_get_strategy, sizeof(__pyx_k_get_strategy), 0, 0, 1, 1},
   {&__pyx_n_s_getstate, __pyx_k_getstate, sizeof(__pyx_k_getstate), 0, 0, 1, 1},
+  {&__pyx_n_s_i, __pyx_k_i, sizeof(__pyx_k_i), 0, 0, 1, 1},
   {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},
   {&__pyx_n_s_int64, __pyx_k_int64, sizeof(__pyx_k_int64), 0, 0, 1, 1},
   {&__pyx_n_s_l, __pyx_k_l, sizeof(__pyx_k_l), 0, 0, 1, 1},
@@ -4045,7 +4122,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 29, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 30, __pyx_L1_error)
   __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(1, 2, __pyx_L1_error)
   __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_n_s_ImportError); if (!__pyx_builtin_ImportError) __PYX_ERR(2, 945, __pyx_L1_error)
   return 0;
@@ -4098,17 +4175,17 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__4);
   __Pyx_GIVEREF(__pyx_tuple__4);
 
-  /* "enumbs.pyx":38
- *         self.have_strategy_gen = True
+  /* "enumbs.pyx":40
+ * 
  * 
  *     def get_strategy(self):             # <<<<<<<<<<<<<<
  * 
  *         assert(self.have_strategy_gen)
  */
-  __pyx_tuple__5 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_strategy_size, __pyx_n_s_strategy); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 38, __pyx_L1_error)
+  __pyx_tuple__5 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_strategy_size, __pyx_n_s_strategy, __pyx_n_s_S, __pyx_n_s_i); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
-  __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_enumbs_pyx, __pyx_n_s_get_strategy, 38, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) __PYX_ERR(0, 38, __pyx_L1_error)
+  __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_enumbs_pyx, __pyx_n_s_get_strategy, 40, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) __PYX_ERR(0, 40, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
@@ -4189,7 +4266,7 @@ static int __Pyx_modinit_type_init_code(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
-  if (PyType_Ready(&__pyx_type_6enumbs_EnumBS) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6enumbs_EnumBS) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_6enumbs_EnumBS.tp_print = 0;
   #endif
@@ -4198,7 +4275,7 @@ static int __Pyx_modinit_type_init_code(void) {
   }
   #if CYTHON_UPDATE_DESCRIPTOR_DOC
   {
-    PyObject *wrapper = PyObject_GetAttrString((PyObject *)&__pyx_type_6enumbs_EnumBS, "__call__"); if (unlikely(!wrapper)) __PYX_ERR(0, 10, __pyx_L1_error)
+    PyObject *wrapper = PyObject_GetAttrString((PyObject *)&__pyx_type_6enumbs_EnumBS, "__call__"); if (unlikely(!wrapper)) __PYX_ERR(0, 9, __pyx_L1_error)
     if (Py_TYPE(wrapper) == &PyWrapperDescr_Type) {
       __pyx_wrapperbase_6enumbs_6EnumBS_2__call__ = *((PyWrapperDescrObject *)wrapper)->d_base;
       __pyx_wrapperbase_6enumbs_6EnumBS_2__call__.doc = __pyx_doc_6enumbs_6EnumBS_2__call__;
@@ -4206,8 +4283,8 @@ static int __Pyx_modinit_type_init_code(void) {
     }
   }
   #endif
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_EnumBS, (PyObject *)&__pyx_type_6enumbs_EnumBS) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_6enumbs_EnumBS) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_EnumBS, (PyObject *)&__pyx_type_6enumbs_EnumBS) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_6enumbs_EnumBS) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
   __pyx_ptype_6enumbs_EnumBS = &__pyx_type_6enumbs_EnumBS;
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -4507,10 +4584,10 @@ if (!__Pyx_RefNanny) {
 
   /* "enumbs.pyx":6
  * cimport numpy as np
- * from decl cimport Params
+ * #from decl cimport Params
  * from numpy import zeros, float64, int64             # <<<<<<<<<<<<<<
  * 
- * 
+ * #function about EnumBS selection algorithm, to select an appropriate (blocksize,jump) strategy for reduction.
  */
   __pyx_t_1 = PyList_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -4540,16 +4617,16 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "enumbs.pyx":38
- *         self.have_strategy_gen = True
+  /* "enumbs.pyx":40
+ * 
  * 
  *     def get_strategy(self):             # <<<<<<<<<<<<<<
  * 
  *         assert(self.have_strategy_gen)
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_6enumbs_6EnumBS_5get_strategy, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_EnumBS_get_strategy, NULL, __pyx_n_s_enumbs, __pyx_d, ((PyObject *)__pyx_codeobj__6)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 38, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_6enumbs_6EnumBS_5get_strategy, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_EnumBS_get_strategy, NULL, __pyx_n_s_enumbs, __pyx_d, ((PyObject *)__pyx_codeobj__6)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6enumbs_EnumBS->tp_dict, __pyx_n_s_get_strategy, __pyx_t_2) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6enumbs_EnumBS->tp_dict, __pyx_n_s_get_strategy, __pyx_t_2) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   PyType_Modified(__pyx_ptype_6enumbs_EnumBS);
 
@@ -4579,7 +4656,7 @@ if (!__Pyx_RefNanny) {
  * 
  * from cysignals.signals cimport sig_on, sig_off             # <<<<<<<<<<<<<<
  * cimport numpy as np
- * from decl cimport Params
+ * #from decl cimport Params
  */
   __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);

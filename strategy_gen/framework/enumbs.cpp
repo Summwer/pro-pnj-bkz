@@ -1,15 +1,17 @@
 #include "enumbs.h"
-#include <unistd.h>
+// #include <unistd.h>
+
 
 void EnumBS::set_threads(int nr)
 {
     assert(nr >= 1);
+    // cout<<"set_threads"<<endl;
     threadpool.resize(nr);
 }
 
 
 void EnumBS::print_strategy(vector<EnumBS::strategy> S){
-    cout<<"S(beta,jump,tours):[";
+    printf("S(beta,jump,tours):[");
     // if(int(S.size()) > 50){
     //     for(int i = max(0,int(S.size()) - 10); i < int(S.size()); i ++){
     //         printf("(%4d,%4d,%4d)",S[i].beta,S[i].jump,S[i].tours);
@@ -26,7 +28,7 @@ void EnumBS::print_strategy(vector<EnumBS::strategy> S){
         if(i!=int(S.size()) - 1)
             printf(",");
     }
-    cout<<"]"<<endl;
+    printf("]\n");
 }
 
 void EnumBS::print_BS(vector<blocksize_strategy> BS){
@@ -1070,7 +1072,6 @@ void EnumBS::print_param_setting(){
             break;
     }
     cout<<endl;
-
 }
 
 
@@ -1324,8 +1325,6 @@ void EnumBS::enumbs_est_in_parallel(double* l_array){
     if(params.cost_model >= 2)
         printf("Min Cost = %3.2f log2(sec) = %3.2f s, Memory Cost = %3.2f log2(bit) = %3.2f GB \n", Gmin, pow(2,Gmin), Bmin, pow(2,Bmin-33));
         // printf("Min Cost = %3.2f log2(sec) = %3.2f h, Memory Cost = %3.2f log2(bit) = %3.2f TB \n", Gmin, pow(2,Gmin)/3600, Bmin, pow(2,Bmin-43));
-
-    
 }
 
 

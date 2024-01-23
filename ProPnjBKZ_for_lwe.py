@@ -213,14 +213,14 @@ def lwe_kernel(arg0, params=None, seed=None):
     # print(log2_rr)
 
     
-    # enumbs = EnumBS(d)
-    # T0_enumbs = time.time()
-    # enumbs.strategy_gen(log2_rr)
-    # print("Cost for generate strategy through EnumBS: %.2f sec" %(time.time()-T0_enumbs))
-    # #enumbs.strategy_gen(d, dvol)
-    # blocksizes = enumbs.get_strategy()
+    enumbs = EnumBS(d)
+    T0_enumbs = time.time()
+    enumbs(log2_rr)
+    print("Cost for generate strategy through EnumBS: %.2f sec" %(time.time()-T0_enumbs))
+    #enumbs.strategy_gen(d, dvol)
+    blocksizes = enumbs.get_strategy()
     
-    blocksizes = None
+    # blocksizes = None
     
     if blocksizes is None:
         blocksizes = list(range(10, d)) + list(reversed(range(b-14, 60, -10))) + list(range(b - 12, b + 25, 2)) # noqa

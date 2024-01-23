@@ -24,24 +24,28 @@ def read_from_makefile(field):
 extra_compile_args = read_from_makefile("CXXFLAGS")
 extra_link_args = read_from_makefile("LDFLAGS") + read_from_makefile("LIBADD")
 
+
 kwds = {
     "language": "c++",
     "extra_compile_args": extra_compile_args,
     "extra_link_args": extra_link_args,
-    "libraries": ["gmp",  "est"], #"pthread",
+    "libraries": ["gmp",  "est", "pthread"],
     "include_dirs": [numpy.get_include()]
     }
 
 extensions = [
     Extension("enumbs", ["enumbs.pyx"], **kwds),
-    # Extension("g6k.siever_params", ["g6k/siever_param.pyx"], **kwds)
+    # Extension("cost", ["cost.pyx"], **kwds)
+    # Extension("test", ["test.pyx"], **kwds)
 ]
+
+
 
 setup(
     name="enumbs",
     version="0.0.1",
     ext_modules=cythonize(extensions, compiler_directives={'binding': True,
                                                            'embedsignature': True,
-                                                           'language_level': 2}),
+                                                           'language_level': 2},  gdb_debug=True),
     packages=[],
 )

@@ -26,8 +26,11 @@ class BKZJSim{
         vector<FP_NR<FT>> cd;
         Params params;
 
-        BKZJSim(Params params, int d){
-            this->params = params;
+        
+
+        BKZJSim(int d){
+            // cout<<this->params.threads<<endl;
+            // this->params = params;
             init(d);
         }
         // ~BKZJSim() {

@@ -1,7 +1,7 @@
-#include "bkz_with_jump_simulator.h"
-// #include "bssa.h"
-#include <fplll/threadpool.h>
-
+// #include "bkz_with_jump_simulator.h"
+#include "bssa.h"
+// #include <fplll/threadpool.h>
+// #include <thread>
 
 class EnumBS{
     private:
@@ -90,7 +90,7 @@ class EnumBS{
 
         
 
-        void print_param_setting();
+        
         
 
         // pair<double,double> strategy_verification( vector<double> l,vector<strategy> strategy);
@@ -98,13 +98,18 @@ class EnumBS{
 
     public:
         int strategy_size() const { return bsmin.S.size(); }
+
+        void print_param_setting();
         
-        explicit EnumBS(Params params,int d){
+        explicit EnumBS(int d){ //Params params,
             this->d = d;
-            this->sim = new BKZJSim(params,d);
-            this->cost = new COST(params);
-            this->params = params;
+            this->sim = new BKZJSim(d);
+            this->cost = new COST();
+            // this->params = params;
             //cout<<"enumbs min_G_prec = "<< params.min_G_prec <<endl;
+        }
+        ~EnumBS(){
+            //cout<<"cpp free function"<<endl;
         }
  
         void enumbs_est_in_parallel(double* l_array);

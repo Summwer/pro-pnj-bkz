@@ -8,7 +8,6 @@
 #include <chrono>
 
 
-
 using namespace std;
 using namespace boost;
 using namespace fplll;
@@ -40,14 +39,14 @@ struct Params{
     int gap = 1; //gap -- gap of each beta;
     int J_gap = 1; //J_gap -- gap of each jump value;
     //cost_model: 1: gate model; 2: sec model(in qd) with threads=32, gpus = 2; 3: sec model(in dd) with threads=32, gpus = 2;
-    int cost_model = 3; 
-    int compute_jub = 3; //Compute jump upper bound in 1:pessimistic d4f(B); 2: optimistic d4f(B); 3: d4f(beta)/2; 4: min(d4f(beta),0.1beta)
+    int cost_model = 2; 
+    int compute_jub = 2; //Compute jump upper bound in 1:pessimistic d4f(B); 2: optimistic d4f(B); 3: d4f(beta)/2; 4: min(d4f(beta),0.1beta)
 
 
     bool verbose = false; //print logging or not
     //progressieve_sieve: True: progressieve sieve; False: normal sieve
     
-    int threads = 2;
+    int threads = 10;
     int max_dim = MAX_DIM; //set the maximal blocksize to find the expected minimal  strategy
     double max_num = 1e3;
     double max_RAM = 1000; //43.58; //=1.5TB , //no-limit, 300
@@ -132,7 +131,7 @@ int draw_from_distribution(std::map<int,double> D, int sample_num=1000);
 vector<int> expand_samples(vector<int> samples,vector<double> prob,int sample_num);
 
 
-void gen_samples(ZZ_mat<ZT> &matrix, int m, int n, int q);
+// void gen_samples(ZZ_mat<ZT> &matrix, int m, int n, int q);
 void build_LWE_lattice(ZZ_mat<ZT> &matrix, ZZ_mat<ZT> A, int q);
 void kannan_embedding(ZZ_mat<ZT> &matrix, vector<Z_NR<ZT>> target, int factor=1);
 

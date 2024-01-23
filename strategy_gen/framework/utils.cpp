@@ -224,21 +224,21 @@ int draw_from_distribution(std::map<int,double> D, int sample_num){
     //return X[0]
 }
 
-
-void gen_samples(ZZ_mat<ZT> &matrix, int m, int n, int q){
-    /*
-    m, number of samples
-    n, dimension for each sample
-    */
+//It will occur a double free error!!!
+// void gen_samples(ZZ_mat<ZT> &matrix, int m, int n, int q){
+//     /*
+//     m, number of samples
+//     n, dimension for each sample
+//     */
     
     
-    Z_NR<ZT> q2;
-    q2=q;
+//     Z_NR<ZT> q2;
+//     q2=q;
     
-    for (int i = 0; i < m; i++)
-        for (int j = 0; j < n; j++)
-            matrix[i][j].randm(q2);
-}
+//     for (int i = 0; i < m; i++)
+//         for (int j = 0; j < n; j++)
+//             matrix[i][j].randm(q2);
+// }
 
 void build_LWE_lattice(ZZ_mat<ZT> &matrix, ZZ_mat<ZT> A, int q){
     /*
