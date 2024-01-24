@@ -409,11 +409,22 @@ BSSA::blocksize_strategy BSSA::min_tour_to_each_goal_beta(BSSA::blocksize_strate
 
 
 //beta mode, the node is depend on cost of bkz-betas.
-void BSSA::bssa_est(vector<double> l0, int sbeta, int gbeta){
+// void BSSA::bssa_est(vector<double> l0, int sbeta, int gbeta){
+void BSSA::bssa_est(double* l_array, int sbeta, int gbeta){
     /*
     param: node_start, node_goal, node_mid, node
     */
-    int d= l0.size(), len_S = 0;
+
+    print_param_setting(params);
+
+    vector<double> l0;
+    l0.resize(d);
+    for(unsigned int i = 0; i < d; i++){
+        l0[i] = l_array[i];
+    }
+
+
+    int len_S = 0;
     pair<double,double> goal_quality;
 
     BS.insert(pair<int,BSSA::blocksize_strategy>(sbeta,{{}, l0, make_pair(0.,0.), make_pair(0.,0.), 0.}));
@@ -561,6 +572,16 @@ void BSSA::bssa_est(vector<double> l0, int sbeta, int gbeta){
 }
 
 
+void BSSA::get_strategy(long* strategy){
+    std::fill(strategy, &strategy[3 * bsmin.S.size()], 0);
+    // print_strategy(bsmin.S);
+    for(unsigned int i = 0; i< bsmin.S.size(); i++){
+        strategy[3*i] = (long) bsmin.S[i].beta;
+        strategy[3*i+1] = (long) bsmin.S[i].jump;
+        strategy[3*i+2] = (long) bsmin.S[i].tours;
+    }
+}
+
 // pair<double,double> BSSA::strategy_verification(vector<double> l,vector<strategy> S){
 
 //     int d = l.size();
@@ -601,3 +622,6 @@ void BSSA::bssa_est(vector<double> l0, int sbeta, int gbeta){
 //     return make_pair(G1cum, cum_pr);
 
 // }
+
+
+

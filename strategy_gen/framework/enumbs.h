@@ -99,13 +99,13 @@ class EnumBS{
     public:
         int strategy_size() const { return bsmin.S.size(); }
 
-        void print_param_setting();
+        // void print_param_setting();
         
-        explicit EnumBS(int d){ //Params params,
+        explicit EnumBS(Params params,int d){ //
             this->d = d;
-            this->sim = new BKZJSim(d);
-            this->cost = new COST();
-            // this->params = params;
+            this->sim = new BKZJSim(params,d);
+            this->cost = new COST(params);
+            this->params = params;
             //cout<<"enumbs min_G_prec = "<< params.min_G_prec <<endl;
         }
         ~EnumBS(){

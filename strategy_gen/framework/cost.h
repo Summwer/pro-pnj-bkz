@@ -59,8 +59,8 @@ class COST{
         // Params params;
         
 
-        COST(){ //Params params
-            // this->params = params;
+        COST(Params params){ //Params params
+            this->params = params;
         }
         // ~COST() {
         //     cout<<"COST: free function"<<endl;

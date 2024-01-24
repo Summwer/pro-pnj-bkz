@@ -12,21 +12,21 @@ cd ..
 #
 ###########################################
 
-# # python lwe_challenge.py 40 --lwe/alpha 0.025 --threads 32 --gpus 2 --verbose True | tee "lwechal-test-dd-qd-strategy"/"default_g6k_main(32+2gpus)"/40-025.log
+# # python lwe_challenge.py 40 --lwe/alpha 0.025 --threads 32 --gpus 2 --verbose True --pump/down_sieve True --pump/saturation_error "ignore" | tee "lwechal-test-dd-qd-strategy"/"default_g6k_main(32+2gpus)"/40-025.log
 
-# # python lwe_challenge.py 45 --lwe/alpha 0.020 --threads 32 --gpus 2 --verbose True  | tee "lwechal-test-dd-qd-strategy"/"default_g6k_main(32+2gpus)"/45-020.log
+# # python lwe_challenge.py 45 --lwe/alpha 0.020 --threads 32 --gpus 2 --verbose True --pump/down_sieve True --pump/saturation_error "ignore" | tee "lwechal-test-dd-qd-strategy"/"default_g6k_main(32+2gpus)"/45-020.log
 
-# # python lwe_challenge.py 50 --lwe/alpha 0.015 --threads 32 --gpus 2 --verbose True | tee "lwechal-test-dd-qd-strategy"/"default_g6k_main(32+2gpus)"/50-015.log
+# # python lwe_challenge.py 50 --lwe/alpha 0.015 --threads 32 --gpus 2 --verbose True --pump/down_sieve True --pump/saturation_error "ignore" | tee "lwechal-test-dd-qd-strategy"/"default_g6k_main(32+2gpus)"/50-015.log
 
-# python lwe_challenge.py 60 --lwe/alpha 0.010 --threads 32 --gpus 2 --verbose True | tee "lwechal-test-dd-qd-strategy"/"default_g6k_main(32+2gpus)"/60-010.log
+# python lwe_challenge.py 60 --lwe/alpha 0.010 --threads 32 --gpus 2 --verbose True --pump/down_sieve True --pump/saturation_error "ignore" | tee "lwechal-test-dd-qd-strategy"/"default_g6k_main(32+2gpus)"/60-010.log
 
-# python lwe_challenge.py 80 --lwe/alpha 0.005 --threads 32 --gpus 2 --verbose True | tee "lwechal-test-dd-qd-strategy"/"default_g6k_main(32+2gpus)"/80-005.log
+# python lwe_challenge.py 80 --lwe/alpha 0.005 --threads 32 --gpus 2 --verbose True --pump/down_sieve True --pump/saturation_error "ignore" | tee "lwechal-test-dd-qd-strategy"/"default_g6k_main(32+2gpus)"/80-005.log
 
-# # python lwe_challenge.py 40 --lwe/alpha 0.030 --threads 32 --gpus 2 --verbose True | tee "lwechal-test-dd-qd-strategy"/"default_g6k_main(32+2gpus)"/40-030.log
+# # python lwe_challenge.py 40 --lwe/alpha 0.030 --threads 32 --gpus 2 --verbose True --pump/down_sieve True --pump/saturation_error "ignore" | tee "lwechal-test-dd-qd-strategy"/"default_g6k_main(32+2gpus)"/40-030.log
 
-# python lwe_challenge.py 40 --lwe/alpha 0.035 --threads 32 --gpus 2 --verbose True | tee "lwechal-test-dd-qd-strategy"/"default_g6k_main(32+2gpus)"/40-035.log
+# python lwe_challenge.py 40 --lwe/alpha 0.035 --threads 32 --gpus 2 --verbose True --pump/down_sieve True --pump/saturation_error "ignore" | tee "lwechal-test-dd-qd-strategy"/"default_g6k_main(32+2gpus)"/40-035.log
 
-# python lwe_challenge.py 85 --lwe/alpha 0.005 --threads 32 --gpus 2 --verbose True | tee "lwechal-test-dd-qd-strategy"/"default_g6k_main(32+2gpus)"/85-005.log
+# python lwe_challenge.py 85 --lwe/alpha 0.005 --threads 32 --gpus 2 --verbose True --pump/down_sieve True --pump/saturation_error "ignore" | tee "lwechal-test-dd-qd-strategy"/"default_g6k_main(32+2gpus)"/85-005.log
 
 
 # ###########################################

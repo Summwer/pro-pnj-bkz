@@ -5,6 +5,7 @@ import logging
 import bz2,shutil
 
 from math import log
+from copy import deepcopy
 
 from fpylll import IntegerMatrix, LLL, FPLLL, GSO
 from fpylll import BKZ as fplll_bkz
@@ -13,6 +14,10 @@ from fpylll.tools.bkz_stats import dummy_tracer, Accumulator
 from fpylll import Enumeration, EnumerationError
 from fpylll.util import gaussian_heuristic, set_random_seed
 from g6k.utils.stats import SieveTreeTracer
+
+from random import randint
+from sympy import nextprime
+import numpy as np
 
 
 def load_matrix_file(filepath, randomize=False, seed=None, doLLL=True, high_prec=False):
@@ -311,6 +316,73 @@ def db_stats(stats):
         return log(max_dbs.avg, 2), log(max_dbs.max, 2)
     else:
         return 0, 0
+    
+    
+
+
+
+
+def store_lwe_instance(n,alpha,m,q,A,b):
+    alpha_ = int(alpha*1000)
+    filename = 'lwe_instance/%03d-%03d-instance.txt' % (n, alpha_)
+    fn = open(filename, "w")
+    fn.write(str(n)+'\n')
+    fn.write(str(m)+'\n')
+    fn.write(str(q)+'\n')
+    fn.write(str(alpha)+'\n')
+    # fn.write(str(b)+'\n')
+    #write b
+    fn.write('[')
+    for i in range(b.ncols):
+        fn.write(str(b[0][i]))
+        if i<b.ncols-1:
+            fn.write(' ')
+    fn.write(']\n')
+    #write A
+    fn.write('[')
+    for i in range(A.nrows):
+        fn.write('[')
+        for j in range(A.ncols):
+            fn.write(str(A[i][j]))
+            if j<A.ncols-1:
+                fn.write(' ')
+        if i < A.nrows-1:
+            fn.write(']\n')
+    fn.write(']]')
+    fn.close()
+
+def gen_LWE_instance(n,alpha):
+    m = n**2
+    q = nextprime(m)
+    sigma = alpha * q
+    print("Generate LWE instance: n = %d, m = %d, alpha = %f, q = %d,  sigma = %f" %(n,m,alpha,q, sigma))
+
+
+    A = IntegerMatrix.from_matrix([[randint(0,q) for _ in range(n)] for _ in range(m)])
+
+    s = IntegerMatrix.from_matrix([[randint(0,q) for _ in range(n)]])
+
+    e = IntegerMatrix.from_matrix([[round(_) for _ in np.random.normal(loc = 0, scale = sigma, size = m)]])
+
+    print("secret vector s =", s)
+
+    print("noise vector e = ", e)
+
+    # print("random matrix A = ", A)
+
+    b = (A*s.transpose()).transpose() #+ e.transpose()
+    b = IntegerMatrix.from_matrix([[(b[0][i]+e[0][i])%q for i in range(m)]])
+
+    # print("b = ", b)
+    
+    #store b and A into the lwechallenge folder.
+    
+    
+
+    store_lwe_instance(n,alpha,m,q,A,b)
+    # return A,b
+
+
 
 def load_lwe_challenge(n=40, alpha=0.005):
     """
@@ -341,6 +413,38 @@ def load_lwe_challenge(n=40, alpha=0.005):
         fn.write(r.text)
         fn.close()
 
+    data = open(filename, "r").readlines()
+    n, m, q = [int(x) for x in [data[0], data[1], data[2]]]
+
+    c_index = 3 if data[3].startswith("[") else 4
+
+    A = eval(",".join([s_.replace(" ", ", ") for s_ in data[c_index+1:]]))
+    A = IntegerMatrix.from_matrix(A)
+    c = tuple(eval(data[c_index].replace(" ", ", ")))
+    return A, c, q
+
+
+
+def load_lwe_instance(n=40, alpha=0.005):
+    """
+    (Generate and) load LWE instance from file or website.
+
+    :param n: LWE dimension
+    :param alpha: the *standard deviation* of the secret is alpha*q
+
+    """
+    
+    start = "lwe_instance"
+
+    if not os.path.isdir(start):
+        os.mkdir(start)
+    alpha_ = deepcopy(alpha)
+    alpha = int(round(alpha * 1000))
+    end = "{n:03d}-{alpha:03d}-instance.txt".format(n=n, alpha=alpha)
+    #end = "{n:03d}-{alpha:03d}-midmat.txt".format(n=n, alpha=alpha)
+    filename = os.path.join(start, end)
+    if not os.path.isfile(filename):
+        gen_LWE_instance(n,alpha_)
     data = open(filename, "r").readlines()
     n, m, q = [int(x) for x in [data[0], data[1], data[2]]]
 

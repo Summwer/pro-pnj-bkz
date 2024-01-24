@@ -34,7 +34,8 @@ kwds = {
     }
 
 extensions = [
-    Extension("enumbs", ["enumbs.pyx"], **kwds),
+    # Extension("enumbs", ["enumbs.pyx"], **kwds),
+    Extension("strategy_gen", ["strategy_gen.pyx"], **kwds)
     # Extension("cost", ["cost.pyx"], **kwds)
     # Extension("test", ["test.pyx"], **kwds)
 ]

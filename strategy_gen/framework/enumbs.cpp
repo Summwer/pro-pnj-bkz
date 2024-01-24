@@ -1026,56 +1026,6 @@ void EnumBS::enumbs_est(vector<double> l0){
 }
 
 
-void EnumBS::print_param_setting(){
-    printf("v1. beta_start= %d, gap = %d, J = %d, J_gap = %d, cost_model = %d, max_loop = %d, threads = %d, G_prec = %e,  slope_prec = %e,  progressive_sieve = True, worst_case = %d, succ_prob = %1.3f, ", params.beta_start, params.gap, params.J, params.J_gap, params.cost_model, params.max_loop, params.threads, params.enumbs_G_prec, params.enumbs_slope_prec,  params.worst_case, params.succ_prob);
-    if(params.enumbs_min_G)
-        printf("Find minimal time cost strategy, ");
-    else
-        printf("Find a strategy below the maximal RAM = %f log2(bit), ", params.max_RAM);
-    if(params.worst_case)
-        printf("worst_case, ");
-    else
-        printf("average_case, ");
-    
-    if(params.cost_model == 1){
-        printf("theo_pnjbkz_d4f = %d, ", params.theo_pnjbkz_d4f);
-        // if(params.est_model !=3)
-        printf("theo_pump_d4f = %d, ", params.theo_pump_d4f);
-        // else
-            // printf("theo_pump_d4f: compute ||pi_f(target_vector)||<= sqrt(4/3) GH(L_f)\n");
-        printf("list_decoding = `%s`. \n\n", params.list_decoding.c_str());
-    }
-    if(params.cost_model >= 2){
-        printf("practical_pnjbkz_d4f = %d, ", params.practical_pnjbkz_d4f);
-        // if(params.est_model !=3)
-        printf("practical_pump_d4f = %d, ", params.practical_pump_d4f);
-        // else
-            // printf("practical_pump_d4f: compute ||pi_f(target_vector)||<= sqrt(4/3) GH(L_f)\n");
-    }
-    cout<<"jump upper bound = ";
-    switch(params.compute_jub){
-        case 1:
-            cout<<"pessimistic d4f(B)."<<endl; 
-            break;
-        case 2:
-            cout<<"optimistic d4f(B)."<<endl;
-            break;
-        case 3:
-            cout<<" d4f(beta)/2."<<endl;   
-
-            break;
-        case 4:
-            cout<<"min(d4f(beta),0.1beta)."<<endl;   
-            break;
-        default:
-            cout<<"No setting"<<endl;
-            break;
-    }
-    cout<<endl;
-}
-
-
-
 
 
 void EnumBS::enumbs_est_in_parallel(double* l_array){
@@ -1095,7 +1045,7 @@ void EnumBS::enumbs_est_in_parallel(double* l_array){
 
     
 
-    print_param_setting();
+    print_param_setting(params);
 
     
     

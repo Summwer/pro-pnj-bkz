@@ -28,9 +28,9 @@ class BKZJSim{
 
         
 
-        BKZJSim(int d){
+        BKZJSim(Params params,int d){
             // cout<<this->params.threads<<endl;
-            // this->params = params;
+            this->params = params;
             init(d);
         }
         // ~BKZJSim() {

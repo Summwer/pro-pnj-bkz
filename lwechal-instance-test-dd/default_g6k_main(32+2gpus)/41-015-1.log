@@ -1,0 +1,14 @@
+-------------------------
+Primal attack, LWE challenge n=41, alpha=0.0150
+Chose 156 samples. Predict solution at bkz-54 + svp-87
+
+GSO precision:  long double
+Intial Slope = -0.07355
+
+Starting a fpylll BKZ-10 tour. 
+slope: -0.07305, walltime: 0.625 sec
+Without otf, would expect solution at pump-103. n_max=70 in the given time.
+Starting a fpylll BKZ-11 tour. 
+slope: -0.07195, walltime: 1.983 sec
+Without otf, would expect solution at pump-103. n_max=75 in the given time.
+Starting a fpylll BKZ-12 tour. 

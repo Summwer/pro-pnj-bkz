@@ -26,14 +26,18 @@ class BSSA{
         COST* cost;
         Params params;
         double pre_pr = 0.;
+        int d = 0;
+        blocksize_strategy bsmin;
+
 
         BSSA(Params params,int d){
             this->sim = new BKZJSim(params,d);
             cost = new COST(params);
             this->params = params;
+            this->d = d;
         }
 
-
+        int strategy_size() const { return bsmin.S.size(); }
         void print_strategy(vector<strategy> S);
         void print_BS(map<int,BSSA::blocksize_strategy> BS);
         void print_bs(blocksize_strategy bs);
@@ -44,10 +48,12 @@ class BSSA{
         pair<double,double> max_tour_for_pnjbkz_beta(BSSA::blocksize_strategy bs, int beta); //maximal tours for one pnj-bkz-beta to reduce the basis.
         pair<double,double> max_tour_for_pnjbkz_beta(vector<double> l, int beta);
 
-        void bssa_est(vector<double> l0, int sbeta, int gbeta); //bssa estimation
+        
+        void bssa_est(double* l_array, int sbeta, int gbeta);
+        // void bssa_est(vector<double> l0, int sbeta, int gbeta); //bssa estimation
         // void bssa_est_mul_node(vector<double> l0, int sbeta, int gbeta); //bssa estimation with more node
 
-
+        void get_strategy(long* strategy);
 
         // pair<double,double> strategy_verification( vector<double> l,vector<strategy> strategy);
 

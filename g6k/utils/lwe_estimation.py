@@ -84,6 +84,7 @@ def gsa_params(n, alpha, q=None, samples=None, d=None, decouple=False):
     :param decouple: if True the BKZ dimension and SVP dimension may differ
 
     """
+    
     if q is None or samples is None:
         A, _, q = load_lwe_challenge(n, alpha)
         samples = A.nrows

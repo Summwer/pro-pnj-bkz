@@ -162,3 +162,6 @@ int get_f_for_pump(Params params, int beta, vector<double> l);
 int get_beta_(Params params,int beta, int jump, int d);
 
 std::map<int,double>  build_centered_binomial_law(int k);
+
+
+void print_param_setting(Params params);
