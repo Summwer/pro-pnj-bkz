@@ -40,7 +40,7 @@ cdef class Siever(object):
     Main class for the Generalized Sieving Kernel (G6K)
     """
 
-    def __init__(self, M, SieverParams params=None, seed=None):
+    def __init__(self, M, SieverParams params=None, float_type = None, seed=None):
         """
         Initialize a new sieving object.
 
@@ -81,10 +81,14 @@ cdef class Siever(object):
             #    float_type = "qd"
             #else:
             #    float_type = "long double"
-            if M.nrows >=160:
-                float_type = "dd"
-            else:
-                float_type = "long double"
+            #if M.nrows >= 200:
+            #    float_type = "qd"
+            if(float_type is None):
+                if M.nrows >=160:
+                    #float_type = "qd"
+                    float_type = "dd"
+                else:
+                    float_type = "long double"
 
             M = GSO.Mat(M, float_type=float_type,
                         U=IntegerMatrix.identity(M.nrows, int_type=M.int_type),

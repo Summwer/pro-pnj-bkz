@@ -10,7 +10,9 @@ from libcpp cimport bool
 
 
 
-cdef extern from "framework/enumbs.h" nogil:
+#cdef extern from "framework/enumbs.h" nogil:
+cdef extern from "framework/strategy_simulation.h" nogil:
+
 
     #ctypedef mpz_t ZT
     #ctypedef mpfr_t FT
@@ -46,11 +48,11 @@ cdef extern from "framework/enumbs.h" nogil:
         bool enumbs_min_G 
         double min_G_prec 
         bool print_Gcums 
-
+        int sim_d4f
         #bssa params
-        bool bssa_tradion
-        bool mul_node  
-        bool beta_gap 
+        bool bssa_tradition
+        #bool mul_node  
+        #bool beta_gap 
 
         #params for pnj-bkz
         int theo_pnjbkz_d4f 
@@ -111,6 +113,7 @@ cdef extern from "framework/enumbs.h" nogil:
         void enumbs_est_in_parallel(double* l0)
         #void enumbs_est_in_parallel(int dim, double dvol)
         void get_strategy(long* strategy)
+        double get_target_slope();
         #void set_threads(int nr)
         #void print_param_setting()
 
@@ -119,3 +122,8 @@ cdef extern from "framework/enumbs.h" nogil:
         void bssa_est(double* l_array, int sbeta, int gbeta)
         int strategy_size()
         void get_strategy(long* strategy)
+
+
+    
+    cdef void test_lwechal_from_gsa(Params params, int dim, double dvol, long* strategy_arr, int strategy_size)
+    cdef void test_lwechal_from_actual_l(Params params, long* strategy_arr, int strategy_size, double* l_array,int dim)

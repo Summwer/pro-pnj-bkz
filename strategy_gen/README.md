@@ -117,7 +117,7 @@ cd ..
 ```
 
 
-### compile enumbs in python
+### compile strategy generation method in python
 
 ```
 cd ..
@@ -126,6 +126,8 @@ cd strategy_gen
 python setup.py build_ext --inplace
 
 ```
+
+If one need change the paramter setting in struct Params in utils.h, one should firstly delete the `build` folder and `libest.so` in the folder `framework`, then recompile the library.
 
 
 

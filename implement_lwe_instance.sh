@@ -8,74 +8,62 @@ mkdir "enumbs(32+2gpus)"
 cd ..
 cd ..
 
-for j in $(seq 1 10) #do
+
+for j in $(seq 5 6) #do
 do
+
+    # for i in $(seq 49 49) 
+    # do
+
+    # # # # ###########################################
+    # # # # # BSSA strategy test: d4f-default-g6k
+    # # # # #
+    # # # # ###########################################
+
+    # python ProPnjBKZ_for_lwe.py ${i} --lwe/alpha 0.015 --gpus 2 --threads 32 --verbose True --pump/down_sieve True  --strategy_method "bssav1" --load_lwe "lwe_instance" --float_type "dd" | tee "lwechal-instance-test-dd"/"d4f-default-g6k"/"bssa(32+2gpus)"/${i}-015-${j}.log
+
+
+    # # # ###########################################
+    # # # # EnumBS strategy test:  d4f-default-g6k
+    # # # #
+    # # # ###########################################
+
+    # python ProPnjBKZ_for_lwe.py ${i} --lwe/alpha 0.015 --gpus 2 --threads 32 --verbose True --pump/down_sieve True  --strategy_method "enumbs" --load_lwe "lwe_instance" --float_type "dd"| tee "lwechal-instance-test-dd"/"d4f-default-g6k"/"enumbs(32+2gpus)"/${i}-015-${j}.log
+
+    # # ###########################################
+    # # # LWE instance solved by default G6K test
+    # # #
+    # # ###########################################
+
+    # python lwe_instance.py ${i} --lwe/alpha 0.015 --threads 32 --gpus 2 --verbose True --pump/down_sieve True  | tee "lwechal-instance-test-dd"/"default_g6k_main(32+2gpus)"/${i}-015-${j}.log
+
+    # done
+
     ###########################################
     # LWE instance solved by default G6K test
     #
     ###########################################
-    for i in $(seq 41 50) #do
+
+
+    for i in $(seq 56 56) #do
     do
-        python lwe_instance.py ${i} --lwe/alpha 0.015 --threads 32 --gpus 2 --verbose True --pump/down_sieve True --pump/saturation_error "ignore" | tee "lwechal-instance-test-dd"/"default_g6k_main(32+2gpus)"/${i}-015-${j}.log
-    done
-
-
-    for i in $(seq 51 60) #do
-    do
-        python lwe_instance.py $i --lwe/alpha 0.010 --threads 32 --gpus 2 --verbose True --pump/down_sieve True --pump/saturation_error "ignore" | tee "lwechal-instance-test-dd"/"default_g6k_main(32+2gpus)"/$i-010-${j}.log
-    done
-
-
-    for i in $(seq 71 80) 
-    do
-        python lwe_instance.py "$i" --lwe/alpha 0.005 --threads 32 --gpus 2 --verbose True --pump/down_sieve True --pump/saturation_error "ignore" | tee "lwechal-instance-test-dd"/"default_g6k_main(32+2gpus)"/"$i"-005-${j}.log
-    done
-
-
-    # ###########################################
-    # # EnumBS strategy test:  d4f-default-g6k
-    # #
-    # ###########################################
-
-
-    for i in $(seq 41 50) 
-    do
-    python ProPnjBKZ_for_lwe_instance.py ${i} --lwe/alpha 0.015 --gpus 2 --threads 32 --verbose True --pump/down_sieve True --pump/saturation_error "ignore" --strategy_method "enumbs" | tee "lwechal-instance-test-dd"/"d4f-default-g6k"/"enumbs(32+2gpus)"/${i}-015-${j}.log
-    done
-
-
-    for i in $(seq 51 60) 
-    do
-    python ProPnjBKZ_for_lwe_instance.py ${i} --lwe/alpha 0.010 --gpus 2 --threads 32 --verbose True --pump/down_sieve True --pump/saturation_error "ignore" --strategy_method "enumbs" | tee "lwechal-instance-test-dd"/"d4f-default-g6k"/"enumbs(32+2gpus)"/${i}-010-${j}.log
-    done
-
-    for i in $(seq 71 80) 
-    do
-    python ProPnjBKZ_for_lwe_instance.py ${i} --lwe/alpha 0.010 --gpus 2 --threads 32 --verbose True --pump/down_sieve True --pump/saturation_error "ignore" --strategy_method "enumbs" | tee "lwechal-instance-test-dd"/"d4f-default-g6k"/"enumbs(32+2gpus)"/${i}-005-${j}.log
-    done
-
-
+    
+    # python lwe_instance.py $i --lwe/alpha 0.010 --threads 32 --gpus 2 --verbose True --pump/down_sieve True  | tee "lwechal-instance-test-dd"/"default_g6k_main(32+2gpus)"/$i-010-${j}.log
 
     # # ###########################################
-    # # # BSSA strategy test: d4f-default-g6k
+    # # # EnumBS strategy test:  d4f-default-g6k
     # # #
     # # ###########################################
 
+    python ProPnjBKZ_for_lwe.py ${i} --lwe/alpha 0.010 --gpus 2 --threads 32 --verbose True --pump/down_sieve True  --strategy_method "enumbs" --load_lwe "lwe_instance" --float_type "dd"| tee "lwechal-instance-test-dd"/"d4f-default-g6k"/"enumbs(32+2gpus)"/${i}-010-${j}.log
+   
+    # # # ###########################################
+    # # # # BSSA strategy test: d4f-default-g6k
+    # # # #
+    # # # ###########################################
 
-    for i in $(seq 41 50) 
-    do
-    python ProPnjBKZ_for_lwe_instance.py ${i} --lwe/alpha 0.015 --gpus 2 --threads 32 --verbose True --pump/down_sieve True --pump/saturation_error "ignore" --strategy_method "bssa" | tee "lwechal-instance-test-dd"/"d4f-default-g6k"/"enumbs(32+2gpus)"/${i}-015-${j}.log
-    done
+    # python ProPnjBKZ_for_lwe.py ${i} --lwe/alpha 0.010 --gpus 2 --threads 32 --verbose True --pump/down_sieve True  --strategy_method "bssav1" --load_lwe "lwe_instance" --float_type "dd"| tee "lwechal-instance-test-dd"/"d4f-default-g6k"/"bssa(32+2gpus)"/${i}-010-${j}.log
 
-
-    for i in $(seq 51 60) 
-    do
-    python ProPnjBKZ_for_lwe_instance.py ${i} --lwe/alpha 0.010 --gpus 2 --threads 32 --verbose True --pump/down_sieve True --pump/saturation_error "ignore" --strategy_method "bssa" | tee "lwechal-instance-test-dd"/"d4f-default-g6k"/"enumbs(32+2gpus)"/${i}-010-${j}.log
-    done
-
-    for i in $(seq 71 80) 
-    do
-    python ProPnjBKZ_for_lwe_instance.py ${i} --lwe/alpha 0.010 --gpus 2 --threads 32 --verbose True --pump/down_sieve True --pump/saturation_error "ignore" --strategy_method "bssa" | tee "lwechal-instance-test-dd"/"d4f-default-g6k"/"enumbs(32+2gpus)"/${i}-005-${j}.log
     done
 
 done

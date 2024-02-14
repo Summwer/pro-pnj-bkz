@@ -587,7 +587,10 @@ bool EnumBS::pnjbkz_beta_loop( vector<double> &l, pair<double,double> &cum_GB_BK
 
     vector<double> l_;
 
-    int d = l.size(), beta_ = get_beta_(params,beta,jump,d);
+    int d = l.size();
+
+    slope = get_current_slope(l,0,d);
+    int beta_ = get_beta_(params,beta,jump,d,slope);
 
     this->sim -> simulate(l_,l,beta,jump,1);
    
@@ -602,6 +605,7 @@ bool EnumBS::pnjbkz_beta_loop( vector<double> &l, pair<double,double> &cum_GB_BK
 
         // cout<<"beta_ "<<beta_<<endl;
         boost::math::chi_squared chisquare(beta_);
+        // cout<<"beta_ = "<<beta_<<"jump = "<<jump<<endl;
         double pr = boost::math::cdf(chisquare,pow(2,2.*l[d-beta_]));
         
         
@@ -1044,18 +1048,16 @@ void EnumBS::enumbs_est_in_parallel(double* l_array){
     */
 
     
-
     print_param_setting(params);
 
     
     
     set_threads(params.threads);
 
-    //l0 = gen_simulated_gso(172, 331.9735338747317);
-
+    // l0 = gen_simulated_gso(dim, dvol);
 
     l0.resize(d);
-    for(unsigned int i = 0; i < d; i++){
+    for(int i = 0; i < d; i++){
         l0[i] = l_array[i];
     }
     

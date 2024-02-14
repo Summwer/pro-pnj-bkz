@@ -11,7 +11,7 @@
             "/home/cryptothesis/summer/pro-pnj-bkz/g6k-env/lib/python3.8/site-packages/numpy/core/include/numpy/ndarrayobject.h",
             "/home/cryptothesis/summer/pro-pnj-bkz/g6k-env/lib/python3.8/site-packages/numpy/core/include/numpy/ndarraytypes.h",
             "/home/cryptothesis/summer/pro-pnj-bkz/g6k-env/lib/python3.8/site-packages/numpy/core/include/numpy/ufuncobject.h",
-            "framework/enumbs.h"
+            "framework/strategy_simulation.h"
         ],
         "extra_compile_args": [
             "-fPIC",
@@ -826,7 +826,7 @@ static CYTHON_INLINE float __PYX_NAN() {
 #include "new"
 #include "stdexcept"
 #include "typeinfo"
-#include "framework/enumbs.h"
+#include "framework/strategy_simulation.h"
 #include <stdio.h>
 #include "struct_signals.h"
 #include "numpy/arrayobject.h"
@@ -1327,8 +1327,8 @@ typedef npy_clongdouble __pyx_t_5numpy_clongdouble_t;
  */
 typedef npy_cdouble __pyx_t_5numpy_complex_t;
 
-/* "strategy_gen.pxd":8
- * from decl cimport BSSA as BSSA_c
+/* "strategy_gen.pxd":9
+ * #from decl cimport test_lwechal_from_gsa
  * 
  * cdef class EnumBS(object):             # <<<<<<<<<<<<<<
  *     cdef EnumBS_c *_core1
@@ -1341,7 +1341,7 @@ struct __pyx_obj_12strategy_gen_EnumBS {
 };
 
 
-/* "strategy_gen.pxd":13
+/* "strategy_gen.pxd":14
  * 
  * 
  * cdef class BSSA(object):             # <<<<<<<<<<<<<<
@@ -1429,6 +1429,10 @@ static CYTHON_INLINE PyObject* __Pyx_PyObject_GetAttrStr(PyObject* obj, PyObject
 /* GetBuiltinName.proto */
 static PyObject *__Pyx_GetBuiltinName(PyObject *name);
 
+/* RaiseArgTupleInvalid.proto */
+static void __Pyx_RaiseArgtupleInvalid(const char* func_name, int exact,
+    Py_ssize_t num_min, Py_ssize_t num_max, Py_ssize_t num_found);
+
 /* RaiseDoubleKeywords.proto */
 static void __Pyx_RaiseDoubleKeywordsError(const char* func_name, PyObject* kw_name);
 
@@ -1437,9 +1441,21 @@ static int __Pyx_ParseOptionalKeywords(PyObject *kwds, PyObject **argnames[],\
     PyObject *kwds2, PyObject *values[], Py_ssize_t num_pos_args,\
     const char* function_name);
 
-/* RaiseArgTupleInvalid.proto */
-static void __Pyx_RaiseArgtupleInvalid(const char* func_name, int exact,
-    Py_ssize_t num_min, Py_ssize_t num_max, Py_ssize_t num_found);
+/* IncludeStringH.proto */
+#include <string.h>
+
+/* BytesEquals.proto */
+static CYTHON_INLINE int __Pyx_PyBytes_Equals(PyObject* s1, PyObject* s2, int equals);
+
+/* UnicodeEquals.proto */
+static CYTHON_INLINE int __Pyx_PyUnicode_Equals(PyObject* s1, PyObject* s2, int equals);
+
+/* StrEquals.proto */
+#if PY_MAJOR_VERSION >= 3
+#define __Pyx_PyString_Equals __Pyx_PyUnicode_Equals
+#else
+#define __Pyx_PyString_Equals __Pyx_PyBytes_Equals
+#endif
 
 /* PyDictVersioning.proto */
 #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_TYPE_SLOTS
@@ -1602,6 +1618,59 @@ static CYTHON_INLINE void __Pyx_ErrFetchInState(PyThreadState *tstate, PyObject 
 
 /* RaiseException.proto */
 static void __Pyx_Raise(PyObject *type, PyObject *value, PyObject *tb, PyObject *cause);
+
+/* PyCFunctionFastCall.proto */
+#if CYTHON_FAST_PYCCALL
+static CYTHON_INLINE PyObject *__Pyx_PyCFunction_FastCall(PyObject *func, PyObject **args, Py_ssize_t nargs);
+#else
+#define __Pyx_PyCFunction_FastCall(func, args, nargs)  (assert(0), NULL)
+#endif
+
+/* PyFunctionFastCall.proto */
+#if CYTHON_FAST_PYCALL
+#define __Pyx_PyFunction_FastCall(func, args, nargs)\
+    __Pyx_PyFunction_FastCallDict((func), (args), (nargs), NULL)
+#if 1 || PY_VERSION_HEX < 0x030600B1
+static PyObject *__Pyx_PyFunction_FastCallDict(PyObject *func, PyObject **args, Py_ssize_t nargs, PyObject *kwargs);
+#else
+#define __Pyx_PyFunction_FastCallDict(func, args, nargs, kwargs) _PyFunction_FastCallDict(func, args, nargs, kwargs)
+#endif
+#define __Pyx_BUILD_ASSERT_EXPR(cond)\
+    (sizeof(char [1 - 2*!(cond)]) - 1)
+#ifndef Py_MEMBER_SIZE
+#define Py_MEMBER_SIZE(type, member) sizeof(((type *)0)->member)
+#endif
+#if CYTHON_FAST_PYCALL
+  static size_t __pyx_pyframe_localsplus_offset = 0;
+  #include "frameobject.h"
+#if PY_VERSION_HEX >= 0x030b00a6
+  #ifndef Py_BUILD_CORE
+    #define Py_BUILD_CORE 1
+  #endif
+  #include "internal/pycore_frame.h"
+#endif
+  #define __Pxy_PyFrame_Initialize_Offsets()\
+    ((void)__Pyx_BUILD_ASSERT_EXPR(sizeof(PyFrameObject) == offsetof(PyFrameObject, f_localsplus) + Py_MEMBER_SIZE(PyFrameObject, f_localsplus)),\
+     (void)(__pyx_pyframe_localsplus_offset = ((size_t)PyFrame_Type.tp_basicsize) - Py_MEMBER_SIZE(PyFrameObject, f_localsplus)))
+  #define __Pyx_PyFrame_GetLocalsplus(frame)\
+    (assert(__pyx_pyframe_localsplus_offset), (PyObject **)(((char *)(frame)) + __pyx_pyframe_localsplus_offset))
+#endif // CYTHON_FAST_PYCALL
+#endif
+
+/* PyObjectCallMethO.proto */
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_CallMethO(PyObject *func, PyObject *arg);
+#endif
+
+/* PyObjectCallOneArg.proto */
+static CYTHON_INLINE PyObject* __Pyx_PyObject_CallOneArg(PyObject *func, PyObject *arg);
+
+/* ObjectGetItem.proto */
+#if CYTHON_USE_TYPE_SLOTS
+static CYTHON_INLINE PyObject *__Pyx_PyObject_GetItem(PyObject *obj, PyObject* key);
+#else
+#define __Pyx_PyObject_GetItem(obj, key)  PyObject_GetItem(obj, key)
+#endif
 
 /* GetTopmostException.proto */
 #if CYTHON_USE_EXC_INFO_STACK
@@ -1977,8 +2046,13 @@ static PyObject *__pyx_builtin_ImportError;
 static const char __pyx_k_S[] = "S";
 static const char __pyx_k_i[] = "i";
 static const char __pyx_k_l[] = "l";
+static const char __pyx_k_dd[] = "dd";
+static const char __pyx_k_l0[] = "l0";
+static const char __pyx_k_v1[] = "v1";
+static const char __pyx_k_v2[] = "v2";
 static const char __pyx_k_dim[] = "dim";
 static const char __pyx_k_BSSA[] = "BSSA";
+static const char __pyx_k_dvol[] = "dvol";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "__name__";
 static const char __pyx_k_self[] = "self";
@@ -1992,14 +2066,17 @@ static const char __pyx_k_sbeta[] = "sbeta";
 static const char __pyx_k_zeros[] = "zeros";
 static const char __pyx_k_EnumBS[] = "EnumBS";
 static const char __pyx_k_import[] = "__import__";
+static const char __pyx_k_params[] = "params";
 static const char __pyx_k_reduce[] = "__reduce__";
 static const char __pyx_k_float64[] = "float64";
+static const char __pyx_k_version[] = "version";
 static const char __pyx_k_getstate[] = "__getstate__";
 static const char __pyx_k_setstate[] = "__setstate__";
 static const char __pyx_k_strategy[] = "strategy";
 static const char __pyx_k_TypeError[] = "TypeError";
 static const char __pyx_k_pyx_state[] = "__pyx_state";
 static const char __pyx_k_reduce_ex[] = "__reduce_ex__";
+static const char __pyx_k_float_type[] = "float_type";
 static const char __pyx_k_ImportError[] = "ImportError";
 static const char __pyx_k_get_strategy[] = "get_strategy";
 static const char __pyx_k_strategy_gen[] = "strategy_gen";
@@ -2007,6 +2084,7 @@ static const char __pyx_k_stringsource[] = "stringsource";
 static const char __pyx_k_reduce_cython[] = "__reduce_cython__";
 static const char __pyx_k_strategy_size[] = "strategy_size";
 static const char __pyx_k_setstate_cython[] = "__setstate_cython__";
+static const char __pyx_k_get_target_slope[] = "get_target_slope";
 static const char __pyx_k_strategy_gen_pyx[] = "strategy_gen.pyx";
 static const char __pyx_k_BSSA_get_strategy[] = "BSSA.get_strategy";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
@@ -2014,7 +2092,10 @@ static const char __pyx_k_EnumBS_get_strategy[] = "EnumBS.get_strategy";
 static const char __pyx_k_BSSA___reduce_cython[] = "BSSA.__reduce_cython__";
 static const char __pyx_k_BSSA___setstate_cython[] = "BSSA.__setstate_cython__";
 static const char __pyx_k_EnumBS___reduce_cython[] = "EnumBS.__reduce_cython__";
+static const char __pyx_k_lwechal_simulation_gsa[] = "lwechal_simulation_gsa";
+static const char __pyx_k_EnumBS_get_target_slope[] = "EnumBS.get_target_slope";
 static const char __pyx_k_EnumBS___setstate_cython[] = "EnumBS.__setstate_cython__";
+static const char __pyx_k_lwechal_simulation_actual_l[] = "lwechal_simulation_actual_l";
 static const char __pyx_k_numpy_core_multiarray_failed_to[] = "numpy.core.multiarray failed to import";
 static const char __pyx_k_self__core1_cannot_be_converted[] = "self._core1 cannot be converted to a Python object for pickling";
 static const char __pyx_k_self__core2_cannot_be_converted[] = "self._core2 cannot be converted to a Python object for pickling";
@@ -2027,25 +2108,34 @@ static PyObject *__pyx_n_s_EnumBS;
 static PyObject *__pyx_n_s_EnumBS___reduce_cython;
 static PyObject *__pyx_n_s_EnumBS___setstate_cython;
 static PyObject *__pyx_n_s_EnumBS_get_strategy;
+static PyObject *__pyx_n_s_EnumBS_get_target_slope;
 static PyObject *__pyx_n_s_ImportError;
 static PyObject *__pyx_n_s_S;
 static PyObject *__pyx_n_s_TypeError;
 static PyObject *__pyx_n_s_cline_in_traceback;
+static PyObject *__pyx_n_s_dd;
 static PyObject *__pyx_n_s_dim;
 static PyObject *__pyx_n_s_dtype;
+static PyObject *__pyx_n_s_dvol;
 static PyObject *__pyx_n_s_float64;
+static PyObject *__pyx_n_s_float_type;
 static PyObject *__pyx_n_s_gbeta;
 static PyObject *__pyx_n_s_get_strategy;
+static PyObject *__pyx_n_s_get_target_slope;
 static PyObject *__pyx_n_s_getstate;
 static PyObject *__pyx_n_s_i;
 static PyObject *__pyx_n_s_import;
 static PyObject *__pyx_n_s_int64;
 static PyObject *__pyx_n_s_l;
+static PyObject *__pyx_n_s_l0;
+static PyObject *__pyx_n_s_lwechal_simulation_actual_l;
+static PyObject *__pyx_n_s_lwechal_simulation_gsa;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_name;
 static PyObject *__pyx_n_s_numpy;
 static PyObject *__pyx_kp_s_numpy_core_multiarray_failed_to;
 static PyObject *__pyx_kp_s_numpy_core_umath_failed_to_impor;
+static PyObject *__pyx_n_s_params;
 static PyObject *__pyx_n_s_pyx_state;
 static PyObject *__pyx_n_s_range;
 static PyObject *__pyx_n_s_reduce;
@@ -2063,19 +2153,25 @@ static PyObject *__pyx_kp_s_strategy_gen_pyx;
 static PyObject *__pyx_n_s_strategy_size;
 static PyObject *__pyx_kp_s_stringsource;
 static PyObject *__pyx_n_s_test;
+static PyObject *__pyx_n_s_v1;
+static PyObject *__pyx_n_s_v2;
+static PyObject *__pyx_n_s_version;
 static PyObject *__pyx_n_s_zeros;
-static int __pyx_pf_12strategy_gen_6EnumBS___init__(struct __pyx_obj_12strategy_gen_EnumBS *__pyx_v_self, PyObject *__pyx_v_dim); /* proto */
+static int __pyx_pf_12strategy_gen_6EnumBS___init__(struct __pyx_obj_12strategy_gen_EnumBS *__pyx_v_self, PyObject *__pyx_v_dim, PyObject *__pyx_v_float_type); /* proto */
 static PyObject *__pyx_pf_12strategy_gen_6EnumBS_2__call__(struct __pyx_obj_12strategy_gen_EnumBS *__pyx_v_self, PyObject *__pyx_v_l); /* proto */
 static PyObject *__pyx_pf_12strategy_gen_6EnumBS_4get_strategy(struct __pyx_obj_12strategy_gen_EnumBS *__pyx_v_self); /* proto */
-static void __pyx_pf_12strategy_gen_6EnumBS_6__dealloc__(struct __pyx_obj_12strategy_gen_EnumBS *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_12strategy_gen_6EnumBS_8__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_12strategy_gen_EnumBS *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_12strategy_gen_6EnumBS_10__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_12strategy_gen_EnumBS *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
-static int __pyx_pf_12strategy_gen_4BSSA___init__(struct __pyx_obj_12strategy_gen_BSSA *__pyx_v_self, PyObject *__pyx_v_dim); /* proto */
+static PyObject *__pyx_pf_12strategy_gen_6EnumBS_6get_target_slope(struct __pyx_obj_12strategy_gen_EnumBS *__pyx_v_self); /* proto */
+static void __pyx_pf_12strategy_gen_6EnumBS_8__dealloc__(struct __pyx_obj_12strategy_gen_EnumBS *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_12strategy_gen_6EnumBS_10__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_12strategy_gen_EnumBS *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_12strategy_gen_6EnumBS_12__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_12strategy_gen_EnumBS *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
+static int __pyx_pf_12strategy_gen_4BSSA___init__(struct __pyx_obj_12strategy_gen_BSSA *__pyx_v_self, PyObject *__pyx_v_dim, PyObject *__pyx_v_version, PyObject *__pyx_v_float_type); /* proto */
 static PyObject *__pyx_pf_12strategy_gen_4BSSA_2__call__(struct __pyx_obj_12strategy_gen_BSSA *__pyx_v_self, PyObject *__pyx_v_l, PyObject *__pyx_v_sbeta, PyObject *__pyx_v_gbeta); /* proto */
 static PyObject *__pyx_pf_12strategy_gen_4BSSA_4get_strategy(struct __pyx_obj_12strategy_gen_BSSA *__pyx_v_self); /* proto */
 static void __pyx_pf_12strategy_gen_4BSSA_6__dealloc__(struct __pyx_obj_12strategy_gen_BSSA *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_12strategy_gen_4BSSA_8__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_12strategy_gen_BSSA *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_12strategy_gen_4BSSA_10__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_12strategy_gen_BSSA *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_12strategy_gen_lwechal_simulation_gsa(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_dim, PyObject *__pyx_v_dvol, PyObject *__pyx_v_S, PyObject *__pyx_v_strategy_size, PyObject *__pyx_v_float_type); /* proto */
+static PyObject *__pyx_pf_12strategy_gen_2lwechal_simulation_actual_l(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_l, PyObject *__pyx_v_S, PyObject *__pyx_v_strategy_size, PyObject *__pyx_v_float_type); /* proto */
 static PyObject *__pyx_tp_new_12strategy_gen_EnumBS(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_12strategy_gen_BSSA(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_int_3;
@@ -2092,27 +2188,36 @@ static PyObject *__pyx_tuple__11;
 static PyObject *__pyx_tuple__13;
 static PyObject *__pyx_tuple__15;
 static PyObject *__pyx_tuple__17;
+static PyObject *__pyx_tuple__19;
+static PyObject *__pyx_tuple__21;
+static PyObject *__pyx_tuple__23;
+static PyObject *__pyx_tuple__24;
+static PyObject *__pyx_tuple__26;
 static PyObject *__pyx_codeobj__8;
 static PyObject *__pyx_codeobj__10;
 static PyObject *__pyx_codeobj__12;
 static PyObject *__pyx_codeobj__14;
 static PyObject *__pyx_codeobj__16;
 static PyObject *__pyx_codeobj__18;
+static PyObject *__pyx_codeobj__20;
+static PyObject *__pyx_codeobj__22;
+static PyObject *__pyx_codeobj__25;
 /* Late includes */
 #include "macros.h"
 
-/* "strategy_gen.pyx":10
- * #function about EnumBS selection algorithm, to select an appropriate (blocksize,jump) strategy for reduction.
- * cdef class EnumBS(object):
- *     def __init__(self, dim):             # <<<<<<<<<<<<<<
+/* "strategy_gen.pyx":12
+ * 
+ * 
+ *     def __init__(self, dim, float_type):             # <<<<<<<<<<<<<<
  *         cdef Params params
- *         params.method = 1
+ * 
  */
 
 /* Python wrapper */
 static int __pyx_pw_12strategy_gen_6EnumBS_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static int __pyx_pw_12strategy_gen_6EnumBS_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_dim = 0;
+  PyObject *__pyx_v_float_type = 0;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -2120,12 +2225,14 @@ static int __pyx_pw_12strategy_gen_6EnumBS_1__init__(PyObject *__pyx_v_self, PyO
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__init__ (wrapper)", 0);
   {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_dim,0};
-    PyObject* values[1] = {0};
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_dim,&__pyx_n_s_float_type,0};
+    PyObject* values[2] = {0,0};
     if (unlikely(__pyx_kwds)) {
       Py_ssize_t kw_args;
       const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
       switch (pos_args) {
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
         case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
         CYTHON_FALLTHROUGH;
         case  0: break;
@@ -2136,62 +2243,130 @@ static int __pyx_pw_12strategy_gen_6EnumBS_1__init__(PyObject *__pyx_v_self, PyO
         case  0:
         if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_dim)) != 0)) kw_args--;
         else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_float_type)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, 1); __PYX_ERR(0, 12, __pyx_L3_error)
+        }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 10, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 12, __pyx_L3_error)
       }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
     __pyx_v_dim = values[0];
+    __pyx_v_float_type = values[1];
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 10, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 12, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("strategy_gen.EnumBS.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_12strategy_gen_6EnumBS___init__(((struct __pyx_obj_12strategy_gen_EnumBS *)__pyx_v_self), __pyx_v_dim);
+  __pyx_r = __pyx_pf_12strategy_gen_6EnumBS___init__(((struct __pyx_obj_12strategy_gen_EnumBS *)__pyx_v_self), __pyx_v_dim, __pyx_v_float_type);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_12strategy_gen_6EnumBS___init__(struct __pyx_obj_12strategy_gen_EnumBS *__pyx_v_self, PyObject *__pyx_v_dim) {
+static int __pyx_pf_12strategy_gen_6EnumBS___init__(struct __pyx_obj_12strategy_gen_EnumBS *__pyx_v_self, PyObject *__pyx_v_dim, PyObject *__pyx_v_float_type) {
   struct Params __pyx_v_params;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
+  int __pyx_t_2;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "strategy_gen.pyx":12
- *     def __init__(self, dim):
+  /* "strategy_gen.pyx":15
  *         cdef Params params
+ * 
  *         params.method = 1             # <<<<<<<<<<<<<<
- *         self._core1 = new EnumBS_c(params, dim) #params,
- *         #self._core1.print_param_setting()
+ * 
+ *         if(float_type == "dd"):
  */
   __pyx_v_params.method = 1;
 
-  /* "strategy_gen.pyx":13
- *         cdef Params params
+  /* "strategy_gen.pyx":17
  *         params.method = 1
+ * 
+ *         if(float_type == "dd"):             # <<<<<<<<<<<<<<
+ *             params.cost_model = 3
+ *             params.sim_d4f = 2
+ */
+  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_v_float_type, __pyx_n_s_dd, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 17, __pyx_L1_error)
+  if (__pyx_t_1) {
+
+    /* "strategy_gen.pyx":18
+ * 
+ *         if(float_type == "dd"):
+ *             params.cost_model = 3             # <<<<<<<<<<<<<<
+ *             params.sim_d4f = 2
+ *         else:
+ */
+    __pyx_v_params.cost_model = 3;
+
+    /* "strategy_gen.pyx":19
+ *         if(float_type == "dd"):
+ *             params.cost_model = 3
+ *             params.sim_d4f = 2             # <<<<<<<<<<<<<<
+ *         else:
+ *             params.cost_model = 2
+ */
+    __pyx_v_params.sim_d4f = 2;
+
+    /* "strategy_gen.pyx":17
+ *         params.method = 1
+ * 
+ *         if(float_type == "dd"):             # <<<<<<<<<<<<<<
+ *             params.cost_model = 3
+ *             params.sim_d4f = 2
+ */
+    goto __pyx_L3;
+  }
+
+  /* "strategy_gen.pyx":21
+ *             params.sim_d4f = 2
+ *         else:
+ *             params.cost_model = 2             # <<<<<<<<<<<<<<
+ *             params.sim_d4f = 1
+ *         self._core1 = new EnumBS_c(params, dim) #params,
+ */
+  /*else*/ {
+    __pyx_v_params.cost_model = 2;
+
+    /* "strategy_gen.pyx":22
+ *         else:
+ *             params.cost_model = 2
+ *             params.sim_d4f = 1             # <<<<<<<<<<<<<<
+ *         self._core1 = new EnumBS_c(params, dim) #params,
+ *         #self._core1.print_param_setting()
+ */
+    __pyx_v_params.sim_d4f = 1;
+  }
+  __pyx_L3:;
+
+  /* "strategy_gen.pyx":23
+ *             params.cost_model = 2
+ *             params.sim_d4f = 1
  *         self._core1 = new EnumBS_c(params, dim) #params,             # <<<<<<<<<<<<<<
  *         #self._core1.print_param_setting()
  *         self.have_strategy_gen = True
  */
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_dim); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 13, __pyx_L1_error)
-  __pyx_v_self->_core1 = new EnumBS(__pyx_v_params, __pyx_t_1);
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_dim); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_v_self->_core1 = new EnumBS(__pyx_v_params, __pyx_t_2);
 
-  /* "strategy_gen.pyx":15
+  /* "strategy_gen.pyx":25
  *         self._core1 = new EnumBS_c(params, dim) #params,
  *         #self._core1.print_param_setting()
  *         self.have_strategy_gen = True             # <<<<<<<<<<<<<<
@@ -2204,12 +2379,12 @@ static int __pyx_pf_12strategy_gen_6EnumBS___init__(struct __pyx_obj_12strategy_
   __Pyx_DECREF(__pyx_v_self->have_strategy_gen);
   __pyx_v_self->have_strategy_gen = Py_True;
 
-  /* "strategy_gen.pyx":10
- * #function about EnumBS selection algorithm, to select an appropriate (blocksize,jump) strategy for reduction.
- * cdef class EnumBS(object):
- *     def __init__(self, dim):             # <<<<<<<<<<<<<<
+  /* "strategy_gen.pyx":12
+ * 
+ * 
+ *     def __init__(self, dim, float_type):             # <<<<<<<<<<<<<<
  *         cdef Params params
- *         params.method = 1
+ * 
  */
 
   /* function exit code */
@@ -2223,9 +2398,9 @@ static int __pyx_pf_12strategy_gen_6EnumBS___init__(struct __pyx_obj_12strategy_
   return __pyx_r;
 }
 
-/* "strategy_gen.pyx":20
+/* "strategy_gen.pyx":30
  * 
- *     #def strategy_gen(self, dim, dvol):
+ *     #def __call__(self, dim, dvol):
  *     def __call__(self, l):             # <<<<<<<<<<<<<<
  *         """
  *         Call EnumBS strategy selction algorithm
@@ -2264,7 +2439,7 @@ static PyObject *__pyx_pw_12strategy_gen_6EnumBS_3__call__(PyObject *__pyx_v_sel
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__call__") < 0)) __PYX_ERR(0, 20, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__call__") < 0)) __PYX_ERR(0, 30, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
@@ -2275,7 +2450,7 @@ static PyObject *__pyx_pw_12strategy_gen_6EnumBS_3__call__(PyObject *__pyx_v_sel
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__call__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 20, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__call__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 30, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("strategy_gen.EnumBS.__call__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2307,48 +2482,48 @@ static PyObject *__pyx_pf_12strategy_gen_6EnumBS_2__call__(struct __pyx_obj_12st
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__call__", 0);
 
-  /* "strategy_gen.pyx":29
+  /* "strategy_gen.pyx":39
  *         """
  * 
  *         dim = len(l)             # <<<<<<<<<<<<<<
  *         cdef np.ndarray l0 = zeros(dim, dtype=float64)
  *         for i in range(dim):
  */
-  __pyx_t_1 = PyObject_Length(__pyx_v_l); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 29, __pyx_L1_error)
+  __pyx_t_1 = PyObject_Length(__pyx_v_l); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 39, __pyx_L1_error)
   __pyx_v_dim = __pyx_t_1;
 
-  /* "strategy_gen.pyx":30
+  /* "strategy_gen.pyx":40
  * 
  *         dim = len(l)
  *         cdef np.ndarray l0 = zeros(dim, dtype=float64)             # <<<<<<<<<<<<<<
  *         for i in range(dim):
  *             l0[i] = l[i]
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 30, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyInt_FromSsize_t(__pyx_v_dim); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 30, __pyx_L1_error)
+  __pyx_t_3 = PyInt_FromSsize_t(__pyx_v_dim); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 30, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_3);
   PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_3);
   __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 30, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_float64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 30, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_float64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 30, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 30, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 30, __pyx_L1_error)
+  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 40, __pyx_L1_error)
   __pyx_v_l0 = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "strategy_gen.pyx":31
+  /* "strategy_gen.pyx":41
  *         dim = len(l)
  *         cdef np.ndarray l0 = zeros(dim, dtype=float64)
  *         for i in range(dim):             # <<<<<<<<<<<<<<
@@ -2360,29 +2535,29 @@ static PyObject *__pyx_pf_12strategy_gen_6EnumBS_2__call__(struct __pyx_obj_12st
   for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
     __pyx_v_i = __pyx_t_7;
 
-    /* "strategy_gen.pyx":32
+    /* "strategy_gen.pyx":42
  *         cdef np.ndarray l0 = zeros(dim, dtype=float64)
  *         for i in range(dim):
  *             l0[i] = l[i]             # <<<<<<<<<<<<<<
  * 
  *         sig_on()
  */
-    __pyx_t_5 = __Pyx_GetItemInt(__pyx_v_l, __pyx_v_i, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 32, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_GetItemInt(__pyx_v_l, __pyx_v_i, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 42, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    if (unlikely(__Pyx_SetItemInt(((PyObject *)__pyx_v_l0), __pyx_v_i, __pyx_t_5, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1) < 0)) __PYX_ERR(0, 32, __pyx_L1_error)
+    if (unlikely(__Pyx_SetItemInt(((PyObject *)__pyx_v_l0), __pyx_v_i, __pyx_t_5, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1) < 0)) __PYX_ERR(0, 42, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
 
-  /* "strategy_gen.pyx":34
+  /* "strategy_gen.pyx":44
  *             l0[i] = l[i]
  * 
  *         sig_on()             # <<<<<<<<<<<<<<
  *         self._core1.enumbs_est_in_parallel(<double*> l0.data);
  *         #self._core1.enumbs_est_in_parallel(dim, dvol);
  */
-  __pyx_t_8 = sig_on(); if (unlikely(__pyx_t_8 == ((int)0))) __PYX_ERR(0, 34, __pyx_L1_error)
+  __pyx_t_8 = sig_on(); if (unlikely(__pyx_t_8 == ((int)0))) __PYX_ERR(0, 44, __pyx_L1_error)
 
-  /* "strategy_gen.pyx":35
+  /* "strategy_gen.pyx":45
  * 
  *         sig_on()
  *         self._core1.enumbs_est_in_parallel(<double*> l0.data);             # <<<<<<<<<<<<<<
@@ -2391,7 +2566,7 @@ static PyObject *__pyx_pf_12strategy_gen_6EnumBS_2__call__(struct __pyx_obj_12st
  */
   __pyx_v_self->_core1->enumbs_est_in_parallel(((double *)__pyx_v_l0->data));
 
-  /* "strategy_gen.pyx":37
+  /* "strategy_gen.pyx":47
  *         self._core1.enumbs_est_in_parallel(<double*> l0.data);
  *         #self._core1.enumbs_est_in_parallel(dim, dvol);
  *         sig_off()             # <<<<<<<<<<<<<<
@@ -2400,7 +2575,7 @@ static PyObject *__pyx_pf_12strategy_gen_6EnumBS_2__call__(struct __pyx_obj_12st
  */
   sig_off();
 
-  /* "strategy_gen.pyx":38
+  /* "strategy_gen.pyx":48
  *         #self._core1.enumbs_est_in_parallel(dim, dvol);
  *         sig_off()
  *         self.have_strategy_gen = True             # <<<<<<<<<<<<<<
@@ -2413,9 +2588,9 @@ static PyObject *__pyx_pf_12strategy_gen_6EnumBS_2__call__(struct __pyx_obj_12st
   __Pyx_DECREF(__pyx_v_self->have_strategy_gen);
   __pyx_v_self->have_strategy_gen = Py_True;
 
-  /* "strategy_gen.pyx":20
+  /* "strategy_gen.pyx":30
  * 
- *     #def strategy_gen(self, dim, dvol):
+ *     #def __call__(self, dim, dvol):
  *     def __call__(self, l):             # <<<<<<<<<<<<<<
  *         """
  *         Call EnumBS strategy selction algorithm
@@ -2438,7 +2613,7 @@ static PyObject *__pyx_pf_12strategy_gen_6EnumBS_2__call__(struct __pyx_obj_12st
   return __pyx_r;
 }
 
-/* "strategy_gen.pyx":41
+/* "strategy_gen.pyx":51
  * 
  * 
  *     def get_strategy(self):             # <<<<<<<<<<<<<<
@@ -2482,7 +2657,7 @@ static PyObject *__pyx_pf_12strategy_gen_6EnumBS_4get_strategy(struct __pyx_obj_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_strategy", 0);
 
-  /* "strategy_gen.pyx":43
+  /* "strategy_gen.pyx":53
  *     def get_strategy(self):
  * 
  *         assert(self.have_strategy_gen)             # <<<<<<<<<<<<<<
@@ -2491,15 +2666,15 @@ static PyObject *__pyx_pf_12strategy_gen_6EnumBS_4get_strategy(struct __pyx_obj_
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(__pyx_assertions_enabled())) {
-    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_self->have_strategy_gen); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 43, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_self->have_strategy_gen); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 53, __pyx_L1_error)
     if (unlikely(!__pyx_t_1)) {
       PyErr_SetNone(PyExc_AssertionError);
-      __PYX_ERR(0, 43, __pyx_L1_error)
+      __PYX_ERR(0, 53, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "strategy_gen.pyx":44
+  /* "strategy_gen.pyx":54
  * 
  *         assert(self.have_strategy_gen)
  *         strategy_size = self._core1.strategy_size()             # <<<<<<<<<<<<<<
@@ -2508,18 +2683,18 @@ static PyObject *__pyx_pf_12strategy_gen_6EnumBS_4get_strategy(struct __pyx_obj_
  */
   __pyx_v_strategy_size = __pyx_v_self->_core1->strategy_size();
 
-  /* "strategy_gen.pyx":46
+  /* "strategy_gen.pyx":56
  *         strategy_size = self._core1.strategy_size()
  * 
  *         cdef np.ndarray strategy = zeros((strategy_size,3), dtype=int64)             # <<<<<<<<<<<<<<
  * 
  *         sig_on()
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 46, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 56, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_strategy_size); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 46, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_strategy_size); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 56, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 46, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 56, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_3);
   PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_3);
@@ -2527,36 +2702,36 @@ static PyObject *__pyx_pf_12strategy_gen_6EnumBS_4get_strategy(struct __pyx_obj_
   __Pyx_GIVEREF(__pyx_int_3);
   PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_int_3);
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 46, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 56, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4);
   __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 46, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 56, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_int64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 46, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_int64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 56, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 46, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 56, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 46, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 56, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 46, __pyx_L1_error)
+  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 56, __pyx_L1_error)
   __pyx_v_strategy = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "strategy_gen.pyx":48
+  /* "strategy_gen.pyx":58
  *         cdef np.ndarray strategy = zeros((strategy_size,3), dtype=int64)
  * 
  *         sig_on()             # <<<<<<<<<<<<<<
  *         self._core1.get_strategy(<long*> strategy.data)
  *         sig_off()
  */
-  __pyx_t_6 = sig_on(); if (unlikely(__pyx_t_6 == ((int)0))) __PYX_ERR(0, 48, __pyx_L1_error)
+  __pyx_t_6 = sig_on(); if (unlikely(__pyx_t_6 == ((int)0))) __PYX_ERR(0, 58, __pyx_L1_error)
 
-  /* "strategy_gen.pyx":49
+  /* "strategy_gen.pyx":59
  * 
  *         sig_on()
  *         self._core1.get_strategy(<long*> strategy.data)             # <<<<<<<<<<<<<<
@@ -2565,7 +2740,7 @@ static PyObject *__pyx_pf_12strategy_gen_6EnumBS_4get_strategy(struct __pyx_obj_
  */
   __pyx_v_self->_core1->get_strategy(((long *)__pyx_v_strategy->data));
 
-  /* "strategy_gen.pyx":50
+  /* "strategy_gen.pyx":60
  *         sig_on()
  *         self._core1.get_strategy(<long*> strategy.data)
  *         sig_off()             # <<<<<<<<<<<<<<
@@ -2574,19 +2749,19 @@ static PyObject *__pyx_pf_12strategy_gen_6EnumBS_4get_strategy(struct __pyx_obj_
  */
   sig_off();
 
-  /* "strategy_gen.pyx":52
+  /* "strategy_gen.pyx":62
  *         sig_off()
  * 
  *         S = []             # <<<<<<<<<<<<<<
  *         for i in range(strategy_size):
  *             S.append(tuple(strategy[i]))
  */
-  __pyx_t_5 = PyList_New(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_t_5 = PyList_New(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_v_S = ((PyObject*)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "strategy_gen.pyx":53
+  /* "strategy_gen.pyx":63
  * 
  *         S = []
  *         for i in range(strategy_size):             # <<<<<<<<<<<<<<
@@ -2598,35 +2773,35 @@ static PyObject *__pyx_pf_12strategy_gen_6EnumBS_4get_strategy(struct __pyx_obj_
   for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
     __pyx_v_i = __pyx_t_8;
 
-    /* "strategy_gen.pyx":54
+    /* "strategy_gen.pyx":64
  *         S = []
  *         for i in range(strategy_size):
  *             S.append(tuple(strategy[i]))             # <<<<<<<<<<<<<<
  * 
  *         return S
  */
-    __pyx_t_5 = __Pyx_GetItemInt(((PyObject *)__pyx_v_strategy), __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 54, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_GetItemInt(((PyObject *)__pyx_v_strategy), __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 64, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_4 = __Pyx_PySequence_Tuple(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 54, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PySequence_Tuple(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 64, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_9 = __Pyx_PyList_Append(__pyx_v_S, __pyx_t_4); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 54, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyList_Append(__pyx_v_S, __pyx_t_4); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 64, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
 
-  /* "strategy_gen.pyx":56
+  /* "strategy_gen.pyx":66
  *             S.append(tuple(strategy[i]))
  * 
  *         return S             # <<<<<<<<<<<<<<
  * 
- * 
+ *     def get_target_slope(self):
  */
   __Pyx_XDECREF(__pyx_r);
   __Pyx_INCREF(__pyx_v_S);
   __pyx_r = __pyx_v_S;
   goto __pyx_L0;
 
-  /* "strategy_gen.pyx":41
+  /* "strategy_gen.pyx":51
  * 
  * 
  *     def get_strategy(self):             # <<<<<<<<<<<<<<
@@ -2650,7 +2825,72 @@ static PyObject *__pyx_pf_12strategy_gen_6EnumBS_4get_strategy(struct __pyx_obj_
   return __pyx_r;
 }
 
-/* "strategy_gen.pyx":59
+/* "strategy_gen.pyx":68
+ *         return S
+ * 
+ *     def get_target_slope(self):             # <<<<<<<<<<<<<<
+ *         return self._core1.get_target_slope()
+ * 
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_12strategy_gen_6EnumBS_7get_target_slope(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_12strategy_gen_6EnumBS_6get_target_slope[] = "EnumBS.get_target_slope(self)";
+static PyMethodDef __pyx_mdef_12strategy_gen_6EnumBS_7get_target_slope = {"get_target_slope", (PyCFunction)__pyx_pw_12strategy_gen_6EnumBS_7get_target_slope, METH_NOARGS, __pyx_doc_12strategy_gen_6EnumBS_6get_target_slope};
+static PyObject *__pyx_pw_12strategy_gen_6EnumBS_7get_target_slope(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("get_target_slope (wrapper)", 0);
+  __pyx_r = __pyx_pf_12strategy_gen_6EnumBS_6get_target_slope(((struct __pyx_obj_12strategy_gen_EnumBS *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_12strategy_gen_6EnumBS_6get_target_slope(struct __pyx_obj_12strategy_gen_EnumBS *__pyx_v_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("get_target_slope", 0);
+
+  /* "strategy_gen.pyx":69
+ * 
+ *     def get_target_slope(self):
+ *         return self._core1.get_target_slope()             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->_core1->get_target_slope()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 69, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "strategy_gen.pyx":68
+ *         return S
+ * 
+ *     def get_target_slope(self):             # <<<<<<<<<<<<<<
+ *         return self._core1.get_target_slope()
+ * 
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("strategy_gen.EnumBS.get_target_slope", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "strategy_gen.pyx":72
  * 
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -2659,21 +2899,21 @@ static PyObject *__pyx_pf_12strategy_gen_6EnumBS_4get_strategy(struct __pyx_obj_
  */
 
 /* Python wrapper */
-static void __pyx_pw_12strategy_gen_6EnumBS_7__dealloc__(PyObject *__pyx_v_self); /*proto*/
-static void __pyx_pw_12strategy_gen_6EnumBS_7__dealloc__(PyObject *__pyx_v_self) {
+static void __pyx_pw_12strategy_gen_6EnumBS_9__dealloc__(PyObject *__pyx_v_self); /*proto*/
+static void __pyx_pw_12strategy_gen_6EnumBS_9__dealloc__(PyObject *__pyx_v_self) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__ (wrapper)", 0);
-  __pyx_pf_12strategy_gen_6EnumBS_6__dealloc__(((struct __pyx_obj_12strategy_gen_EnumBS *)__pyx_v_self));
+  __pyx_pf_12strategy_gen_6EnumBS_8__dealloc__(((struct __pyx_obj_12strategy_gen_EnumBS *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
 }
 
-static void __pyx_pf_12strategy_gen_6EnumBS_6__dealloc__(struct __pyx_obj_12strategy_gen_EnumBS *__pyx_v_self) {
+static void __pyx_pf_12strategy_gen_6EnumBS_8__dealloc__(struct __pyx_obj_12strategy_gen_EnumBS *__pyx_v_self) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "strategy_gen.pyx":60
+  /* "strategy_gen.pyx":73
  * 
  *     def __dealloc__(self):
  *         del self._core1             # <<<<<<<<<<<<<<
@@ -2682,7 +2922,7 @@ static void __pyx_pf_12strategy_gen_6EnumBS_6__dealloc__(struct __pyx_obj_12stra
  */
   delete __pyx_v_self->_core1;
 
-  /* "strategy_gen.pyx":59
+  /* "strategy_gen.pyx":72
  * 
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -2701,21 +2941,21 @@ static void __pyx_pf_12strategy_gen_6EnumBS_6__dealloc__(struct __pyx_obj_12stra
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12strategy_gen_6EnumBS_9__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_12strategy_gen_6EnumBS_8__reduce_cython__[] = "EnumBS.__reduce_cython__(self)";
-static PyMethodDef __pyx_mdef_12strategy_gen_6EnumBS_9__reduce_cython__ = {"__reduce_cython__", (PyCFunction)__pyx_pw_12strategy_gen_6EnumBS_9__reduce_cython__, METH_NOARGS, __pyx_doc_12strategy_gen_6EnumBS_8__reduce_cython__};
-static PyObject *__pyx_pw_12strategy_gen_6EnumBS_9__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_12strategy_gen_6EnumBS_11__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_12strategy_gen_6EnumBS_10__reduce_cython__[] = "EnumBS.__reduce_cython__(self)";
+static PyMethodDef __pyx_mdef_12strategy_gen_6EnumBS_11__reduce_cython__ = {"__reduce_cython__", (PyCFunction)__pyx_pw_12strategy_gen_6EnumBS_11__reduce_cython__, METH_NOARGS, __pyx_doc_12strategy_gen_6EnumBS_10__reduce_cython__};
+static PyObject *__pyx_pw_12strategy_gen_6EnumBS_11__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_12strategy_gen_6EnumBS_8__reduce_cython__(((struct __pyx_obj_12strategy_gen_EnumBS *)__pyx_v_self));
+  __pyx_r = __pyx_pf_12strategy_gen_6EnumBS_10__reduce_cython__(((struct __pyx_obj_12strategy_gen_EnumBS *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12strategy_gen_6EnumBS_8__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_12strategy_gen_EnumBS *__pyx_v_self) {
+static PyObject *__pyx_pf_12strategy_gen_6EnumBS_10__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_12strategy_gen_EnumBS *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2760,21 +3000,21 @@ static PyObject *__pyx_pf_12strategy_gen_6EnumBS_8__reduce_cython__(CYTHON_UNUSE
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12strategy_gen_6EnumBS_11__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static char __pyx_doc_12strategy_gen_6EnumBS_10__setstate_cython__[] = "EnumBS.__setstate_cython__(self, __pyx_state)";
-static PyMethodDef __pyx_mdef_12strategy_gen_6EnumBS_11__setstate_cython__ = {"__setstate_cython__", (PyCFunction)__pyx_pw_12strategy_gen_6EnumBS_11__setstate_cython__, METH_O, __pyx_doc_12strategy_gen_6EnumBS_10__setstate_cython__};
-static PyObject *__pyx_pw_12strategy_gen_6EnumBS_11__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pw_12strategy_gen_6EnumBS_13__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static char __pyx_doc_12strategy_gen_6EnumBS_12__setstate_cython__[] = "EnumBS.__setstate_cython__(self, __pyx_state)";
+static PyMethodDef __pyx_mdef_12strategy_gen_6EnumBS_13__setstate_cython__ = {"__setstate_cython__", (PyCFunction)__pyx_pw_12strategy_gen_6EnumBS_13__setstate_cython__, METH_O, __pyx_doc_12strategy_gen_6EnumBS_12__setstate_cython__};
+static PyObject *__pyx_pw_12strategy_gen_6EnumBS_13__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_12strategy_gen_6EnumBS_10__setstate_cython__(((struct __pyx_obj_12strategy_gen_EnumBS *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+  __pyx_r = __pyx_pf_12strategy_gen_6EnumBS_12__setstate_cython__(((struct __pyx_obj_12strategy_gen_EnumBS *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12strategy_gen_6EnumBS_10__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_12strategy_gen_EnumBS *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_12strategy_gen_6EnumBS_12__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_12strategy_gen_EnumBS *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2811,10 +3051,10 @@ static PyObject *__pyx_pf_12strategy_gen_6EnumBS_10__setstate_cython__(CYTHON_UN
   return __pyx_r;
 }
 
-/* "strategy_gen.pyx":67
+/* "strategy_gen.pyx":80
  * 
  * cdef class BSSA(object):
- *     def __init__(self, dim):             # <<<<<<<<<<<<<<
+ *     def __init__(self, dim, version,float_type):             # <<<<<<<<<<<<<<
  *         cdef Params params
  *         params.method = 2
  */
@@ -2823,6 +3063,8 @@ static PyObject *__pyx_pf_12strategy_gen_6EnumBS_10__setstate_cython__(CYTHON_UN
 static int __pyx_pw_12strategy_gen_4BSSA_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static int __pyx_pw_12strategy_gen_4BSSA_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_dim = 0;
+  PyObject *__pyx_v_version = 0;
+  PyObject *__pyx_v_float_type = 0;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -2830,12 +3072,16 @@ static int __pyx_pw_12strategy_gen_4BSSA_1__init__(PyObject *__pyx_v_self, PyObj
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__init__ (wrapper)", 0);
   {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_dim,0};
-    PyObject* values[1] = {0};
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_dim,&__pyx_n_s_version,&__pyx_n_s_float_type,0};
+    PyObject* values[3] = {0,0,0};
     if (unlikely(__pyx_kwds)) {
       Py_ssize_t kw_args;
       const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
       switch (pos_args) {
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
         case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
         CYTHON_FALLTHROUGH;
         case  0: break;
@@ -2846,62 +3092,194 @@ static int __pyx_pw_12strategy_gen_4BSSA_1__init__(PyObject *__pyx_v_self, PyObj
         case  0:
         if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_dim)) != 0)) kw_args--;
         else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_version)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 1); __PYX_ERR(0, 80, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  2:
+        if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_float_type)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 2); __PYX_ERR(0, 80, __pyx_L3_error)
+        }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 67, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 80, __pyx_L3_error)
       }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
     __pyx_v_dim = values[0];
+    __pyx_v_version = values[1];
+    __pyx_v_float_type = values[2];
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 67, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 80, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("strategy_gen.BSSA.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_12strategy_gen_4BSSA___init__(((struct __pyx_obj_12strategy_gen_BSSA *)__pyx_v_self), __pyx_v_dim);
+  __pyx_r = __pyx_pf_12strategy_gen_4BSSA___init__(((struct __pyx_obj_12strategy_gen_BSSA *)__pyx_v_self), __pyx_v_dim, __pyx_v_version, __pyx_v_float_type);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_12strategy_gen_4BSSA___init__(struct __pyx_obj_12strategy_gen_BSSA *__pyx_v_self, PyObject *__pyx_v_dim) {
+static int __pyx_pf_12strategy_gen_4BSSA___init__(struct __pyx_obj_12strategy_gen_BSSA *__pyx_v_self, PyObject *__pyx_v_dim, PyObject *__pyx_v_version, PyObject *__pyx_v_float_type) {
   struct Params __pyx_v_params;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
+  int __pyx_t_2;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "strategy_gen.pyx":69
- *     def __init__(self, dim):
+  /* "strategy_gen.pyx":82
+ *     def __init__(self, dim, version,float_type):
  *         cdef Params params
  *         params.method = 2             # <<<<<<<<<<<<<<
- * 
- *         self._core2 = new BSSA_c(params,dim) #params,
+ *         if(version == "v2"):
+ *             params.bssa_tradition = 0
  */
   __pyx_v_params.method = 2;
 
-  /* "strategy_gen.pyx":71
+  /* "strategy_gen.pyx":83
+ *         cdef Params params
  *         params.method = 2
+ *         if(version == "v2"):             # <<<<<<<<<<<<<<
+ *             params.bssa_tradition = 0
+ *         if(version == "v1"):
+ */
+  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_v_version, __pyx_n_s_v2, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 83, __pyx_L1_error)
+  if (__pyx_t_1) {
+
+    /* "strategy_gen.pyx":84
+ *         params.method = 2
+ *         if(version == "v2"):
+ *             params.bssa_tradition = 0             # <<<<<<<<<<<<<<
+ *         if(version == "v1"):
+ *             params.bssa_tradition = 1
+ */
+    __pyx_v_params.bssa_tradition = 0;
+
+    /* "strategy_gen.pyx":83
+ *         cdef Params params
+ *         params.method = 2
+ *         if(version == "v2"):             # <<<<<<<<<<<<<<
+ *             params.bssa_tradition = 0
+ *         if(version == "v1"):
+ */
+  }
+
+  /* "strategy_gen.pyx":85
+ *         if(version == "v2"):
+ *             params.bssa_tradition = 0
+ *         if(version == "v1"):             # <<<<<<<<<<<<<<
+ *             params.bssa_tradition = 1
  * 
+ */
+  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_v_version, __pyx_n_s_v1, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 85, __pyx_L1_error)
+  if (__pyx_t_1) {
+
+    /* "strategy_gen.pyx":86
+ *             params.bssa_tradition = 0
+ *         if(version == "v1"):
+ *             params.bssa_tradition = 1             # <<<<<<<<<<<<<<
+ * 
+ *         if(float_type == "dd"):
+ */
+    __pyx_v_params.bssa_tradition = 1;
+
+    /* "strategy_gen.pyx":85
+ *         if(version == "v2"):
+ *             params.bssa_tradition = 0
+ *         if(version == "v1"):             # <<<<<<<<<<<<<<
+ *             params.bssa_tradition = 1
+ * 
+ */
+  }
+
+  /* "strategy_gen.pyx":88
+ *             params.bssa_tradition = 1
+ * 
+ *         if(float_type == "dd"):             # <<<<<<<<<<<<<<
+ *             params.cost_model = 3
+ *             params.sim_d4f = 2
+ */
+  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_v_float_type, __pyx_n_s_dd, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 88, __pyx_L1_error)
+  if (__pyx_t_1) {
+
+    /* "strategy_gen.pyx":89
+ * 
+ *         if(float_type == "dd"):
+ *             params.cost_model = 3             # <<<<<<<<<<<<<<
+ *             params.sim_d4f = 2
+ *         else:
+ */
+    __pyx_v_params.cost_model = 3;
+
+    /* "strategy_gen.pyx":90
+ *         if(float_type == "dd"):
+ *             params.cost_model = 3
+ *             params.sim_d4f = 2             # <<<<<<<<<<<<<<
+ *         else:
+ *             params.cost_model = 2
+ */
+    __pyx_v_params.sim_d4f = 2;
+
+    /* "strategy_gen.pyx":88
+ *             params.bssa_tradition = 1
+ * 
+ *         if(float_type == "dd"):             # <<<<<<<<<<<<<<
+ *             params.cost_model = 3
+ *             params.sim_d4f = 2
+ */
+    goto __pyx_L5;
+  }
+
+  /* "strategy_gen.pyx":92
+ *             params.sim_d4f = 2
+ *         else:
+ *             params.cost_model = 2             # <<<<<<<<<<<<<<
+ *             params.sim_d4f = 1
+ *         self._core2 = new BSSA_c(params,dim) #params,
+ */
+  /*else*/ {
+    __pyx_v_params.cost_model = 2;
+
+    /* "strategy_gen.pyx":93
+ *         else:
+ *             params.cost_model = 2
+ *             params.sim_d4f = 1             # <<<<<<<<<<<<<<
+ *         self._core2 = new BSSA_c(params,dim) #params,
+ *         #self._core2.print_param_setting()
+ */
+    __pyx_v_params.sim_d4f = 1;
+  }
+  __pyx_L5:;
+
+  /* "strategy_gen.pyx":94
+ *             params.cost_model = 2
+ *             params.sim_d4f = 1
  *         self._core2 = new BSSA_c(params,dim) #params,             # <<<<<<<<<<<<<<
  *         #self._core2.print_param_setting()
  *         self.have_strategy_gen = False
  */
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_dim); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 71, __pyx_L1_error)
-  __pyx_v_self->_core2 = new BSSA(__pyx_v_params, __pyx_t_1);
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_dim); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 94, __pyx_L1_error)
+  __pyx_v_self->_core2 = new BSSA(__pyx_v_params, __pyx_t_2);
 
-  /* "strategy_gen.pyx":73
+  /* "strategy_gen.pyx":96
  *         self._core2 = new BSSA_c(params,dim) #params,
  *         #self._core2.print_param_setting()
  *         self.have_strategy_gen = False             # <<<<<<<<<<<<<<
@@ -2914,10 +3292,10 @@ static int __pyx_pf_12strategy_gen_4BSSA___init__(struct __pyx_obj_12strategy_ge
   __Pyx_DECREF(__pyx_v_self->have_strategy_gen);
   __pyx_v_self->have_strategy_gen = Py_False;
 
-  /* "strategy_gen.pyx":67
+  /* "strategy_gen.pyx":80
  * 
  * cdef class BSSA(object):
- *     def __init__(self, dim):             # <<<<<<<<<<<<<<
+ *     def __init__(self, dim, version,float_type):             # <<<<<<<<<<<<<<
  *         cdef Params params
  *         params.method = 2
  */
@@ -2933,7 +3311,7 @@ static int __pyx_pf_12strategy_gen_4BSSA___init__(struct __pyx_obj_12strategy_ge
   return __pyx_r;
 }
 
-/* "strategy_gen.pyx":78
+/* "strategy_gen.pyx":101
  * 
  *     #def strategy_gen(self, dim, dvol):
  *     def __call__(self, l, sbeta =None, gbeta = None):             # <<<<<<<<<<<<<<
@@ -2994,7 +3372,7 @@ static PyObject *__pyx_pw_12strategy_gen_4BSSA_3__call__(PyObject *__pyx_v_self,
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__call__") < 0)) __PYX_ERR(0, 78, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__call__") < 0)) __PYX_ERR(0, 101, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -3013,7 +3391,7 @@ static PyObject *__pyx_pw_12strategy_gen_4BSSA_3__call__(PyObject *__pyx_v_self,
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__call__", 0, 1, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 78, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__call__", 0, 1, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 101, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("strategy_gen.BSSA.__call__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3050,48 +3428,48 @@ static PyObject *__pyx_pf_12strategy_gen_4BSSA_2__call__(struct __pyx_obj_12stra
   __Pyx_INCREF(__pyx_v_sbeta);
   __Pyx_INCREF(__pyx_v_gbeta);
 
-  /* "strategy_gen.pyx":87
+  /* "strategy_gen.pyx":110
  *         """
  * 
  *         dim = len(l)             # <<<<<<<<<<<<<<
  *         cdef np.ndarray l0 = zeros(dim, dtype=float64)
  *         for i in range(dim):
  */
-  __pyx_t_1 = PyObject_Length(__pyx_v_l); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 87, __pyx_L1_error)
+  __pyx_t_1 = PyObject_Length(__pyx_v_l); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 110, __pyx_L1_error)
   __pyx_v_dim = __pyx_t_1;
 
-  /* "strategy_gen.pyx":88
+  /* "strategy_gen.pyx":111
  * 
  *         dim = len(l)
  *         cdef np.ndarray l0 = zeros(dim, dtype=float64)             # <<<<<<<<<<<<<<
  *         for i in range(dim):
  *             l0[i] = l[i]
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyInt_FromSsize_t(__pyx_v_dim); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __pyx_t_3 = PyInt_FromSsize_t(__pyx_v_dim); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_3);
   PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_3);
   __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_float64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_float64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 88, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 88, __pyx_L1_error)
+  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 111, __pyx_L1_error)
   __pyx_v_l0 = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "strategy_gen.pyx":89
+  /* "strategy_gen.pyx":112
  *         dim = len(l)
  *         cdef np.ndarray l0 = zeros(dim, dtype=float64)
  *         for i in range(dim):             # <<<<<<<<<<<<<<
@@ -3103,20 +3481,20 @@ static PyObject *__pyx_pf_12strategy_gen_4BSSA_2__call__(struct __pyx_obj_12stra
   for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
     __pyx_v_i = __pyx_t_7;
 
-    /* "strategy_gen.pyx":90
+    /* "strategy_gen.pyx":113
  *         cdef np.ndarray l0 = zeros(dim, dtype=float64)
  *         for i in range(dim):
  *             l0[i] = l[i]             # <<<<<<<<<<<<<<
  * 
  *         if sbeta is None:
  */
-    __pyx_t_5 = __Pyx_GetItemInt(__pyx_v_l, __pyx_v_i, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 90, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_GetItemInt(__pyx_v_l, __pyx_v_i, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 113, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    if (unlikely(__Pyx_SetItemInt(((PyObject *)__pyx_v_l0), __pyx_v_i, __pyx_t_5, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1) < 0)) __PYX_ERR(0, 90, __pyx_L1_error)
+    if (unlikely(__Pyx_SetItemInt(((PyObject *)__pyx_v_l0), __pyx_v_i, __pyx_t_5, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1) < 0)) __PYX_ERR(0, 113, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
 
-  /* "strategy_gen.pyx":92
+  /* "strategy_gen.pyx":115
  *             l0[i] = l[i]
  * 
  *         if sbeta is None:             # <<<<<<<<<<<<<<
@@ -3127,7 +3505,7 @@ static PyObject *__pyx_pf_12strategy_gen_4BSSA_2__call__(struct __pyx_obj_12stra
   __pyx_t_9 = (__pyx_t_8 != 0);
   if (__pyx_t_9) {
 
-    /* "strategy_gen.pyx":93
+    /* "strategy_gen.pyx":116
  * 
  *         if sbeta is None:
  *             sbeta = 50             # <<<<<<<<<<<<<<
@@ -3137,7 +3515,7 @@ static PyObject *__pyx_pf_12strategy_gen_4BSSA_2__call__(struct __pyx_obj_12stra
     __Pyx_INCREF(__pyx_int_50);
     __Pyx_DECREF_SET(__pyx_v_sbeta, __pyx_int_50);
 
-    /* "strategy_gen.pyx":92
+    /* "strategy_gen.pyx":115
  *             l0[i] = l[i]
  * 
  *         if sbeta is None:             # <<<<<<<<<<<<<<
@@ -3146,7 +3524,7 @@ static PyObject *__pyx_pf_12strategy_gen_4BSSA_2__call__(struct __pyx_obj_12stra
  */
   }
 
-  /* "strategy_gen.pyx":94
+  /* "strategy_gen.pyx":117
  *         if sbeta is None:
  *             sbeta = 50
  *         if gbeta is None:             # <<<<<<<<<<<<<<
@@ -3157,19 +3535,19 @@ static PyObject *__pyx_pf_12strategy_gen_4BSSA_2__call__(struct __pyx_obj_12stra
   __pyx_t_8 = (__pyx_t_9 != 0);
   if (__pyx_t_8) {
 
-    /* "strategy_gen.pyx":95
+    /* "strategy_gen.pyx":118
  *             sbeta = 50
  *         if gbeta is None:
  *             gbeta = dim             # <<<<<<<<<<<<<<
  * 
  *         sig_on()
  */
-    __pyx_t_5 = PyInt_FromSsize_t(__pyx_v_dim); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 95, __pyx_L1_error)
+    __pyx_t_5 = PyInt_FromSsize_t(__pyx_v_dim); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 118, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF_SET(__pyx_v_gbeta, __pyx_t_5);
     __pyx_t_5 = 0;
 
-    /* "strategy_gen.pyx":94
+    /* "strategy_gen.pyx":117
  *         if sbeta is None:
  *             sbeta = 50
  *         if gbeta is None:             # <<<<<<<<<<<<<<
@@ -3178,27 +3556,27 @@ static PyObject *__pyx_pf_12strategy_gen_4BSSA_2__call__(struct __pyx_obj_12stra
  */
   }
 
-  /* "strategy_gen.pyx":97
+  /* "strategy_gen.pyx":120
  *             gbeta = dim
  * 
  *         sig_on()             # <<<<<<<<<<<<<<
  *         self._core2.bssa_est(<double*> l0.data, sbeta, gbeta)
  *         sig_off()
  */
-  __pyx_t_10 = sig_on(); if (unlikely(__pyx_t_10 == ((int)0))) __PYX_ERR(0, 97, __pyx_L1_error)
+  __pyx_t_10 = sig_on(); if (unlikely(__pyx_t_10 == ((int)0))) __PYX_ERR(0, 120, __pyx_L1_error)
 
-  /* "strategy_gen.pyx":98
+  /* "strategy_gen.pyx":121
  * 
  *         sig_on()
  *         self._core2.bssa_est(<double*> l0.data, sbeta, gbeta)             # <<<<<<<<<<<<<<
  *         sig_off()
  *         self.have_strategy_gen = True
  */
-  __pyx_t_10 = __Pyx_PyInt_As_int(__pyx_v_sbeta); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 98, __pyx_L1_error)
-  __pyx_t_11 = __Pyx_PyInt_As_int(__pyx_v_gbeta); if (unlikely((__pyx_t_11 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 98, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyInt_As_int(__pyx_v_sbeta); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 121, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_PyInt_As_int(__pyx_v_gbeta); if (unlikely((__pyx_t_11 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 121, __pyx_L1_error)
   __pyx_v_self->_core2->bssa_est(((double *)__pyx_v_l0->data), __pyx_t_10, __pyx_t_11);
 
-  /* "strategy_gen.pyx":99
+  /* "strategy_gen.pyx":122
  *         sig_on()
  *         self._core2.bssa_est(<double*> l0.data, sbeta, gbeta)
  *         sig_off()             # <<<<<<<<<<<<<<
@@ -3207,7 +3585,7 @@ static PyObject *__pyx_pf_12strategy_gen_4BSSA_2__call__(struct __pyx_obj_12stra
  */
   sig_off();
 
-  /* "strategy_gen.pyx":100
+  /* "strategy_gen.pyx":123
  *         self._core2.bssa_est(<double*> l0.data, sbeta, gbeta)
  *         sig_off()
  *         self.have_strategy_gen = True             # <<<<<<<<<<<<<<
@@ -3220,7 +3598,7 @@ static PyObject *__pyx_pf_12strategy_gen_4BSSA_2__call__(struct __pyx_obj_12stra
   __Pyx_DECREF(__pyx_v_self->have_strategy_gen);
   __pyx_v_self->have_strategy_gen = Py_True;
 
-  /* "strategy_gen.pyx":78
+  /* "strategy_gen.pyx":101
  * 
  *     #def strategy_gen(self, dim, dvol):
  *     def __call__(self, l, sbeta =None, gbeta = None):             # <<<<<<<<<<<<<<
@@ -3247,7 +3625,7 @@ static PyObject *__pyx_pf_12strategy_gen_4BSSA_2__call__(struct __pyx_obj_12stra
   return __pyx_r;
 }
 
-/* "strategy_gen.pyx":103
+/* "strategy_gen.pyx":126
  * 
  * 
  *     def get_strategy(self):             # <<<<<<<<<<<<<<
@@ -3291,7 +3669,7 @@ static PyObject *__pyx_pf_12strategy_gen_4BSSA_4get_strategy(struct __pyx_obj_12
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_strategy", 0);
 
-  /* "strategy_gen.pyx":105
+  /* "strategy_gen.pyx":128
  *     def get_strategy(self):
  * 
  *         assert(self.have_strategy_gen)             # <<<<<<<<<<<<<<
@@ -3300,15 +3678,15 @@ static PyObject *__pyx_pf_12strategy_gen_4BSSA_4get_strategy(struct __pyx_obj_12
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(__pyx_assertions_enabled())) {
-    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_self->have_strategy_gen); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 105, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_self->have_strategy_gen); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 128, __pyx_L1_error)
     if (unlikely(!__pyx_t_1)) {
       PyErr_SetNone(PyExc_AssertionError);
-      __PYX_ERR(0, 105, __pyx_L1_error)
+      __PYX_ERR(0, 128, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "strategy_gen.pyx":106
+  /* "strategy_gen.pyx":129
  * 
  *         assert(self.have_strategy_gen)
  *         strategy_size = self._core2.strategy_size()             # <<<<<<<<<<<<<<
@@ -3317,18 +3695,18 @@ static PyObject *__pyx_pf_12strategy_gen_4BSSA_4get_strategy(struct __pyx_obj_12
  */
   __pyx_v_strategy_size = __pyx_v_self->_core2->strategy_size();
 
-  /* "strategy_gen.pyx":108
+  /* "strategy_gen.pyx":131
  *         strategy_size = self._core2.strategy_size()
  * 
  *         cdef np.ndarray strategy = zeros((strategy_size,3), dtype=int64)             # <<<<<<<<<<<<<<
  * 
  *         sig_on()
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 131, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_strategy_size); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_strategy_size); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 131, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 131, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_3);
   PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_3);
@@ -3336,36 +3714,36 @@ static PyObject *__pyx_pf_12strategy_gen_4BSSA_4get_strategy(struct __pyx_obj_12
   __Pyx_GIVEREF(__pyx_int_3);
   PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_int_3);
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 131, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4);
   __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 131, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_int64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_int64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 131, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 108, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 131, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 131, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 108, __pyx_L1_error)
+  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 131, __pyx_L1_error)
   __pyx_v_strategy = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "strategy_gen.pyx":110
+  /* "strategy_gen.pyx":133
  *         cdef np.ndarray strategy = zeros((strategy_size,3), dtype=int64)
  * 
  *         sig_on()             # <<<<<<<<<<<<<<
  *         self._core2.get_strategy(<long*> strategy.data)
  *         sig_off()
  */
-  __pyx_t_6 = sig_on(); if (unlikely(__pyx_t_6 == ((int)0))) __PYX_ERR(0, 110, __pyx_L1_error)
+  __pyx_t_6 = sig_on(); if (unlikely(__pyx_t_6 == ((int)0))) __PYX_ERR(0, 133, __pyx_L1_error)
 
-  /* "strategy_gen.pyx":111
+  /* "strategy_gen.pyx":134
  * 
  *         sig_on()
  *         self._core2.get_strategy(<long*> strategy.data)             # <<<<<<<<<<<<<<
@@ -3374,7 +3752,7 @@ static PyObject *__pyx_pf_12strategy_gen_4BSSA_4get_strategy(struct __pyx_obj_12
  */
   __pyx_v_self->_core2->get_strategy(((long *)__pyx_v_strategy->data));
 
-  /* "strategy_gen.pyx":112
+  /* "strategy_gen.pyx":135
  *         sig_on()
  *         self._core2.get_strategy(<long*> strategy.data)
  *         sig_off()             # <<<<<<<<<<<<<<
@@ -3383,19 +3761,19 @@ static PyObject *__pyx_pf_12strategy_gen_4BSSA_4get_strategy(struct __pyx_obj_12
  */
   sig_off();
 
-  /* "strategy_gen.pyx":114
+  /* "strategy_gen.pyx":137
  *         sig_off()
  * 
  *         S = []             # <<<<<<<<<<<<<<
  *         for i in range(strategy_size):
  *             S.append(tuple(strategy[i]))
  */
-  __pyx_t_5 = PyList_New(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __pyx_t_5 = PyList_New(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 137, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_v_S = ((PyObject*)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "strategy_gen.pyx":115
+  /* "strategy_gen.pyx":138
  * 
  *         S = []
  *         for i in range(strategy_size):             # <<<<<<<<<<<<<<
@@ -3407,23 +3785,23 @@ static PyObject *__pyx_pf_12strategy_gen_4BSSA_4get_strategy(struct __pyx_obj_12
   for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
     __pyx_v_i = __pyx_t_8;
 
-    /* "strategy_gen.pyx":116
+    /* "strategy_gen.pyx":139
  *         S = []
  *         for i in range(strategy_size):
  *             S.append(tuple(strategy[i]))             # <<<<<<<<<<<<<<
  * 
  *         return S
  */
-    __pyx_t_5 = __Pyx_GetItemInt(((PyObject *)__pyx_v_strategy), __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 116, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_GetItemInt(((PyObject *)__pyx_v_strategy), __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 139, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_4 = __Pyx_PySequence_Tuple(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 116, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PySequence_Tuple(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 139, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_9 = __Pyx_PyList_Append(__pyx_v_S, __pyx_t_4); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 116, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyList_Append(__pyx_v_S, __pyx_t_4); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 139, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
 
-  /* "strategy_gen.pyx":118
+  /* "strategy_gen.pyx":141
  *             S.append(tuple(strategy[i]))
  * 
  *         return S             # <<<<<<<<<<<<<<
@@ -3435,7 +3813,7 @@ static PyObject *__pyx_pf_12strategy_gen_4BSSA_4get_strategy(struct __pyx_obj_12
   __pyx_r = __pyx_v_S;
   goto __pyx_L0;
 
-  /* "strategy_gen.pyx":103
+  /* "strategy_gen.pyx":126
  * 
  * 
  *     def get_strategy(self):             # <<<<<<<<<<<<<<
@@ -3459,7 +3837,7 @@ static PyObject *__pyx_pf_12strategy_gen_4BSSA_4get_strategy(struct __pyx_obj_12
   return __pyx_r;
 }
 
-/* "strategy_gen.pyx":121
+/* "strategy_gen.pyx":147
  * 
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -3482,15 +3860,16 @@ static void __pyx_pf_12strategy_gen_4BSSA_6__dealloc__(struct __pyx_obj_12strate
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "strategy_gen.pyx":122
+  /* "strategy_gen.pyx":148
  * 
  *     def __dealloc__(self):
  *         del self._core2             # <<<<<<<<<<<<<<
  * 
+ * def lwechal_simulation_gsa(dim, dvol, S, strategy_size,float_type = None):
  */
   delete __pyx_v_self->_core2;
 
-  /* "strategy_gen.pyx":121
+  /* "strategy_gen.pyx":147
  * 
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -3614,6 +3993,927 @@ static PyObject *__pyx_pf_12strategy_gen_4BSSA_10__setstate_cython__(CYTHON_UNUS
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_AddTraceback("strategy_gen.BSSA.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "strategy_gen.pyx":150
+ *         del self._core2
+ * 
+ * def lwechal_simulation_gsa(dim, dvol, S, strategy_size,float_type = None):             # <<<<<<<<<<<<<<
+ *     cdef Params params
+ *     params.verbose = True
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_12strategy_gen_1lwechal_simulation_gsa(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_12strategy_gen_lwechal_simulation_gsa[] = "lwechal_simulation_gsa(dim, dvol, S, strategy_size, float_type=None)";
+static PyMethodDef __pyx_mdef_12strategy_gen_1lwechal_simulation_gsa = {"lwechal_simulation_gsa", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_12strategy_gen_1lwechal_simulation_gsa, METH_VARARGS|METH_KEYWORDS, __pyx_doc_12strategy_gen_lwechal_simulation_gsa};
+static PyObject *__pyx_pw_12strategy_gen_1lwechal_simulation_gsa(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyObject *__pyx_v_dim = 0;
+  PyObject *__pyx_v_dvol = 0;
+  PyObject *__pyx_v_S = 0;
+  PyObject *__pyx_v_strategy_size = 0;
+  PyObject *__pyx_v_float_type = 0;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("lwechal_simulation_gsa (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_dim,&__pyx_n_s_dvol,&__pyx_n_s_S,&__pyx_n_s_strategy_size,&__pyx_n_s_float_type,0};
+    PyObject* values[5] = {0,0,0,0,0};
+    values[4] = ((PyObject *)((PyObject *)Py_None));
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  5: values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
+        CYTHON_FALLTHROUGH;
+        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+        CYTHON_FALLTHROUGH;
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_dim)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_dvol)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("lwechal_simulation_gsa", 0, 4, 5, 1); __PYX_ERR(0, 150, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  2:
+        if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_S)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("lwechal_simulation_gsa", 0, 4, 5, 2); __PYX_ERR(0, 150, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  3:
+        if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_strategy_size)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("lwechal_simulation_gsa", 0, 4, 5, 3); __PYX_ERR(0, 150, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  4:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_float_type);
+          if (value) { values[4] = value; kw_args--; }
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "lwechal_simulation_gsa") < 0)) __PYX_ERR(0, 150, __pyx_L3_error)
+      }
+    } else {
+      switch (PyTuple_GET_SIZE(__pyx_args)) {
+        case  5: values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
+        CYTHON_FALLTHROUGH;
+        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+        values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+    }
+    __pyx_v_dim = values[0];
+    __pyx_v_dvol = values[1];
+    __pyx_v_S = values[2];
+    __pyx_v_strategy_size = values[3];
+    __pyx_v_float_type = values[4];
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("lwechal_simulation_gsa", 0, 4, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 150, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("strategy_gen.lwechal_simulation_gsa", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_12strategy_gen_lwechal_simulation_gsa(__pyx_self, __pyx_v_dim, __pyx_v_dvol, __pyx_v_S, __pyx_v_strategy_size, __pyx_v_float_type);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_12strategy_gen_lwechal_simulation_gsa(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_dim, PyObject *__pyx_v_dvol, PyObject *__pyx_v_S, PyObject *__pyx_v_strategy_size, PyObject *__pyx_v_float_type) {
+  struct Params __pyx_v_params;
+  PyArrayObject *__pyx_v_strategy = 0;
+  PyObject *__pyx_v_i = NULL;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  int __pyx_t_1;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  Py_ssize_t __pyx_t_6;
+  PyObject *(*__pyx_t_7)(PyObject *);
+  int __pyx_t_8;
+  double __pyx_t_9;
+  int __pyx_t_10;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("lwechal_simulation_gsa", 0);
+
+  /* "strategy_gen.pyx":152
+ * def lwechal_simulation_gsa(dim, dvol, S, strategy_size,float_type = None):
+ *     cdef Params params
+ *     params.verbose = True             # <<<<<<<<<<<<<<
+ *     if(float_type == "dd"):
+ *         params.cost_model = 3
+ */
+  __pyx_v_params.verbose = 1;
+
+  /* "strategy_gen.pyx":153
+ *     cdef Params params
+ *     params.verbose = True
+ *     if(float_type == "dd"):             # <<<<<<<<<<<<<<
+ *         params.cost_model = 3
+ *         params.sim_d4f = 2
+ */
+  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_v_float_type, __pyx_n_s_dd, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 153, __pyx_L1_error)
+  if (__pyx_t_1) {
+
+    /* "strategy_gen.pyx":154
+ *     params.verbose = True
+ *     if(float_type == "dd"):
+ *         params.cost_model = 3             # <<<<<<<<<<<<<<
+ *         params.sim_d4f = 2
+ *     else:
+ */
+    __pyx_v_params.cost_model = 3;
+
+    /* "strategy_gen.pyx":155
+ *     if(float_type == "dd"):
+ *         params.cost_model = 3
+ *         params.sim_d4f = 2             # <<<<<<<<<<<<<<
+ *     else:
+ *         params.cost_model = 2
+ */
+    __pyx_v_params.sim_d4f = 2;
+
+    /* "strategy_gen.pyx":153
+ *     cdef Params params
+ *     params.verbose = True
+ *     if(float_type == "dd"):             # <<<<<<<<<<<<<<
+ *         params.cost_model = 3
+ *         params.sim_d4f = 2
+ */
+    goto __pyx_L3;
+  }
+
+  /* "strategy_gen.pyx":157
+ *         params.sim_d4f = 2
+ *     else:
+ *         params.cost_model = 2             # <<<<<<<<<<<<<<
+ *         params.sim_d4f = 1
+ * 
+ */
+  /*else*/ {
+    __pyx_v_params.cost_model = 2;
+
+    /* "strategy_gen.pyx":158
+ *     else:
+ *         params.cost_model = 2
+ *         params.sim_d4f = 1             # <<<<<<<<<<<<<<
+ * 
+ *     cdef np.ndarray strategy = zeros((strategy_size,3), dtype=int64)
+ */
+    __pyx_v_params.sim_d4f = 1;
+  }
+  __pyx_L3:;
+
+  /* "strategy_gen.pyx":160
+ *         params.sim_d4f = 1
+ * 
+ *     cdef np.ndarray strategy = zeros((strategy_size,3), dtype=int64)             # <<<<<<<<<<<<<<
+ * 
+ *     for i in range(strategy_size):
+ */
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 160, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 160, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_INCREF(__pyx_v_strategy_size);
+  __Pyx_GIVEREF(__pyx_v_strategy_size);
+  PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_v_strategy_size);
+  __Pyx_INCREF(__pyx_int_3);
+  __Pyx_GIVEREF(__pyx_int_3);
+  PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_int_3);
+  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 160, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_GIVEREF(__pyx_t_3);
+  PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_3);
+  __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 160, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_int64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 160, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 160, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 160, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 160, __pyx_L1_error)
+  __pyx_v_strategy = ((PyArrayObject *)__pyx_t_5);
+  __pyx_t_5 = 0;
+
+  /* "strategy_gen.pyx":162
+ *     cdef np.ndarray strategy = zeros((strategy_size,3), dtype=int64)
+ * 
+ *     for i in range(strategy_size):             # <<<<<<<<<<<<<<
+ *         strategy[i][0] = S[i][0]
+ *         strategy[i][1] = S[i][1]
+ */
+  __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_v_strategy_size); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 162, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (likely(PyList_CheckExact(__pyx_t_5)) || PyTuple_CheckExact(__pyx_t_5)) {
+    __pyx_t_3 = __pyx_t_5; __Pyx_INCREF(__pyx_t_3); __pyx_t_6 = 0;
+    __pyx_t_7 = NULL;
+  } else {
+    __pyx_t_6 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 162, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_7 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 162, __pyx_L1_error)
+  }
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  for (;;) {
+    if (likely(!__pyx_t_7)) {
+      if (likely(PyList_CheckExact(__pyx_t_3))) {
+        if (__pyx_t_6 >= PyList_GET_SIZE(__pyx_t_3)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_5 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_6); __Pyx_INCREF(__pyx_t_5); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 162, __pyx_L1_error)
+        #else
+        __pyx_t_5 = PySequence_ITEM(__pyx_t_3, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 162, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_5);
+        #endif
+      } else {
+        if (__pyx_t_6 >= PyTuple_GET_SIZE(__pyx_t_3)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_5 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_6); __Pyx_INCREF(__pyx_t_5); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 162, __pyx_L1_error)
+        #else
+        __pyx_t_5 = PySequence_ITEM(__pyx_t_3, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 162, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_5);
+        #endif
+      }
+    } else {
+      __pyx_t_5 = __pyx_t_7(__pyx_t_3);
+      if (unlikely(!__pyx_t_5)) {
+        PyObject* exc_type = PyErr_Occurred();
+        if (exc_type) {
+          if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
+          else __PYX_ERR(0, 162, __pyx_L1_error)
+        }
+        break;
+      }
+      __Pyx_GOTREF(__pyx_t_5);
+    }
+    __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_5);
+    __pyx_t_5 = 0;
+
+    /* "strategy_gen.pyx":163
+ * 
+ *     for i in range(strategy_size):
+ *         strategy[i][0] = S[i][0]             # <<<<<<<<<<<<<<
+ *         strategy[i][1] = S[i][1]
+ *         strategy[i][2] = S[i][2]
+ */
+    __pyx_t_5 = __Pyx_PyObject_GetItem(__pyx_v_S, __pyx_v_i); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 163, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_5, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 163, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __pyx_t_5 = __Pyx_PyObject_GetItem(((PyObject *)__pyx_v_strategy), __pyx_v_i); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 163, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    if (unlikely(__Pyx_SetItemInt(__pyx_t_5, 0, __pyx_t_4, long, 1, __Pyx_PyInt_From_long, 0, 0, 1) < 0)) __PYX_ERR(0, 163, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+
+    /* "strategy_gen.pyx":164
+ *     for i in range(strategy_size):
+ *         strategy[i][0] = S[i][0]
+ *         strategy[i][1] = S[i][1]             # <<<<<<<<<<<<<<
+ *         strategy[i][2] = S[i][2]
+ * 
+ */
+    __pyx_t_4 = __Pyx_PyObject_GetItem(__pyx_v_S, __pyx_v_i); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 164, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __pyx_t_5 = __Pyx_GetItemInt(__pyx_t_4, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 164, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __pyx_t_4 = __Pyx_PyObject_GetItem(((PyObject *)__pyx_v_strategy), __pyx_v_i); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 164, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    if (unlikely(__Pyx_SetItemInt(__pyx_t_4, 1, __pyx_t_5, long, 1, __Pyx_PyInt_From_long, 0, 0, 1) < 0)) __PYX_ERR(0, 164, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+    /* "strategy_gen.pyx":165
+ *         strategy[i][0] = S[i][0]
+ *         strategy[i][1] = S[i][1]
+ *         strategy[i][2] = S[i][2]             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+    __pyx_t_5 = __Pyx_PyObject_GetItem(__pyx_v_S, __pyx_v_i); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 165, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_4 = __Pyx_GetItemInt(__pyx_t_5, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 165, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __pyx_t_5 = __Pyx_PyObject_GetItem(((PyObject *)__pyx_v_strategy), __pyx_v_i); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 165, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    if (unlikely(__Pyx_SetItemInt(__pyx_t_5, 2, __pyx_t_4, long, 1, __Pyx_PyInt_From_long, 0, 0, 1) < 0)) __PYX_ERR(0, 165, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+
+    /* "strategy_gen.pyx":162
+ *     cdef np.ndarray strategy = zeros((strategy_size,3), dtype=int64)
+ * 
+ *     for i in range(strategy_size):             # <<<<<<<<<<<<<<
+ *         strategy[i][0] = S[i][0]
+ *         strategy[i][1] = S[i][1]
+ */
+  }
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+  /* "strategy_gen.pyx":169
+ * 
+ * 
+ *     sig_on()             # <<<<<<<<<<<<<<
+ *     test_lwechal_from_gsa(params, dim, dvol, <long*> strategy.data, strategy_size)
+ *     sig_off()
+ */
+  __pyx_t_8 = sig_on(); if (unlikely(__pyx_t_8 == ((int)0))) __PYX_ERR(0, 169, __pyx_L1_error)
+
+  /* "strategy_gen.pyx":170
+ * 
+ *     sig_on()
+ *     test_lwechal_from_gsa(params, dim, dvol, <long*> strategy.data, strategy_size)             # <<<<<<<<<<<<<<
+ *     sig_off()
+ * 
+ */
+  __pyx_t_8 = __Pyx_PyInt_As_int(__pyx_v_dim); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 170, __pyx_L1_error)
+  __pyx_t_9 = __pyx_PyFloat_AsDouble(__pyx_v_dvol); if (unlikely((__pyx_t_9 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 170, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyInt_As_int(__pyx_v_strategy_size); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 170, __pyx_L1_error)
+  test_lwechal_from_gsa(__pyx_v_params, __pyx_t_8, __pyx_t_9, ((long *)__pyx_v_strategy->data), __pyx_t_10);
+
+  /* "strategy_gen.pyx":171
+ *     sig_on()
+ *     test_lwechal_from_gsa(params, dim, dvol, <long*> strategy.data, strategy_size)
+ *     sig_off()             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  sig_off();
+
+  /* "strategy_gen.pyx":150
+ *         del self._core2
+ * 
+ * def lwechal_simulation_gsa(dim, dvol, S, strategy_size,float_type = None):             # <<<<<<<<<<<<<<
+ *     cdef Params params
+ *     params.verbose = True
+ */
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_AddTraceback("strategy_gen.lwechal_simulation_gsa", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XDECREF((PyObject *)__pyx_v_strategy);
+  __Pyx_XDECREF(__pyx_v_i);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "strategy_gen.pyx":175
+ * 
+ * 
+ * def lwechal_simulation_actual_l(l, S, strategy_size,float_type = None):             # <<<<<<<<<<<<<<
+ *     cdef Params params
+ *     params.verbose = True
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_12strategy_gen_3lwechal_simulation_actual_l(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_12strategy_gen_2lwechal_simulation_actual_l[] = "lwechal_simulation_actual_l(l, S, strategy_size, float_type=None)";
+static PyMethodDef __pyx_mdef_12strategy_gen_3lwechal_simulation_actual_l = {"lwechal_simulation_actual_l", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_12strategy_gen_3lwechal_simulation_actual_l, METH_VARARGS|METH_KEYWORDS, __pyx_doc_12strategy_gen_2lwechal_simulation_actual_l};
+static PyObject *__pyx_pw_12strategy_gen_3lwechal_simulation_actual_l(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyObject *__pyx_v_l = 0;
+  PyObject *__pyx_v_S = 0;
+  PyObject *__pyx_v_strategy_size = 0;
+  PyObject *__pyx_v_float_type = 0;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("lwechal_simulation_actual_l (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_l,&__pyx_n_s_S,&__pyx_n_s_strategy_size,&__pyx_n_s_float_type,0};
+    PyObject* values[4] = {0,0,0,0};
+    values[3] = ((PyObject *)((PyObject *)Py_None));
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+        CYTHON_FALLTHROUGH;
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_l)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_S)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("lwechal_simulation_actual_l", 0, 3, 4, 1); __PYX_ERR(0, 175, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  2:
+        if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_strategy_size)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("lwechal_simulation_actual_l", 0, 3, 4, 2); __PYX_ERR(0, 175, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  3:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_float_type);
+          if (value) { values[3] = value; kw_args--; }
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "lwechal_simulation_actual_l") < 0)) __PYX_ERR(0, 175, __pyx_L3_error)
+      }
+    } else {
+      switch (PyTuple_GET_SIZE(__pyx_args)) {
+        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+        CYTHON_FALLTHROUGH;
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+    }
+    __pyx_v_l = values[0];
+    __pyx_v_S = values[1];
+    __pyx_v_strategy_size = values[2];
+    __pyx_v_float_type = values[3];
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("lwechal_simulation_actual_l", 0, 3, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 175, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("strategy_gen.lwechal_simulation_actual_l", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_12strategy_gen_2lwechal_simulation_actual_l(__pyx_self, __pyx_v_l, __pyx_v_S, __pyx_v_strategy_size, __pyx_v_float_type);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_12strategy_gen_2lwechal_simulation_actual_l(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_l, PyObject *__pyx_v_S, PyObject *__pyx_v_strategy_size, PyObject *__pyx_v_float_type) {
+  struct Params __pyx_v_params;
+  Py_ssize_t __pyx_v_dim;
+  PyArrayObject *__pyx_v_l0 = 0;
+  PyObject *__pyx_v_i = NULL;
+  PyArrayObject *__pyx_v_strategy = 0;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  int __pyx_t_1;
+  Py_ssize_t __pyx_t_2;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  PyObject *__pyx_t_6 = NULL;
+  PyObject *(*__pyx_t_7)(PyObject *);
+  int __pyx_t_8;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("lwechal_simulation_actual_l", 0);
+
+  /* "strategy_gen.pyx":177
+ * def lwechal_simulation_actual_l(l, S, strategy_size,float_type = None):
+ *     cdef Params params
+ *     params.verbose = True             # <<<<<<<<<<<<<<
+ *     if(float_type == "dd"):
+ *         params.cost_model = 3
+ */
+  __pyx_v_params.verbose = 1;
+
+  /* "strategy_gen.pyx":178
+ *     cdef Params params
+ *     params.verbose = True
+ *     if(float_type == "dd"):             # <<<<<<<<<<<<<<
+ *         params.cost_model = 3
+ *         params.sim_d4f = 2
+ */
+  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_v_float_type, __pyx_n_s_dd, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 178, __pyx_L1_error)
+  if (__pyx_t_1) {
+
+    /* "strategy_gen.pyx":179
+ *     params.verbose = True
+ *     if(float_type == "dd"):
+ *         params.cost_model = 3             # <<<<<<<<<<<<<<
+ *         params.sim_d4f = 2
+ *     else:
+ */
+    __pyx_v_params.cost_model = 3;
+
+    /* "strategy_gen.pyx":180
+ *     if(float_type == "dd"):
+ *         params.cost_model = 3
+ *         params.sim_d4f = 2             # <<<<<<<<<<<<<<
+ *     else:
+ *         params.cost_model = 2
+ */
+    __pyx_v_params.sim_d4f = 2;
+
+    /* "strategy_gen.pyx":178
+ *     cdef Params params
+ *     params.verbose = True
+ *     if(float_type == "dd"):             # <<<<<<<<<<<<<<
+ *         params.cost_model = 3
+ *         params.sim_d4f = 2
+ */
+    goto __pyx_L3;
+  }
+
+  /* "strategy_gen.pyx":182
+ *         params.sim_d4f = 2
+ *     else:
+ *         params.cost_model = 2             # <<<<<<<<<<<<<<
+ *         params.sim_d4f = 1
+ * 
+ */
+  /*else*/ {
+    __pyx_v_params.cost_model = 2;
+
+    /* "strategy_gen.pyx":183
+ *     else:
+ *         params.cost_model = 2
+ *         params.sim_d4f = 1             # <<<<<<<<<<<<<<
+ * 
+ *     dim = len(l)
+ */
+    __pyx_v_params.sim_d4f = 1;
+  }
+  __pyx_L3:;
+
+  /* "strategy_gen.pyx":185
+ *         params.sim_d4f = 1
+ * 
+ *     dim = len(l)             # <<<<<<<<<<<<<<
+ *     cdef np.ndarray l0 = zeros(dim, dtype=float64)
+ *     for i in range(dim):
+ */
+  __pyx_t_2 = PyObject_Length(__pyx_v_l); if (unlikely(__pyx_t_2 == ((Py_ssize_t)-1))) __PYX_ERR(0, 185, __pyx_L1_error)
+  __pyx_v_dim = __pyx_t_2;
+
+  /* "strategy_gen.pyx":186
+ * 
+ *     dim = len(l)
+ *     cdef np.ndarray l0 = zeros(dim, dtype=float64)             # <<<<<<<<<<<<<<
+ *     for i in range(dim):
+ *         l0[i] = l[i]
+ */
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_zeros); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_4 = PyInt_FromSsize_t(__pyx_v_dim); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_GIVEREF(__pyx_t_4);
+  PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4);
+  __pyx_t_4 = 0;
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_float64); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_6) < 0) __PYX_ERR(0, 186, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (!(likely(((__pyx_t_6) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_6, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 186, __pyx_L1_error)
+  __pyx_v_l0 = ((PyArrayObject *)__pyx_t_6);
+  __pyx_t_6 = 0;
+
+  /* "strategy_gen.pyx":187
+ *     dim = len(l)
+ *     cdef np.ndarray l0 = zeros(dim, dtype=float64)
+ *     for i in range(dim):             # <<<<<<<<<<<<<<
+ *         l0[i] = l[i]
+ * 
+ */
+  __pyx_t_6 = PyInt_FromSsize_t(__pyx_v_dim); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 187, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 187, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+  if (likely(PyList_CheckExact(__pyx_t_4)) || PyTuple_CheckExact(__pyx_t_4)) {
+    __pyx_t_6 = __pyx_t_4; __Pyx_INCREF(__pyx_t_6); __pyx_t_2 = 0;
+    __pyx_t_7 = NULL;
+  } else {
+    __pyx_t_2 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 187, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __pyx_t_7 = Py_TYPE(__pyx_t_6)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 187, __pyx_L1_error)
+  }
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  for (;;) {
+    if (likely(!__pyx_t_7)) {
+      if (likely(PyList_CheckExact(__pyx_t_6))) {
+        if (__pyx_t_2 >= PyList_GET_SIZE(__pyx_t_6)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_4 = PyList_GET_ITEM(__pyx_t_6, __pyx_t_2); __Pyx_INCREF(__pyx_t_4); __pyx_t_2++; if (unlikely(0 < 0)) __PYX_ERR(0, 187, __pyx_L1_error)
+        #else
+        __pyx_t_4 = PySequence_ITEM(__pyx_t_6, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 187, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        #endif
+      } else {
+        if (__pyx_t_2 >= PyTuple_GET_SIZE(__pyx_t_6)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_6, __pyx_t_2); __Pyx_INCREF(__pyx_t_4); __pyx_t_2++; if (unlikely(0 < 0)) __PYX_ERR(0, 187, __pyx_L1_error)
+        #else
+        __pyx_t_4 = PySequence_ITEM(__pyx_t_6, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 187, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        #endif
+      }
+    } else {
+      __pyx_t_4 = __pyx_t_7(__pyx_t_6);
+      if (unlikely(!__pyx_t_4)) {
+        PyObject* exc_type = PyErr_Occurred();
+        if (exc_type) {
+          if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
+          else __PYX_ERR(0, 187, __pyx_L1_error)
+        }
+        break;
+      }
+      __Pyx_GOTREF(__pyx_t_4);
+    }
+    __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_4);
+    __pyx_t_4 = 0;
+
+    /* "strategy_gen.pyx":188
+ *     cdef np.ndarray l0 = zeros(dim, dtype=float64)
+ *     for i in range(dim):
+ *         l0[i] = l[i]             # <<<<<<<<<<<<<<
+ * 
+ *     cdef np.ndarray strategy = zeros((strategy_size,3), dtype=int64)
+ */
+    __pyx_t_4 = __Pyx_PyObject_GetItem(__pyx_v_l, __pyx_v_i); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 188, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_l0), __pyx_v_i, __pyx_t_4) < 0)) __PYX_ERR(0, 188, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+
+    /* "strategy_gen.pyx":187
+ *     dim = len(l)
+ *     cdef np.ndarray l0 = zeros(dim, dtype=float64)
+ *     for i in range(dim):             # <<<<<<<<<<<<<<
+ *         l0[i] = l[i]
+ * 
+ */
+  }
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+
+  /* "strategy_gen.pyx":190
+ *         l0[i] = l[i]
+ * 
+ *     cdef np.ndarray strategy = zeros((strategy_size,3), dtype=int64)             # <<<<<<<<<<<<<<
+ * 
+ *     for i in range(strategy_size):
+ */
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_zeros); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 190, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 190, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_INCREF(__pyx_v_strategy_size);
+  __Pyx_GIVEREF(__pyx_v_strategy_size);
+  PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_v_strategy_size);
+  __Pyx_INCREF(__pyx_int_3);
+  __Pyx_GIVEREF(__pyx_int_3);
+  PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_int_3);
+  __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 190, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_GIVEREF(__pyx_t_4);
+  PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4);
+  __pyx_t_4 = 0;
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 190, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_int64); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 190, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_3) < 0) __PYX_ERR(0, 190, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 190, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 190, __pyx_L1_error)
+  __pyx_v_strategy = ((PyArrayObject *)__pyx_t_3);
+  __pyx_t_3 = 0;
+
+  /* "strategy_gen.pyx":192
+ *     cdef np.ndarray strategy = zeros((strategy_size,3), dtype=int64)
+ * 
+ *     for i in range(strategy_size):             # <<<<<<<<<<<<<<
+ *         strategy[i][0] = S[i][0]
+ *         strategy[i][1] = S[i][1]
+ */
+  __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_v_strategy_size); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 192, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (likely(PyList_CheckExact(__pyx_t_3)) || PyTuple_CheckExact(__pyx_t_3)) {
+    __pyx_t_4 = __pyx_t_3; __Pyx_INCREF(__pyx_t_4); __pyx_t_2 = 0;
+    __pyx_t_7 = NULL;
+  } else {
+    __pyx_t_2 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 192, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __pyx_t_7 = Py_TYPE(__pyx_t_4)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 192, __pyx_L1_error)
+  }
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  for (;;) {
+    if (likely(!__pyx_t_7)) {
+      if (likely(PyList_CheckExact(__pyx_t_4))) {
+        if (__pyx_t_2 >= PyList_GET_SIZE(__pyx_t_4)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_3 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_2); __Pyx_INCREF(__pyx_t_3); __pyx_t_2++; if (unlikely(0 < 0)) __PYX_ERR(0, 192, __pyx_L1_error)
+        #else
+        __pyx_t_3 = PySequence_ITEM(__pyx_t_4, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 192, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+        #endif
+      } else {
+        if (__pyx_t_2 >= PyTuple_GET_SIZE(__pyx_t_4)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_4, __pyx_t_2); __Pyx_INCREF(__pyx_t_3); __pyx_t_2++; if (unlikely(0 < 0)) __PYX_ERR(0, 192, __pyx_L1_error)
+        #else
+        __pyx_t_3 = PySequence_ITEM(__pyx_t_4, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 192, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+        #endif
+      }
+    } else {
+      __pyx_t_3 = __pyx_t_7(__pyx_t_4);
+      if (unlikely(!__pyx_t_3)) {
+        PyObject* exc_type = PyErr_Occurred();
+        if (exc_type) {
+          if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
+          else __PYX_ERR(0, 192, __pyx_L1_error)
+        }
+        break;
+      }
+      __Pyx_GOTREF(__pyx_t_3);
+    }
+    __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_3);
+    __pyx_t_3 = 0;
+
+    /* "strategy_gen.pyx":193
+ * 
+ *     for i in range(strategy_size):
+ *         strategy[i][0] = S[i][0]             # <<<<<<<<<<<<<<
+ *         strategy[i][1] = S[i][1]
+ *         strategy[i][2] = S[i][2]
+ */
+    __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_v_S, __pyx_v_i); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 193, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_5 = __Pyx_GetItemInt(__pyx_t_3, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 193, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __pyx_t_3 = __Pyx_PyObject_GetItem(((PyObject *)__pyx_v_strategy), __pyx_v_i); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 193, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    if (unlikely(__Pyx_SetItemInt(__pyx_t_3, 0, __pyx_t_5, long, 1, __Pyx_PyInt_From_long, 0, 0, 1) < 0)) __PYX_ERR(0, 193, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+    /* "strategy_gen.pyx":194
+ *     for i in range(strategy_size):
+ *         strategy[i][0] = S[i][0]
+ *         strategy[i][1] = S[i][1]             # <<<<<<<<<<<<<<
+ *         strategy[i][2] = S[i][2]
+ * 
+ */
+    __pyx_t_5 = __Pyx_PyObject_GetItem(__pyx_v_S, __pyx_v_i); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 194, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_5, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 194, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __pyx_t_5 = __Pyx_PyObject_GetItem(((PyObject *)__pyx_v_strategy), __pyx_v_i); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 194, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    if (unlikely(__Pyx_SetItemInt(__pyx_t_5, 1, __pyx_t_3, long, 1, __Pyx_PyInt_From_long, 0, 0, 1) < 0)) __PYX_ERR(0, 194, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+    /* "strategy_gen.pyx":195
+ *         strategy[i][0] = S[i][0]
+ *         strategy[i][1] = S[i][1]
+ *         strategy[i][2] = S[i][2]             # <<<<<<<<<<<<<<
+ * 
+ *     sig_on()
+ */
+    __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_v_S, __pyx_v_i); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 195, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_5 = __Pyx_GetItemInt(__pyx_t_3, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 195, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __pyx_t_3 = __Pyx_PyObject_GetItem(((PyObject *)__pyx_v_strategy), __pyx_v_i); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 195, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    if (unlikely(__Pyx_SetItemInt(__pyx_t_3, 2, __pyx_t_5, long, 1, __Pyx_PyInt_From_long, 0, 0, 1) < 0)) __PYX_ERR(0, 195, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+    /* "strategy_gen.pyx":192
+ *     cdef np.ndarray strategy = zeros((strategy_size,3), dtype=int64)
+ * 
+ *     for i in range(strategy_size):             # <<<<<<<<<<<<<<
+ *         strategy[i][0] = S[i][0]
+ *         strategy[i][1] = S[i][1]
+ */
+  }
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+
+  /* "strategy_gen.pyx":197
+ *         strategy[i][2] = S[i][2]
+ * 
+ *     sig_on()             # <<<<<<<<<<<<<<
+ *     test_lwechal_from_actual_l(params, <long*> strategy.data, strategy_size, <double*> l0.data, dim)
+ *     sig_off()
+ */
+  __pyx_t_8 = sig_on(); if (unlikely(__pyx_t_8 == ((int)0))) __PYX_ERR(0, 197, __pyx_L1_error)
+
+  /* "strategy_gen.pyx":198
+ * 
+ *     sig_on()
+ *     test_lwechal_from_actual_l(params, <long*> strategy.data, strategy_size, <double*> l0.data, dim)             # <<<<<<<<<<<<<<
+ *     sig_off()
+ */
+  __pyx_t_8 = __Pyx_PyInt_As_int(__pyx_v_strategy_size); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 198, __pyx_L1_error)
+  test_lwechal_from_actual_l(__pyx_v_params, ((long *)__pyx_v_strategy->data), __pyx_t_8, ((double *)__pyx_v_l0->data), __pyx_v_dim);
+
+  /* "strategy_gen.pyx":199
+ *     sig_on()
+ *     test_lwechal_from_actual_l(params, <long*> strategy.data, strategy_size, <double*> l0.data, dim)
+ *     sig_off()             # <<<<<<<<<<<<<<
+ */
+  sig_off();
+
+  /* "strategy_gen.pyx":175
+ * 
+ * 
+ * def lwechal_simulation_actual_l(l, S, strategy_size,float_type = None):             # <<<<<<<<<<<<<<
+ *     cdef Params params
+ *     params.verbose = True
+ */
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_6);
+  __Pyx_AddTraceback("strategy_gen.lwechal_simulation_actual_l", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XDECREF((PyObject *)__pyx_v_l0);
+  __Pyx_XDECREF(__pyx_v_i);
+  __Pyx_XDECREF((PyObject *)__pyx_v_strategy);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -4807,7 +6107,7 @@ static void __pyx_tp_dealloc_12strategy_gen_EnumBS(PyObject *o) {
     PyObject *etype, *eval, *etb;
     PyErr_Fetch(&etype, &eval, &etb);
     __Pyx_SET_REFCNT(o, Py_REFCNT(o) + 1);
-    __pyx_pw_12strategy_gen_6EnumBS_7__dealloc__(o);
+    __pyx_pw_12strategy_gen_6EnumBS_9__dealloc__(o);
     __Pyx_SET_REFCNT(o, Py_REFCNT(o) - 1);
     PyErr_Restore(etype, eval, etb);
   }
@@ -4835,8 +6135,9 @@ static int __pyx_tp_clear_12strategy_gen_EnumBS(PyObject *o) {
 
 static PyMethodDef __pyx_methods_12strategy_gen_EnumBS[] = {
   {"get_strategy", (PyCFunction)__pyx_pw_12strategy_gen_6EnumBS_5get_strategy, METH_NOARGS, __pyx_doc_12strategy_gen_6EnumBS_4get_strategy},
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_12strategy_gen_6EnumBS_9__reduce_cython__, METH_NOARGS, __pyx_doc_12strategy_gen_6EnumBS_8__reduce_cython__},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_12strategy_gen_6EnumBS_11__setstate_cython__, METH_O, __pyx_doc_12strategy_gen_6EnumBS_10__setstate_cython__},
+  {"get_target_slope", (PyCFunction)__pyx_pw_12strategy_gen_6EnumBS_7get_target_slope, METH_NOARGS, __pyx_doc_12strategy_gen_6EnumBS_6get_target_slope},
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_12strategy_gen_6EnumBS_11__reduce_cython__, METH_NOARGS, __pyx_doc_12strategy_gen_6EnumBS_10__reduce_cython__},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_12strategy_gen_6EnumBS_13__setstate_cython__, METH_O, __pyx_doc_12strategy_gen_6EnumBS_12__setstate_cython__},
   {0, 0, 0, 0}
 };
 
@@ -4871,7 +6172,7 @@ static PyTypeObject __pyx_type_12strategy_gen_EnumBS = {
   0, /*tp_setattro*/
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
-  "EnumBS(dim)", /*tp_doc*/
+  "EnumBS(dim, float_type)", /*tp_doc*/
   __pyx_tp_traverse_12strategy_gen_EnumBS, /*tp_traverse*/
   __pyx_tp_clear_12strategy_gen_EnumBS, /*tp_clear*/
   0, /*tp_richcompare*/
@@ -5002,7 +6303,7 @@ static PyTypeObject __pyx_type_12strategy_gen_BSSA = {
   0, /*tp_setattro*/
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
-  "BSSA(dim)", /*tp_doc*/
+  "BSSA(dim, version, float_type)", /*tp_doc*/
   __pyx_tp_traverse_12strategy_gen_BSSA, /*tp_traverse*/
   __pyx_tp_clear_12strategy_gen_BSSA, /*tp_clear*/
   0, /*tp_richcompare*/
@@ -5097,25 +6398,34 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_EnumBS___reduce_cython, __pyx_k_EnumBS___reduce_cython, sizeof(__pyx_k_EnumBS___reduce_cython), 0, 0, 1, 1},
   {&__pyx_n_s_EnumBS___setstate_cython, __pyx_k_EnumBS___setstate_cython, sizeof(__pyx_k_EnumBS___setstate_cython), 0, 0, 1, 1},
   {&__pyx_n_s_EnumBS_get_strategy, __pyx_k_EnumBS_get_strategy, sizeof(__pyx_k_EnumBS_get_strategy), 0, 0, 1, 1},
+  {&__pyx_n_s_EnumBS_get_target_slope, __pyx_k_EnumBS_get_target_slope, sizeof(__pyx_k_EnumBS_get_target_slope), 0, 0, 1, 1},
   {&__pyx_n_s_ImportError, __pyx_k_ImportError, sizeof(__pyx_k_ImportError), 0, 0, 1, 1},
   {&__pyx_n_s_S, __pyx_k_S, sizeof(__pyx_k_S), 0, 0, 1, 1},
   {&__pyx_n_s_TypeError, __pyx_k_TypeError, sizeof(__pyx_k_TypeError), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
+  {&__pyx_n_s_dd, __pyx_k_dd, sizeof(__pyx_k_dd), 0, 0, 1, 1},
   {&__pyx_n_s_dim, __pyx_k_dim, sizeof(__pyx_k_dim), 0, 0, 1, 1},
   {&__pyx_n_s_dtype, __pyx_k_dtype, sizeof(__pyx_k_dtype), 0, 0, 1, 1},
+  {&__pyx_n_s_dvol, __pyx_k_dvol, sizeof(__pyx_k_dvol), 0, 0, 1, 1},
   {&__pyx_n_s_float64, __pyx_k_float64, sizeof(__pyx_k_float64), 0, 0, 1, 1},
+  {&__pyx_n_s_float_type, __pyx_k_float_type, sizeof(__pyx_k_float_type), 0, 0, 1, 1},
   {&__pyx_n_s_gbeta, __pyx_k_gbeta, sizeof(__pyx_k_gbeta), 0, 0, 1, 1},
   {&__pyx_n_s_get_strategy, __pyx_k_get_strategy, sizeof(__pyx_k_get_strategy), 0, 0, 1, 1},
+  {&__pyx_n_s_get_target_slope, __pyx_k_get_target_slope, sizeof(__pyx_k_get_target_slope), 0, 0, 1, 1},
   {&__pyx_n_s_getstate, __pyx_k_getstate, sizeof(__pyx_k_getstate), 0, 0, 1, 1},
   {&__pyx_n_s_i, __pyx_k_i, sizeof(__pyx_k_i), 0, 0, 1, 1},
   {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},
   {&__pyx_n_s_int64, __pyx_k_int64, sizeof(__pyx_k_int64), 0, 0, 1, 1},
   {&__pyx_n_s_l, __pyx_k_l, sizeof(__pyx_k_l), 0, 0, 1, 1},
+  {&__pyx_n_s_l0, __pyx_k_l0, sizeof(__pyx_k_l0), 0, 0, 1, 1},
+  {&__pyx_n_s_lwechal_simulation_actual_l, __pyx_k_lwechal_simulation_actual_l, sizeof(__pyx_k_lwechal_simulation_actual_l), 0, 0, 1, 1},
+  {&__pyx_n_s_lwechal_simulation_gsa, __pyx_k_lwechal_simulation_gsa, sizeof(__pyx_k_lwechal_simulation_gsa), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
   {&__pyx_n_s_numpy, __pyx_k_numpy, sizeof(__pyx_k_numpy), 0, 0, 1, 1},
   {&__pyx_kp_s_numpy_core_multiarray_failed_to, __pyx_k_numpy_core_multiarray_failed_to, sizeof(__pyx_k_numpy_core_multiarray_failed_to), 0, 0, 1, 0},
   {&__pyx_kp_s_numpy_core_umath_failed_to_impor, __pyx_k_numpy_core_umath_failed_to_impor, sizeof(__pyx_k_numpy_core_umath_failed_to_impor), 0, 0, 1, 0},
+  {&__pyx_n_s_params, __pyx_k_params, sizeof(__pyx_k_params), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_state, __pyx_k_pyx_state, sizeof(__pyx_k_pyx_state), 0, 0, 1, 1},
   {&__pyx_n_s_range, __pyx_k_range, sizeof(__pyx_k_range), 0, 0, 1, 1},
   {&__pyx_n_s_reduce, __pyx_k_reduce, sizeof(__pyx_k_reduce), 0, 0, 1, 1},
@@ -5133,11 +6443,14 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_strategy_size, __pyx_k_strategy_size, sizeof(__pyx_k_strategy_size), 0, 0, 1, 1},
   {&__pyx_kp_s_stringsource, __pyx_k_stringsource, sizeof(__pyx_k_stringsource), 0, 0, 1, 0},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
+  {&__pyx_n_s_v1, __pyx_k_v1, sizeof(__pyx_k_v1), 0, 0, 1, 1},
+  {&__pyx_n_s_v2, __pyx_k_v2, sizeof(__pyx_k_v2), 0, 0, 1, 1},
+  {&__pyx_n_s_version, __pyx_k_version, sizeof(__pyx_k_version), 0, 0, 1, 1},
   {&__pyx_n_s_zeros, __pyx_k_zeros, sizeof(__pyx_k_zeros), 0, 0, 1, 1},
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 31, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 41, __pyx_L1_error)
   __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(1, 2, __pyx_L1_error)
   __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_n_s_ImportError); if (!__pyx_builtin_ImportError) __PYX_ERR(2, 945, __pyx_L1_error)
   return 0;
@@ -5209,27 +6522,39 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__6);
   __Pyx_GIVEREF(__pyx_tuple__6);
 
-  /* "strategy_gen.pyx":41
+  /* "strategy_gen.pyx":51
  * 
  * 
  *     def get_strategy(self):             # <<<<<<<<<<<<<<
  * 
  *         assert(self.have_strategy_gen)
  */
-  __pyx_tuple__7 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_strategy_size, __pyx_n_s_strategy, __pyx_n_s_S, __pyx_n_s_i); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_tuple__7 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_strategy_size, __pyx_n_s_strategy, __pyx_n_s_S, __pyx_n_s_i); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__7);
   __Pyx_GIVEREF(__pyx_tuple__7);
-  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_strategy_gen_pyx, __pyx_n_s_get_strategy, 41, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_strategy_gen_pyx, __pyx_n_s_get_strategy, 51, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) __PYX_ERR(0, 51, __pyx_L1_error)
+
+  /* "strategy_gen.pyx":68
+ *         return S
+ * 
+ *     def get_target_slope(self):             # <<<<<<<<<<<<<<
+ *         return self._core1.get_target_slope()
+ * 
+ */
+  __pyx_tuple__9 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 68, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__9);
+  __Pyx_GIVEREF(__pyx_tuple__9);
+  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__9, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_strategy_gen_pyx, __pyx_n_s_get_target_slope, 68, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) __PYX_ERR(0, 68, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     raise TypeError("self._core1 cannot be converted to a Python object for pickling")
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_tuple__9 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(1, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__9);
-  __Pyx_GIVEREF(__pyx_tuple__9);
-  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__9, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_tuple__11 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__11);
+  __Pyx_GIVEREF(__pyx_tuple__11);
+  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(1, 1, __pyx_L1_error)
 
   /* "(tree fragment)":3
  * def __reduce_cython__(self):
@@ -5237,32 +6562,32 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError("self._core1 cannot be converted to a Python object for pickling")
  */
-  __pyx_tuple__11 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(1, 3, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__11);
-  __Pyx_GIVEREF(__pyx_tuple__11);
-  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(1, 3, __pyx_L1_error)
+  __pyx_tuple__13 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(1, 3, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__13);
+  __Pyx_GIVEREF(__pyx_tuple__13);
+  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) __PYX_ERR(1, 3, __pyx_L1_error)
 
-  /* "strategy_gen.pyx":103
+  /* "strategy_gen.pyx":126
  * 
  * 
  *     def get_strategy(self):             # <<<<<<<<<<<<<<
  * 
  *         assert(self.have_strategy_gen)
  */
-  __pyx_tuple__13 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_strategy_size, __pyx_n_s_strategy, __pyx_n_s_S, __pyx_n_s_i); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 103, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__13);
-  __Pyx_GIVEREF(__pyx_tuple__13);
-  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_strategy_gen_pyx, __pyx_n_s_get_strategy, 103, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) __PYX_ERR(0, 103, __pyx_L1_error)
+  __pyx_tuple__15 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_strategy_size, __pyx_n_s_strategy, __pyx_n_s_S, __pyx_n_s_i); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(0, 126, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__15);
+  __Pyx_GIVEREF(__pyx_tuple__15);
+  __pyx_codeobj__16 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_strategy_gen_pyx, __pyx_n_s_get_strategy, 126, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__16)) __PYX_ERR(0, 126, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     raise TypeError("self._core2 cannot be converted to a Python object for pickling")
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_tuple__15 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(1, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__15);
-  __Pyx_GIVEREF(__pyx_tuple__15);
-  __pyx_codeobj__16 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__16)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_tuple__17 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__17);
+  __Pyx_GIVEREF(__pyx_tuple__17);
+  __pyx_codeobj__18 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__17, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__18)) __PYX_ERR(1, 1, __pyx_L1_error)
 
   /* "(tree fragment)":3
  * def __reduce_cython__(self):
@@ -5270,10 +6595,40 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError("self._core2 cannot be converted to a Python object for pickling")
  */
-  __pyx_tuple__17 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(1, 3, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__17);
-  __Pyx_GIVEREF(__pyx_tuple__17);
-  __pyx_codeobj__18 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__17, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__18)) __PYX_ERR(1, 3, __pyx_L1_error)
+  __pyx_tuple__19 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__19)) __PYX_ERR(1, 3, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__19);
+  __Pyx_GIVEREF(__pyx_tuple__19);
+  __pyx_codeobj__20 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__19, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__20)) __PYX_ERR(1, 3, __pyx_L1_error)
+
+  /* "strategy_gen.pyx":150
+ *         del self._core2
+ * 
+ * def lwechal_simulation_gsa(dim, dvol, S, strategy_size,float_type = None):             # <<<<<<<<<<<<<<
+ *     cdef Params params
+ *     params.verbose = True
+ */
+  __pyx_tuple__21 = PyTuple_Pack(8, __pyx_n_s_dim, __pyx_n_s_dvol, __pyx_n_s_S, __pyx_n_s_strategy_size, __pyx_n_s_float_type, __pyx_n_s_params, __pyx_n_s_strategy, __pyx_n_s_i); if (unlikely(!__pyx_tuple__21)) __PYX_ERR(0, 150, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__21);
+  __Pyx_GIVEREF(__pyx_tuple__21);
+  __pyx_codeobj__22 = (PyObject*)__Pyx_PyCode_New(5, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__21, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_strategy_gen_pyx, __pyx_n_s_lwechal_simulation_gsa, 150, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__22)) __PYX_ERR(0, 150, __pyx_L1_error)
+  __pyx_tuple__23 = PyTuple_Pack(1, ((PyObject *)Py_None)); if (unlikely(!__pyx_tuple__23)) __PYX_ERR(0, 150, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__23);
+  __Pyx_GIVEREF(__pyx_tuple__23);
+
+  /* "strategy_gen.pyx":175
+ * 
+ * 
+ * def lwechal_simulation_actual_l(l, S, strategy_size,float_type = None):             # <<<<<<<<<<<<<<
+ *     cdef Params params
+ *     params.verbose = True
+ */
+  __pyx_tuple__24 = PyTuple_Pack(9, __pyx_n_s_l, __pyx_n_s_S, __pyx_n_s_strategy_size, __pyx_n_s_float_type, __pyx_n_s_params, __pyx_n_s_dim, __pyx_n_s_l0, __pyx_n_s_i, __pyx_n_s_strategy); if (unlikely(!__pyx_tuple__24)) __PYX_ERR(0, 175, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__24);
+  __Pyx_GIVEREF(__pyx_tuple__24);
+  __pyx_codeobj__25 = (PyObject*)__Pyx_PyCode_New(4, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__24, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_strategy_gen_pyx, __pyx_n_s_lwechal_simulation_actual_l, 175, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__25)) __PYX_ERR(0, 175, __pyx_L1_error)
+  __pyx_tuple__26 = PyTuple_Pack(1, ((PyObject *)Py_None)); if (unlikely(!__pyx_tuple__26)) __PYX_ERR(0, 175, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__26);
+  __Pyx_GIVEREF(__pyx_tuple__26);
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -5354,7 +6709,7 @@ static int __Pyx_modinit_type_init_code(void) {
   if (PyObject_SetAttr(__pyx_m, __pyx_n_s_EnumBS, (PyObject *)&__pyx_type_12strategy_gen_EnumBS) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
   if (__Pyx_setup_reduce((PyObject*)&__pyx_type_12strategy_gen_EnumBS) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
   __pyx_ptype_12strategy_gen_EnumBS = &__pyx_type_12strategy_gen_EnumBS;
-  if (PyType_Ready(&__pyx_type_12strategy_gen_BSSA) < 0) __PYX_ERR(0, 66, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_12strategy_gen_BSSA) < 0) __PYX_ERR(0, 79, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_12strategy_gen_BSSA.tp_print = 0;
   #endif
@@ -5363,7 +6718,7 @@ static int __Pyx_modinit_type_init_code(void) {
   }
   #if CYTHON_UPDATE_DESCRIPTOR_DOC
   {
-    PyObject *wrapper = PyObject_GetAttrString((PyObject *)&__pyx_type_12strategy_gen_BSSA, "__call__"); if (unlikely(!wrapper)) __PYX_ERR(0, 66, __pyx_L1_error)
+    PyObject *wrapper = PyObject_GetAttrString((PyObject *)&__pyx_type_12strategy_gen_BSSA, "__call__"); if (unlikely(!wrapper)) __PYX_ERR(0, 79, __pyx_L1_error)
     if (Py_TYPE(wrapper) == &PyWrapperDescr_Type) {
       __pyx_wrapperbase_12strategy_gen_4BSSA_2__call__ = *((PyWrapperDescrObject *)wrapper)->d_base;
       __pyx_wrapperbase_12strategy_gen_4BSSA_2__call__.doc = __pyx_doc_12strategy_gen_4BSSA_2__call__;
@@ -5371,8 +6726,8 @@ static int __Pyx_modinit_type_init_code(void) {
     }
   }
   #endif
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_BSSA, (PyObject *)&__pyx_type_12strategy_gen_BSSA) < 0) __PYX_ERR(0, 66, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_12strategy_gen_BSSA) < 0) __PYX_ERR(0, 66, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_BSSA, (PyObject *)&__pyx_type_12strategy_gen_BSSA) < 0) __PYX_ERR(0, 79, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_12strategy_gen_BSSA) < 0) __PYX_ERR(0, 79, __pyx_L1_error)
   __pyx_ptype_12strategy_gen_BSSA = &__pyx_type_12strategy_gen_BSSA;
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -5672,7 +7027,7 @@ if (!__Pyx_RefNanny) {
 
   /* "strategy_gen.pyx":6
  * cimport numpy as np
- * from decl cimport Params
+ * from decl cimport Params, test_lwechal_from_gsa, test_lwechal_from_actual_l
  * from numpy import zeros, float64, int64             # <<<<<<<<<<<<<<
  * 
  * #function about EnumBS selection algorithm, to select an appropriate (blocksize,jump) strategy for reduction.
@@ -5705,16 +7060,29 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "strategy_gen.pyx":41
+  /* "strategy_gen.pyx":51
  * 
  * 
  *     def get_strategy(self):             # <<<<<<<<<<<<<<
  * 
  *         assert(self.have_strategy_gen)
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_12strategy_gen_6EnumBS_5get_strategy, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_EnumBS_get_strategy, NULL, __pyx_n_s_strategy_gen, __pyx_d, ((PyObject *)__pyx_codeobj__8)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_12strategy_gen_6EnumBS_5get_strategy, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_EnumBS_get_strategy, NULL, __pyx_n_s_strategy_gen, __pyx_d, ((PyObject *)__pyx_codeobj__8)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_12strategy_gen_EnumBS->tp_dict, __pyx_n_s_get_strategy, __pyx_t_2) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_12strategy_gen_EnumBS->tp_dict, __pyx_n_s_get_strategy, __pyx_t_2) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  PyType_Modified(__pyx_ptype_12strategy_gen_EnumBS);
+
+  /* "strategy_gen.pyx":68
+ *         return S
+ * 
+ *     def get_target_slope(self):             # <<<<<<<<<<<<<<
+ *         return self._core1.get_target_slope()
+ * 
+ */
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_12strategy_gen_6EnumBS_7get_target_slope, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_EnumBS_get_target_slope, NULL, __pyx_n_s_strategy_gen, __pyx_d, ((PyObject *)__pyx_codeobj__10)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 68, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_12strategy_gen_EnumBS->tp_dict, __pyx_n_s_get_target_slope, __pyx_t_2) < 0) __PYX_ERR(0, 68, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   PyType_Modified(__pyx_ptype_12strategy_gen_EnumBS);
 
@@ -5723,7 +7091,7 @@ if (!__Pyx_RefNanny) {
  *     raise TypeError("self._core1 cannot be converted to a Python object for pickling")
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_12strategy_gen_6EnumBS_9__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_EnumBS___reduce_cython, NULL, __pyx_n_s_strategy_gen, __pyx_d, ((PyObject *)__pyx_codeobj__10)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_12strategy_gen_6EnumBS_11__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_EnumBS___reduce_cython, NULL, __pyx_n_s_strategy_gen, __pyx_d, ((PyObject *)__pyx_codeobj__12)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_reduce_cython, __pyx_t_2) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -5734,21 +7102,21 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError("self._core1 cannot be converted to a Python object for pickling")
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_12strategy_gen_6EnumBS_11__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_EnumBS___setstate_cython, NULL, __pyx_n_s_strategy_gen, __pyx_d, ((PyObject *)__pyx_codeobj__12)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 3, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_12strategy_gen_6EnumBS_13__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_EnumBS___setstate_cython, NULL, __pyx_n_s_strategy_gen, __pyx_d, ((PyObject *)__pyx_codeobj__14)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_setstate_cython, __pyx_t_2) < 0) __PYX_ERR(1, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "strategy_gen.pyx":103
+  /* "strategy_gen.pyx":126
  * 
  * 
  *     def get_strategy(self):             # <<<<<<<<<<<<<<
  * 
  *         assert(self.have_strategy_gen)
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_12strategy_gen_4BSSA_5get_strategy, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_BSSA_get_strategy, NULL, __pyx_n_s_strategy_gen, __pyx_d, ((PyObject *)__pyx_codeobj__14)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 103, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_12strategy_gen_4BSSA_5get_strategy, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_BSSA_get_strategy, NULL, __pyx_n_s_strategy_gen, __pyx_d, ((PyObject *)__pyx_codeobj__16)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 126, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_12strategy_gen_BSSA->tp_dict, __pyx_n_s_get_strategy, __pyx_t_2) < 0) __PYX_ERR(0, 103, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_12strategy_gen_BSSA->tp_dict, __pyx_n_s_get_strategy, __pyx_t_2) < 0) __PYX_ERR(0, 126, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   PyType_Modified(__pyx_ptype_12strategy_gen_BSSA);
 
@@ -5757,7 +7125,7 @@ if (!__Pyx_RefNanny) {
  *     raise TypeError("self._core2 cannot be converted to a Python object for pickling")
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_12strategy_gen_4BSSA_9__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_BSSA___reduce_cython, NULL, __pyx_n_s_strategy_gen, __pyx_d, ((PyObject *)__pyx_codeobj__16)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_12strategy_gen_4BSSA_9__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_BSSA___reduce_cython, NULL, __pyx_n_s_strategy_gen, __pyx_d, ((PyObject *)__pyx_codeobj__18)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_reduce_cython, __pyx_t_2) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -5768,9 +7136,35 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError("self._core2 cannot be converted to a Python object for pickling")
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_12strategy_gen_4BSSA_11__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_BSSA___setstate_cython, NULL, __pyx_n_s_strategy_gen, __pyx_d, ((PyObject *)__pyx_codeobj__18)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 3, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_12strategy_gen_4BSSA_11__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_BSSA___setstate_cython, NULL, __pyx_n_s_strategy_gen, __pyx_d, ((PyObject *)__pyx_codeobj__20)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_setstate_cython, __pyx_t_2) < 0) __PYX_ERR(1, 3, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "strategy_gen.pyx":150
+ *         del self._core2
+ * 
+ * def lwechal_simulation_gsa(dim, dvol, S, strategy_size,float_type = None):             # <<<<<<<<<<<<<<
+ *     cdef Params params
+ *     params.verbose = True
+ */
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_12strategy_gen_1lwechal_simulation_gsa, 0, __pyx_n_s_lwechal_simulation_gsa, NULL, __pyx_n_s_strategy_gen, __pyx_d, ((PyObject *)__pyx_codeobj__22)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 150, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_2, __pyx_tuple__23);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_lwechal_simulation_gsa, __pyx_t_2) < 0) __PYX_ERR(0, 150, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "strategy_gen.pyx":175
+ * 
+ * 
+ * def lwechal_simulation_actual_l(l, S, strategy_size,float_type = None):             # <<<<<<<<<<<<<<
+ *     cdef Params params
+ *     params.verbose = True
+ */
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_12strategy_gen_3lwechal_simulation_actual_l, 0, __pyx_n_s_lwechal_simulation_actual_l, NULL, __pyx_n_s_strategy_gen, __pyx_d, ((PyObject *)__pyx_codeobj__25)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 175, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_2, __pyx_tuple__26);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_lwechal_simulation_actual_l, __pyx_t_2) < 0) __PYX_ERR(0, 175, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "strategy_gen.pyx":3
@@ -5778,7 +7172,7 @@ if (!__Pyx_RefNanny) {
  * 
  * from cysignals.signals cimport sig_on, sig_off             # <<<<<<<<<<<<<<
  * cimport numpy as np
- * from decl cimport Params
+ * from decl cimport Params, test_lwechal_from_gsa, test_lwechal_from_actual_l
  */
   __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -5862,6 +7256,32 @@ static PyObject *__Pyx_GetBuiltinName(PyObject *name) {
 #endif
     }
     return result;
+}
+
+/* RaiseArgTupleInvalid */
+static void __Pyx_RaiseArgtupleInvalid(
+    const char* func_name,
+    int exact,
+    Py_ssize_t num_min,
+    Py_ssize_t num_max,
+    Py_ssize_t num_found)
+{
+    Py_ssize_t num_expected;
+    const char *more_or_less;
+    if (num_found < num_min) {
+        num_expected = num_min;
+        more_or_less = "at least";
+    } else {
+        num_expected = num_max;
+        more_or_less = "at most";
+    }
+    if (exact) {
+        more_or_less = "exactly";
+    }
+    PyErr_Format(PyExc_TypeError,
+                 "%.200s() takes %.8s %" CYTHON_FORMAT_SSIZE_T "d positional argument%.1s (%" CYTHON_FORMAT_SSIZE_T "d given)",
+                 func_name, more_or_less, num_expected,
+                 (num_expected == 1) ? "" : "s", num_found);
 }
 
 /* RaiseDoubleKeywords */
@@ -5980,30 +7400,153 @@ bad:
     return -1;
 }
 
-/* RaiseArgTupleInvalid */
-static void __Pyx_RaiseArgtupleInvalid(
-    const char* func_name,
-    int exact,
-    Py_ssize_t num_min,
-    Py_ssize_t num_max,
-    Py_ssize_t num_found)
-{
-    Py_ssize_t num_expected;
-    const char *more_or_less;
-    if (num_found < num_min) {
-        num_expected = num_min;
-        more_or_less = "at least";
+/* BytesEquals */
+static CYTHON_INLINE int __Pyx_PyBytes_Equals(PyObject* s1, PyObject* s2, int equals) {
+#if CYTHON_COMPILING_IN_PYPY
+    return PyObject_RichCompareBool(s1, s2, equals);
+#else
+    if (s1 == s2) {
+        return (equals == Py_EQ);
+    } else if (PyBytes_CheckExact(s1) & PyBytes_CheckExact(s2)) {
+        const char *ps1, *ps2;
+        Py_ssize_t length = PyBytes_GET_SIZE(s1);
+        if (length != PyBytes_GET_SIZE(s2))
+            return (equals == Py_NE);
+        ps1 = PyBytes_AS_STRING(s1);
+        ps2 = PyBytes_AS_STRING(s2);
+        if (ps1[0] != ps2[0]) {
+            return (equals == Py_NE);
+        } else if (length == 1) {
+            return (equals == Py_EQ);
+        } else {
+            int result;
+#if CYTHON_USE_UNICODE_INTERNALS && (PY_VERSION_HEX < 0x030B0000)
+            Py_hash_t hash1, hash2;
+            hash1 = ((PyBytesObject*)s1)->ob_shash;
+            hash2 = ((PyBytesObject*)s2)->ob_shash;
+            if (hash1 != hash2 && hash1 != -1 && hash2 != -1) {
+                return (equals == Py_NE);
+            }
+#endif
+            result = memcmp(ps1, ps2, (size_t)length);
+            return (equals == Py_EQ) ? (result == 0) : (result != 0);
+        }
+    } else if ((s1 == Py_None) & PyBytes_CheckExact(s2)) {
+        return (equals == Py_NE);
+    } else if ((s2 == Py_None) & PyBytes_CheckExact(s1)) {
+        return (equals == Py_NE);
     } else {
-        num_expected = num_max;
-        more_or_less = "at most";
+        int result;
+        PyObject* py_result = PyObject_RichCompare(s1, s2, equals);
+        if (!py_result)
+            return -1;
+        result = __Pyx_PyObject_IsTrue(py_result);
+        Py_DECREF(py_result);
+        return result;
     }
-    if (exact) {
-        more_or_less = "exactly";
+#endif
+}
+
+/* UnicodeEquals */
+static CYTHON_INLINE int __Pyx_PyUnicode_Equals(PyObject* s1, PyObject* s2, int equals) {
+#if CYTHON_COMPILING_IN_PYPY
+    return PyObject_RichCompareBool(s1, s2, equals);
+#else
+#if PY_MAJOR_VERSION < 3
+    PyObject* owned_ref = NULL;
+#endif
+    int s1_is_unicode, s2_is_unicode;
+    if (s1 == s2) {
+        goto return_eq;
     }
-    PyErr_Format(PyExc_TypeError,
-                 "%.200s() takes %.8s %" CYTHON_FORMAT_SSIZE_T "d positional argument%.1s (%" CYTHON_FORMAT_SSIZE_T "d given)",
-                 func_name, more_or_less, num_expected,
-                 (num_expected == 1) ? "" : "s", num_found);
+    s1_is_unicode = PyUnicode_CheckExact(s1);
+    s2_is_unicode = PyUnicode_CheckExact(s2);
+#if PY_MAJOR_VERSION < 3
+    if ((s1_is_unicode & (!s2_is_unicode)) && PyString_CheckExact(s2)) {
+        owned_ref = PyUnicode_FromObject(s2);
+        if (unlikely(!owned_ref))
+            return -1;
+        s2 = owned_ref;
+        s2_is_unicode = 1;
+    } else if ((s2_is_unicode & (!s1_is_unicode)) && PyString_CheckExact(s1)) {
+        owned_ref = PyUnicode_FromObject(s1);
+        if (unlikely(!owned_ref))
+            return -1;
+        s1 = owned_ref;
+        s1_is_unicode = 1;
+    } else if (((!s2_is_unicode) & (!s1_is_unicode))) {
+        return __Pyx_PyBytes_Equals(s1, s2, equals);
+    }
+#endif
+    if (s1_is_unicode & s2_is_unicode) {
+        Py_ssize_t length;
+        int kind;
+        void *data1, *data2;
+        if (unlikely(__Pyx_PyUnicode_READY(s1) < 0) || unlikely(__Pyx_PyUnicode_READY(s2) < 0))
+            return -1;
+        length = __Pyx_PyUnicode_GET_LENGTH(s1);
+        if (length != __Pyx_PyUnicode_GET_LENGTH(s2)) {
+            goto return_ne;
+        }
+#if CYTHON_USE_UNICODE_INTERNALS
+        {
+            Py_hash_t hash1, hash2;
+        #if CYTHON_PEP393_ENABLED
+            hash1 = ((PyASCIIObject*)s1)->hash;
+            hash2 = ((PyASCIIObject*)s2)->hash;
+        #else
+            hash1 = ((PyUnicodeObject*)s1)->hash;
+            hash2 = ((PyUnicodeObject*)s2)->hash;
+        #endif
+            if (hash1 != hash2 && hash1 != -1 && hash2 != -1) {
+                goto return_ne;
+            }
+        }
+#endif
+        kind = __Pyx_PyUnicode_KIND(s1);
+        if (kind != __Pyx_PyUnicode_KIND(s2)) {
+            goto return_ne;
+        }
+        data1 = __Pyx_PyUnicode_DATA(s1);
+        data2 = __Pyx_PyUnicode_DATA(s2);
+        if (__Pyx_PyUnicode_READ(kind, data1, 0) != __Pyx_PyUnicode_READ(kind, data2, 0)) {
+            goto return_ne;
+        } else if (length == 1) {
+            goto return_eq;
+        } else {
+            int result = memcmp(data1, data2, (size_t)(length * kind));
+            #if PY_MAJOR_VERSION < 3
+            Py_XDECREF(owned_ref);
+            #endif
+            return (equals == Py_EQ) ? (result == 0) : (result != 0);
+        }
+    } else if ((s1 == Py_None) & s2_is_unicode) {
+        goto return_ne;
+    } else if ((s2 == Py_None) & s1_is_unicode) {
+        goto return_ne;
+    } else {
+        int result;
+        PyObject* py_result = PyObject_RichCompare(s1, s2, equals);
+        #if PY_MAJOR_VERSION < 3
+        Py_XDECREF(owned_ref);
+        #endif
+        if (!py_result)
+            return -1;
+        result = __Pyx_PyObject_IsTrue(py_result);
+        Py_DECREF(py_result);
+        return result;
+    }
+return_eq:
+    #if PY_MAJOR_VERSION < 3
+    Py_XDECREF(owned_ref);
+    #endif
+    return (equals == Py_EQ);
+return_ne:
+    #if PY_MAJOR_VERSION < 3
+    Py_XDECREF(owned_ref);
+    #endif
+    return (equals == Py_NE);
+#endif
 }
 
 /* PyDictVersioning */
@@ -6416,6 +7959,237 @@ static void __Pyx_Raise(PyObject *type, PyObject *value, PyObject *tb, PyObject 
 bad:
     Py_XDECREF(owned_instance);
     return;
+}
+#endif
+
+/* PyCFunctionFastCall */
+#if CYTHON_FAST_PYCCALL
+static CYTHON_INLINE PyObject * __Pyx_PyCFunction_FastCall(PyObject *func_obj, PyObject **args, Py_ssize_t nargs) {
+    PyCFunctionObject *func = (PyCFunctionObject*)func_obj;
+    PyCFunction meth = PyCFunction_GET_FUNCTION(func);
+    PyObject *self = PyCFunction_GET_SELF(func);
+    int flags = PyCFunction_GET_FLAGS(func);
+    assert(PyCFunction_Check(func));
+    assert(METH_FASTCALL == (flags & ~(METH_CLASS | METH_STATIC | METH_COEXIST | METH_KEYWORDS | METH_STACKLESS)));
+    assert(nargs >= 0);
+    assert(nargs == 0 || args != NULL);
+    /* _PyCFunction_FastCallDict() must not be called with an exception set,
+       because it may clear it (directly or indirectly) and so the
+       caller loses its exception */
+    assert(!PyErr_Occurred());
+    if ((PY_VERSION_HEX < 0x030700A0) || unlikely(flags & METH_KEYWORDS)) {
+        return (*((__Pyx_PyCFunctionFastWithKeywords)(void*)meth)) (self, args, nargs, NULL);
+    } else {
+        return (*((__Pyx_PyCFunctionFast)(void*)meth)) (self, args, nargs);
+    }
+}
+#endif
+
+/* PyFunctionFastCall */
+#if CYTHON_FAST_PYCALL
+static PyObject* __Pyx_PyFunction_FastCallNoKw(PyCodeObject *co, PyObject **args, Py_ssize_t na,
+                                               PyObject *globals) {
+    PyFrameObject *f;
+    PyThreadState *tstate = __Pyx_PyThreadState_Current;
+    PyObject **fastlocals;
+    Py_ssize_t i;
+    PyObject *result;
+    assert(globals != NULL);
+    /* XXX Perhaps we should create a specialized
+       PyFrame_New() that doesn't take locals, but does
+       take builtins without sanity checking them.
+       */
+    assert(tstate != NULL);
+    f = PyFrame_New(tstate, co, globals, NULL);
+    if (f == NULL) {
+        return NULL;
+    }
+    fastlocals = __Pyx_PyFrame_GetLocalsplus(f);
+    for (i = 0; i < na; i++) {
+        Py_INCREF(*args);
+        fastlocals[i] = *args++;
+    }
+    result = PyEval_EvalFrameEx(f,0);
+    ++tstate->recursion_depth;
+    Py_DECREF(f);
+    --tstate->recursion_depth;
+    return result;
+}
+#if 1 || PY_VERSION_HEX < 0x030600B1
+static PyObject *__Pyx_PyFunction_FastCallDict(PyObject *func, PyObject **args, Py_ssize_t nargs, PyObject *kwargs) {
+    PyCodeObject *co = (PyCodeObject *)PyFunction_GET_CODE(func);
+    PyObject *globals = PyFunction_GET_GLOBALS(func);
+    PyObject *argdefs = PyFunction_GET_DEFAULTS(func);
+    PyObject *closure;
+#if PY_MAJOR_VERSION >= 3
+    PyObject *kwdefs;
+#endif
+    PyObject *kwtuple, **k;
+    PyObject **d;
+    Py_ssize_t nd;
+    Py_ssize_t nk;
+    PyObject *result;
+    assert(kwargs == NULL || PyDict_Check(kwargs));
+    nk = kwargs ? PyDict_Size(kwargs) : 0;
+    if (Py_EnterRecursiveCall((char*)" while calling a Python object")) {
+        return NULL;
+    }
+    if (
+#if PY_MAJOR_VERSION >= 3
+            co->co_kwonlyargcount == 0 &&
+#endif
+            likely(kwargs == NULL || nk == 0) &&
+            co->co_flags == (CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE)) {
+        if (argdefs == NULL && co->co_argcount == nargs) {
+            result = __Pyx_PyFunction_FastCallNoKw(co, args, nargs, globals);
+            goto done;
+        }
+        else if (nargs == 0 && argdefs != NULL
+                 && co->co_argcount == Py_SIZE(argdefs)) {
+            /* function called with no arguments, but all parameters have
+               a default value: use default values as arguments .*/
+            args = &PyTuple_GET_ITEM(argdefs, 0);
+            result =__Pyx_PyFunction_FastCallNoKw(co, args, Py_SIZE(argdefs), globals);
+            goto done;
+        }
+    }
+    if (kwargs != NULL) {
+        Py_ssize_t pos, i;
+        kwtuple = PyTuple_New(2 * nk);
+        if (kwtuple == NULL) {
+            result = NULL;
+            goto done;
+        }
+        k = &PyTuple_GET_ITEM(kwtuple, 0);
+        pos = i = 0;
+        while (PyDict_Next(kwargs, &pos, &k[i], &k[i+1])) {
+            Py_INCREF(k[i]);
+            Py_INCREF(k[i+1]);
+            i += 2;
+        }
+        nk = i / 2;
+    }
+    else {
+        kwtuple = NULL;
+        k = NULL;
+    }
+    closure = PyFunction_GET_CLOSURE(func);
+#if PY_MAJOR_VERSION >= 3
+    kwdefs = PyFunction_GET_KW_DEFAULTS(func);
+#endif
+    if (argdefs != NULL) {
+        d = &PyTuple_GET_ITEM(argdefs, 0);
+        nd = Py_SIZE(argdefs);
+    }
+    else {
+        d = NULL;
+        nd = 0;
+    }
+#if PY_MAJOR_VERSION >= 3
+    result = PyEval_EvalCodeEx((PyObject*)co, globals, (PyObject *)NULL,
+                               args, (int)nargs,
+                               k, (int)nk,
+                               d, (int)nd, kwdefs, closure);
+#else
+    result = PyEval_EvalCodeEx(co, globals, (PyObject *)NULL,
+                               args, (int)nargs,
+                               k, (int)nk,
+                               d, (int)nd, closure);
+#endif
+    Py_XDECREF(kwtuple);
+done:
+    Py_LeaveRecursiveCall();
+    return result;
+}
+#endif
+#endif
+
+/* PyObjectCallMethO */
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_CallMethO(PyObject *func, PyObject *arg) {
+    PyObject *self, *result;
+    PyCFunction cfunc;
+    cfunc = PyCFunction_GET_FUNCTION(func);
+    self = PyCFunction_GET_SELF(func);
+    if (unlikely(Py_EnterRecursiveCall((char*)" while calling a Python object")))
+        return NULL;
+    result = cfunc(self, arg);
+    Py_LeaveRecursiveCall();
+    if (unlikely(!result) && unlikely(!PyErr_Occurred())) {
+        PyErr_SetString(
+            PyExc_SystemError,
+            "NULL result without error in PyObject_Call");
+    }
+    return result;
+}
+#endif
+
+/* PyObjectCallOneArg */
+#if CYTHON_COMPILING_IN_CPYTHON
+static PyObject* __Pyx__PyObject_CallOneArg(PyObject *func, PyObject *arg) {
+    PyObject *result;
+    PyObject *args = PyTuple_New(1);
+    if (unlikely(!args)) return NULL;
+    Py_INCREF(arg);
+    PyTuple_SET_ITEM(args, 0, arg);
+    result = __Pyx_PyObject_Call(func, args, NULL);
+    Py_DECREF(args);
+    return result;
+}
+static CYTHON_INLINE PyObject* __Pyx_PyObject_CallOneArg(PyObject *func, PyObject *arg) {
+#if CYTHON_FAST_PYCALL
+    if (PyFunction_Check(func)) {
+        return __Pyx_PyFunction_FastCall(func, &arg, 1);
+    }
+#endif
+    if (likely(PyCFunction_Check(func))) {
+        if (likely(PyCFunction_GET_FLAGS(func) & METH_O)) {
+            return __Pyx_PyObject_CallMethO(func, arg);
+#if CYTHON_FAST_PYCCALL
+        } else if (__Pyx_PyFastCFunction_Check(func)) {
+            return __Pyx_PyCFunction_FastCall(func, &arg, 1);
+#endif
+        }
+    }
+    return __Pyx__PyObject_CallOneArg(func, arg);
+}
+#else
+static CYTHON_INLINE PyObject* __Pyx_PyObject_CallOneArg(PyObject *func, PyObject *arg) {
+    PyObject *result;
+    PyObject *args = PyTuple_Pack(1, arg);
+    if (unlikely(!args)) return NULL;
+    result = __Pyx_PyObject_Call(func, args, NULL);
+    Py_DECREF(args);
+    return result;
+}
+#endif
+
+/* ObjectGetItem */
+#if CYTHON_USE_TYPE_SLOTS
+static PyObject *__Pyx_PyObject_GetIndex(PyObject *obj, PyObject* index) {
+    PyObject *runerr = NULL;
+    Py_ssize_t key_value;
+    PySequenceMethods *m = Py_TYPE(obj)->tp_as_sequence;
+    if (unlikely(!(m && m->sq_item))) {
+        PyErr_Format(PyExc_TypeError, "'%.200s' object is not subscriptable", Py_TYPE(obj)->tp_name);
+        return NULL;
+    }
+    key_value = __Pyx_PyIndex_AsSsize_t(index);
+    if (likely(key_value != -1 || !(runerr = PyErr_Occurred()))) {
+        return __Pyx_GetItemInt_Fast(obj, key_value, 0, 1, 1);
+    }
+    if (PyErr_GivenExceptionMatches(runerr, PyExc_OverflowError)) {
+        PyErr_Clear();
+        PyErr_Format(PyExc_IndexError, "cannot fit '%.200s' into an index-sized integer", Py_TYPE(index)->tp_name);
+    }
+    return NULL;
+}
+static PyObject *__Pyx_PyObject_GetItem(PyObject *obj, PyObject* key) {
+    PyMappingMethods *m = Py_TYPE(obj)->tp_as_mapping;
+    if (likely(m && m->mp_subscript)) {
+        return m->mp_subscript(obj, key);
+    }
+    return __Pyx_PyObject_GetIndex(obj, key);
 }
 #endif
 

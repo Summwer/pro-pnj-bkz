@@ -110,10 +110,10 @@ void call_bssa(vector<double> l, Params params, int sbeta, int gbeta){
     if(params.cost_model >= 2){
         printf("practical_pnjbkz_d4f = %d, practical_pump_d4f = %d, ", params.practical_pnjbkz_d4f, params.practical_pump_d4f);
     }
-    if(params.bssa_tradion == 1){
+    if(params.bssa_tradition == 1){
         printf("traditonal BSSA \n");
     }
-    if(params.bssa_tradion == 0){
+    if(params.bssa_tradition == 0){
         printf("improved BSSA \n");
     }
     // if(params.mul_node)

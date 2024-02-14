@@ -98,6 +98,7 @@ class EnumBS{
 
     public:
         int strategy_size() const { return bsmin.S.size(); }
+        double get_target_slope() const { return get_current_slope(bsmin.l,0,d); }
 
         // void print_param_setting();
         
@@ -111,8 +112,9 @@ class EnumBS{
         ~EnumBS(){
             //cout<<"cpp free function"<<endl;
         }
- 
+
         void enumbs_est_in_parallel(double* l_array);
+        // void enumbs_est_in_parallel(int dim, double dvol);
         void get_strategy(long* strategy);
     
 };

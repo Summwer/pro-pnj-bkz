@@ -2,7 +2,7 @@ target=libest.so
 cc=g++
 # srcs=enumbs.cpp
 # includes=-I./include/
-OBJS= test.cpp utils.cpp cost.cpp bkz_with_jump_simulator.cpp d_svp_prediction.cpp  enumbs.cpp bssa.cpp
+OBJS= test.cpp utils.cpp cost.cpp bkz_with_jump_simulator.cpp d_svp_prediction.cpp  enumbs.cpp bssa.cpp strategy_simulation.cpp
 
 CXXFLAGS=-fPIC -Ofast -march=native -ftree-vectorize -funroll-loops -std=c++11 -pthread -Wall -Wextra -O3 -march=native -Wp,-U_FORTIFY_SOURCE $(EXTRAFLAGS)  #-Wp,-D_FORTIFY_SOURCE=1
 LDFLAGS=-shared -pthread -L$(realpath .) -Wl,-rpath=$(realpath .) #

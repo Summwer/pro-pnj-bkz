@@ -68,7 +68,7 @@ tuple<int,int,double,double,double> progressive_dsvp_predict(vector<double> l, d
     
     for(int dsvp = 30; dsvp <= d; dsvp++ ){
         //2**(2 * l1[d-dsvp])==2**(2 * l1d_dsvp)==gh
-        gh = gaussian_heuristic_log2(l,d-dsvp);
+        gh = gaussian_heuristic_log2(l,d-dsvp,d);
         
         
         boost::math::chi_squared chisquare(dsvp);

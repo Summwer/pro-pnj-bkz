@@ -55,12 +55,13 @@ def wrapped_sieve(pump):
     except SaturationError as e:
         if pump.saturation_error == "skip":
             pump.down_sieve = False
-            logging.info("saturation issue: breaking pump.")
+            print("saturation issue: breaking pump.")
             cont = False
         elif pump.saturation_error == "weaken":
-            logging.info("saturation issue: weakening pump.")
+            print("saturation issue: weakening pump.")
             pump.sat_factor /= 2.
         elif pump.saturation_error == "ignore":
+            print("saturation issue: ignoring pump.")
             pass
         else:
             raise e

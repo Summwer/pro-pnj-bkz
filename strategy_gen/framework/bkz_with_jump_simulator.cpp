@@ -28,7 +28,10 @@ void BKZJSim::init(int d){
 void BKZJSim::simulate(vector<double> &l_,vector<double> l,int beta, int jump, int N){
 
     //simulate pnj-bkz more precisely
-    int d = l.size(), beta_ =get_beta_(params, beta, jump,d);
+    
+    int d = l.size();
+    double slope = get_current_slope(l, 0, d);
+    int beta_ =get_beta_(params, beta, jump,d,slope);
 
     if(beta >= 45){
         // cerr<<"beta = "<<beta<<", beta_ = "<< beta_<<endl;

@@ -1,0 +1,347 @@
+EnumBS Strategy Generation:v1. beta_start= 50, gap = 1, J = 100, J_gap = 1, cost_model = 3, max_loop = 5,  G_prec = 1.000000e-03,  slope_prec = 1.000000e-04,  progressive_sieve = True, worst_case = 0, succ_prob = 0.999, threads = 10, Find expected minimal time cost strategy, average_case, practical_pnjbkz_d4f = 3, practical_pump_d4f = 3, adjust beta_ as after 2023.1.31 [WWW, asiaccs2023], jump upper bound = min(asiaccs_d4f(beta,slope), pessitive d4f(beta)).
+Find the expected minimal  Strategy through EumBS!!
+bs = (slope = -4.208570e-02, G_BKZ = -3.912620e+00 log2(sec), B_BKZ = 1.874836e+01 log2(bit), cum-pr = 7.730246e-06, pump-{107,149,22}, G_dsvp = 1.342466e+01 log2(sec), B_dsvp = 3.709140e+01 bit, G = 1.342467e+01 log2(sec), B = 3.709140e+01 log2(bit),  min_GB.first = 1.342467e+01 log2(sec))
+S(beta,jump,tours):[(75,6,1),(76,6,1),(101,8,2),(105,8,1)]
+Min Cost = 13.42 log2(sec) = 10995.82 s, Memory Cost = 37.09 log2(bit) = 17.05 GB 
+
+
+-------------------------
+Primal attack, LWE challenge n=76, alpha=0.0050
+Chose 255 samples. Predict solution at bkz-93 + svp-120
+
+GSO precision:  dd
+||b_1|| = 33396841, target_norm = 319358
+Intial Slope = -0.06611, dim = 256, dvol = 689.3963287398285
+
+Cost for generate strategy through EnumBS: 31.99 sec
+Blocksize Strategy: [(75, 6, 1), (76, 6, 1), (101, 8, 2), (105, 8, 1)]
+
+Starting a pnjBKZ-75-6 tour. 
+
+ k:0, b:58, f:0 , RAM cost: 0.1944 GB 
+ k:0, b:64, f:6 , RAM cost: 1.6900 GB 
+ k:0, b:70, f:12 , RAM cost: 1.6947 GB 
+ k:0, b:76, f:18 , RAM cost: 1.6992 GB 
+ k:0, b:82, f:24 , RAM cost: 1.7035 GB 
+ k:0, b:87, f:29 , RAM cost: 1.7075 GB 
+ k:6, b:87, f:29 , RAM cost: 1.7101 GB 
+ k:12, b:87, f:29 , RAM cost: 1.7120 GB 
+ k:18, b:87, f:29 , RAM cost: 1.7145 GB 
+ k:24, b:87, f:29 , RAM cost: 1.7188 GB 
+ k:30, b:87, f:29 , RAM cost: 1.8458 GB 
+ k:36, b:87, f:29 , RAM cost: 1.8458 GB 
+ k:42, b:87, f:29 , RAM cost: 1.8458 GB 
+ k:48, b:87, f:29 , RAM cost: 1.8458 GB 
+ k:54, b:87, f:29 , RAM cost: 1.8458 GB 
+ k:60, b:87, f:29 , RAM cost: 1.8458 GB 
+ k:66, b:87, f:29 , RAM cost: 1.8458 GB 
+ k:72, b:87, f:29 , RAM cost: 1.8458 GB 
+ k:78, b:87, f:29 , RAM cost: 1.8458 GB 
+ k:84, b:87, f:29 , RAM cost: 1.8458 GB 
+ k:90, b:87, f:29 , RAM cost: 1.8458 GB 
+ k:96, b:87, f:29 , RAM cost: 1.8458 GB 
+ k:102, b:87, f:29 , RAM cost: 1.8458 GB 
+ k:108, b:87, f:29 , RAM cost: 1.8458 GB 
+ k:114, b:87, f:29 , RAM cost: 1.8460 GB 
+ k:120, b:87, f:29 , RAM cost: 1.8460 GB 
+ k:126, b:87, f:29 , RAM cost: 1.8460 GB 
+ k:132, b:87, f:29 , RAM cost: 1.8460 GB 
+ k:138, b:87, f:29 , RAM cost: 1.8461 GB 
+ k:144, b:87, f:29 , RAM cost: 1.8461 GB 
+ k:150, b:87, f:29 , RAM cost: 1.8461 GB 
+ k:156, b:87, f:29 , RAM cost: 1.8461 GB 
+ k:162, b:87, f:29 , RAM cost: 1.8461 GB 
+ k:168, b:87, f:29 , RAM cost: 1.8461 GB 
+ k:169, b:87, f:29 , RAM cost: 1.8461 GB 
+ k:175, b:81, f:23 , RAM cost: 1.8461 GB 
+ k:181, b:75, f:17 , RAM cost: 1.8461 GB 
+ k:187, b:69, f:11 , RAM cost: 1.7229 GB 
+ k:193, b:63, f:5 , RAM cost: 1.8481 GB 
+ k:198, b:58, f:0  , RAM cost: 1.7232 GB  
+ k:198, b:58, f:0 
+
+slope: -0.05702,||b_1|| = 33396841, target_norm = 319358, BKZ cost: 179.280 s, walltime: 179.280 sec, memory cost = 1.85 GB 
+Starting a pnjBKZ-76-6 tour. 
+
+ k:0, b:59, f:0 , RAM cost: 1.7253 GB 
+ k:0, b:65, f:6 , RAM cost: 1.7254 GB 
+ k:0, b:71, f:12 , RAM cost: 1.7251 GB 
+ k:0, b:77, f:18 , RAM cost: 1.7273 GB 
+ k:0, b:83, f:24 , RAM cost: 1.7293 GB 
+ k:0, b:88, f:29 , RAM cost: 1.7298 GB 
+ k:6, b:88, f:29 , RAM cost: 1.8547 GB 
+ k:12, b:88, f:29 , RAM cost: 1.8547 GB 
+ k:18, b:88, f:29 , RAM cost: 1.8547 GB 
+ k:24, b:88, f:29 , RAM cost: 1.8547 GB 
+ k:30, b:88, f:29 , RAM cost: 1.8547 GB 
+ k:36, b:88, f:29 , RAM cost: 1.8547 GB 
+ k:42, b:88, f:29 , RAM cost: 1.8547 GB 
+ k:48, b:88, f:29 , RAM cost: 1.8547 GB 
+ k:54, b:88, f:29 , RAM cost: 1.8547 GB 
+ k:60, b:88, f:29 , RAM cost: 1.8547 GB 
+ k:66, b:88, f:29 , RAM cost: 1.8547 GB 
+ k:72, b:88, f:29 , RAM cost: 1.8547 GB 
+ k:78, b:88, f:29 , RAM cost: 1.8547 GB 
+ k:84, b:88, f:29 , RAM cost: 1.8547 GB 
+ k:90, b:88, f:29 , RAM cost: 1.8547 GB 
+ k:96, b:88, f:29 , RAM cost: 1.8547 GB 
+ k:102, b:88, f:29 , RAM cost: 1.8548 GB 
+ k:108, b:88, f:29 , RAM cost: 1.8548 GB 
+ k:114, b:88, f:29 , RAM cost: 1.8548 GB 
+ k:120, b:88, f:29 , RAM cost: 1.8548 GB 
+ k:126, b:88, f:29 , RAM cost: 1.8548 GB 
+ k:132, b:88, f:29 , RAM cost: 1.8548 GB 
+ k:138, b:88, f:29 , RAM cost: 1.8548 GB 
+ k:144, b:88, f:29 , RAM cost: 1.8548 GB 
+ k:150, b:88, f:29 , RAM cost: 1.8548 GB 
+ k:156, b:88, f:29 , RAM cost: 1.8548 GB 
+ k:162, b:88, f:29 , RAM cost: 1.8548 GB 
+ k:168, b:88, f:29 , RAM cost: 1.8548 GB 
+ k:174, b:82, f:23 , RAM cost: 1.8548 GB 
+ k:180, b:76, f:17 , RAM cost: 1.8548 GB 
+ k:186, b:70, f:11 , RAM cost: 1.8548 GB 
+ k:192, b:64, f:5 , RAM cost: 1.8548 GB 
+ k:197, b:59, f:0  , RAM cost: 1.7295 GB  
+ k:197, b:59, f:0 
+
+slope: -0.05268,||b_1|| = 33396841, target_norm = 319358, BKZ cost: 149.223 s, walltime: 328.504 sec, memory cost = 1.85 GB 
+Starting a pnjBKZ-101-8 tour. 
+
+ k:0, b:82, f:0 , RAM cost: 1.7319 GB 
+ k:0, b:90, f:8 , RAM cost: 2.0282 GB 
+ k:0, b:98, f:16 , RAM cost: 2.0298 GB 
+ k:0, b:106, f:24 , RAM cost: 2.0320 GB 
+ k:0, b:113, f:31 , RAM cost: 2.1593 GB 
+ k:8, b:113, f:31 , RAM cost: 2.1603 GB 
+ k:16, b:113, f:31 , RAM cost: 2.1638 GB 
+ k:24, b:113, f:31 , RAM cost: 2.1673 GB 
+ k:32, b:113, f:31 , RAM cost: 2.1694 GB 
+ k:40, b:113, f:31 , RAM cost: 2.1731 GB 
+ k:48, b:113, f:31 , RAM cost: 2.1754 GB 
+ k:56, b:113, f:31 , RAM cost: 2.1777 GB 
+ k:64, b:113, f:31 , RAM cost: 2.1778 GB 
+ k:72, b:113, f:31 , RAM cost: 2.0549 GB 
+ k:80, b:113, f:31 , RAM cost: 2.1823 GB 
+ k:88, b:113, f:31 , RAM cost: 2.1827 GB 
+ k:96, b:113, f:31 , RAM cost: 2.1849 GB 
+ k:104, b:113, f:31 , RAM cost: 2.1854 GB 
+ k:112, b:113, f:31 , RAM cost: 2.1854 GB 
+ k:120, b:113, f:31 , RAM cost: 2.1854 GB 
+ k:128, b:113, f:31 , RAM cost: 2.0605 GB 
+ k:136, b:113, f:31 , RAM cost: 2.0625 GB 
+ k:143, b:113, f:31 , RAM cost: 2.0624 GB 
+ k:151, b:105, f:23 , RAM cost: 2.0643 GB 
+ k:159, b:97, f:15 , RAM cost: 2.0665 GB 
+ k:167, b:89, f:7 , RAM cost: 2.0662 GB 
+ k:174, b:82, f:0  , RAM cost: 2.0682 GB  
+ k:174, b:82, f:0 
+
+slope: -0.04885,||b_1|| = 33396841, target_norm = 319358, BKZ cost: 442.850 s, walltime: 771.355 sec, memory cost = 2.19 GB 
+Starting a pnjBKZ-101-8 tour. 
+
+ k:0, b:82, f:0 , RAM cost: 1.9431 GB 
+ k:0, b:90, f:8 , RAM cost: 2.0696 GB 
+ k:0, b:98, f:16 , RAM cost: 2.0696 GB 
+ k:0, b:106, f:24 , RAM cost: 2.0694 GB 
+ k:0, b:113, f:31 , RAM cost: 2.1946 GB 
+ k:8, b:113, f:31 , RAM cost: 2.1946 GB 
+ k:16, b:113, f:31 , RAM cost: 2.1950 GB 
+ k:24, b:113, f:31 , RAM cost: 2.0701 GB 
+ k:32, b:113, f:31 , RAM cost: 2.0721 GB 
+ k:40, b:113, f:31 , RAM cost: 2.0738 GB 
+ k:48, b:113, f:31 , RAM cost: 2.0735 GB 
+ k:56, b:113, f:31 , RAM cost: 2.2007 GB 
+ k:64, b:113, f:31 , RAM cost: 2.0776 GB 
+ k:72, b:113, f:31 , RAM cost: 2.2028 GB 
+ k:80, b:113, f:31 , RAM cost: 2.0778 GB 
+ k:88, b:113, f:31 , RAM cost: 2.0779 GB 
+ k:96, b:113, f:31 , RAM cost: 2.2029 GB 
+ k:104, b:113, f:31 , RAM cost: 2.2044 GB 
+ k:112, b:113, f:31 , RAM cost: 2.0797 GB 
+ k:120, b:113, f:31 , RAM cost: 2.0800 GB 
+ k:128, b:113, f:31 , RAM cost: 2.0796 GB 
+ k:136, b:113, f:31 , RAM cost: 2.0819 GB 
+ k:143, b:113, f:31 , RAM cost: 2.2087 GB 
+ k:151, b:105, f:23 , RAM cost: 2.0835 GB 
+ k:159, b:97, f:15 , RAM cost: 2.0834 GB 
+ k:167, b:89, f:7 , RAM cost: 2.0834 GB 
+ k:174, b:82, f:0  , RAM cost: 2.0836 GB  
+ k:174, b:82, f:0 
+
+slope: -0.04496,||b_1|| = 33396841, target_norm = 319358, BKZ cost: 482.706 s, walltime: 1254.061 sec, memory cost = 2.21 GB 
+Starting a pnjBKZ-105-8 tour. 
+
+ k:0, b:86, f:0 , RAM cost: 1.9586 GB 
+ k:0, b:94, f:8 , RAM cost: 2.2240 GB 
+ k:0, b:102, f:16 , RAM cost: 2.2249 GB 
+ k:0, b:110, f:24 , RAM cost: 2.3519 GB 
+ k:0, b:117, f:31 , RAM cost: 2.2283 GB 
+ k:8, b:117, f:31 , RAM cost: 2.3537 GB 
+ k:16, b:117, f:31 , RAM cost: 2.2305 GB 
+ k:24, b:117, f:31 , RAM cost: 2.2314 GB 
+ k:32, b:117, f:31 , RAM cost: 2.2326 GB 
+ k:40, b:117, f:31 , RAM cost: 2.3581 GB 
+ k:48, b:117, f:31 , RAM cost: 2.2341 GB 
+ k:56, b:117, f:31 , RAM cost: 2.3593 GB 
+ k:64, b:117, f:31 , RAM cost: 2.2356 GB 
+ k:72, b:117, f:31 , RAM cost: 2.3615 GB 
+ k:80, b:117, f:31 , RAM cost: 2.2375 GB 
+ k:88, b:117, f:31 , RAM cost: 2.3637 GB 
+ k:96, b:117, f:31 , RAM cost: 2.2392 GB 
+ k:104, b:117, f:31 , RAM cost: 2.3650 GB 
+ k:112, b:117, f:31 , RAM cost: 2.3657 GB 
+ k:120, b:117, f:31 , RAM cost: 2.2417 GB 
+ k:128, b:117, f:31 , RAM cost: 2.3677 GB 
+ k:136, b:117, f:31 , RAM cost: 2.2428 GB 
+ k:139, b:117, f:31 , RAM cost: 2.3684 GB 
+ k:147, b:109, f:23 , RAM cost: 2.2434 GB 
+ k:155, b:101, f:15 , RAM cost: 2.2438 GB 
+ k:163, b:93, f:7 , RAM cost: 2.2453 GB 
+ k:170, b:86, f:0  , RAM cost: 2.2455 GB  
+ k:170, b:86, f:0 
+
+slope: -0.04219,||b_1|| = 33396841, target_norm = 319358, BKZ cost: 650.340 s, walltime: 1904.401 sec, memory cost = 2.37 GB 
+Without otf, would expect solution at pump_{105, 151, 13},n_max = 143
+
+Starting svp pump_{105, 151, 13}
+
+ 138: ↑ 50   , RAM cost:2.0020 GB    
+ 138: ↑ 51   , RAM cost:2.0020 GB    
+ 138: ↑ 51   , RAM cost:2.0020 GB    
+ 138: ↑ 52   , RAM cost:2.0020 GB    
+ 138: ↑ 52   , RAM cost:2.0020 GB    
+ 138: ↑ 53   , RAM cost:2.0020 GB    
+ 138: ↑ 53   , RAM cost:2.0020 GB    
+ 138: ↑ 54   , RAM cost:2.0020 GB    
+ 138: ↑ 54   , RAM cost:2.0020 GB    
+ 138: ↑ 55   , RAM cost:2.0020 GB    
+ 138: ↑ 55   , RAM cost:2.0020 GB    
+ 138: ↑ 56   , RAM cost:2.0020 GB    
+ 138: ↑ 56   , RAM cost:2.0020 GB    
+ 138: ↑ 57   , RAM cost:2.0020 GB    
+ 138: ↑ 57   , RAM cost:2.0025 GB    
+ 138: ↑ 58   , RAM cost:2.0025 GB    
+ 138: ↑ 58   , RAM cost:2.0032 GB    
+ 138: ↑ 59   , RAM cost:2.0032 GB    
+ 138: ↑ 59   , RAM cost:2.0040 GB    
+ 138: ↑ 60   , RAM cost:2.0040 GB    
+ 138: ↑ 60   , RAM cost:2.0047 GB    
+ 138: ↑ 61   , RAM cost:2.0047 GB    
+ 138: ↑ 61   , RAM cost:2.0058 GB    
+ 138: ↑ 62   , RAM cost:2.0058 GB    
+ 138: ↑ 62   , RAM cost:2.0070 GB    
+ 138: ↑ 63   , RAM cost:2.0070 GB    
+ 138: ↑ 63   , RAM cost:2.0083 GB    
+ 138: ↑ 64   , RAM cost:2.0083 GB    
+ 138: ↑ 64   , RAM cost:2.0098 GB    
+ 138: ↑ 65   , RAM cost:2.1349 GB    
+ 138: ↑ 65   , RAM cost:2.1366 GB    
+ 138: ↑ 66   , RAM cost:2.1366 GB    
+ 138: ↑ 66   , RAM cost:2.1386 GB    
+ 138: ↑ 67   , RAM cost:2.1386 GB    
+ 138: ↑ 67   , RAM cost:2.1409 GB    
+ 138: ↑ 68   , RAM cost:2.1409 GB    
+ 138: ↑ 68   , RAM cost:2.1437 GB    
+ 138: ↑ 69   , RAM cost:2.1437 GB    
+ 138: ↑ 69   , RAM cost:2.1467 GB    
+ 138: ↑ 70   , RAM cost:2.1467 GB    
+ 138: ↑ 70   , RAM cost:2.1505 GB    
+ 138: ↑ 71   , RAM cost:2.1505 GB    
+ 138: ↑ 71   , RAM cost:2.1545 GB    
+ 138: ↑ 72   , RAM cost:2.1545 GB    
+ 138: ↑ 72   , RAM cost:2.1593 GB    
+ 138: ↑ 73   , RAM cost:2.1593 GB    
+ 138: ↑ 73   , RAM cost:2.1651 GB    
+ 138: ↑ 74   , RAM cost:2.1651 GB    
+ 138: ↑ 74   , RAM cost:2.1714 GB    
+ 138: ↑ 75   , RAM cost:2.1714 GB    
+ 138: ↑ 75   , RAM cost:2.1790 GB    
+ 138: ↑ 76   , RAM cost:2.1790 GB    
+ 138: ↑ 76   , RAM cost:2.1875 GB    
+ 138: ↑ 77   , RAM cost:2.1875 GB    
+ 138: ↑ 77   , RAM cost:2.1973 GB    
+ 138: ↑ 78   , RAM cost:2.1973 GB    
+ 138: ↑ 78   , RAM cost:2.2087 GB    
+ 138: ↑ 79   , RAM cost:2.2087 GB    
+ 138: ↑ 79   , RAM cost:2.2220 GB    
+ 138: ↑ 80   , RAM cost:2.2220 GB    
+ 138: ↑ 80   , RAM cost:2.2371 GB    
+ 138: ↑ 81   , RAM cost:2.2371 GB    
+ 138: ↑ 81   , RAM cost:2.2547 GB    
+ 138: ↑ 82   , RAM cost:2.2547 GB    
+ 138: ↑ 82   , RAM cost:2.2751 GB    
+ 138: ↑ 83   , RAM cost:2.2751 GB    
+ 138: ↑ 83   , RAM cost:2.2985 GB    
+ 138: ↑ 84   , RAM cost:2.2985 GB    
+ 138: ↑ 84   , RAM cost:2.3257 GB    
+ 138: ↑ 85   , RAM cost:2.3257 GB    
+ 138: ↑ 85   , RAM cost:2.3571 GB    
+ 138: ↑ 86   , RAM cost:2.3571 GB    
+ 138: ↑ 86   , RAM cost:2.3934 GB    
+ 138: ↑ 87   , RAM cost:2.3934 GB    
+ 138: ↑ 87   , RAM cost:2.4359 GB    
+ 138: ↑ 88   , RAM cost:2.4359 GB    
+ 138: ↑ 88   , RAM cost:2.4840 GB    
+ 138: ↑ 89   , RAM cost:2.4840 GB    
+ 138: ↑ 89   , RAM cost:2.5407 GB    
+ 138: ↑ 90   , RAM cost:2.5407 GB    
+ 138: ↑ 90   , RAM cost:2.6049 GB    
+ 138: ↑ 91   , RAM cost:2.6049 GB    
+ 138: ↑ 91   , RAM cost:2.6791 GB    
+ 138: ↑ 92   , RAM cost:2.6791 GB    
+ 138: ↑ 92   , RAM cost:2.7237 GB    
+ 138: ↑ 93   , RAM cost:2.7237 GB    
+ 138: ↑ 93   , RAM cost:2.8421 GB    
+ 138: ↑ 94   , RAM cost:2.8421 GB    
+ 138: ↑ 94   , RAM cost:2.9580 GB    
+ 138: ↑ 95   , RAM cost:2.9580 GB    
+ 138: ↑ 95   , RAM cost:3.0904 GB    
+ 138: ↑ 96   , RAM cost:3.0904 GB    
+ 138: ↑ 96   , RAM cost:3.2440 GB    
+ 138: ↑ 97   , RAM cost:3.3704 GB    
+ 138: ↑ 97   , RAM cost:3.5641 GB    
+ 138: ↑ 98   , RAM cost:3.5641 GB    
+ 138: ↑ 98   , RAM cost:3.7849 GB    
+ 138: ↑ 99   , RAM cost:3.7849 GB    
+ 138: ↑ 99   , RAM cost:4.0254 GB    
+ 138: ↑100   , RAM cost:4.0254 GB    
+ 138: ↑100   , RAM cost:4.3060 GB    
+ 138: ↑101   , RAM cost:4.3060 GB    
+ 138: ↑101   , RAM cost:4.6322 GB    
+ 138: ↑102   , RAM cost:4.6322 GB    
+ 138: ↑102   , RAM cost:5.0690 GB    
+ 138: ↑103   , RAM cost:5.0690 GB    
+ 138: ↑103   , RAM cost:5.5153 GB    
+ 138: ↑104   , RAM cost:5.5153 GB    
+ 138: ↑104   , RAM cost:6.0208 GB    
+ 138: ↑105   , RAM cost:6.0208 GB    
+ 138: ↑105   , RAM cost:6.5863 GB    
+ 138: ↑106   , RAM cost:6.5863 GB    
+ 138: ↑106   , RAM cost:7.3041 GB    
+ 138: ↑107   , RAM cost:7.3041 GB    
+ 138: ↑107   , RAM cost:8.1534 GB    
+ 138: ↑108   , RAM cost:8.1534 GB    
+ 138: ↑108   , RAM cost:9.0438 GB    
+ 138: ↑109   , RAM cost:9.0438 GB    
+ 138: ↑109   , RAM cost:10.0713 GB    
+ 138: ↑110   , RAM cost:10.0713 GB    
+ 138: ↑110   , RAM cost:11.2467 GB    
+ 138: ↑111   , RAM cost:11.2467 GB    
+ 138: ↑111   , RAM cost:12.8215 GB    
+ 138: ↑112   , RAM cost:12.8215 GB    
+ 138: ↑112   , RAM cost:14.4393 GB    
+ 138: ↑113   , RAM cost:14.4393 GB    
+ 138: ↑113   , RAM cost:16.2566 GB    
+ 138: ↑114   , RAM cost:16.2566 GB    
+ 138: ↑114   , RAM cost:18.3470 GB    
+ 138: ↑115   , RAM cost:18.3470 GB    
+ 138: ↑115   , RAM cost:20.8333 GB    
+ 138: ↑116   , RAM cost:20.8333 GB    
+ 138: ↑116   , RAM cost:24.1032 GB    
+ 138: ↑117   , RAM cost:24.0913 GB    
+ 138: ↑117   , RAM cost:27.2886 GB    
+ 138: ↑118   , RAM cost:27.2886 GB    
+ 138: ↑118   , RAM cost:30.9220 GB    Solution: (54, -26, 7, 26, 14, 5, -2, 32, -55, -12, 40, 1, 15, 8, 63, -41, -18, -4, 1, -10, -34, 40, -14, 58, 33, 7, 11, -7, -23, 72, -19, 0, -36, 50, -8, -1, -11, -6, 3, 2, 26, 26, 9, 31, 39, -3, -8, 31, 10, -22, -51, 22, -8, 4, 5, -10, -5, 0, 9, -62, 42, 4, -9, 18, -12, -26, -31, 27, 30, -53, 33, -6, 52, -42, 11, 40, 15, 15, -32, 56, 5, 2, -26, 17, -11, 66, 4, 11, 20, -31, -4, -41, 36, -13, -65, -14, 40, 19, 11, -22, 9, 10, 25, 17, 15, -6, 33, 11, 37, 11, -4, -9, -18, 11, -15, -1, -34, 1, 24, -65, -11, -5, -14, -38, -1, -6, -52, -25, 31, 3, -5, 15, -8, -7, 30, 24, -58, 37, 33, 3, 17, -15, -19, -5, -21, -23, 5, -35, 3, 38, 61, -49, -18, 3, -3, -48, 25, 8, 18, 18, 13, -15, -42, -2, -8, -19, 21, -42, -3, 33, 1, -19, 43, 28, 34, -2, -20, 9, -15, 5, -3, 29, 1, 0, -42, 4, -41, 11, 14, -42, 19, -6, -10, -4, -48, -21, 51, -15, -15, 15, -50, -35, -4, 25, -16, 23, -18, -35, -44, -31, 16, -29, -31, -14, 13, -11, -9, -24, -4, 19, -12, -31, 16, 38, -55, -2, -24, 23, 35, -11, -52, 8, 48, 2, -4, -70, -29, 29, 19, -46, -17, 19, 28, 15, -9, -1, 11, -5, 12, -35, -46, -37, -79, -5, -19, -1)
+slope: -0.04229, T_pump = 1169.692 sec, RAM_pump = 30.925 GB, walltime: 3074.099 sec
+Finished! TT=3074.30 sec
+(54, -26, 7, 26, 14, 5, -2, 32, -55, -12, 40, 1, 15, 8, 63, -41, -18, -4, 1, -10, -34, 40, -14, 58, 33, 7, 11, -7, -23, 72, -19, 0, -36, 50, -8, -1, -11, -6, 3, 2, 26, 26, 9, 31, 39, -3, -8, 31, 10, -22, -51, 22, -8, 4, 5, -10, -5, 0, 9, -62, 42, 4, -9, 18, -12, -26, -31, 27, 30, -53, 33, -6, 52, -42, 11, 40, 15, 15, -32, 56, 5, 2, -26, 17, -11, 66, 4, 11, 20, -31, -4, -41, 36, -13, -65, -14, 40, 19, 11, -22, 9, 10, 25, 17, 15, -6, 33, 11, 37, 11, -4, -9, -18, 11, -15, -1, -34, 1, 24, -65, -11, -5, -14, -38, -1, -6, -52, -25, 31, 3, -5, 15, -8, -7, 30, 24, -58, 37, 33, 3, 17, -15, -19, -5, -21, -23, 5, -35, 3, 38, 61, -49, -18, 3, -3, -48, 25, 8, 18, 18, 13, -15, -42, -2, -8, -19, 21, -42, -3, 33, 1, -19, 43, 28, 34, -2, -20, 9, -15, 5, -3, 29, 1, 0, -42, 4, -41, 11, 14, -42, 19, -6, -10, -4, -48, -21, 51, -15, -15, 15, -50, -35, -4, 25, -16, 23, -18, -35, -44, -31, 16, -29, -31, -14, 13, -11, -9, -24, -4, 19, -12, -31, 16, 38, -55, -2, -24, 23, 35, -11, -52, 8, 48, 2, -4, -70, -29, 29, 19, -46, -17, 19, 28, 15, -9, -1, 11, -5, 12, -35, -46, -37, -79, -5, -19, -1)

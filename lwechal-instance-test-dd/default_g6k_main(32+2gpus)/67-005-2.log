@@ -1,0 +1,122 @@
+-------------------------
+Primal attack, LWE challenge n=67, alpha=0.0050
+Chose 220 samples. Predict solution at bkz-68 + svp-100
+
+GSO precision:  dd
+Intial Slope = -0.07165
+
+Starting a fpylll BKZ-10 tour. 
+slope: -0.07047, walltime: 3.276 sec
+Without otf, would expect solution at pump-138. n_max=77 in the given time.
+Starting a fpylll BKZ-11 tour. 
+slope: -0.06966, walltime: 6.378 sec
+Without otf, would expect solution at pump-137. n_max=79 in the given time.
+Starting a fpylll BKZ-12 tour. 
+slope: -0.06921, walltime: 8.420 sec
+Without otf, would expect solution at pump-137. n_max=81 in the given time.
+Starting a fpylll BKZ-13 tour. 
+slope: -0.06867, walltime: 11.333 sec
+Without otf, would expect solution at pump-136. n_max=82 in the given time.
+Starting a fpylll BKZ-14 tour. 
+slope: -0.06808, walltime: 13.824 sec
+Without otf, would expect solution at pump-136. n_max=83 in the given time.
+Starting a fpylll BKZ-15 tour. 
+slope: -0.06749, walltime: 17.162 sec
+Without otf, would expect solution at pump-135. n_max=83 in the given time.
+Starting a fpylll BKZ-16 tour. 
+slope: -0.06696, walltime: 19.977 sec
+Without otf, would expect solution at pump-135. n_max=84 in the given time.
+Starting a fpylll BKZ-17 tour. 
+slope: -0.06623, walltime: 24.070 sec
+Without otf, would expect solution at pump-134. n_max=85 in the given time.
+Starting a fpylll BKZ-18 tour. 
+slope: -0.06563, walltime: 27.505 sec
+Without otf, would expect solution at pump-133. n_max=85 in the given time.
+Starting a fpylll BKZ-19 tour. 
+slope: -0.06506, walltime: 31.625 sec
+Without otf, would expect solution at pump-132. n_max=86 in the given time.
+Starting a fpylll BKZ-20 tour. 
+slope: -0.06446, walltime: 35.205 sec
+Without otf, would expect solution at pump-132. n_max=86 in the given time.
+Starting a fpylll BKZ-21 tour. 
+slope: -0.06382, walltime: 40.461 sec
+Without otf, would expect solution at pump-131. n_max=87 in the given time.
+Starting a fpylll BKZ-22 tour. 
+slope: -0.06322, walltime: 45.382 sec
+Without otf, would expect solution at pump-130. n_max=87 in the given time.
+Starting a fpylll BKZ-23 tour. 
+slope: -0.06268, walltime: 50.806 sec
+Without otf, would expect solution at pump-130. n_max=88 in the given time.
+Starting a fpylll BKZ-24 tour. 
+slope: -0.06224, walltime: 54.420 sec
+Without otf, would expect solution at pump-129. n_max=88 in the given time.
+Starting a fpylll BKZ-25 tour. 
+slope: -0.06161, walltime: 60.836 sec
+Without otf, would expect solution at pump-128. n_max=89 in the given time.
+Starting a fpylll BKZ-26 tour. 
+slope: -0.06114, walltime: 65.644 sec
+Without otf, would expect solution at pump-127. n_max=89 in the given time.
+Starting a fpylll BKZ-27 tour. 
+slope: -0.06060, walltime: 72.109 sec
+Without otf, would expect solution at pump-126. n_max=89 in the given time.
+Starting a fpylll BKZ-28 tour. 
+slope: -0.06025, walltime: 76.039 sec
+Without otf, would expect solution at pump-126. n_max=90 in the given time.
+Starting a fpylll BKZ-29 tour. 
+slope: -0.05969, walltime: 83.128 sec
+Without otf, would expect solution at pump-125. n_max=90 in the given time.
+Starting a fpylll BKZ-30 tour. 
+slope: -0.05917, walltime: 89.900 sec
+Without otf, would expect solution at pump-124. n_max=90 in the given time.
+Starting a fpylll BKZ-31 tour. 
+slope: -0.05868, walltime: 98.068 sec
+Without otf, would expect solution at pump-123. n_max=91 in the given time.
+Starting a fpylll BKZ-32 tour. 
+slope: -0.05818, walltime: 105.868 sec
+Without otf, would expect solution at pump-122. n_max=91 in the given time.
+Starting a fpylll BKZ-33 tour. 
+slope: -0.05758, walltime: 114.870 sec
+Without otf, would expect solution at pump-121. n_max=91 in the given time.
+Starting a fpylll BKZ-34 tour. 
+slope: -0.05709, walltime: 122.760 sec
+Without otf, would expect solution at pump-120. n_max=92 in the given time.
+Starting a fpylll BKZ-35 tour. 
+slope: -0.05660, walltime: 132.179 sec
+Without otf, would expect solution at pump-119. n_max=92 in the given time.
+Starting a fpylll BKZ-36 tour. 
+slope: -0.05609, walltime: 142.435 sec
+Without otf, would expect solution at pump-118. n_max=92 in the given time.
+Starting a fpylll BKZ-37 tour. 
+slope: -0.05558, walltime: 152.978 sec
+Without otf, would expect solution at pump-117. n_max=92 in the given time.
+Starting a fpylll BKZ-38 tour. 
+slope: -0.05512, walltime: 164.829 sec
+Without otf, would expect solution at pump-116. n_max=93 in the given time.
+Starting a fpylll BKZ-39 tour. 
+slope: -0.05474, walltime: 177.107 sec
+Without otf, would expect solution at pump-115. n_max=93 in the given time.
+Starting a fpylll BKZ-40 tour. 
+slope: -0.05439, walltime: 189.627 sec
+Without otf, would expect solution at pump-115. n_max=93 in the given time.
+Starting a fpylll BKZ-41 tour. 
+slope: -0.05399, walltime: 202.915 sec
+Without otf, would expect solution at pump-114. n_max=94 in the given time.
+Starting a fpylll BKZ-42 tour. 
+slope: -0.05363, walltime: 216.900 sec
+Without otf, would expect solution at pump-113. n_max=94 in the given time.
+Starting a fpylll BKZ-43 tour. 
+slope: -0.05329, walltime: 231.903 sec
+Without otf, would expect solution at pump-112. n_max=94 in the given time.
+Starting a fpylll BKZ-44 tour. 
+slope: -0.05296, walltime: 248.559 sec
+Without otf, would expect solution at pump-111. n_max=94 in the given time.
+Starting a fpylll BKZ-45 tour. 
+slope: -0.05266, walltime: 266.642 sec
+Without otf, would expect solution at pump-111. n_max=95 in the given time.
+Starting a fpylll BKZ-46 tour. 
+slope: -0.05237, walltime: 317.402 sec
+Without otf, would expect solution at pump-110. n_max=95 in the given time.
+Starting a fpylll BKZ-47 tour. 
+slope: -0.05200, walltime: 395.150 sec
+Without otf, would expect solution at pump-109. n_max=96 in the given time.
+Starting a fpylll BKZ-48 tour. 

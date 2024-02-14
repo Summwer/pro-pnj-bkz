@@ -28,7 +28,7 @@ int main(int argc,char **argv){
         params.list_decoding = "agps20"; //"matzov22"
     if(atoi(argv[2]) == 2)
         params.list_decoding = "matzov22"; //"matzov22"
-    // params.bssa_tradion = true;  
+    // params.bssa_tradition = true;  
     
 
     int n, m, q,eta;

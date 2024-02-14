@@ -41,7 +41,7 @@ void BSSA::print_bs(blocksize_strategy bs){
 bool BSSA::pnjbkz_beta_loop( vector<double> &l, pair<double,double> &cum_GB, pair<double,double> &cum_avg_GB,  double &cum_pr, int beta, int jump, tuple<int,int,double,double,double> &dsvp_t_, double &slope){
 
     //simulate pnj-bkz more precisely
-    int d = l.size(),beta_ = get_beta_(params,beta,jump,d);
+    int d = l.size(),beta_ = get_beta_(params,beta,jump,d,slope);
 
 
     double rem_pr = 1. - cum_pr;
@@ -217,7 +217,7 @@ void BSSA::bssa_est(vector<double> l0, int sbeta, int gbeta){
     for(int beta = sbeta; beta <= gbeta; beta+=params.gap ){
         double G_BKZ_min = params.max_num;
 
-        if(params.bssa_tradion)
+        if(params.bssa_tradition)
             goal_quality = max_tour_for_pnjbkz_beta(l0, beta);//1: dsvp, 2: slope
 
         for(int ssbeta = sbeta; ssbeta < beta; ssbeta+=params.gap){
@@ -231,7 +231,7 @@ void BSSA::bssa_est(vector<double> l0, int sbeta, int gbeta){
                 
             double G_tmp_min = params.max_num; 
 
-            if(not params.bssa_tradion)
+            if(not params.bssa_tradition)
                 goal_quality = max_tour_for_pnjbkz_beta(bs, beta);//1: dsvp, 2: slope
             
             bool flag = true;

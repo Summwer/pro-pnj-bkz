@@ -1,7 +1,0 @@
-WARNING:        root:2023/10/05 06:55:40 CST: saturation 0.446 at [b:69 P: 20 - 89 / 172], radius 1.333, goal: 0.500
- INFO:        root:2023/10/05 06:55:40 CST: Could not reach saturation, progress may slow.
- INFO:        root:2023/10/05 06:55:40 CST: saturation issue: breaking pump.
-WARNING:        root:2023/10/05 07:26:52 CST: saturation 0.456 at [b:113 P: 59 - 172 / 172], radius 1.333, goal: 0.500
- INFO:        root:2023/10/05 07:26:52 CST: Could not reach saturation, progress may slow.
- INFO:        root:2023/10/05 07:26:52 CST: saturation issue: breaking pump.
-DEBUG:        root:2023/10/05 07:27:01 CST: None

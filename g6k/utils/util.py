@@ -351,22 +351,22 @@ def store_lwe_instance(n,alpha,m,q,A,b):
     fn.write(']]')
     fn.close()
 
-def gen_LWE_instance(n,alpha):
+def gen_LWE_instance(n,alpha,store_file = True):
     m = n**2
     q = nextprime(m)
     sigma = alpha * q
-    print("Generate LWE instance: n = %d, m = %d, alpha = %f, q = %d,  sigma = %f" %(n,m,alpha,q, sigma))
+    # print("Generate LWE instance: n = %d, m = %d, alpha = %f, q = %d,  sigma = %f" %(n,m,alpha,q, sigma))
 
 
-    A = IntegerMatrix.from_matrix([[randint(0,q) for _ in range(n)] for _ in range(m)])
+    A = IntegerMatrix.from_matrix([[np.random.randint(0,q-1) for _ in range(n)] for _ in range(m)])
 
-    s = IntegerMatrix.from_matrix([[randint(0,q) for _ in range(n)]])
+    s = IntegerMatrix.from_matrix([[np.random.randint(0,q-1) for _ in range(n)]])
 
     e = IntegerMatrix.from_matrix([[round(_) for _ in np.random.normal(loc = 0, scale = sigma, size = m)]])
 
-    print("secret vector s =", s)
+    # print("secret vector s =", s)
 
-    print("noise vector e = ", e)
+    # print("noise vector e = ", e)
 
     # print("random matrix A = ", A)
 
@@ -378,9 +378,9 @@ def gen_LWE_instance(n,alpha):
     #store b and A into the lwechallenge folder.
     
     
-
-    store_lwe_instance(n,alpha,m,q,A,b)
-    # return A,b
+    if(store_file):
+        store_lwe_instance(n,alpha,m,q,A,b)
+    return A,tuple(list(b[0])),tuple(list(e[0])),tuple((s.transpose())[0]),q
 
 
 
@@ -454,6 +454,8 @@ def load_lwe_instance(n=40, alpha=0.005):
     A = IntegerMatrix.from_matrix(A)
     c = tuple(eval(data[c_index].replace(" ", ", ")))
     return A, c, q
+
+
 
 def load_lwe_challenge_mid(n=40, alpha=0.005):
     """

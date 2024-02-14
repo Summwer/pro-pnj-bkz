@@ -24,9 +24,9 @@ int main(int argc,char **argv){
         params.max_RAM = atoi(argv[6]); //1.5T = 43.58
     params.practical_pump_d4f = atoi(argv[7]);
     if(atoi(argv[8]) == 1)
-        params.bssa_tradion = true;
+        params.bssa_tradition = true;
     else if(atoi(argv[8]) == 0)
-        params.bssa_tradion = false;
+        params.bssa_tradition = false;
 
     params.beta_start = atoi(argv[9]);
     // params.est_model = atoi(argv[10]);

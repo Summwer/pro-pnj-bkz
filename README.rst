@@ -11,23 +11,32 @@ Please use gcc-8.5 to compile the files, and firstly run
    python=PYTHON3 ./bootstrap.sh -j 30 #threads for compiling
    ./rebuild.sh --noyr -j 30 #threads for compiling
 
-Before implement our code, please follow the compile guidance in the topic **G6K - GPU Tensor** We add some files in `G6K - GPU Tensor`(https://github.com/WvanWoerden/G6K-GPU-Tensor) to run a two-step mode for solving u-SVP problem in G6K-GPU with a blocksize selection method. One should first generate the blocksize strategy in https://github.com/Summwer/lwe-estimator-with-pnjbkz/tree/main/cpp. Then run the following command:
+Before implement our code, please follow the compile guidance in the topic **G6K - GPU Tensor** We add some files in `G6K - GPU Tensor`(https://github.com/WvanWoerden/G6K-GPU-Tensor) to run a two-step mode for solving u-SVP problem in G6K-GPU with a blocksize selection method. One can generate the reduction strategy and solve the LWE instance through the reduction strategy by running the following command:
 
 
 .. code-block:: bash
 
     source ./activate
-    python lwe_challenge_last_pump.py 40 --lwe/alpha 0.025 --threads 32 --gpus 2 --verbose True --pump/down_sieve True --pump/saturation_error "skip" --bkz/blocksizes "[(89,9,1),(114,10,1)]" 
+    python ProPnjBKZ_for_lwe.py 40 --lwe/alpha 0.025 --threads 32 --gpus 2 --verbose True --pump/down_sieve True --float_type "dd" --strategy_method "enumbs" --load_lwe "lwe_challenge"
 
-It means that use blocksize strategy `(beta,J,tours) in [(91,8,1),(104,8,1)]`, 32 threads and 2 gpus to solve LWE challenge with `(n,alpha) = (40,0.025)`. 
+It means that use blocksize strategy generation algorithm EnumBS(three choices: enumbs, bssav1, bssav2), 32 threads and 2 gpus to solve LWE challenge with `(n,alpha) = (40,0.025)` in float_type "dd". 
 
-We've given some instances in `implement_low_dim.sh` to solve LWE challenge with strategy in default g6k, bssa, or enumbs and obtain the cost information in Table 4. It stores the test result in the folder `lwechal-test`.
+By the way, for the practical test, the blocksize and jump strategy is only optimized in our machine with Intel Xeon 5128 16c 32@2.3GHz, 1.48T RAM and NVIDIA Geforce RTX 3090 * 2. If you want to generate your optimized blocksize and jump strategy (but also has a speedup effect) in your machine, you should test the practical cost model for you machine and modify the data in the function `get_k1_k2_pump` and `get_k1_k2_pnj` in `cost.cpp` file. For convenience, one can also generate the strategy using a theoretical cost model, just set the `cost_model = 1`.
+
+
+
+
+
+We run the experiment in `implement_low_dim_qd.sh`(qd float_type) and `implement_low_dim_dd.sh`(dd float_type) to solve LWE challenge with strategy in default g6k, bssa, or enumbs and obtain the cost information in Table 1. It stores the test result in the folder `lwechal-test-qd` and `lwechal-test-dd`. We also run an experiment in `implement_lwe_instance.sh` to test the cost of LWE instances among the above three solvers while with growth of $n$ in "dd" float_type, the experiment result is stored in the folder `lwechal-instance-test-dd`. All the above result shows the cost of T(ProPnjBKZ(EnumBS))<=T(ProPnjBKZ(BSSA))<T(default G6K).
+
+
+
 
 The LWE instance in detail, including the actual basis quality(we regard "slope" as a basis quality representation) and actual cost(in practical cost model with threads = 32 and gpus = 2 * (RTX3090 GPU) (sec)) after each pnj-BKZ(beta,J,tours) reduction, also obatained from the above code. We select the process information of LWE challenge ($40,0.030$)  as 'Practical' column in Table 5. 
 
 .. code-block:: bash
 
-    ./implement_low_dim.sh
+    ./implement_low_dim_qd.sh
 
 
 Call
@@ -35,22 +44,36 @@ Call
 
     python module_comparison.py | tee module_comparison.log
 
-could output the norm of $\lVert {\bf{b}}_0 \rVert$ and PSC estimation after pnj-BKZ/pump reduction in the same time cost, we've stored them in the module_comparison.log, it shows the Table 1 and Table 2 in https://eprint.iacr.org/2022/1343.
+could output the norm of $\lVert {\bf{b}}_0 \rVert$ and PSC estimation after pnj-BKZ/pump reduction in the same time cost, we've stored them in the module_comparison.log, it shows the Table 3 and Table 4 in https://eprint.iacr.org/2022/1343.
 
 
 
-We also implement the experiment about pnj-BKZ simulator in `simulator-test` folder, the file `Pnj-BKZ_Simulator_Accuracy_Verification.py` is used to draw the figure about the comparison between actual reduced gs-lengths and our simulated gs-lengths. One can run 
+One can set beta, jump, and tours parameters you want to verify, modify the corresponding parameters in the `lwe_challenge_gen_rr.py` file in https://github.com/Summwer/pro-pnj-bkz, and run it 20 times or any number of times you want to experiment by the following command like:
+
 .. code-block:: bash
 
-python Pnj-BKZ_Simulator_Accuracy_Verification.py
+python lwe_challenge_gen_rr.py 75 --lwe/alpha 0.005 --bkz/jump 9 --pump/down_sieve True --bkz/blocksizes "[95,95,95,95,95,95,95,95,95,95,95,95]" --gpus 2 --threads 32
 
 
-in the folder `simulator-test` and obtain the Figure 4 in  https://eprint.iacr.org/2022/1343.pdf. The `Pnj-BKZ_Simulator_HKZ_Reduction_Verification.py` shows that the actual reduced gs-lengths is HKZ-reduced and get the Figure 3 in  https://eprint.iacr.org/2022/1343.pdf. One can run it by 
+It will record the actual rr value obtained by the lattice basis reduction of PnjBKZ-$(\beta,J)$ at different numbers of tours in the folder `simulator-test/gs-lengths-simulator`, and then we can draw Figure4. 
+
+We also implement the experiment about the fitness of pnj-BKZ simulator in `simulator-test` folder, the file `Fig5_Fig6_Verification_Experiments_of_PnjBKZ_Simulator_2024.py` is used to draw the figure about the comparison between actual reduced gs-lengths and our simulated gs-lengths. One can run 
+
 .. code-block:: bash
 
-python Pnj-BKZ_Simulator_HKZ_Reduction_Verification.py
+python Fig5_Fig6_Verification_Experiments_of_PnjBKZ_Simulator_2024.py
 
 
+in the folder `simulator-test`. (We've pre-stored the generated rr in `simulator-test`, one can implement the command above directly, we also give the test data and implemented code in the folder `Figure4&5&6&10~18`) It will print and output the result of calculating the error between the PnjBKZ simulator simulation value and the actual reduced rr value, which is shown in Fig5. At the same time, the program will draw Fig6 to verify the accuracy of the PnjBKZ simulator under the corresponding reduction parameters. Fig10~Fig18 give more tests about PnjBKZ simulator.
+
+
+To test the difference of failure probability of the Pump Dimension Estimate used in default G6K and our work, we generate 100 randomly LWE instances for each $(n,\alpha)$ by running the command:
+
+```bash
+python PumpDimEst_comparison.py
+```
+
+and obtain Figure7.
 
 
 One can test the cost of each Pump/PnjBKZ by implementing the file `practical_cost_test.py` by running 
@@ -60,6 +83,10 @@ One can test the cost of each Pump/PnjBKZ by implementing the file `practical_co
 python practical_cost_test.py
 
 The default setting is gpus=2, threads=32. 
+
+
+
+
 
 
 

@@ -17,7 +17,8 @@ void sim_strategy(Params params, vector<double> l, vector<tuple<int,int,int>> st
     for(int i = 0; i<int(strategy.size()); i++){
         int beta = get<0>(strategy[i]), jump = get<1>(strategy[i]), tours = get<2>(strategy[i]);
         for(int t = 0; t< tours; t++){
-            int beta_ = get_beta_(params, beta, jump, dim);
+            double slope = get_current_slope(l, 0, dim);
+            int beta_ = get_beta_(params, beta, jump, dim, slope);
             // cout<<"beta = "<<beta <<", beta_ = "<< beta_<<". jump = "<< jump<<endl;
 
             // vector<double> l1, l2;

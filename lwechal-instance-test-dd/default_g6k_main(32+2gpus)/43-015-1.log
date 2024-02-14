@@ -1,0 +1,137 @@
+Generate LWE instance: n = 43, m = 1849, alpha = 0.015000, q = 1861,  sigma = 27.915000
+secret vector s = [ 1519 1214 896 321 756 642 998 352 694 1787 1388 1420 1019 771 132 688 213 1065 1187 1023 1469 668 967 586 1039 1689 1395 546 1508 774 362 201 1008 649 1768 171 1557 582 1374 1160 1037 408 1466 ]
+noise vector e =  [ -21 -32 -23 14 -13 16 35 51 -27 9 -4 -64 14 -32 48 -20 -41 -34 23 -18 9 14 28 2 -1 8 -60 14 -2 60 -14 -23 -23 3 -56 4 -17 -24 6 40 46 -12 56 -26 -27 17 51 -44 5 26 15 -7 8 36 12 -8 1 -42 21 -21 12 -35 20 11 -13 -6 -22 -33 37 -12 42 -6 32 -17 -69 13 13 1 -35 -36 -9 -9 3 -22 -27 55 29 8 9 12 20 -12 -44 -8 4 7 61 32 16 42 11 -62 3 45 -18 -25 45 13 -26 32 -13 53 26 -12 18 3 8 62 39 -4 0 12 6 -19 -25 29 46 26 -36 7 -30 -25 24 29 -2 49 -31 49 33 14 9 -7 41 -10 33 15 -25 25 23 -50 8 8 -37 6 -24 6 -11 -7 -5 -7 -1 -65 -18 -12 -23 -43 32 -37 -48 31 58 -1 -12 -18 -34 -18 -42 -73 36 38 5 -69 -28 0 33 17 17 -6 37 23 -13 2 18 -2 29 11 18 13 -50 -15 -14 -20 -18 59 24 -22 -51 -44 -27 -2 -15 0 -14 -25 37 15 -51 26 17 -28 -12 30 29 -2 -15 26 11 -14 20 -7 10 -3 2 7 -54 -3 -8 -14 22 10 -16 -10 24 -14 -24 26 8 -20 28 -5 10 13 -20 35 -71 33 26 16 -22 5 35 29 7 25 54 -4 10 -41 24 11 -50 -29 -12 -23 6 -67 40 21 -87 3 -16 11 -37 23 24 -16 16 -36 14 -11 6 -29 5 -6 -31 17 -13 26 38 -18 8 -3 -40 -8 6 39 -41 33 60 0 43 -4 -25 29 -4 10 -43 1 31 11 42 -1 37 -12 -13 11 -6 42 8 -44 3 -24 74 17 -68 -13 -28 -23 51 22 10 -10 -13 -3 -2 -24 -10 -64 27 70 -61 -10 -40 -6 39 37 -23 -39 -16 40 -69 5 -12 23 -13 -26 37 -6 2 6 -41 3 0 -17 73 -14 28 24 0 1 17 21 -36 23 16 -7 15 20 -9 -5 -16 -20 -32 -21 27 -21 1 20 -15 -17 9 -25 12 32 -34 -16 2 40 -3 -12 4 -24 -17 -29 3 34 16 -9 -20 -17 -43 30 54 85 7 36 27 20 11 30 8 -3 -13 -26 16 -12 -6 -14 -38 27 -21 29 -84 -18 44 -17 -12 -23 0 4 -20 -4 -30 8 19 6 -45 18 41 53 -51 -38 65 -23 6 56 16 -38 -12 7 9 -22 -14 -50 -45 -5 50 -9 22 -11 5 11 4 9 58 -36 40 43 13 -23 19 41 22 8 1 18 15 0 1 19 -67 -3 17 -48 27 19 8 -21 0 13 8 -4 42 -8 -2 34 16 26 -30 -13 21 42 -56 20 80 -30 66 -34 11 -17 79 -3 -47 44 3 -31 -8 10 10 -32 34 27 54 -33 1 7 17 0 4 11 -18 11 46 -1 47 21 12 -34 6 -40 16 0 -6 -4 27 31 -2 31 -5 -12 -71 44 -6 55 82 -6 34 -28 -14 8 -17 8 -43 -11 -7 2 -36 -7 72 22 19 2 23 -4 -50 13 -17 1 -25 -17 -18 8 -9 -64 51 27 38 -41 42 -30 12 20 -11 -13 8 9 2 -10 -4 -62 54 -10 -54 -33 -76 24 22 42 8 -44 -8 -4 -24 -23 -70 37 -34 11 -10 73 -29 21 -19 0 -12 -3 -14 -5 18 18 0 12 29 -15 -32 32 -19 -18 15 19 13 3 31 43 32 -23 -12 9 16 -8 -13 0 -84 44 -20 50 40 -3 -38 13 16 -2 -20 -23 6 23 -2 6 21 33 -35 6 18 68 31 21 -22 -7 15 27 32 -32 -23 -8 -3 -3 19 9 -5 -42 0 -16 27 -4 -11 -11 56 4 46 59 48 20 15 31 9 0 55 -19 13 -64 20 67 22 -7 -38 13 -6 -12 -17 -31 -30 11 35 -14 -22 22 45 16 -9 -30 48 1 13 -44 17 9 35 -11 4 -19 -31 -10 -13 9 2 20 -5 53 -42 -22 59 -40 27 52 -8 7 46 1 49 76 -6 4 4 -11 -33 -16 -2 16 5 21 40 56 -10 83 -39 27 16 -20 -43 22 20 -30 -2 -17 -17 11 -15 -21 2 41 -32 -30 13 43 -11 29 42 -11 20 -29 42 -60 -2 -16 -7 -28 -15 43 -20 -7 5 -22 -17 28 -30 -9 31 -27 -26 68 40 -24 -45 12 34 -11 46 31 -31 0 9 -59 -26 -52 -8 7 -13 40 16 23 -10 3 2 -49 -1 0 3 1 6 0 29 30 22 -3 -9 -24 4 0 18 -4 -2 4 -25 26 -23 -34 9 16 -23 11 -16 3 -21 15 13 -21 -25 -12 2 0 19 22 42 10 -1 30 -1 6 16 -24 10 -11 30 32 -46 14 75 5 -13 -15 31 10 51 1 -31 -15 -43 -19 38 -14 12 -27 31 8 -44 -9 -21 46 8 48 -18 2 -36 41 -14 3 -1 -58 6 -12 -30 3 -27 16 -34 39 32 -38 -4 -12 -5 -9 37 22 8 -14 43 -15 -36 29 -4 3 12 9 -34 -3 -23 1 19 0 10 -11 -4 -18 2 11 9 -46 19 -18 43 75 6 0 34 -1 5 -13 0 25 8 54 11 12 -14 -40 24 17 -26 -6 -24 -8 53 -25 -6 108 2 -5 -30 -19 38 28 34 -10 -29 17 -18 -26 13 13 -16 -15 -18 3 11 -45 -50 -36 25 36 -26 -9 -24 7 -11 13 -49 13 -3 55 -1 21 8 -69 -45 -11 9 21 -36 0 -5 2 -12 5 -12 -14 47 10 -71 58 -9 -2 -33 -23 0 -52 7 3 32 31 -19 36 55 28 6 50 -32 45 -38 -10 -7 -26 19 -6 -16 44 37 -33 -5 2 -18 -11 9 -1 19 6 -8 -16 16 51 44 16 7 -9 42 9 -32 -17 -26 33 37 -18 37 8 -36 12 35 -40 41 -30 -8 -64 -26 -20 -27 -5 25 -14 -8 2 -6 -9 -24 4 30 12 -16 -10 17 16 27 0 -21 -11 17 -11 -7 22 -36 -8 -48 -2 -20 64 35 -11 -19 -14 51 59 -14 8 23 51 -20 -3 -46 3 -45 -50 61 10 -8 7 45 3 -31 14 14 -4 41 -54 -16 -1 -44 -19 -74 27 36 -21 1 30 17 53 28 27 -57 -16 12 71 46 -50 -20 25 6 -11 49 60 -27 42 -5 39 -25 18 8 -2 -13 3 50 9 24 12 28 -20 -5 36 19 18 24 35 6 -19 14 -28 19 -13 -12 -47 -21 1 0 -34 -55 -31 -17 -30 74 -19 18 -2 -5 25 19 8 7 12 20 -19 56 20 -24 43 -8 18 -13 40 -15 2 -39 17 19 -3 -4 16 1 10 24 -11 13 28 -22 -15 -18 8 -3 3 -19 -5 -6 55 6 23 -33 -34 -8 52 -5 -58 10 -25 6 19 -30 0 19 13 5 -8 -10 -44 10 1 8 -53 10 -18 21 31 -23 1 -19 12 13 -3 15 20 40 -31 -24 -7 34 -56 5 -42 27 75 44 -3 -24 -17 11 -46 -23 -11 -45 5 8 -83 -31 31 -25 -9 -40 1 2 -14 -34 16 20 1 41 -3 27 -35 -16 -66 -20 -47 -36 -4 38 -11 11 9 47 -41 51 3 -26 -36 12 17 -13 19 -5 39 -6 -35 31 -5 -43 16 -2 -25 -19 41 -35 28 -2 22 50 -5 17 -39 30 43 23 13 11 41 4 -24 15 16 -4 6 5 4 5 -9 7 30 5 -18 -64 7 25 -16 25 7 -4 -29 -25 22 20 -20 15 -26 51 6 -2 11 -43 -21 10 -13 23 34 -33 52 -17 -43 -53 25 -17 24 -15 19 -31 10 11 -14 9 1 -3 -20 -2 16 -7 13 15 -7 -23 23 10 38 -4 -38 12 -26 -43 16 25 59 -5 5 -5 -15 -26 9 -9 25 -39 13 25 -15 -18 3 50 -53 28 44 -60 -6 1 13 16 10 2 -27 -14 -7 11 29 35 -14 18 -36 5 36 -78 -57 -5 22 -10 -45 -61 53 -1 -15 2 17 -12 -11 40 -11 22 -16 5 -8 -33 -22 14 -26 40 23 93 -26 36 10 -30 15 -4 -11 -21 -20 34 -41 28 -55 32 -17 11 -29 -6 -5 40 -12 9 4 12 2 -11 -16 39 -15 29 25 3 -51 -22 21 -24 9 -23 33 19 42 10 11 99 8 -13 -42 -20 -10 41 -49 -2 -31 -19 1 18 -3 12 -16 -39 14 -17 -43 30 20 1 -10 -44 21 -21 -4 17 -9 -20 27 -22 -15 6 -32 -44 58 -41 12 -13 -42 -26 8 18 1 -13 -7 101 -15 14 18 -39 -3 -5 -22 -38 16 -27 -11 -33 9 21 -15 -56 -38 -1 35 19 48 4 78 -29 2 -12 35 -24 17 19 38 50 39 33 0 6 6 18 19 57 22 -7 -49 -103 -9 -7 7 -24 1 -21 -29 1 47 -25 28 -29 4 -39 -26 -8 9 -1 25 -34 -10 -5 22 2 -14 17 -21 10 -7 36 19 4 -13 -44 2 -17 8 14 2 -13 49 -41 -22 -2 -12 37 24 -7 -13 -12 -9 24 30 -11 -6 -43 50 32 -19 -14 26 -24 28 -17 19 -18 3 34 11 17 41 -41 -24 -20 52 -39 -50 -40 1 37 12 34 44 28 13 37 -20 52 1 -14 6 7 -38 -14 -2 25 5 -35 -4 14 -36 -22 -14 -30 -16 -23 -2 -15 1 -18 -20 20 -5 -4 -21 -2 18 6 -9 49 45 18 -33 39 7 35 14 7 -5 34 -4 21 14 2 16 30 24 -32 20 49 10 30 -14 29 -14 34 -53 31 12 -20 13 30 18 -38 9 -6 ]
+-------------------------
+Primal attack, LWE challenge n=43, alpha=0.0150
+Chose 170 samples. Predict solution at bkz-63 + svp-93
+
+GSO precision:  dd
+Intial Slope = -0.07049
+
+Starting a fpylll BKZ-10 tour. 
+slope: -0.06883, walltime: 1.126 sec
+Without otf, would expect solution at pump-111. n_max=72 in the given time.
+Starting a fpylll BKZ-11 tour. 
+slope: -0.06788, walltime: 2.164 sec
+Without otf, would expect solution at pump-110. n_max=75 in the given time.
+Starting a fpylll BKZ-12 tour. 
+slope: -0.06723, walltime: 2.899 sec
+Without otf, would expect solution at pump-110. n_max=76 in the given time.
+Starting a fpylll BKZ-13 tour. 
+slope: -0.06634, walltime: 3.974 sec
+Without otf, would expect solution at pump-109. n_max=77 in the given time.
+Starting a fpylll BKZ-14 tour. 
+slope: -0.06579, walltime: 4.647 sec
+Without otf, would expect solution at pump-109. n_max=78 in the given time.
+Starting a fpylll BKZ-15 tour. 
+slope: -0.06513, walltime: 5.688 sec
+Without otf, would expect solution at pump-109. n_max=79 in the given time.
+Starting a fpylll BKZ-16 tour. 
+slope: -0.06445, walltime: 6.637 sec
+Without otf, would expect solution at pump-108. n_max=80 in the given time.
+Starting a fpylll BKZ-17 tour. 
+slope: -0.06371, walltime: 7.870 sec
+Without otf, would expect solution at pump-107. n_max=80 in the given time.
+Starting a fpylll BKZ-18 tour. 
+slope: -0.06318, walltime: 8.821 sec
+Without otf, would expect solution at pump-107. n_max=81 in the given time.
+Starting a fpylll BKZ-19 tour. 
+slope: -0.06238, walltime: 10.086 sec
+Without otf, would expect solution at pump-106. n_max=81 in the given time.
+Starting a fpylll BKZ-20 tour. 
+slope: -0.06182, walltime: 11.155 sec
+Without otf, would expect solution at pump-106. n_max=82 in the given time.
+Starting a fpylll BKZ-21 tour. 
+slope: -0.06119, walltime: 12.567 sec
+Without otf, would expect solution at pump-105. n_max=82 in the given time.
+Starting a fpylll BKZ-22 tour. 
+slope: -0.06053, walltime: 13.923 sec
+Without otf, would expect solution at pump-105. n_max=83 in the given time.
+Starting a fpylll BKZ-23 tour. 
+slope: -0.05998, walltime: 15.465 sec
+Without otf, would expect solution at pump-104. n_max=83 in the given time.
+Starting a fpylll BKZ-24 tour. 
+slope: -0.05956, walltime: 16.684 sec
+Without otf, would expect solution at pump-104. n_max=83 in the given time.
+Starting a fpylll BKZ-25 tour. 
+slope: -0.05898, walltime: 18.569 sec
+Without otf, would expect solution at pump-103. n_max=84 in the given time.
+Starting a fpylll BKZ-26 tour. 
+slope: -0.05857, walltime: 20.013 sec
+Without otf, would expect solution at pump-103. n_max=84 in the given time.
+Starting a fpylll BKZ-27 tour. 
+slope: -0.05795, walltime: 22.305 sec
+Without otf, would expect solution at pump-102. n_max=85 in the given time.
+Starting a fpylll BKZ-28 tour. 
+slope: -0.05779, walltime: 23.133 sec
+Without otf, would expect solution at pump-102. n_max=85 in the given time.
+Starting a fpylll BKZ-29 tour. 
+slope: -0.05724, walltime: 25.493 sec
+Without otf, would expect solution at pump-101. n_max=85 in the given time.
+Starting a fpylll BKZ-30 tour. 
+slope: -0.05691, walltime: 27.306 sec
+Without otf, would expect solution at pump-100. n_max=85 in the given time.
+Starting a fpylll BKZ-31 tour. 
+slope: -0.05642, walltime: 29.519 sec
+Without otf, would expect solution at pump-100. n_max=86 in the given time.
+Starting a fpylll BKZ-32 tour. 
+slope: -0.05600, walltime: 31.799 sec
+Without otf, would expect solution at pump-99. n_max=86 in the given time.
+Starting a fpylll BKZ-33 tour. 
+slope: -0.05543, walltime: 34.569 sec
+Without otf, would expect solution at pump-99. n_max=86 in the given time.
+Starting a fpylll BKZ-34 tour. 
+slope: -0.05506, walltime: 36.928 sec
+Without otf, would expect solution at pump-98. n_max=87 in the given time.
+Starting a fpylll BKZ-35 tour. 
+slope: -0.05467, walltime: 39.724 sec
+Without otf, would expect solution at pump-97. n_max=87 in the given time.
+Starting a fpylll BKZ-36 tour. 
+slope: -0.05439, walltime: 43.072 sec
+Without otf, would expect solution at pump-97. n_max=87 in the given time.
+Starting a fpylll BKZ-37 tour. 
+slope: -0.05400, walltime: 46.416 sec
+Without otf, would expect solution at pump-96. n_max=88 in the given time.
+Starting a fpylll BKZ-38 tour. 
+slope: -0.05374, walltime: 49.841 sec
+Without otf, would expect solution at pump-96. n_max=88 in the given time.
+Starting a fpylll BKZ-39 tour. 
+slope: -0.05329, walltime: 53.449 sec
+Without otf, would expect solution at pump-95. n_max=88 in the given time.
+Starting a fpylll BKZ-40 tour. 
+slope: -0.05304, walltime: 57.154 sec
+Without otf, would expect solution at pump-95. n_max=88 in the given time.
+Starting a fpylll BKZ-41 tour. 
+slope: -0.05272, walltime: 61.341 sec
+Without otf, would expect solution at pump-94. n_max=89 in the given time.
+Starting a fpylll BKZ-42 tour. 
+slope: -0.05254, walltime: 65.733 sec
+Without otf, would expect solution at pump-94. n_max=89 in the given time.
+Starting a fpylll BKZ-43 tour. 
+slope: -0.05217, walltime: 70.369 sec
+Without otf, would expect solution at pump-94. n_max=89 in the given time.
+Starting a fpylll BKZ-44 tour. 
+slope: -0.05198, walltime: 75.531 sec
+Without otf, would expect solution at pump-93. n_max=90 in the given time.
+Starting a fpylll BKZ-45 tour. 
+slope: -0.05164, walltime: 80.966 sec
+Without otf, would expect solution at pump-93. n_max=90 in the given time.
+Starting a fpylll BKZ-46 tour. 
+slope: -0.05128, walltime: 96.570 sec
+Without otf, would expect solution at pump-92. n_max=91 in the given time.
+Starting a fpylll BKZ-47 tour. 
+slope: -0.05105, walltime: 120.021 sec
+Without otf, would expect solution at pump-92. n_max=91 in the given time.
+Starting a fpylll BKZ-48 tour. 
+slope: -0.05077, walltime: 144.457 sec
+Without otf, would expect solution at pump-91. n_max=92 in the given time.
+Starting a fpylll BKZ-49 tour. 
+slope: -0.05041, walltime: 170.213 sec
+Without otf, would expect solution at pump-90. n_max=93 in the given time.
+Starting svp pump_{53, 118, 24}, n_max = 94, Tmax= 170.21 sec
+  94: ↑ 50   , RAM cost:1.7755 GB      94: ↑ 51   , RAM cost:1.7755 GB      94: ↑ 51   , RAM cost:1.7755 GB      94: ↑ 52   , RAM cost:1.7755 GB      94: ↑ 52   , RAM cost:1.7755 GB      94: ↑ 53   , RAM cost:1.7755 GB      94: ↑ 53   , RAM cost:1.7755 GB      94: ↑ 54   , RAM cost:1.7755 GB      94: ↑ 54   , RAM cost:1.7755 GB      94: ↑ 55   , RAM cost:1.7755 GB      94: ↑ 55   , RAM cost:1.7755 GB      94: ↑ 56   , RAM cost:1.7755 GB      94: ↑ 56   , RAM cost:1.7755 GB      94: ↑ 57   , RAM cost:1.7755 GB      94: ↑ 57   , RAM cost:1.7760 GB      94: ↑ 58   , RAM cost:1.7760 GB      94: ↑ 58   , RAM cost:1.7768 GB      94: ↑ 59   , RAM cost:1.7768 GB      94: ↑ 59   , RAM cost:1.7775 GB      94: ↑ 60   , RAM cost:1.7775 GB      94: ↑ 60   , RAM cost:1.7783 GB      94: ↑ 61   , RAM cost:1.7784 GB      94: ↑ 61   , RAM cost:1.7795 GB      94: ↑ 62   , RAM cost:1.7795 GB      94: ↑ 62   , RAM cost:1.7805 GB      94: ↑ 63   , RAM cost:1.7805 GB      94: ↑ 63   , RAM cost:1.7820 GB      94: ↑ 64   , RAM cost:1.7820 GB      94: ↑ 64   , RAM cost:1.7835 GB      94: ↑ 65   , RAM cost:1.9134 GB      94: ↑ 65   , RAM cost:1.9151 GB      94: ↑ 66   , RAM cost:1.9151 GB      94: ↑ 66   , RAM cost:1.9171 GB      94: ↑ 67   , RAM cost:1.9171 GB      94: ↑ 67   , RAM cost:1.9196 GB      94: ↑ 68   , RAM cost:1.9196 GB      94: ↑ 68   , RAM cost:1.9221 GB      94: ↑ 69   , RAM cost:1.9221 GB      94: ↑ 69   , RAM cost:1.9253 GB      94: ↑ 70   , RAM cost:1.9253 GB      94: ↑ 70   , RAM cost:1.9568 GB      94: ↑ 71   , RAM cost:1.9570 GB      94: ↑ 71   , RAM cost:1.9819 GB      94: ↑ 72   , RAM cost:1.9819 GB      94: ↑ 72   , RAM cost:1.9915 GB      94: ↑ 73   , RAM cost:1.9915 GB      94: ↑ 73   , RAM cost:1.9974 GB      94: ↑ 74   , RAM cost:1.9974 GB      94: ↑ 74   , RAM cost:2.0061 GB      94: ↑ 75   , RAM cost:2.0061 GB      94: ↑ 75   , RAM cost:2.0138 GB      94: ↑ 76   , RAM cost:2.0138 GB      94: ↑ 76   , RAM cost:2.0232 GB      94: ↑ 77   , RAM cost:2.0232 GB      94: ↑ 77   , RAM cost:2.0340 GB      94: ↑ 78   , RAM cost:2.0340 GB      94: ↑ 78   , RAM cost:2.0461 GB      94: ↑ 79   , RAM cost:2.0461 GB      94: ↑ 79   , RAM cost:2.0604 GB      94: ↑ 80   , RAM cost:2.0604 GB      94: ↑ 80   , RAM cost:2.0765 GB      94: ↑ 81   , RAM cost:2.0765 GB      94: ↑ 81   , RAM cost:2.0966 GB      94: ↑ 82   , RAM cost:2.0966 GB      94: ↑ 82   , RAM cost:2.1177 GB      94: ↑ 83   , RAM cost:2.1177 GB      94: ↑ 83   , RAM cost:2.1454 GB      94: ↑ 84   , RAM cost:2.1454 GB      94: ↑ 84   , RAM cost:2.1875 GB      94: ↑ 85   , RAM cost:2.1875 GB      94: ↑ 85   , RAM cost:2.2328 GB      94: ↑ 86   , RAM cost:2.2328 GB      94: ↑ 86   , RAM cost:2.2811 GB      94: ↑ 87   , RAM cost:2.2811 GB      94: ↑ 87   , RAM cost:2.3310 GB      94: ↑ 88   , RAM cost:2.3310 GB      94: ↑ 88   , RAM cost:2.3817 GB      94: ↑ 89   , RAM cost:2.3817 GB      94: ↑ 89   , RAM cost:2.4406 GB      94: ↑ 90   , RAM cost:2.4406 GB      94: ↑ 90   , RAM cost:2.5161 GB      94: ↑ 91   , RAM cost:2.5161 GB      94: ↑ 91   , RAM cost:2.5944 GB      94: ↑ 92   , RAM cost:2.5946 GB      94: ↑ 92   , RAM cost:2.6948 GB      94: ↑ 93   , RAM cost:2.6948 GB      94: ↑ 93   , RAM cost:2.7997 GB    Solution: (21, 32, 23, -14, 13, -16, -35, -51, 27, -9, 4, 64, -14, 32, -48, 20, 41, 34, -23, 18, -9, -14, -28, -2, 1, -8, 60, -14, 2, -60, 14, 23, 23, -3, 56, -4, 17, 24, -6, -40, -46, 12, -56, 26, 27, -17, -51, 44, -5, -26, -15, 7, -8, -36, -12, 8, -1, 42, -21, 21, -12, 35, -20, -11, 13, 6, 22, 33, -37, 12, -42, 6, -32, 17, 69, -13, -13, -1, 35, 36, 9, 9, -3, 22, 27, -55, -29, -8, -9, -12, -20, 12, 44, 8, -4, -7, -61, -32, -16, -42, -11, 62, -3, -45, 18, 25, -45, -13, 26, -32, 13, -53, -26, 12, -18, -3, -8, -62, -39, 4, 0, -12, -6, 19, 25, -29, -46, -26, 36, -7, 30, 25, -24, -29, 2, -49, 31, -49, -33, -14, -9, 7, -41, 10, -33, -15, 25, -25, -23, 50, -8, -8, 37, -6, 24, -6, 11, 7, 5, 7, 1, 65, 18, 12, 23, 43, -32, 37, 48, -31, -1)
+
+ slope: -0.05055, walltime: 196.233 sec
+
+Finished! TT=196.27 sec
+(21, 32, 23, -14, 13, -16, -35, -51, 27, -9, 4, 64, -14, 32, -48, 20, 41, 34, -23, 18, -9, -14, -28, -2, 1, -8, 60, -14, 2, -60, 14, 23, 23, -3, 56, -4, 17, 24, -6, -40, -46, 12, -56, 26, 27, -17, -51, 44, -5, -26, -15, 7, -8, -36, -12, 8, -1, 42, -21, 21, -12, 35, -20, -11, 13, 6, 22, 33, -37, 12, -42, 6, -32, 17, 69, -13, -13, -1, 35, 36, 9, 9, -3, 22, 27, -55, -29, -8, -9, -12, -20, 12, 44, 8, -4, -7, -61, -32, -16, -42, -11, 62, -3, -45, 18, 25, -45, -13, 26, -32, 13, -53, -26, 12, -18, -3, -8, -62, -39, 4, 0, -12, -6, 19, 25, -29, -46, -26, 36, -7, 30, 25, -24, -29, 2, -49, 31, -49, -33, -14, -9, 7, -41, 10, -33, -15, 25, -25, -23, 50, -8, -8, 37, -6, 24, -6, 11, 7, 5, 7, 1, 65, 18, 12, 23, 43, -32, 37, 48, -31, -1)

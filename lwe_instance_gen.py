@@ -33,9 +33,9 @@ def gen_LWE_instance(n,alpha):
     print("Generate LWE instance: n = %d, m = %d, alpha = %f, q = %d,  sigma = %f" %(n,m,alpha,q, sigma))
 
 
-    A = IntegerMatrix.from_matrix([[randint(0,q) for _ in range(n)] for _ in range(m)])
+    A = IntegerMatrix.from_matrix([[np.random.randint(0,q-1) for _ in range(n)] for _ in range(m)])
 
-    s = IntegerMatrix.from_matrix([[randint(0,q) for _ in range(n)]])
+    s = IntegerMatrix.from_matrix([[np.random.randint(0,q-1) for _ in range(n)]])
 
     e = IntegerMatrix.from_matrix([[round(_) for _ in np.random.normal(loc = 0, scale = sigma, size = m)]])
 
@@ -45,7 +45,7 @@ def gen_LWE_instance(n,alpha):
 
     # print("random matrix A = ", A)
 
-    b = (A*s.transpose()).transpose() #+ e.transpose()
+    b = (A*s.transpose()).transpose()  #+ e.transpose()
     b = IntegerMatrix.from_matrix([[(b[0][i]+e[0][i])%q for i in range(m)]])
 
     # print("b = ", b)
@@ -58,7 +58,7 @@ def gen_LWE_instance(n,alpha):
     return A,b
 
 
-n = 60
-alpha = 0.006
-gen_LWE_instance(n,alpha)
+# n = 60
+# alpha = 0.006
+# gen_LWE_instance(n,alpha)
 

@@ -1,0 +1,145 @@
+Generate LWE instance: n = 52, m = 2704, alpha = 0.010000, q = 2707,  sigma = 27.070000
+secret vector s = [ 2160 668 1313 2122 1915 711 1806 2109 105 2181 1906 2602 2212 1803 1704 265 226 2229 1835 1322 2299 620 64 689 139 2109 165 605 213 298 797 1112 2132 11 926 340 959 2535 23 1620 2337 1048 576 1222 1510 2540 702 798 1281 192 276 1282 ]
+noise vector e =  [ -13 30 -2 -29 -9 -37 -4 3 -15 -4 12 8 20 -28 -24 -15 20 12 48 6 46 8 -19 51 14 31 -4 80 5 1 35 11 45 -27 54 -25 -18 -11 -19 10 -21 35 -1 21 -1 40 -48 4 5 -11 18 -1 -52 0 -40 -4 8 -12 17 -11 -4 -24 24 33 26 -62 7 -26 -11 -5 6 21 18 7 16 32 -8 -40 -9 70 48 17 6 -3 -18 37 40 15 14 22 -24 -47 -23 8 -14 18 28 6 27 11 37 -8 -43 -9 -24 6 -37 -47 -22 -7 -31 18 -43 19 52 -14 -1 -61 -5 -29 -28 0 7 16 29 -5 -31 0 -15 11 -9 28 0 49 48 -18 21 -4 20 -28 -12 -24 -70 -2 41 -14 -10 -17 -35 34 7 20 20 -37 18 -24 -30 28 -22 -10 35 37 51 16 -7 32 7 -34 -19 -37 -8 56 -49 -6 -12 -28 -13 12 24 32 -4 -14 -40 -35 42 14 14 -19 -28 -20 -33 -30 12 25 -37 20 8 20 -25 45 -14 14 41 19 -76 -5 16 64 -2 -62 21 -10 36 -29 -47 -22 47 -1 -28 13 17 -8 -33 -14 -53 17 26 42 29 -16 10 -6 -35 -20 -11 35 -34 -1 3 30 -34 26 11 35 21 18 19 -49 15 8 16 -28 4 5 15 1 16 13 28 -1 -10 30 10 30 25 24 6 7 -5 -11 -1 26 -1 5 -18 35 -12 8 -9 -1 68 24 59 -5 44 3 25 -12 -34 -4 -18 26 -11 -34 -14 42 22 -52 -13 30 -30 39 6 -15 -18 -8 28 -18 -14 19 5 -29 22 -9 -2 -41 -34 -22 -12 -1 -18 -49 12 -10 -24 -8 -19 33 -46 -1 -19 11 -9 -22 13 -31 -16 -32 -10 10 -10 30 23 -6 -8 -18 11 -21 9 -26 -20 -10 -8 9 2 10 41 -16 -12 13 -18 -14 4 -48 -4 -22 -51 -24 -22 -25 -15 18 20 17 -11 52 30 29 -2 12 -39 8 -3 5 9 -32 -22 17 51 5 31 9 -34 -12 -5 16 -29 -23 -13 7 40 23 -11 25 -24 4 -8 -1 11 20 -7 17 -9 -17 -5 4 -38 -15 -27 22 7 12 35 -10 9 21 -2 -11 21 14 43 10 -21 -15 20 20 -31 -26 -14 7 28 -30 -4 52 -18 -10 -44 -8 31 -48 -13 -1 -11 -3 54 21 -30 16 17 12 57 -10 13 -54 24 -9 7 -15 -35 -2 -15 -4 -22 9 6 -22 20 16 -6 42 9 -17 -33 2 9 9 -23 -40 51 42 29 27 -7 24 19 -23 12 13 -31 -25 8 -9 -6 42 18 20 11 30 26 -3 -37 25 -33 -42 49 13 -12 79 -28 49 -1 -18 31 69 -24 -14 -26 4 -11 -25 37 -31 21 -2 53 -5 30 24 20 5 -29 -8 8 -45 32 48 -5 37 -41 5 10 0 -13 15 33 -51 -16 3 35 -50 6 -1 -4 -4 0 32 11 10 14 12 6 32 13 9 -46 -19 7 10 14 -1 19 -1 18 -31 -2 19 -5 -32 42 -3 7 -39 7 8 -16 -36 -26 43 12 -9 25 3 -8 32 9 -13 -31 -16 -41 -57 4 -15 -15 4 -21 21 -40 -5 -80 18 42 -33 35 7 -11 -13 5 10 32 17 -6 32 -4 -4 -1 -40 31 9 14 38 -10 -30 -10 11 -42 16 26 33 -40 20 9 -6 -18 -36 -32 29 19 -26 29 -1 2 -6 14 30 -50 -8 -25 -1 35 20 39 -9 23 -6 -39 29 20 -34 -18 -15 8 0 34 -16 -13 -28 -37 20 18 -5 39 -19 3 -53 9 -47 15 8 11 -23 54 27 52 5 4 13 46 -2 14 17 46 9 28 -17 25 -22 11 -5 30 19 9 16 19 3 11 25 10 -4 5 17 8 -37 29 3 -32 22 3 -3 -15 -53 3 -4 8 -34 -8 -32 -12 69 -3 46 55 17 -3 -34 2 -27 -20 15 7 -32 2 -12 -3 -40 -23 -9 14 -1 30 24 -30 -13 -26 -35 6 -65 -11 26 -12 10 36 -47 20 -57 -30 8 14 -7 5 9 24 2 14 9 39 17 39 -3 -38 6 24 -15 -26 4 -13 63 -5 -18 15 -1 -14 -26 39 -12 -11 -13 -33 -18 22 30 0 -4 -43 -5 50 18 -47 32 24 27 0 -10 23 -36 -3 -1 -49 -34 1 10 5 23 10 38 18 -44 46 -4 -17 18 17 13 -27 -5 -4 33 51 -12 3 -59 8 -8 12 -35 -18 -15 27 -3 -18 17 -16 -23 -15 -5 -25 6 44 -25 31 -2 -4 29 12 2 23 18 2 17 23 -15 16 -38 74 -47 -29 -6 8 1 -13 2 13 12 9 -10 -14 16 -28 4 -18 16 37 27 -6 -1 71 1 -1 43 -20 -1 4 19 -43 -25 -13 -3 2 13 27 10 -45 -4 -36 30 55 -10 -15 25 -44 30 5 -6 46 40 3 13 7 4 62 7 5 -38 6 -48 22 12 1 38 36 -88 -16 -19 13 19 -30 37 -30 19 -43 8 -14 -4 -39 -1 7 -1 25 5 2 -35 34 60 27 11 5 5 -39 -5 23 20 -29 -22 35 -31 -37 33 19 35 -35 0 1 -34 -8 1 4 -23 51 47 -6 -32 62 26 25 40 13 29 23 8 -7 21 8 -65 -28 93 -25 -29 32 -16 7 -69 17 -23 4 26 5 -12 -3 -35 38 -43 45 17 44 4 -13 2 -7 -36 3 -13 -17 -29 32 -9 -66 -7 -46 27 -39 -56 -20 -33 -5 -21 5 52 7 -45 -2 69 7 10 2 22 -21 36 22 -12 42 19 -55 -14 27 17 22 -52 10 0 13 -8 64 7 16 -16 60 11 -13 -11 -22 6 -22 10 -10 27 -10 35 -12 -24 -45 -18 -12 8 -44 -16 4 65 -23 -28 -12 11 39 1 -5 55 -54 37 -16 -16 -4 1 -15 34 18 5 0 7 7 -26 -14 -62 12 33 28 -7 0 -20 30 -17 -8 47 -14 14 44 36 19 5 -44 -50 6 -26 -17 45 -7 12 -10 -15 11 69 -10 -23 20 23 26 4 31 -2 64 18 10 5 -25 -30 -25 -4 26 16 -56 -21 17 31 1 -21 8 4 12 7 -47 33 14 19 20 19 -9 -1 18 -7 18 -25 -6 3 33 30 23 -7 -19 -25 -4 -8 6 -1 -35 22 2 19 35 -35 -39 6 28 2 -22 23 35 -17 -12 -19 -33 9 27 43 19 22 -25 4 -3 -18 41 37 28 -44 2 -38 -12 5 -9 8 -31 -71 -22 10 18 -23 0 15 -50 19 -16 -5 -3 14 12 14 -79 11 24 -13 -25 23 46 18 -4 2 -30 9 -14 12 20 -35 -23 19 -15 -6 13 -21 -18 32 -30 -38 -16 -55 -10 -16 1 9 3 19 11 30 37 44 -8 -1 51 -10 -8 11 -18 -65 51 -17 55 18 43 -25 -39 -6 -33 59 4 4 13 20 31 -18 -22 -2 51 -4 -45 -27 -2 18 -6 -33 6 65 -1 -8 -40 10 -44 26 37 1 -12 -12 -10 10 18 41 -29 28 36 -17 -13 -15 -10 -45 -16 -19 -36 11 -3 -41 2 4 -42 30 -15 -57 -31 29 10 -13 -14 -59 8 -40 -29 47 18 -44 41 20 45 17 21 30 -6 -18 30 -14 -17 2 -9 9 -5 -56 46 -37 14 -43 -21 17 -9 -63 36 35 -66 2 1 -41 -26 33 32 2 -18 -10 -17 11 -13 -21 43 -16 0 -39 -53 -18 0 -13 -4 -16 12 8 -29 28 15 -7 26 23 -25 -31 32 -2 16 -26 5 -5 25 -67 16 14 9 21 -44 -72 48 -13 11 53 34 5 -5 -8 2 -13 -5 -3 -2 67 -13 7 8 6 -23 10 -13 6 11 8 -16 15 9 -9 -7 -34 -39 37 45 -35 3 -30 -1 36 25 -9 47 -37 -51 2 19 3 -33 20 21 -38 15 31 43 -19 49 21 -23 -41 -57 -8 30 27 19 40 -44 -43 -7 -25 -25 33 -7 3 -2 -10 -8 9 -38 -9 -38 31 -22 -28 -46 12 20 35 3 -32 -38 -35 16 12 -51 -13 35 -6 3 28 -17 49 -9 33 1 -29 27 -13 -13 -19 -2 20 21 -48 0 -30 -22 26 32 -18 -43 3 -43 16 -2 -16 -12 1 -52 30 -22 -25 35 -24 -24 42 74 0 2 9 -12 3 29 -27 30 6 -2 25 -35 4 35 -1 14 -43 -30 8 -12 -15 50 2 -19 -17 2 -3 -9 53 -11 -45 -10 18 22 -38 21 13 44 -35 19 -25 -29 16 26 -1 -6 25 -7 -12 -23 3 -41 32 -24 -32 36 -20 -76 -29 33 -3 12 92 61 9 8 -5 -2 -54 -15 -43 -7 -17 29 12 -51 -24 16 49 -9 -5 -26 1 -10 20 3 13 -23 14 19 -5 72 19 -32 55 -36 -11 -18 4 -23 -22 -23 -10 25 17 -6 24 14 -42 -6 43 20 -4 4 37 -1 -7 -37 -7 28 -6 55 11 0 19 -34 10 11 28 -25 42 21 28 35 78 13 33 30 -16 -22 17 10 28 -11 4 -62 -24 13 21 -28 -26 -19 51 40 3 9 41 -55 -13 0 2 41 -33 -7 -15 -48 -23 -44 -45 5 3 36 -10 27 34 25 -8 28 11 -12 -17 -20 7 2 -31 -20 11 22 30 46 15 10 30 22 -2 -42 13 26 -4 -7 0 -4 9 -5 22 -28 18 -50 8 -13 -9 -6 -17 -21 -40 46 3 22 32 34 48 -10 30 -19 17 5 22 32 -36 30 17 -27 -34 15 18 -17 -19 -25 13 -21 -3 7 -65 -23 -36 -34 39 0 -4 10 -11 -9 0 19 -40 27 -34 -5 10 3 25 38 -62 33 33 -60 22 46 -32 -31 -4 25 56 26 -39 -14 51 31 -5 15 42 25 45 42 34 36 -19 12 33 -16 12 34 1 -13 -1 83 -13 -7 -10 -25 22 -23 44 -27 -5 26 -21 -11 10 -2 50 40 -37 5 27 35 -22 -38 28 18 -18 7 24 -13 -50 -26 18 13 -6 -35 -38 13 -40 5 31 -5 -11 -34 22 -41 -37 17 -20 -30 27 -5 54 -28 32 19 -14 -15 -17 -25 -7 0 -4 -30 31 -4 -33 33 -16 -25 12 7 6 -12 -15 4 -5 38 49 -17 12 -35 -5 -44 -64 35 -31 16 56 21 -28 -44 12 6 -53 -14 -1 -10 11 -12 -3 3 -37 -40 -11 -19 12 7 18 17 14 13 -2 52 -3 -71 -8 3 -22 -9 68 64 -31 1 22 -24 1 -4 13 -4 -7 -26 42 -39 -3 0 32 -33 -6 21 -30 34 -5 32 -40 -7 -43 -6 -21 -3 -43 12 30 14 -9 -38 18 -3 -20 5 -40 0 -21 -7 -6 -28 33 8 33 -12 -3 1 47 23 -53 -19 10 5 6 51 -23 25 -12 -4 38 20 -7 8 -39 -45 -4 -13 31 41 20 -55 24 0 -23 4 -5 34 25 27 -24 5 -63 22 -23 -31 9 -35 -5 39 -3 -7 -3 6 -7 -12 9 7 1 -18 -3 33 11 12 26 95 31 1 3 15 -17 -3 -44 -25 -13 1 -26 12 5 -23 -17 -1 -10 18 22 -6 2 8 9 0 2 -33 1 3 30 -32 14 11 25 1 -9 -2 37 -14 33 12 9 -2 -36 45 -18 -26 -20 -31 -23 -2 14 -8 -21 -60 -3 27 7 -19 -25 -7 -29 -5 60 10 -3 0 -33 -8 -7 6 27 -1 24 -18 12 17 42 -17 29 4 -21 22 38 -6 -1 23 -16 26 26 -15 65 -9 33 13 -38 -3 8 -1 23 14 -36 -45 -32 32 -21 -38 -45 4 -17 -21 -10 -16 42 -30 49 -68 10 -11 5 -4 -20 0 34 22 23 -25 1 27 18 9 15 11 4 -49 19 8 -13 59 -42 -20 -21 32 -1 -23 14 -17 -11 -14 -15 55 1 5 -59 -38 0 8 -50 -50 24 19 -3 -20 -26 -16 23 35 7 35 47 20 -5 9 -9 -36 -15 24 -17 -7 -39 29 -58 -30 36 -21 -14 -12 -23 -21 -34 -8 -21 -5 32 -11 4 -24 -1 -16 -24 -13 -21 19 2 -9 23 38 38 8 -3 -11 20 14 29 5 -1 -9 15 31 4 2 -7 11 8 21 -23 10 -58 -50 6 -29 76 -19 -10 -10 5 -18 -2 6 56 32 -62 36 26 -13 1 17 29 -19 27 27 0 36 -10 -5 22 4 -31 -37 19 -18 25 -1 8 -24 41 28 -55 -26 -42 -10 22 -13 37 -29 36 10 7 0 -32 12 4 -15 -8 -30 52 -36 -5 17 6 -3 1 1 -34 26 -37 41 35 10 2 17 47 -36 11 0 26 6 19 41 15 -52 -23 36 10 -2 14 -21 -8 14 -13 -29 67 -7 -56 -28 12 24 -14 -6 15 -3 -47 -31 -6 -11 -3 8 -3 -24 -8 0 21 -2 14 -8 73 -6 -14 24 -2 -7 -20 -18 26 -49 -15 -32 -15 5 -37 36 -19 26 0 -29 -14 10 -31 -15 -10 14 31 37 28 -31 21 -6 31 -8 -20 -9 -55 -22 -29 -3 -16 45 -12 -16 -19 -44 -19 -8 24 50 -36 -10 22 9 11 -11 39 11 16 -34 72 -6 -2 31 24 -19 -7 -10 -24 -44 -36 36 14 30 0 59 -2 35 -31 15 -36 -7 -18 -9 1 -15 71 -57 -32 -18 -10 -1 -6 -22 -22 -13 -15 1 7 5 -17 -30 29 12 15 4 2 -16 64 15 -50 -18 -43 13 -2 45 -4 18 22 -9 -27 5 4 22 19 26 -3 7 -17 -25 -15 27 0 -7 -16 15 -4 -28 -40 -19 -37 63 29 -29 -17 1 -27 51 -23 -27 18 54 -22 28 2 9 10 8 13 23 -1 8 31 -6 -14 37 47 -36 14 31 2 -57 -4 -23 69 -33 35 -4 -5 25 -20 4 -3 -33 4 -31 -4 3 -2 -46 -29 7 -69 80 6 61 12 21 0 -42 30 -3 8 6 5 14 23 20 62 -4 3 31 -16 -40 8 6 31 -29 14 22 -2 37 -43 32 -24 21 -4 -32 -2 3 -33 0 36 -11 -19 ]
+-------------------------
+Primal attack, LWE challenge n=52, alpha=0.0100
+Chose 187 samples. Predict solution at bkz-69 + svp-97
+
+GSO precision:  dd
+Intial Slope = -0.07323
+
+Starting a fpylll BKZ-10 tour. 
+slope: -0.07159, walltime: 1.589 sec
+Without otf, would expect solution at pump-123. n_max=74 in the given time.
+Starting a fpylll BKZ-11 tour. 
+slope: -0.07039, walltime: 3.193 sec
+Without otf, would expect solution at pump-123. n_max=77 in the given time.
+Starting a fpylll BKZ-12 tour. 
+slope: -0.06960, walltime: 4.307 sec
+Without otf, would expect solution at pump-122. n_max=78 in the given time.
+Starting a fpylll BKZ-13 tour. 
+slope: -0.06897, walltime: 5.600 sec
+Without otf, would expect solution at pump-122. n_max=79 in the given time.
+Starting a fpylll BKZ-14 tour. 
+slope: -0.06821, walltime: 6.685 sec
+Without otf, would expect solution at pump-121. n_max=80 in the given time.
+Starting a fpylll BKZ-15 tour. 
+slope: -0.06737, walltime: 8.261 sec
+Without otf, would expect solution at pump-121. n_max=80 in the given time.
+Starting a fpylll BKZ-16 tour. 
+slope: -0.06652, walltime: 9.670 sec
+Without otf, would expect solution at pump-120. n_max=81 in the given time.
+Starting a fpylll BKZ-17 tour. 
+slope: -0.06587, walltime: 11.268 sec
+Without otf, would expect solution at pump-120. n_max=82 in the given time.
+Starting a fpylll BKZ-18 tour. 
+slope: -0.06523, walltime: 12.799 sec
+Without otf, would expect solution at pump-119. n_max=82 in the given time.
+Starting a fpylll BKZ-19 tour. 
+slope: -0.06456, walltime: 14.721 sec
+Without otf, would expect solution at pump-118. n_max=83 in the given time.
+Starting a fpylll BKZ-20 tour. 
+slope: -0.06399, walltime: 16.217 sec
+Without otf, would expect solution at pump-118. n_max=83 in the given time.
+Starting a fpylll BKZ-21 tour. 
+slope: -0.06335, walltime: 18.349 sec
+Without otf, would expect solution at pump-117. n_max=84 in the given time.
+Starting a fpylll BKZ-22 tour. 
+slope: -0.06273, walltime: 20.451 sec
+Without otf, would expect solution at pump-117. n_max=84 in the given time.
+Starting a fpylll BKZ-23 tour. 
+slope: -0.06202, walltime: 22.745 sec
+Without otf, would expect solution at pump-116. n_max=85 in the given time.
+Starting a fpylll BKZ-24 tour. 
+slope: -0.06159, walltime: 24.232 sec
+Without otf, would expect solution at pump-116. n_max=85 in the given time.
+Starting a fpylll BKZ-25 tour. 
+slope: -0.06087, walltime: 26.860 sec
+Without otf, would expect solution at pump-115. n_max=85 in the given time.
+Starting a fpylll BKZ-26 tour. 
+slope: -0.06030, walltime: 29.124 sec
+Without otf, would expect solution at pump-114. n_max=86 in the given time.
+Starting a fpylll BKZ-27 tour. 
+slope: -0.05966, walltime: 32.146 sec
+Without otf, would expect solution at pump-113. n_max=86 in the given time.
+Starting a fpylll BKZ-28 tour. 
+slope: -0.05947, walltime: 33.832 sec
+Without otf, would expect solution at pump-113. n_max=86 in the given time.
+Starting a fpylll BKZ-29 tour. 
+slope: -0.05895, walltime: 37.169 sec
+Without otf, would expect solution at pump-112. n_max=87 in the given time.
+Starting a fpylll BKZ-30 tour. 
+slope: -0.05830, walltime: 40.222 sec
+Without otf, would expect solution at pump-112. n_max=87 in the given time.
+Starting a fpylll BKZ-31 tour. 
+slope: -0.05773, walltime: 43.490 sec
+Without otf, would expect solution at pump-111. n_max=87 in the given time.
+Starting a fpylll BKZ-32 tour. 
+slope: -0.05722, walltime: 47.063 sec
+Without otf, would expect solution at pump-110. n_max=88 in the given time.
+Starting a fpylll BKZ-33 tour. 
+slope: -0.05675, walltime: 50.955 sec
+Without otf, would expect solution at pump-109. n_max=88 in the given time.
+Starting a fpylll BKZ-34 tour. 
+slope: -0.05641, walltime: 53.386 sec
+Without otf, would expect solution at pump-109. n_max=88 in the given time.
+Starting a fpylll BKZ-35 tour. 
+slope: -0.05598, walltime: 57.648 sec
+Without otf, would expect solution at pump-108. n_max=88 in the given time.
+Starting a fpylll BKZ-36 tour. 
+slope: -0.05558, walltime: 61.990 sec
+Without otf, would expect solution at pump-107. n_max=89 in the given time.
+Starting a fpylll BKZ-37 tour. 
+slope: -0.05517, walltime: 66.699 sec
+Without otf, would expect solution at pump-107. n_max=89 in the given time.
+Starting a fpylll BKZ-38 tour. 
+slope: -0.05470, walltime: 71.801 sec
+Without otf, would expect solution at pump-106. n_max=89 in the given time.
+Starting a fpylll BKZ-39 tour. 
+slope: -0.05433, walltime: 77.020 sec
+Without otf, would expect solution at pump-105. n_max=90 in the given time.
+Starting a fpylll BKZ-40 tour. 
+slope: -0.05414, walltime: 82.293 sec
+Without otf, would expect solution at pump-105. n_max=90 in the given time.
+Starting a fpylll BKZ-41 tour. 
+slope: -0.05362, walltime: 88.019 sec
+Without otf, would expect solution at pump-104. n_max=90 in the given time.
+Starting a fpylll BKZ-42 tour. 
+slope: -0.05323, walltime: 93.874 sec
+Without otf, would expect solution at pump-104. n_max=90 in the given time.
+Starting a fpylll BKZ-43 tour. 
+slope: -0.05306, walltime: 100.487 sec
+Without otf, would expect solution at pump-103. n_max=91 in the given time.
+Starting a fpylll BKZ-44 tour. 
+slope: -0.05263, walltime: 107.280 sec
+Without otf, would expect solution at pump-103. n_max=91 in the given time.
+Starting a fpylll BKZ-45 tour. 
+slope: -0.05226, walltime: 115.166 sec
+Without otf, would expect solution at pump-102. n_max=91 in the given time.
+Starting a fpylll BKZ-46 tour. 
+slope: -0.05195, walltime: 136.229 sec
+Without otf, would expect solution at pump-101. n_max=92 in the given time.
+Starting a fpylll BKZ-47 tour. 
+slope: -0.05163, walltime: 169.431 sec
+Without otf, would expect solution at pump-101. n_max=93 in the given time.
+Starting a fpylll BKZ-48 tour. 
+slope: -0.05142, walltime: 204.150 sec
+Without otf, would expect solution at pump-100. n_max=94 in the given time.
+Starting a fpylll BKZ-49 tour. 
+slope: -0.05105, walltime: 239.544 sec
+Without otf, would expect solution at pump-100. n_max=94 in the given time.
+Starting a fpylll BKZ-49 tour. 
+slope: -0.05082, walltime: 276.196 sec
+Without otf, would expect solution at pump-99. n_max=95 in the given time.
+Starting a pnjBKZ-52 tour. 
+ k:0, b:46, f:0 , RAM cost: 0.1261 GB  k:0, b:47, f:1 , RAM cost: 1.6796 GB  k:0, b:48, f:2 , RAM cost: 1.6846 GB  k:0, b:49, f:3 , RAM cost: 1.6887 GB  k:0, b:50, f:4 , RAM cost: 1.6932 GB  k:0, b:51, f:5 , RAM cost: 1.6954 GB  k:0, b:52, f:6 , RAM cost: 1.6996 GB  k:0, b:53, f:7 , RAM cost: 1.6999 GB  k:0, b:54, f:8 , RAM cost: 1.7018 GB  k:0, b:55, f:9 , RAM cost: 1.7041 GB  k:0, b:56, f:10 , RAM cost: 1.7081 GB  k:0, b:57, f:11 , RAM cost: 1.8333 GB  k:0, b:58, f:12 , RAM cost: 1.8335 GB  k:0, b:59, f:13 , RAM cost: 1.8335 GB  k:0, b:60, f:14 , RAM cost: 1.8335 GB  k:0, b:61, f:15 , RAM cost: 1.8335 GB  k:0, b:62, f:16 , RAM cost: 1.8335 GB  k:0, b:63, f:17 , RAM cost: 1.8335 GB  k:0, b:64, f:18 , RAM cost: 1.8335 GB  k:1, b:64, f:18 , RAM cost: 1.7103 GB  k:2, b:64, f:18 , RAM cost: 1.8355 GB  k:3, b:64, f:18 , RAM cost: 1.7105 GB  k:4, b:64, f:18 , RAM cost: 1.8356 GB  k:5, b:64, f:18 , RAM cost: 1.8356 GB  k:6, b:64, f:18 , RAM cost: 1.8356 GB  k:7, b:64, f:18 , RAM cost: 1.8358 GB  k:8, b:64, f:18 , RAM cost: 1.7126 GB  k:9, b:64, f:18 , RAM cost: 1.8378 GB  k:10, b:64, f:18 , RAM cost: 1.8378 GB  k:11, b:64, f:18 , RAM cost: 1.8378 GB  k:12, b:64, f:18 , RAM cost: 1.7147 GB  k:13, b:64, f:18 , RAM cost: 1.8421 GB  k:14, b:64, f:18 , RAM cost: 1.8421 GB  k:15, b:64, f:18 , RAM cost: 1.7168 GB  k:16, b:64, f:18 , RAM cost: 1.8419 GB  k:17, b:64, f:18 , RAM cost: 1.8422 GB  k:18, b:64, f:18 , RAM cost: 1.8422 GB  k:19, b:64, f:18 , RAM cost: 1.8422 GB  k:20, b:64, f:18 , RAM cost: 1.7189 GB  k:21, b:64, f:18 , RAM cost: 1.8441 GB  k:22, b:64, f:18 , RAM cost: 1.7190 GB  k:23, b:64, f:18 , RAM cost: 1.7210 GB  k:24, b:64, f:18 , RAM cost: 1.8462 GB  k:25, b:64, f:18 , RAM cost: 1.7231 GB  k:26, b:64, f:18 , RAM cost: 1.7235 GB  k:27, b:64, f:18 , RAM cost: 1.8505 GB  k:28, b:64, f:18 , RAM cost: 1.8506 GB  k:29, b:64, f:18 , RAM cost: 1.8506 GB  k:30, b:64, f:18 , RAM cost: 1.8506 GB  k:31, b:64, f:18 , RAM cost: 1.8506 GB  k:32, b:64, f:18 , RAM cost: 1.7254 GB  k:33, b:64, f:18 , RAM cost: 1.8506 GB  k:34, b:64, f:18 , RAM cost: 1.8506 GB  k:35, b:64, f:18 , RAM cost: 1.7253 GB  k:36, b:64, f:18 , RAM cost: 1.8506 GB  k:37, b:64, f:18 , RAM cost: 1.8506 GB  k:38, b:64, f:18 , RAM cost: 1.8506 GB  k:39, b:64, f:18 , RAM cost: 1.8506 GB  k:40, b:64, f:18 , RAM cost: 1.8507 GB  k:41, b:64, f:18 , RAM cost: 1.7255 GB  k:42, b:64, f:18 , RAM cost: 1.8507 GB  k:43, b:64, f:18 , RAM cost: 1.8507 GB  k:44, b:64, f:18 , RAM cost: 1.8507 GB  k:45, b:64, f:18 , RAM cost: 1.8507 GB  k:46, b:64, f:18 , RAM cost: 1.8507 GB  k:47, b:64, f:18 , RAM cost: 1.8507 GB  k:48, b:64, f:18 , RAM cost: 1.8507 GB  k:49, b:64, f:18 , RAM cost: 1.8507 GB  k:50, b:64, f:18 , RAM cost: 1.8507 GB  k:51, b:64, f:18 , RAM cost: 1.8508 GB  k:52, b:64, f:18 , RAM cost: 1.8508 GB  k:53, b:64, f:18 , RAM cost: 1.8508 GB  k:54, b:64, f:18 , RAM cost: 1.7257 GB  k:55, b:64, f:18 , RAM cost: 1.8508 GB  k:56, b:64, f:18 , RAM cost: 1.7257 GB  k:57, b:64, f:18 , RAM cost: 1.7255 GB  k:58, b:64, f:18 , RAM cost: 1.8509 GB  k:59, b:64, f:18 , RAM cost: 1.8509 GB  k:60, b:64, f:18 , RAM cost: 1.8509 GB  k:61, b:64, f:18 , RAM cost: 1.7275 GB  k:62, b:64, f:18 , RAM cost: 1.8527 GB  k:63, b:64, f:18 , RAM cost: 1.8529 GB  k:64, b:64, f:18 , RAM cost: 1.8529 GB  k:65, b:64, f:18 , RAM cost: 1.8529 GB  k:66, b:64, f:18 , RAM cost: 1.8529 GB  k:67, b:64, f:18 , RAM cost: 1.8530 GB  k:68, b:64, f:18 , RAM cost: 1.8530 GB  k:69, b:64, f:18 , RAM cost: 1.8530 GB  k:70, b:64, f:18 , RAM cost: 1.8530 GB  k:71, b:64, f:18 , RAM cost: 1.8530 GB  k:72, b:64, f:18 , RAM cost: 1.8530 GB  k:73, b:64, f:18 , RAM cost: 1.8530 GB  k:74, b:64, f:18 , RAM cost: 1.8530 GB  k:75, b:64, f:18 , RAM cost: 1.8530 GB  k:76, b:64, f:18 , RAM cost: 1.8530 GB  k:77, b:64, f:18 , RAM cost: 1.8530 GB  k:78, b:64, f:18 , RAM cost: 1.7279 GB  k:79, b:64, f:18 , RAM cost: 1.7279 GB  k:80, b:64, f:18 , RAM cost: 1.8530 GB  k:81, b:64, f:18 , RAM cost: 1.8530 GB  k:82, b:64, f:18 , RAM cost: 1.8530 GB  k:83, b:64, f:18 , RAM cost: 1.8530 GB  k:84, b:64, f:18 , RAM cost: 1.8530 GB  k:85, b:64, f:18 , RAM cost: 1.8530 GB  k:86, b:64, f:18 , RAM cost: 1.7279 GB  k:87, b:64, f:18 , RAM cost: 1.8529 GB  k:88, b:64, f:18 , RAM cost: 1.8529 GB  k:89, b:64, f:18 , RAM cost: 1.8529 GB  k:90, b:64, f:18 , RAM cost: 1.8529 GB  k:91, b:64, f:18 , RAM cost: 1.8529 GB  k:92, b:64, f:18 , RAM cost: 1.8529 GB  k:93, b:64, f:18 , RAM cost: 1.8529 GB  k:94, b:64, f:18 , RAM cost: 1.7276 GB  k:95, b:64, f:18 , RAM cost: 1.8531 GB  k:96, b:64, f:18 , RAM cost: 1.7279 GB  k:97, b:64, f:18 , RAM cost: 1.8529 GB  k:98, b:64, f:18 , RAM cost: 1.7278 GB  k:99, b:64, f:18 , RAM cost: 1.7301 GB  k:100, b:64, f:18 , RAM cost: 1.8572 GB  k:101, b:64, f:18 , RAM cost: 1.8572 GB  k:102, b:64, f:18 , RAM cost: 1.8572 GB  k:103, b:64, f:18 , RAM cost: 1.8572 GB  k:104, b:64, f:18 , RAM cost: 1.7321 GB  k:105, b:64, f:18 , RAM cost: 1.8572 GB  k:106, b:64, f:18 , RAM cost: 1.7323 GB  k:107, b:64, f:18 , RAM cost: 1.8573 GB  k:108, b:64, f:18 , RAM cost: 1.8573 GB  k:109, b:64, f:18 , RAM cost: 1.8573 GB  k:110, b:64, f:18 , RAM cost: 1.8573 GB  k:111, b:64, f:18 , RAM cost: 1.8573 GB  k:112, b:64, f:18 , RAM cost: 1.8574 GB  k:113, b:64, f:18 , RAM cost: 1.8574 GB  k:114, b:64, f:18 , RAM cost: 1.8574 GB  k:115, b:64, f:18 , RAM cost: 1.7321 GB  k:116, b:64, f:18 , RAM cost: 1.8574 GB  k:117, b:64, f:18 , RAM cost: 1.7320 GB  k:118, b:64, f:18 , RAM cost: 1.8574 GB  k:119, b:64, f:18 , RAM cost: 1.8574 GB  k:120, b:64, f:18 , RAM cost: 1.8574 GB  k:121, b:64, f:18 , RAM cost: 1.8574 GB  k:122, b:64, f:18 , RAM cost: 1.8574 GB  k:123, b:64, f:18 , RAM cost: 1.8574 GB  k:124, b:64, f:18 , RAM cost: 1.7323 GB  k:125, b:63, f:17 , RAM cost: 1.8575 GB  k:126, b:62, f:16 , RAM cost: 1.8575 GB  k:127, b:61, f:15 , RAM cost: 1.7341 GB  k:128, b:60, f:14 , RAM cost: 1.8593 GB  k:129, b:59, f:13 , RAM cost: 1.7345 GB  k:130, b:58, f:12 , RAM cost: 1.8594 GB  k:131, b:57, f:11 , RAM cost: 1.8594 GB  k:132, b:56, f:10 , RAM cost: 1.8595 GB  k:133, b:55, f:9 , RAM cost: 1.7342 GB  k:134, b:54, f:8 , RAM cost: 1.7342 GB  k:135, b:53, f:7 , RAM cost: 1.7343 GB  k:136, b:52, f:6 , RAM cost: 1.7342 GB  k:137, b:51, f:5 , RAM cost: 1.7342 GB  k:138, b:50, f:4 , RAM cost: 1.7343 GB  k:139, b:49, f:3 , RAM cost: 1.7342 GB  k:140, b:48, f:2 , RAM cost: 1.7342 GB  k:141, b:47, f:1 , RAM cost: 1.7342 GB  k:142, b:46, f:0  , RAM cost: 1.7344 GB   k:142, b:46, f:0 
+
+slope: -0.04916, walltime: 551.894 sec
+Without otf, would expect solution at pump-96. n_max=98 in the given time.
+Starting svp pump_{63, 125, 26}, n_max = 99, Tmax= 551.89 sec
+  99: ↑ 50   , RAM cost:1.8632 GB      99: ↑ 51   , RAM cost:1.8632 GB      99: ↑ 51   , RAM cost:1.8632 GB      99: ↑ 52   , RAM cost:1.8632 GB      99: ↑ 52   , RAM cost:1.8632 GB      99: ↑ 53   , RAM cost:1.8632 GB      99: ↑ 53   , RAM cost:1.8632 GB      99: ↑ 54   , RAM cost:1.8632 GB      99: ↑ 54   , RAM cost:1.8632 GB      99: ↑ 55   , RAM cost:1.8632 GB      99: ↑ 55   , RAM cost:1.8632 GB      99: ↑ 56   , RAM cost:1.8632 GB      99: ↑ 56   , RAM cost:1.8632 GB      99: ↑ 57   , RAM cost:1.8632 GB      99: ↑ 57   , RAM cost:1.8636 GB      99: ↑ 58   , RAM cost:1.8636 GB      99: ↑ 58   , RAM cost:1.8644 GB      99: ↑ 59   , RAM cost:1.8644 GB      99: ↑ 59   , RAM cost:1.8651 GB      99: ↑ 60   , RAM cost:1.8651 GB      99: ↑ 60   , RAM cost:1.8659 GB      99: ↑ 61   , RAM cost:1.8659 GB      99: ↑ 61   , RAM cost:1.8669 GB      99: ↑ 62   , RAM cost:1.8669 GB      99: ↑ 62   , RAM cost:1.8681 GB      99: ↑ 63   , RAM cost:1.8681 GB      99: ↑ 63   , RAM cost:1.8693 GB      99: ↑ 64   , RAM cost:1.8693 GB      99: ↑ 64   , RAM cost:1.8708 GB      99: ↑ 65   , RAM cost:1.9958 GB      99: ↑ 65   , RAM cost:1.9976 GB      99: ↑ 66   , RAM cost:1.9976 GB      99: ↑ 66   , RAM cost:1.9998 GB      99: ↑ 67   , RAM cost:1.9998 GB      99: ↑ 67   , RAM cost:2.0021 GB      99: ↑ 68   , RAM cost:2.0021 GB      99: ↑ 68   , RAM cost:2.0049 GB      99: ↑ 69   , RAM cost:2.0049 GB      99: ↑ 69   , RAM cost:2.0080 GB      99: ↑ 70   , RAM cost:2.0080 GB      99: ↑ 70   , RAM cost:2.0175 GB      99: ↑ 71   , RAM cost:2.0175 GB      99: ↑ 71   , RAM cost:2.0255 GB      99: ↑ 72   , RAM cost:2.0255 GB      99: ↑ 72   , RAM cost:2.0305 GB      99: ↑ 73   , RAM cost:2.0305 GB      99: ↑ 73   , RAM cost:2.0361 GB      99: ↑ 74   , RAM cost:2.0361 GB      99: ↑ 74   , RAM cost:2.0426 GB      99: ↑ 75   , RAM cost:2.0426 GB      99: ↑ 75   , RAM cost:2.0502 GB      99: ↑ 76   , RAM cost:2.0502 GB      99: ↑ 76   , RAM cost:2.0592 GB      99: ↑ 77   , RAM cost:2.0592 GB      99: ↑ 77   , RAM cost:2.0693 GB      99: ↑ 78   , RAM cost:2.0693 GB      99: ↑ 78   , RAM cost:2.0809 GB      99: ↑ 79   , RAM cost:2.0809 GB      99: ↑ 79   , RAM cost:2.0940 GB      99: ↑ 80   , RAM cost:2.0940 GB      99: ↑ 80   , RAM cost:2.1096 GB      99: ↑ 81   , RAM cost:2.1096 GB      99: ↑ 81   , RAM cost:2.1280 GB      99: ↑ 82   , RAM cost:2.1280 GB      99: ↑ 82   , RAM cost:2.1484 GB      99: ↑ 83   , RAM cost:2.1484 GB      99: ↑ 83   , RAM cost:2.1721 GB      99: ↑ 84   , RAM cost:2.1721 GB      99: ↑ 84   , RAM cost:2.2182 GB      99: ↑ 85   , RAM cost:2.2182 GB      99: ↑ 85   , RAM cost:2.2655 GB      99: ↑ 86   , RAM cost:2.2655 GB      99: ↑ 86   , RAM cost:2.3087 GB      99: ↑ 87   , RAM cost:2.3087 GB      99: ↑ 87   , RAM cost:2.3590 GB      99: ↑ 88   , RAM cost:2.3590 GB      99: ↑ 88   , RAM cost:2.4109 GB    Solution: (-13, 30, -2, -29, -9, -37, -4, 3, -15, -4, 12, 8, 20, -28, -24, -15, 20, 12, 48, 6, 46, 8, -19, 51, 14, 31, -4, 80, 5, 1, 35, 11, 45, -27, 54, -25, -18, -11, -19, 10, -21, 35, -1, 21, -1, 40, -48, 4, 5, -11, 18, -1, -52, 0, -40, -4, 8, -12, 17, -11, -4, -24, 24, 33, 26, -62, 7, -26, -11, -5, 6, 21, 18, 7, 16, 32, -8, -40, -9, 70, 48, 17, 6, -3, -18, 37, 40, 15, 14, 22, -24, -47, -23, 8, -14, 18, 28, 6, 27, 11, 37, -8, -43, -9, -24, 6, -37, -47, -22, -7, -31, 18, -43, 19, 52, -14, -1, -61, -5, -29, -28, 0, 7, 16, 29, -5, -31, 0, -15, 11, -9, 28, 0, 49, 48, -18, 21, -4, 20, -28, -12, -24, -70, -2, 41, -14, -10, -17, -35, 34, 7, 20, 20, -37, 18, -24, -30, 28, -22, -10, 35, 37, 51, 16, -7, 32, 7, -34, -19, -37, -8, 56, -49, -6, -12, -28, -13, 12, 24, 32, -4, -14, -40, -35, 42, 14, 14, 1)
+
+ slope: -0.04926, walltime: 564.693 sec
+
+Finished! TT=564.75 sec
+(-13, 30, -2, -29, -9, -37, -4, 3, -15, -4, 12, 8, 20, -28, -24, -15, 20, 12, 48, 6, 46, 8, -19, 51, 14, 31, -4, 80, 5, 1, 35, 11, 45, -27, 54, -25, -18, -11, -19, 10, -21, 35, -1, 21, -1, 40, -48, 4, 5, -11, 18, -1, -52, 0, -40, -4, 8, -12, 17, -11, -4, -24, 24, 33, 26, -62, 7, -26, -11, -5, 6, 21, 18, 7, 16, 32, -8, -40, -9, 70, 48, 17, 6, -3, -18, 37, 40, 15, 14, 22, -24, -47, -23, 8, -14, 18, 28, 6, 27, 11, 37, -8, -43, -9, -24, 6, -37, -47, -22, -7, -31, 18, -43, 19, 52, -14, -1, -61, -5, -29, -28, 0, 7, 16, 29, -5, -31, 0, -15, 11, -9, 28, 0, 49, 48, -18, 21, -4, 20, -28, -12, -24, -70, -2, 41, -14, -10, -17, -35, 34, 7, 20, 20, -37, 18, -24, -30, 28, -22, -10, 35, 37, 51, 16, -7, 32, 7, -34, -19, -37, -8, 56, -49, -6, -12, -28, -13, 12, 24, 32, -4, -14, -40, -35, 42, 14, 14, 1)

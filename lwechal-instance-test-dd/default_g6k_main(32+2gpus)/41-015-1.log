@@ -3,12 +3,105 @@ Primal attack, LWE challenge n=41, alpha=0.0150
 Chose 156 samples. Predict solution at bkz-54 + svp-87
 
 GSO precision:  long double
-Intial Slope = -0.07355
+Intial Slope = -0.07474
 
 Starting a fpylll BKZ-10 tour. 
-slope: -0.07305, walltime: 0.625 sec
-Without otf, would expect solution at pump-103. n_max=70 in the given time.
+slope: -0.07343, walltime: 0.460 sec
+Without otf, would expect solution at pump-104. n_max=69 in the given time.
 Starting a fpylll BKZ-11 tour. 
-slope: -0.07195, walltime: 1.983 sec
-Without otf, would expect solution at pump-103. n_max=75 in the given time.
+slope: -0.07220, walltime: 1.075 sec
+Without otf, would expect solution at pump-103. n_max=72 in the given time.
 Starting a fpylll BKZ-12 tour. 
+slope: -0.07127, walltime: 1.628 sec
+Without otf, would expect solution at pump-103. n_max=74 in the given time.
+Starting a fpylll BKZ-13 tour. 
+slope: -0.07023, walltime: 2.319 sec
+Without otf, would expect solution at pump-102. n_max=75 in the given time.
+Starting a fpylll BKZ-14 tour. 
+slope: -0.06951, walltime: 2.744 sec
+Without otf, would expect solution at pump-102. n_max=76 in the given time.
+Starting a fpylll BKZ-15 tour. 
+slope: -0.06825, walltime: 3.599 sec
+Without otf, would expect solution at pump-101. n_max=77 in the given time.
+Starting a fpylll BKZ-16 tour. 
+slope: -0.06727, walltime: 4.245 sec
+Without otf, would expect solution at pump-100. n_max=78 in the given time.
+Starting a fpylll BKZ-17 tour. 
+slope: -0.06641, walltime: 5.123 sec
+Without otf, would expect solution at pump-99. n_max=78 in the given time.
+Starting a fpylll BKZ-18 tour. 
+slope: -0.06581, walltime: 5.779 sec
+Without otf, would expect solution at pump-99. n_max=79 in the given time.
+Starting a fpylll BKZ-19 tour. 
+slope: -0.06499, walltime: 6.708 sec
+Without otf, would expect solution at pump-98. n_max=80 in the given time.
+Starting a fpylll BKZ-20 tour. 
+slope: -0.06433, walltime: 7.373 sec
+Without otf, would expect solution at pump-98. n_max=80 in the given time.
+Starting a fpylll BKZ-21 tour. 
+slope: -0.06352, walltime: 8.358 sec
+Without otf, would expect solution at pump-97. n_max=80 in the given time.
+Starting a fpylll BKZ-22 tour. 
+slope: -0.06280, walltime: 9.235 sec
+Without otf, would expect solution at pump-96. n_max=81 in the given time.
+Starting a fpylll BKZ-23 tour. 
+slope: -0.06202, walltime: 10.414 sec
+Without otf, would expect solution at pump-96. n_max=81 in the given time.
+Starting a fpylll BKZ-24 tour. 
+slope: -0.06148, walltime: 11.131 sec
+Without otf, would expect solution at pump-95. n_max=82 in the given time.
+Starting a fpylll BKZ-25 tour. 
+slope: -0.06077, walltime: 12.532 sec
+Without otf, would expect solution at pump-94. n_max=82 in the given time.
+Starting a fpylll BKZ-26 tour. 
+slope: -0.06011, walltime: 13.520 sec
+Without otf, would expect solution at pump-93. n_max=82 in the given time.
+Starting a fpylll BKZ-27 tour. 
+slope: -0.05952, walltime: 14.859 sec
+Without otf, would expect solution at pump-93. n_max=83 in the given time.
+Starting a fpylll BKZ-28 tour. 
+slope: -0.05914, walltime: 15.850 sec
+Without otf, would expect solution at pump-93. n_max=83 in the given time.
+Starting a fpylll BKZ-29 tour. 
+slope: -0.05853, walltime: 17.301 sec
+Without otf, would expect solution at pump-92. n_max=83 in the given time.
+Starting a fpylll BKZ-30 tour. 
+slope: -0.05802, walltime: 18.717 sec
+Without otf, would expect solution at pump-91. n_max=84 in the given time.
+Starting a fpylll BKZ-31 tour. 
+slope: -0.05738, walltime: 20.419 sec
+Without otf, would expect solution at pump-90. n_max=84 in the given time.
+Starting a fpylll BKZ-32 tour. 
+slope: -0.05689, walltime: 22.140 sec
+Without otf, would expect solution at pump-90. n_max=84 in the given time.
+Starting a fpylll BKZ-33 tour. 
+slope: -0.05643, walltime: 23.971 sec
+Without otf, would expect solution at pump-89. n_max=85 in the given time.
+Starting a fpylll BKZ-34 tour. 
+slope: -0.05607, walltime: 25.646 sec
+Without otf, would expect solution at pump-88. n_max=85 in the given time.
+Starting a fpylll BKZ-35 tour. 
+slope: -0.05560, walltime: 27.523 sec
+Without otf, would expect solution at pump-88. n_max=85 in the given time.
+Starting a fpylll BKZ-36 tour. 
+slope: -0.05529, walltime: 29.824 sec
+Without otf, would expect solution at pump-87. n_max=86 in the given time.
+Starting a fpylll BKZ-37 tour. 
+slope: -0.05488, walltime: 32.095 sec
+Without otf, would expect solution at pump-87. n_max=86 in the given time.
+Starting a fpylll BKZ-38 tour. 
+slope: -0.05449, walltime: 34.666 sec
+Without otf, would expect solution at pump-86. n_max=86 in the given time.
+Starting a fpylll BKZ-39 tour. 
+slope: -0.05409, walltime: 37.192 sec
+Without otf, would expect solution at pump-86. n_max=87 in the given time.
+Starting a fpylll BKZ-40 tour. 
+slope: -0.05372, walltime: 39.641 sec
+Without otf, would expect solution at pump-85. n_max=87 in the given time.
+Starting svp pump_{46, 111, 23}, n_max = 88, Tmax= 39.64 sec
+  88: ↑ 50   , RAM cost:1.7863 GB      88: ↑ 51   , RAM cost:1.7864 GB      88: ↑ 51   , RAM cost:1.7864 GB      88: ↑ 52   , RAM cost:1.7864 GB      88: ↑ 52   , RAM cost:1.7864 GB      88: ↑ 53   , RAM cost:1.7864 GB      88: ↑ 53   , RAM cost:1.7864 GB      88: ↑ 54   , RAM cost:1.7864 GB      88: ↑ 54   , RAM cost:1.7864 GB      88: ↑ 55   , RAM cost:1.7864 GB      88: ↑ 55   , RAM cost:1.7864 GB      88: ↑ 56   , RAM cost:1.7864 GB      88: ↑ 56   , RAM cost:1.7864 GB      88: ↑ 57   , RAM cost:1.7864 GB      88: ↑ 57   , RAM cost:1.7868 GB      88: ↑ 58   , RAM cost:1.7868 GB      88: ↑ 58   , RAM cost:1.7875 GB      88: ↑ 59   , RAM cost:1.7875 GB      88: ↑ 59   , RAM cost:1.7882 GB      88: ↑ 60   , RAM cost:1.7882 GB      88: ↑ 60   , RAM cost:1.7890 GB      88: ↑ 61   , RAM cost:1.7890 GB      88: ↑ 61   , RAM cost:1.7900 GB      88: ↑ 62   , RAM cost:1.7900 GB      88: ↑ 62   , RAM cost:1.7910 GB      88: ↑ 63   , RAM cost:1.7910 GB      88: ↑ 63   , RAM cost:1.7923 GB      88: ↑ 64   , RAM cost:1.7923 GB      88: ↑ 64   , RAM cost:1.7938 GB      88: ↑ 65   , RAM cost:1.9235 GB      88: ↑ 65   , RAM cost:1.9251 GB      88: ↑ 66   , RAM cost:1.9251 GB      88: ↑ 66   , RAM cost:1.9271 GB      88: ↑ 67   , RAM cost:1.9271 GB      88: ↑ 67   , RAM cost:1.9294 GB      88: ↑ 68   , RAM cost:1.9294 GB      88: ↑ 68   , RAM cost:1.9319 GB      88: ↑ 69   , RAM cost:1.9319 GB      88: ↑ 69   , RAM cost:1.9349 GB      88: ↑ 70   , RAM cost:1.9349 GB      88: ↑ 70   , RAM cost:1.9738 GB      88: ↑ 71   , RAM cost:1.9738 GB      88: ↑ 71   , RAM cost:1.9883 GB      88: ↑ 72   , RAM cost:1.9883 GB      88: ↑ 72   , RAM cost:1.9979 GB      88: ↑ 73   , RAM cost:1.9979 GB      88: ↑ 73   , RAM cost:2.0049 GB      88: ↑ 74   , RAM cost:2.0049 GB      88: ↑ 74   , RAM cost:2.0109 GB      88: ↑ 75   , RAM cost:2.0112 GB      88: ↑ 75   , RAM cost:2.0184 GB      88: ↑ 76   , RAM cost:2.0184 GB      88: ↑ 76   , RAM cost:2.0319 GB      88: ↑ 77   , RAM cost:2.0319 GB      88: ↑ 77   , RAM cost:2.0411 GB      88: ↑ 78   , RAM cost:2.0411 GB      88: ↑ 78   , RAM cost:2.0538 GB      88: ↑ 79   , RAM cost:2.0538 GB      88: ↑ 79   , RAM cost:2.0673 GB      88: ↑ 80   , RAM cost:2.0673 GB      88: ↑ 80   , RAM cost:2.0834 GB      88: ↑ 81   , RAM cost:2.0834 GB      88: ↑ 81   , RAM cost:2.1036 GB      88: ↑ 82   , RAM cost:2.1036 GB      88: ↑ 82   , RAM cost:2.1238 GB      88: ↑ 83   , RAM cost:2.1239 GB      88: ↑ 83   , RAM cost:2.1470 GB      88: ↑ 84   , RAM cost:2.1470 GB      88: ↑ 84   , RAM cost:2.1959 GB      88: ↑ 85   , RAM cost:2.1959 GB      88: ↑ 85   , RAM cost:2.2382 GB      88: ↑ 86   , RAM cost:2.2382 GB      88: ↑ 86   , RAM cost:2.2817 GB      88: ↑ 87   , RAM cost:2.2817 GB      88: ↑ 87   , RAM cost:2.3296 GB      88: ↑ 88   , RAM cost:2.3296 GB      88: ↑ 88   , RAM cost:2.3842 GB    Solution: (-2, 7, -4, 19, -28, -18, 43, 3, -28, -11, 37, -14, 23, -24, -20, 13, 3, -18, 5, 17, 9, -15, -13, 42, 2, -11, -30, -38, -8, 24, 35, 88, -11, -36, -28, 30, 4, -11, -19, 22, -5, -10, -14, -1, 28, 36, -3, 8, -8, 23, 4, 45, -4, 2, 14, 5, -23, -33, -72, -26, -23, 0, 6, 27, 43, 34, -13, -24, -29, 41, 34, 25, 3, -25, 11, -11, 44, 28, -20, -8, -18, 21, -19, -19, -41, 21, -3, -27, 33, -20, -16, -85, -23, 1, -9, -11, -16, -25, 12, 2, -23, 8, -23, 6, 5, 11, 33, -31, -28, 17, 36, 31, -30, -35, 2, 2, 3, -36, -7, 20, 30, 11, 45, 40, 5, -29, 31, -21, -9, -42, -1, -1, 13, 0, -36, -33, 59, -4, -19, 4, -22, -24, -8, 42, 12, 16, -2, -2, 2, -4, 35, -30, 9, -8, -45, -18, 1)
+
+ slope: -0.05394, walltime: 54.842 sec
+
+Finished! TT=54.86 sec
+(-2, 7, -4, 19, -28, -18, 43, 3, -28, -11, 37, -14, 23, -24, -20, 13, 3, -18, 5, 17, 9, -15, -13, 42, 2, -11, -30, -38, -8, 24, 35, 88, -11, -36, -28, 30, 4, -11, -19, 22, -5, -10, -14, -1, 28, 36, -3, 8, -8, 23, 4, 45, -4, 2, 14, 5, -23, -33, -72, -26, -23, 0, 6, 27, 43, 34, -13, -24, -29, 41, 34, 25, 3, -25, 11, -11, 44, 28, -20, -8, -18, 21, -19, -19, -41, 21, -3, -27, 33, -20, -16, -85, -23, 1, -9, -11, -16, -25, 12, 2, -23, 8, -23, 6, 5, 11, 33, -31, -28, 17, 36, 31, -30, -35, 2, 2, 3, -36, -7, 20, 30, 11, 45, 40, 5, -29, 31, -21, -9, -42, -1, -1, 13, 0, -36, -33, 59, -4, -19, 4, -22, -24, -8, 42, 12, 16, -2, -2, 2, -4, 35, -30, 9, -8, -45, -18, 1)

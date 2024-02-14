@@ -112,12 +112,16 @@ pair<double,double> COST::get_k1_k2_pnj_qd(int beta,bool sieve){
         k2 = -1;
     }
     else if(beta>=10 and beta<=42 and not sieve){
-        k1 = 0.03;
-        k2 = -2.317327;
+        // k1 = 0.03;
+        // k2 = -2.317327;
+        k1 = 0.006000;
+        k2 = 2.390000;
     }
     else if(beta < 50 and not sieve){
-        k1 = 0.202385;
-        k2 = -9.340418;
+        // k1 = 0.202385;
+        // k2 = -9.340418;
+        k1 = 0.033000;
+        k2 = 1.320000;
     }
     else if(beta <= 97 and sieve){
         k1 = 0.056;
@@ -327,6 +331,8 @@ double COST::practical_bkz_cost_dd(int d,int beta,int jump){
     // else
     //if(c3*d+c4 > 1)
     // cout<<log2(d-beta+2*f+extra_dim4free)<<endl;
+    // int indices_num = 2*(floor((f+extra_dim4free)/jump)+1) + (floor((d-beta-extra_dim4free)/jump)+1) + 1;
+    // int indices_num = 2*(floor((f+extra_dim4free)/jump)+1) + (floor((d-beta-extra_dim4free)/jump)+1) + 1;
     if(c3*d+c4>=1)
         return (k1*(beta-f)+k2) + log2(c3*d+c4) + log2(d-beta+2*f+extra_dim4free) - log2(jump);
     else

@@ -377,13 +377,13 @@ FP_NR<FT> bkzgsa_gso_len( FP_NR<FT> logvol, int i, int d,int beta){
 
 //Input: log2(square gs-lengths)
 //return: gh**2
-double gaussian_heuristic_log2(vector<FP_NR<FT>> l, int index_start){
-    int d = l.size();
-    int n = d - index_start;
-
+double gaussian_heuristic_log2(vector<FP_NR<FT>> l, int index_start, int index_end){
+    //int d = l.size();
+    int n = index_end - index_start;
+    assert(n>0);
     double const log_ball_square_vol = (n * log(M_PI) - 2.0 * lgamma(n / 2.0 + 1));
     double log_lattice_square_vol = 0., gh;
-    for (int i = index_start; i < d; ++i)
+    for (int i = index_start; i < index_end; ++i)
     {
         log_lattice_square_vol += (2*l[i].get_d()*log(2.));
     }
@@ -398,13 +398,14 @@ double gaussian_heuristic_log2(vector<FP_NR<FT>> l, int index_start){
 }
 
 //Input: log2(gs-lengths)
-double gaussian_heuristic_log2(vector<double> l, int index_start){
-    int d = l.size();
-    int n = d - index_start;
+double gaussian_heuristic_log2(vector<double> l, int index_start, int index_end){
+    // int d = l.size();
+    int n = index_end - index_start;
+    assert(n>0);
 
     double const log_ball_square_vol = (n * log(M_PI) - 2.0 * lgamma(n / 2.0 + 1));
     double log_lattice_square_vol = 0., gh;
-    for (int i = index_start; i < d; ++i)
+    for (int i = index_start; i < index_end; ++i)
     {
         log_lattice_square_vol += (2*l[i]*log(2.));
     }
@@ -513,26 +514,11 @@ int get_beta_from_sieve_dim(int sieve_dim, int d, int choose_dims4f_fun){
 
 //d4f(B): pessimistic
 int theo_dim4free1_in_B(vector<double> l){
-    double gh = gaussian_heuristic_log2(l,0);
     int d = l.size();
+    double gh = gaussian_heuristic_log2(l,0,d);
     for(int f = d-1; f >= 0; f--){
-        double ghf = gaussian_heuristic_log2(l,f);
+        double ghf = gaussian_heuristic_log2(l,f,d);
         if(ghf * 4/3. >=  gh){
-            cout<<"f = "<<f<<endl;
-            return f;
-        }
-    }
-    return 0;
-}
-
-//d4f(B): postive 
-int theo_dim4free2_in_B(vector<double> l){
-    double gh = gaussian_heuristic_log2(l,0);
-    int d = l.size();
-    for(int f = d-1; f >= 0; f--){
-        double ghf = gaussian_heuristic_log2(l,f);
-        // cout<<f<<","<<ghf + log2(4/3.)<<", "<< log2((double) (d-f)/d) + gh<<endl;
-        if(ghf * 4/3. >=  ((double) (d-f)/d) * gh){
             // cout<<"f = "<<f<<endl;
             return f;
         }
@@ -540,8 +526,82 @@ int theo_dim4free2_in_B(vector<double> l){
     return 0;
 }
 
+
+// //d4f(B): pessimistic
+// int theo_dim4free1_in_B(vector<double> l, int beta){
+//     int d = l.size();
+//     double gh = gaussian_heuristic_log2(l,0,beta);
+//     for(int f = beta-1; f >= 0; f--){
+//         double ghf = gaussian_heuristic_log2(l,f,beta);
+//         if(ghf * 4/3. >=  gh){
+//             // cout<<"f = "<<f<<endl;
+//             return f;
+//         }
+//     }
+//     return 0;
+// }
+
+
+//d4f(B): postive 
+int theo_dim4free2_in_B(vector<double> l){
+    int d = l.size();
+    double gh = gaussian_heuristic_log2(l,0,d);
+    for(int f = d-1; f >= 0; f--){
+        double ghf = gaussian_heuristic_log2(l,f,d);
+        // cout<<f<<","<<ghf + log2(4/3.)<<", "<< log2((double) (d-f)/d) + gh<<endl;
+        if(ghf * 4/3. >=  ((double) (d-f)/d) * gh){
+            // cout<<"f = "<<f<<endl;
+            return f;
+        }
+        // gh = gaussian_heuristic_log2(l,d-dsvp,d);
+        // boost::math::chi_squared chisquare(d-f);
+        // double psvp = boost::math::cdf(chisquare,ghf);
+        // if(psvp>=0.999)
+        //     return f;
+    }
+    return 0;
+}
+
+
+// //d4f(B): postive 
+// int theo_dim4free2_in_B(vector<double> l, int beta){
+//     int d = l.size();
+//     int minf = beta;
+//     for(int i = 0; i<d-beta; i++){
+//         // cout<<f<<","<<ghf + log2(4/3.)<<", "<< log2((double) (d-f)/d) + gh<<endl;
+//         bool has_f = false;
+//         for(int f = beta-2; f >= 0; f--){
+//             double gh = gaussian_heuristic_log2(l,i,beta+i);
+//             double ghf = gaussian_heuristic_log2(l,f+i,beta+i);
+//             if(minf > f and ghf >=  ((double) (beta-f)/beta) * gh){
+//                 // cout<<"f = "<<f<<endl;
+//                 // cout<<"beta = "<<beta<<", " << "f = "<<f<<endl;
+//                 // return f;
+//                 minf = f;
+//                 has_f = true;
+//                 break;
+//             }
+//         }
+//         if(not has_f)
+//             minf = 0;
+//     }
+//     return minf;
+// }
+
+int accs_2023_d4f(double slope){
+    assert(slope < 0);
+    int f = (int) floor(log(sqrt(4/3.))/(-1*slope/4.));
+    assert(f>=0);
+    return f;
+}
+
+
+
 int jump_upper_bound(Params params, int beta, vector<double> l){
     int jub = 0;
+    double slope = get_current_slope(l,0,(int) l.size());
+    if(beta<=50)
+        return 1;
     // cout<<"params.compute_jub = "<<params.compute_jub<<endl;
     switch(params.compute_jub){
         case 1:
@@ -549,6 +609,7 @@ int jump_upper_bound(Params params, int beta, vector<double> l){
             break;
         case 2:
             jub = theo_dim4free2_in_B(l);
+            // jub = theo_dim4free2_in_B(l,beta);
             // cout<<"jub = "<<jub<<endl;
             // cout<<"theo_f = "<< floor(get_f_for_pnjbkz(params,beta))<<endl; 
             break;
@@ -558,13 +619,26 @@ int jump_upper_bound(Params params, int beta, vector<double> l){
         case 4:
             jub = min((double)get_f_for_pnjbkz(params,beta), ceil(0.1* beta));       
             break;
+        case 5:
+            jub = min(accs_2023_d4f(slope),theo_dim4free_fun1(beta));
+            if(params.cost_model == 3)
+                jub = min(jub, min((int) floor(params.jub_ratio * beta), (int) floor((double) get_f_for_pnjbkz(params,beta)/2.)));
+            if(params.cost_model == 2)
+                jub = min(jub,  (int) floor((double) get_f_for_pnjbkz(params,beta)/2.));
+            // jub = min(jub, (int) floor((double) get_f_for_pnjbkz(params,beta)/2.));
+            break;
         default:
             jub = 0;
             break;
     }
+    // cerr<<"jub = "<<jub<<", beta = "<<beta<<endl;
+    assert(jub < beta and jub >= 0);
     return jub;
-    
+    // return min(jub,(int) floor((double) get_f_for_pnjbkz(params,beta)/2.));
+
+    // return min(jub, min((int) floor(0.1* beta), (int) floor((double) get_f_for_pnjbkz(params,beta)/2.)));
 }
+
 
 int get_f_for_pnjbkz(Params params, int beta){
     if(params.cost_model == 1){
@@ -586,6 +660,7 @@ int get_f_for_pnjbkz(Params params, int beta){
     return 0;
 }
 
+
 int get_f_for_pump(Params params, int beta, vector<double> l){
     if(params.cost_model == 1){
         if(params.theo_pump_d4f == 1)
@@ -594,6 +669,8 @@ int get_f_for_pump(Params params, int beta, vector<double> l){
             return max(0,theo_dim4free_fun2(beta));
         if(params.theo_pump_d4f == 3)
             return max(0,wrapper_default_dim4free_fun(beta));
+        if(params.theo_pump_d4f == 4)
+            return max(0, theo_dim4free2_in_B(l));
     }
     if(params.cost_model >= 2){
         if(params.practical_pump_d4f == 1)
@@ -604,26 +681,94 @@ int get_f_for_pump(Params params, int beta, vector<double> l){
             return max(0,wrapper_default_dim4free_fun(beta));
         if(params.practical_pump_d4f == 4)
             return max(0, theo_dim4free2_in_B(l));
+            // return max(0, theo_dim4free2_in_B(l,beta));
     }
     return 0;
 }
 
 
-int get_beta_(Params params, int beta, int jump, int d){
-    int f = get_f_for_pnjbkz(params, beta);
-    if(jump <= 2)
+int d4f_gap(int beta){
+    int gap = 0;
+    if(beta<40)
+        gap = 0;
+    else if(beta<76)
+        gap = round((beta-40)/2.-theo_dim4free_fun1(beta));
+    else if(beta>0)
+        gap = round((11.5+0.075*beta)-theo_dim4free_fun1(beta));
+        // return round(gap)
+    else
+        throw "Wrong: beta<=0!!";
+    // else
+    //     return round(wrapper_default_dim4free_fun(beta) - theo_dim4free_fun1(beta));
+    if(gap<0)
+        gap = 0;
+    // assert(gap>=0);
+    assert(gap < beta);
+    return gap;
+}
+
+int d4f_gap_accs(int beta, double slope){
+    int gap = 0;
+    if(beta<40)
+        gap = 0;
+    else if(beta<75)
+        gap = round((beta-40)/2.-min(theo_dim4free_fun1(beta),accs_2023_d4f(slope)));
+    else if(beta>0)
+        gap = round((11.5+0.075*beta)-min(theo_dim4free_fun1(beta),accs_2023_d4f(slope)-1));
+        // return round(gap)
+    else
+        throw "Wrong: beta<=0!!";
+        // else
+        //     return round(wrapper_default_dim4free_fun(beta)-min(theo_dim4free_fun1(beta),accs_2023_d4f(slope)));
+    // if(gap<0 or gap > beta){
+    //     cout<<"slope = "<<slope<<endl;
+    //     cout<<"theo_dim4free_fun1(beta) = "<<theo_dim4free_fun1(beta)<<endl;
+    //     cout<<"accs_2023_d4f(slope) = "<<accs_2023_d4f(slope)<<endl;
+    //     cout<<"gap = "<<gap<<", beta = "<<beta<<endl;
+    // }
+    if(gap<0)
+        gap = 0;
+    assert(gap < beta);
+    return gap;
+}
+    
+
+
+int get_beta_(Params params, int beta, int jump, int d, double slope){
+    if(params.sim_d4f == 1){
+        int f = get_f_for_pnjbkz(params, beta);
+        if(jump <= 2)
+            return beta;
+        else if(jump >=3 && jump <=4){
+            if((params.cost_model >= 2 and params.practical_pnjbkz_d4f == 3) or (params.cost_model == 1 and params.theo_pnjbkz_d4f == 3)){
+                return get_beta_from_sieve_dim( beta-f,d,2);
+            }else
+                return beta;
+        }
+        else if(jump>=5){
+            if((params.cost_model >= 2  and params.practical_pnjbkz_d4f == 1) or (params.cost_model == 1 and params.theo_pnjbkz_d4f == 1))
+                return beta;
+            else
+                return get_beta_from_sieve_dim( beta-f,d,1);
+        }
         return beta;
-    else if(jump >=3 && jump <=4){
-        if((params.cost_model >= 2 and params.practical_pnjbkz_d4f == 3) or (params.cost_model == 1 and params.theo_pnjbkz_d4f == 3)){
-            return get_beta_from_sieve_dim( beta-f,d,2);
-        }else
-            return beta;
     }
-    else if(jump>=5){
-        if((params.cost_model >= 2  and params.practical_pnjbkz_d4f == 1) or (params.cost_model == 1 and params.theo_pnjbkz_d4f == 1))
+    if(params.sim_d4f == 2){
+        if(jump ==  1){
+            //"Optimistic d4f value"
             return beta;
-        else
-            return get_beta_from_sieve_dim( beta-f,d,1);
+        }
+        else if(jump/(double) beta <= 0.05){
+            //"Theory conservative d4f value"
+            // cout<<"beta = "<<beta<<", "<< "beta - d4f_gap(beta) = "<<beta - d4f_gap(beta)<<endl;
+          
+            return beta - d4f_gap(beta);
+        }
+        else if(jump/(double) beta > 0.05){
+            //d4f_value = "ACCS d4f value"
+            // cout<<"beta = "<<beta<<", "<< "beta - d4f_gap_accs = "<<beta - d4f_gap_accs(beta,slope)<<endl;
+            return beta - d4f_gap_accs(beta,slope);
+        }
     }
     return beta;
 }
@@ -676,16 +821,19 @@ std::map<int,double>  build_centered_binomial_law(int k){
 
 
 void print_param_setting(Params params){
+    // cout<<params.bssa_tradition<<endl;
     if(params.method == 1)
         printf("EnumBS Strategy Generation:");
-    if(params.method == 2)
-        printf("BSSA Strategy Generation:");
+    if(params.method == 2 and params.bssa_tradition == true)
+        printf("BSSAv1 Strategy Generation:");
+    if(params.method == 2 and params.bssa_tradition == false)
+        printf("BSSAv2 Strategy Generation:");
     printf("v1. beta_start= %d, gap = %d, J = %d, J_gap = %d, cost_model = %d, max_loop = %d,  G_prec = %e,  slope_prec = %e,  progressive_sieve = True, worst_case = %d, succ_prob = %1.3f, ", params.beta_start, params.gap, params.J, params.J_gap, params.cost_model, params.max_loop,params.enumbs_G_prec, params.enumbs_slope_prec,  params.worst_case, params.succ_prob);
 
     if(params.method == 1)
         printf("threads = %d, ", params.threads);
     if(params.enumbs_min_G)
-        printf("Find minimal time cost strategy, ");
+        printf("Find expected minimal time cost strategy, ");
     else
         printf("Find a strategy below the maximal RAM = %f log2(bit), ", params.max_RAM);
     if(params.worst_case)
@@ -708,6 +856,10 @@ void print_param_setting(Params params){
         // else
             // printf("practical_pump_d4f: compute ||pi_f(target_vector)||<= sqrt(4/3) GH(L_f)\n");
     }
+    if(params.sim_d4f == 1)
+        cout<<"adjust beta_ as before 2023.1.31 (heuristic ajust), ";
+    if(params.sim_d4f == 2)
+        cout<<"adjust beta_ as after 2023.1.31 [WWW, asiaccs2023], ";
     cout<<"jump upper bound = ";
     switch(params.compute_jub){
         case 1:
@@ -722,6 +874,9 @@ void print_param_setting(Params params){
             break;
         case 4:
             cout<<"min(d4f(beta),0.1beta)."<<endl;   
+            break;
+        case 5:
+            cout<<"min(asiaccs_d4f(beta,slope), pessitive d4f(beta))."<<endl;   
             break;
         default:
             cout<<"No setting"<<endl;

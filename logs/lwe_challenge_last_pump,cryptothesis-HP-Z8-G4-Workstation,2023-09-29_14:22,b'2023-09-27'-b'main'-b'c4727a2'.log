@@ -1,3 +1,0 @@
-WARNING:        root:2023/09/29 14:55:06 CST: saturation 0.488 at [b:109 P: 63 - 172 / 172], radius 1.333, goal: 0.500
- INFO:        root:2023/09/29 14:55:06 CST: Could not reach saturation, progress may slow.
-DEBUG:        root:2023/09/29 14:55:17 CST: None

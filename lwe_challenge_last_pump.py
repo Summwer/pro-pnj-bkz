@@ -168,11 +168,11 @@ def lwe_kernel(arg0, params=None, seed=None):
 
     
     B_=load_lwe_challenge_mid(n=n, alpha=alpha)
-    if B_ is not None:
-        B = B_
-    else: 
-        B = primal_lattice_basis(A, c, q, m=m)
-    # B = primal_lattice_basis(A, c, q, m=m) #debug
+    # if B_ is not None:
+    #     B = B_
+    # else: 
+    #     B = primal_lattice_basis(A, c, q, m=m)
+    B = primal_lattice_basis(A, c, q, m=m) #debug
     
     
 

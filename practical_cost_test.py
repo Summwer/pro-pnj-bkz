@@ -26,7 +26,7 @@ def theo_dim4free2_in_B(rr):
 def one_tour_pnjbkz_cost_test(blocksize, jump, n = 180, gpus = 2, threads = 32, extra_dim4free = 12, dim4free_fun = "default_dim4free_fun", pump_params = {"down_sieve": True }):
     A, bkz = load_svpchallenge_and_randomize(n, s=0, seed=0)
 
-    params = SieverParams(gpus = gpus, threads = threads, saturation_ratio = 0.375, db_size_factor = 2.77, max_nr_buckets = 0)
+    params = SieverParams(gpus = gpus, threads = threads) #, saturation_ratio = 0.375, db_size_factor = 2.77, max_nr_buckets = 0
     g6k = Siever(A, params)
     T0 = time.time()
     if blocksize < 50:
@@ -58,13 +58,14 @@ def PnjBKZCostTest(n=180,tours = 1, gpus = 2, threads = 32):
     print("Start PnjBKZ cost test...")
     AvgTs = {}
     AvgRAMs = {}
-    A, bkz = load_svpchallenge_and_randomize(s=0, seed=0)
-    params = SieverParams(gpus = gpus, threads = threads, saturation_ratio = 0.375, db_size_factor = 2.77, max_nr_buckets = 0)
+    A, bkz = load_svpchallenge_and_randomize(n, s=0, seed=0)
+    params = SieverParams(gpus = gpus, threads = threads) #saturation_ratio = 0.375, db_size_factor = 2.77, max_nr_buckets = 0
     g6k = Siever(A, params)
     rr = [g6k.M.get_r(i, i) for i in range(g6k.full_n)]
     print("{0: <10} {1: <10} {2: <10} {3: <10} {4: <10}".format("beta", "jump","sieve_dim","AvgT/s","AvgRAM/GB"))
-    for jump in range(1,theo_dim4free2_in_B(rr)):
-        for blocksize in range(51,136,2):
+    
+    for blocksize in range(51,120,2):
+        for jump in range(int(min(theo_dim4free2_in_B(rr),dim4free_wrapper(default_dim4free_fun,blocksize)/2.)), int(max(theo_dim4free2_in_B(rr),dim4free_wrapper(default_dim4free_fun,blocksize)/2.))+1):
             Ts = []
             RAMs = []
             for _ in range(tours):
