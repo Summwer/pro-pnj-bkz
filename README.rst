@@ -8,7 +8,8 @@ Please use gcc-8.5 to compile the files, and firstly run
 .. code-block:: bash
 
    git clone https://github.com/cr-marcstevens/parallel-hashmap
-   python=PYTHON3 ./bootstrap.sh -j 30 #threads for compiling
+   
+   PYTHON=python3 ./bootstrap.sh #threads for compiling
    ./rebuild.sh --noyr -j 30 #threads for compiling
 
 Before implement our code, please follow the compile guidance in the topic **G6K - GPU Tensor** We add some files in `G6K - GPU Tensor`(https://github.com/WvanWoerden/G6K-GPU-Tensor) to run a two-step mode for solving u-SVP problem in G6K-GPU with a blocksize selection method. One can generate the reduction strategy and solve the LWE instance through the reduction strategy by running the following command:
@@ -131,7 +132,7 @@ Otherwise, you will need fplll and fpylll already installed and build the G6K Cy
 
 .. code-block:: bash
 
-    pip install Cython
+    pip install Cython==0.29.36
     pip install -r requirements.txt
     ./rebuild.sh -f -y
 

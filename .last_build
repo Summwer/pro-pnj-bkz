@@ -1,87 +1,13 @@
 Git status: 
-commit 4c2647236c6fe36ed6c099864f1aad8a877cd85d
+commit 4774edd22538f4ddb73f68a4ed5f49c37b4818a2
 Author: summwer <15091002@buaa.edu.cn>
 
-    lwe-instance-generation
+    update implement_lwe_instance
 
-  (commit or discard the untracked or modified content in submodules)
 	modified:   .last_build
 	modified:   README.rst
-	modified:   __pycache__/pump_estimation.cpython-38.pyc
-	modified:   cuda/GPUStreamGeneral.o
-	modified:   g6k-fplll (modified content)
-	modified:   g6k-fpylll (untracked content)
-	modified:   g6k/algorithms/pump.py
-	modified:   g6k/siever.cpp
-	modified:   g6k/siever.pyx
-	modified:   g6k/utils/util.py
-	modified:   implement_low_dim_dd.sh
-	modified:   implement_low_dim_dd_qd_strategy.sh
-	modified:   implement_lwe_instance.sh
-	modified:   lwe_challenge_last_pump.py
-	modified:   lwe_instance/041-015-instance.txt
-	modified:   lwe_instance_gen.py
-	modified:   lwechal-instance-test-dd/default_g6k_main(32+2gpus)/41-015-1.log
-	modified:   lwechal-test-dd/d4f-default-g6k/enumbs(32+2gpus)/40-025.log
-	modified:   lwechal-test-dd/d4f-default-g6k/enumbs(32+2gpus)/40-030.log
-	modified:   lwechal-test-dd/d4f-default-g6k/enumbs(32+2gpus)/40-035.log
-	modified:   lwechal-test-dd/d4f-default-g6k/enumbs(32+2gpus)/45-020.log
-	modified:   lwechal-test-dd/d4f-default-g6k/enumbs(32+2gpus)/50-015.log
-	modified:   lwechallenge/040-025-last-pump.txt
-	modified:   lwechallenge/040-025-midmat.txt
-	modified:   lwechallenge/040-030-last-pump.txt
-	modified:   lwechallenge/040-030-midmat.txt
-	modified:   lwechallenge/040-030-solution.txt
-	modified:   lwechallenge/040-035-midmat.txt
-	modified:   lwechallenge/041-015-midmat-default-g6k.txt
-	modified:   lwechallenge/045-020-last-pump.txt
-	modified:   lwechallenge/045-020-midmat.txt
-	modified:   lwechallenge/045-020-solution.txt
-	modified:   lwechallenge/050-015-last-pump.txt
-	modified:   lwechallenge/050-015-midmat-default-g6k.txt
-	modified:   lwechallenge/050-015-midmat.txt
-	modified:   lwechallenge/050-015-solution.txt
-	modified:   lwechallenge/055-010-last-pump.txt
-	modified:   lwechallenge/055-010-midmat.txt
-	modified:   lwechallenge/055-010-solution.txt
-	modified:   lwechallenge/060-005-midmat.txt
-	modified:   lwechallenge/060-010-last-pump.txt
-	modified:   lwechallenge/060-010-midmat-default-g6k.txt
-	modified:   lwechallenge/060-010-midmat.txt
-	modified:   lwechallenge/060-010-solution.txt
-	modified:   lwechallenge/070-005-last-pump.txt
-	modified:   lwechallenge/070-005-midmat.txt
-	modified:   lwechallenge/070-005-solution.txt
-	modified:   lwechallenge/075-005-last-pump.txt
-	modified:   lwechallenge/075-005-midmat.txt
-	modified:   lwechallenge/075-005-solution.txt
-	modified:   practical_cost_test.py
-	modified:   strategy_gen/NIST-round3-est/NIST-round3-est-gate.cpp
-	modified:   strategy_gen/README.md
-	modified:   strategy_gen/build/lib.linux-x86_64-cpython-38/strategy_gen.cpython-38-x86_64-linux-gnu.so
-	modified:   strategy_gen/build/temp.linux-x86_64-cpython-38/strategy_gen.o
-	modified:   strategy_gen/cython_debug/cython_debug_info_strategy_gen
-	modified:   strategy_gen/decl.pxd
-	modified:   strategy_gen/framework/Makefile
-	modified:   strategy_gen/framework/attack.cpp
-	modified:   strategy_gen/framework/bkz_with_jump_simulator.cpp
-	modified:   strategy_gen/framework/bssa-dsvp.cpp
-	modified:   strategy_gen/framework/bssa.cpp
-	modified:   strategy_gen/framework/cost.cpp
-	modified:   strategy_gen/framework/cost.h
-	modified:   strategy_gen/framework/d_svp_prediction.cpp
-	modified:   strategy_gen/framework/enumbs.cpp
-	modified:   strategy_gen/framework/enumbs.h
-	modified:   strategy_gen/framework/libest.so
-	modified:   strategy_gen/framework/utils.cpp
-	modified:   strategy_gen/framework/utils.h
-	modified:   strategy_gen/lwe-est/lwechal-bssa-est.cpp
-	modified:   strategy_gen/strategy_gen.cpp
-	modified:   strategy_gen/strategy_gen.cpython-38-x86_64-linux-gnu.so
-	modified:   strategy_gen/strategy_gen.pxd
-	modified:   strategy_gen/strategy_gen.pyx
-	modified:   strategy_gen/strategy_simulation.cpp
-	modified:   strategy_gen/strategy_simulation_for_cum_prob.cpp
+	modified:   bootstrap.sh
+	modified:   install-dependencies.sh
 =================
-rebuild.sh -y
+rebuild.sh --noyr -j 30
 =================

@@ -66,7 +66,7 @@ ln -s g6k-env/bin/activate ./
 source g6k-env/bin/activate
 
 $PIP install -U pip
-$PIP install Cython
+$PIP install Cython==0.29.36
 $PIP install cysignals
 
 cat <<EOF >>g6k-env/bin/activate
@@ -94,12 +94,13 @@ cd ..
 # Install FPyLLL
 git clone https://github.com/fplll/fpylll g6k-fpylll
 cd g6k-fpylll || exit 1
-$PIP install Cython
+$PIP install Cython==0.29.36
 $PIP install -r requirements.txt
 $PIP install -r suggestions.txt
 $PYTHON setup.py clean
 $PYTHON setup.py build_ext $jobs || $PYTHON setup.py build_ext
-$PYTHON setup.py install || exit 1
+python -m pip install .
+#$PYTHON setup.py install || exit 1 old
 cd ..
 
 # Install parallel-hashmap
