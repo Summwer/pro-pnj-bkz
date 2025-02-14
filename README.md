@@ -34,20 +34,20 @@ Now we explain how to generate the experimental data we provided in the suppleme
 
 
 
-## Figure 5 & Table 2
+## Figure 6 & Table 2
 
-We run the experiment in `implement_lwechal_forall.sh`(dd float_type) to solve LWE challenge with strategy in default g6k, bssa, or enumbs and obtain the cost information in Figure 2(a) and Figure 2(b). It stores the test result in the folder  `lwechal-test`. We also run an experiment in `implement_lwe_instance_forall.sh` to test the cost of LWE instances among the above three solvers while with growth of $n$ in "dd" float_type, the experiment result is stored in the folder `lwe-instance-test`. It is the source data of Figure 2(c) and Figure 2(d). All the above result shows the cost of T(ProPnJBKZ(EnumBS))<T(ProPnJBKZ(BSSA))<T(default G6K).
+We run the experiment in `implement_lwechal_forall.sh`(dd float_type) to solve LWE challenge with strategy in default g6k, bssa, or enumbs and obtain the cost information in Figure 6(a) and Figure 6(b). It stores the test result in the folder  `lwechal-test`. We also run an experiment in `implement_lwe_instance_forall.sh` to test the cost of LWE instances among the above three solvers while with growth of $n$ in "dd" float_type, the experiment result is stored in the folder `lwe-instance-test`. It is the source data of Figure 6(c) and Figure 6(d). All the above result shows the cost of T(ProPnJBKZ(EnumBS))<T(ProPnJBKZ(BSSA))<T(default G6K).
 
 Beside in each log of test, we also print the cost for each strategy generation and the detailed strategy. We also list some of them in `Table 2`.
 
-All the data is stored in the folder `Fig.5 cost-comparison`.
+All the data is stored in the folder `Fig.6 cost-comparison`.
 
 
 
 
-## **Figure4&9~22.**
+## **Figure5&16~29.simulator-test**
 
-This is the code description document for all verification experiments of the accuracy of PnJBKZ Simulator in Section 4.1.2 (Section: Performance of PnJBKZ simulator). 
+This is the code description document for all verification experiments of the accuracy of PnJBKZ Simulator in Section 5 "The Design of PnJBKZ Simulator".
 
 One should download the open source code https://github.com/Summwer/pro-pnj-bkz
 
@@ -57,15 +57,15 @@ First, according to the beta, jump, and tours parameters you want to verify, mod
 python lwe_challenge_gen_rr.py 75 --lwe/alpha 0.005 --bkz/jump 9 --pump/down_sieve True --bkz/blocksizes "[95,95,95,95,95,95,95,95,95,95,95,95]" --gpus 2 --threads 32
 ```
 
-It will record the actual rr value obtained by the lattice basis reduction of PnJBKZ-$(\beta,J)$ at different numbers of tours in the folder `simulator-test`, and then we can draw a figure like Figure 6. 
+It will record the actual rr value obtained by the lattice basis reduction of PnJBKZ-$(\beta,J)$ at different numbers of tours in the folder `simulator-test`, and then we can draw a figure like Figure 5. 
 
 After obtaining the $\mathsf{rr}$ value, it stores the values in the folder `simulator-test` . Then  enter the folder `simulator-test` and run
 
 ```bash
-python Fig7_Fig8_Verification_Experiments_of_PnJBKZ_Simulator_2024.py
+python Verification_Experiments_of_PnJBKZ_Simulator_2024.py
 ```
 
-(We've pre-stored the generated rr in `simulator-test`, one can implement the command above directly, we also give the test data and implemented code in the folder `Figure4&9~22`) It will print and output the result of calculating the error between the PnJBKZ simulator simulation value and the actual reduced rr value, which is shown in Fig9. At the same time, the program will draw Fig10 to verify the accuracy of the PnJBKZ simulator under the corresponding reduction parameters. Fig11~Fig22 give more tests about PnJBKZ simulator. For the limit of supplementary materials, we only put partial test results in the folder. For the entire test results, please see  https://github.com/Summwer/pro-pnj-bkz/simulator-test.
+(We've pre-stored the generated rr in `simulator-test`, one can implement the command above directly) It will print and output the result of calculating the error between the PnJBKZ simulator simulation value and the actual reduced rr value, which is shown in Fig9. At the same time, the program will draw Fig10 to verify the accuracy of the PnJBKZ simulator under the corresponding reduction parameters. Fig11~Fig22 give more tests about PnJBKZ simulator. For the limit of supplementary materials, we only put partial test results in the folder. For the entire test results, please see  https://github.com/Summwer/pro-pnj-bkz/simulator-test.
 
 
 
@@ -80,9 +80,9 @@ and obtain `Figure8`.
 
 
 
-## Table3,9-11
+## Table3,7-9
 
-In `Table3,9-11`. We compare the actual running process of LWE challenge and our simulated results. One can obtain the simulated results by running
+In `Table3,7-9`. We compare the actual running process of LWE challenge and our simulated results. One can obtain the simulated results by running
 
 ```python
 python strategy_simulation.py
@@ -134,15 +134,15 @@ and obatain the estimated result in two-step mode with trival reduction strategy
 
 
 
-## Fig. 24~28. Practical Cost Model
+## Fig. 10~14. Practical Cost Model
 
-In the folder `Fig. 21~25. Practical Cost Model`, we give the cost test result in it. We also give the code for constructing the practical cost model of Pump and PnJBKZ here. Especially, one can test their own practical cost data for cost model by running the command:
+In the folder `Fig. 10~14. Practical Cost Model`, we give the cost test result in it. We also give the code for constructing the practical cost model of Pump and PnJBKZ here. Especially, one can test their own practical cost data for cost model by running the command:
 
 ```bash
 python practical_pump_cost_test.py | tee practical_pump_cost.log
 ```
 
- for pump cost model and 
+ for pump cost model and PnJBKZ cost model. 
 
 ```bash
 python practical_PnJBKZ_cost_test.py
@@ -160,7 +160,7 @@ python practical_pump_cost.py
 
 
 
-## Table7. optimize m
+## Table6. optimize m
 
 We also try to optimize number of LWE samples in our work. One can run the code 
 
@@ -170,9 +170,9 @@ We also try to optimize number of LWE samples in our work. One can run the code
 
 to obtain the optimized $m$ as Table 9 shown. The log result is stored in the folder in the folder `optimize-m`.
 
-## Table 8 & Table 4
+## Table 10
 
-To generate the strategy for our updated LWE records to run them in Table 4, one can run the command
+To generate the strategy for our updated LWE records to run them in Table 10, one can run the command
 
 ```bash
 ./implement_unsolved_lwechal.sh

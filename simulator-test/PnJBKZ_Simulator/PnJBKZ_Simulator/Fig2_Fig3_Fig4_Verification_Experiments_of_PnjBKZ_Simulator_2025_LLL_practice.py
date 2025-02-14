@@ -45,7 +45,7 @@ def read_file(n,alpha_,jump,Pumpdown,Blocksize,Tours,test_number,d):
     
     return log_GS_lengths,GS_lengths,dir
 
-#When jump=1, pnj-bkz simulator degenerates to CN11 simulator
+#When jump=1, PnJBKZ simulator degenerates to CN11 simulator
 def pnjBKZ_simulator(log_rr0,beta,N,d,jump):
     l = []
     for i in range(d):
@@ -62,11 +62,23 @@ def pnjBKZ_simulator(log_rr0,beta,N,d,jump):
         rk.append(RK)
     #print(rk)
     cd = []
-    for i in range(beta):
-        CD = lgamma(((i+1)/2.0 + 1))*(1/(i+1))-log(pi)/2
-        cd.append(CD)
+    if jump/beta > 0.95:
+        for i in range(12):
+            cd.append((lgamma(((i+1)/2.0 + 1))*(1/(i+1))-log(pi)/2)*0.5)
+        for i in range(12,beta):
+            cd.append(lgamma(((i+1)/2.0 + 1))*(1/(i+1))-log(pi)/2)
+    
+    elif jump/beta > 0.6:
+        for i in range(12):
+            cd.append((lgamma(((i+1)/2.0 + 1))*(1/(i+1))-log(pi)/2)*0.5)
+        for i in range(12,beta):
+            cd.append(lgamma(((i+1)/2.0 + 1))*(1/(i+1))-log(pi)/2)
+        
     #print(cd)
-    print(N)
+    else:
+        for i in range(beta):
+            cd.append(lgamma(((i+1)/2.0 + 1))*(1/(i+1))-log(pi)/2)
+    print("PnJ-BKZ Smulator")
     for tours in range(N):
         flag = True
         for k in range(d - beta):
@@ -87,20 +99,26 @@ def pnjBKZ_simulator(log_rr0,beta,N,d,jump):
                         if tours == 0:
                             l_.append(l_k)
                         else:
-                            l_[k] = l_k
+                            l_[k] = copy.deepcopy(l_k)
                         flag = False
+                        # print("\n%d",k)
+                        # print(l_[k] - l_[k-1])
                     else:
-                        l_k = l[k]
+                        l_k = copy.deepcopy(l[k])
                         if tours == 0:
                             l_.append(l_k)
                         else:
-                            l_[k] = l_k
+                            l_[k] = copy.deepcopy(l_k)
                 else:
                     l_k = logV / beta_ + cd[beta_-1]
                     if tours == 0:
                         l_.append(l_k)
                     else:
-                        l_[k] = l_k
+                        l_[k] = copy.deepcopy(l_k)
+                if jump/beta > 0.12:
+                    l_[k] = copy.deepcopy((l_[k-1] + l_k)/2)        
+                if k > 1 and jump/beta > 0.12:
+                    l_[k] = copy.deepcopy((l_[k-1] + l_k)/2)
             else:
                 f = min(k - (k % J) + beta, d)
                 sumf = 0
@@ -112,25 +130,30 @@ def pnjBKZ_simulator(log_rr0,beta,N,d,jump):
                 logV = sumf - sumk
                 if flag == True:
                     if logV / (beta_-(k % J)) + cd[(beta_-(k % J))-1] < l[k]:
-                        l_k = logV / (beta_-(k % J)) + cd[(beta_-(k % J))-1]
+                        l_k = logV / (beta_-(k % J)) + cd[(beta_-(k % J))-1]                        
                         if tours == 0:
                             l_.append(l_k)
                         else:
-                            l_[k] = l_k
-                            flag = False
+                            l_[k] = copy.deepcopy(l_k)
+                            flag = False     
                     else:
                         l_k = l[k]
                         if tours == 0:
                             l_.append(l_k)
                         else:
-                            l_[k] = l_k
+                            l_[k] = copy.deepcopy(l_k)
                 else:
-
                     l_k = logV / (beta_-(k % J)) + cd[(beta_-(k % J))-1]
                     if tours == 0:
                         l_.append(l_k)
                     else:
-                        l_[k] = l_k
+                        l_[k] = copy.deepcopy(l_k)
+                if jump/beta >= 0.5:
+                    if k % J < 6:
+                        l_[k] = copy.deepcopy((l_[k-1] + l_k)/2)
+                        #l_[k] = copy.deepcopy((l_[k-2] + l_[k-1] + l_k)/3)
+                if l_[k-1] - l_[k] > 0.09 and jump/beta > 0.12:
+                    l_[k] = copy.deepcopy((l_[k-1] + l_k)/2)
         for k in range(d - beta,d - 45):
             beta_ = d - k
             f = d
@@ -147,21 +170,22 @@ def pnjBKZ_simulator(log_rr0,beta,N,d,jump):
                     if tours == 0:
                         l_.append(l_k)
                     else:
-                        l_[k] = l_k
+                        l_[k] = copy.deepcopy(l_k)
                     flag = False
                 else:
                     l_k = l[k]
                     if tours == 0:
                         l_.append(l_k)
                     else:
-                        l_[k] = l_k
+                        l_[k] = copy.deepcopy(l_k)
             else:
                 l_k = logV / beta_ + cd[beta_-1]
                 if tours == 0:
                     l_.append(l_k)
                 else:
-                    l_[k] = l_k
-                
+                    l_[k] = copy.deepcopy(l_k)
+            if k < d - beta + 6 and jump/beta > 0.12:
+                l_[k] = copy.deepcopy((l_[k-1] + l_k)/2)
             #print(l_)
         k_ = min (len(randomSquaredAverages), beta)
         #last 45 norms
@@ -177,10 +201,12 @@ def pnjBKZ_simulator(log_rr0,beta,N,d,jump):
             if tours == 0:
                 l_.append(l_k)
             else:
-                l_[k] = l_k
-                #Set l[i] as l_[i] 
+                l_[k] = copy.deepcopy(l_k)
+                #Set l[i] as l_[i]
+            # if l_[k] > l_[k-1]:
+            #     l_[k] = copy.deepcopy(l_[k-1] - 0.143841036)
         for i in range(d):
-            l[i] = l_[i]
+            l[i] = copy.deepcopy(l_[i])
     return l_
 
 
@@ -205,7 +231,7 @@ def CN11_simulator(log_rr0,beta,N,d):
         CD = lgamma(((i+1)/2.0 + 1))*(1/(i+1))-log(pi)/2
         cd.append(CD)
     #print(cd)
-    print(N)
+    print("CN11")
     for j in range(N):
         flag = True
         for k in range(d):
@@ -224,73 +250,73 @@ def CN11_simulator(log_rr0,beta,N,d):
                     if j == 0:
                         l_.append(l_k)
                     else:
-                        l_[k] = l_k
+                        l_[k] = copy.deepcopy(l_k)
                     flag = False
                 else:
-                    l_k = l[k]
+                    l_k = copy.deepcopy(l[k])
                     if j == 0:
                         l_.append(l_k)
                     else:
-                        l_[k] = l_k
+                        l_[k] = copy.deepcopy(l_k)
             else:
                 l_k = logV / beta_ + cd[beta_-1]
                 if j == 0:
                     l_.append(l_k)
                 else:
-                    l_[k] = l_k
+                    l_[k] = copy.deepcopy(l_k)
             #print(l_)
         #Set l[i] as l_[i]         
         for i in range(d):
-            l[i] = l_[i]
+            l[i] = copy.deepcopy(l_[i])
     return l_
 
-#def show_gs_slope_figure(dir,log_gs_length,sim_log_gs_lengths,n,dimension,alpha_,square_error,Blocksize,Jump,N,test_number):
-#    plt.figure(figsize=(15, 10), dpi=100)
-#
-#    t = 0
-#    plt.scatter([_+1 for _ in range(t,dimension)],[log_gs_length[_] for _ in range(t,dimension) ],marker="o",c='none',edgecolors='b')
-#    plt.scatter([_+1 for _ in range(t,len(sim_log_gs_lengths)) ],[sim_log_gs_lengths[_] for _ in range(t,len(sim_log_gs_lengths)) ],marker="x",c='r')
-#    #plt.title("square error = %f" %(square_error),x=0.9,y=0.875)
-#    plt.rcParams.update({'font.size':20})
-#    plt.legend(['Experimental','jump simulator'])
-#
-#
-#    plt.savefig(dir+"n=%d, alpha = %s, dimension = %d, Blocksize = %d, Jump = %d, #Current Tours= %d.png" %(n,alpha_,dimension,Blocksize,Jump,N+1))
-##    plt.show()
-#    plt.close()
+def show_gs_slope_figure(dir,log_gs_length,sim_log_gs_lengths,n,dimension,alpha_,square_error,Blocksize,Jump,N,test_number):
+    plt.figure(figsize=(15, 10), dpi=100)
+
+    t = 0
+    plt.scatter([_+1 for _ in range(t,dimension)],[log_gs_length[_] for _ in range(t,dimension) ],marker="o",c='none',edgecolors='b')
+    plt.scatter([_+1 for _ in range(t,len(sim_log_gs_lengths)) ],[sim_log_gs_lengths[_] for _ in range(t,len(sim_log_gs_lengths)) ],marker="x",c='r')
+    #plt.title("square error = %f" %(square_error),x=0.9,y=0.875)
+    plt.rcParams.update({'font.size':20})
+    plt.legend(['Experimental','jump simulator'])
+   
+
+    plt.savefig(dir+"n=%d, alpha = %s, dimension = %d, Blocksize = %d, Jump = %d, #Current Tours= %d.png" %(n,alpha_,dimension,Blocksize,Jump,N+1))
+    plt.show()
     
-#def show_gs_slope_figure2(dir,log_gs_length,sim_log_gs_lengths,CN_11_mid_log_gs,n,dimension,alpha_,square_error1,square_error2,Blocksize,Jump,N,test_number):
-#    plt.figure(figsize=(15, 10), dpi=100)
-#
-#    t = 0
-#    plt.scatter([_+1 for _ in range(t,dimension)],[log_gs_length[_] for _ in range(t,dimension) ],marker="^",c='none',edgecolors='k')
-#    plt.scatter([_+1 for _ in range(t,len(sim_log_gs_lengths)) ],[sim_log_gs_lengths[_] for _ in range(t,len(sim_log_gs_lengths)) ],marker="x",c='r')
-#    plt.scatter([_+1 for _ in range(t,len(CN_11_sim)) ],[CN_11_sim[_] for _ in range(t,len(CN_11_sim)) ],marker="o",c='none',edgecolors='b')
-#    plt.xlabel("Index")
-#    plt.ylabel("log GS norm")
-#    plt.legend(['Experimental','pnj-BKZ simulator','BKZ2.0 simulator'])
-#
-#
-#    plt.savefig(dir+"Comparing figure, n=%d, alpha = %s, dimension = %d, Blocksize = %d, Jump = %d, #Current Tours= %d.png" %(n,alpha_,dimension,Blocksize,Jump,N+1))
-#    #plt.savefig(dir+"Comparing figure, dimension = %d, Blocksize = %d, Jump = %d, #Current Tours= %d.png" %(dimension,Blocksize,Jump,N+1))
-#    plt.show()
+def show_gs_slope_figure2(dir,log_gs_length,sim_log_gs_lengths,CN_11_mid_log_gs,n,dimension,alpha_,square_error1,square_error2,Blocksize,Jump,N,test_number):
+    plt.figure(figsize=(15, 10), dpi=100)
+
+    t = 0
+    plt.scatter([_+1 for _ in range(t,dimension)],[log_gs_length[_] for _ in range(t,dimension) ],marker="^",c='none',edgecolors='k')
+    plt.scatter([_+1 for _ in range(t,len(sim_log_gs_lengths)) ],[sim_log_gs_lengths[_] for _ in range(t,len(sim_log_gs_lengths)) ],marker="x",c='r')
+    plt.scatter([_+1 for _ in range(t,len(CN_11_sim)) ],[CN_11_sim[_] for _ in range(t,len(CN_11_sim)) ],marker="o",c='none',edgecolors='b')
+    plt.xlabel("Index")
+    plt.ylabel("log GS norm")
+    plt.legend(['Experimental','PnJBKZ simulator (LLL)','BKZ2.0 simulator'])
+  
+
+    plt.savefig(dir+"Comparing figure, n=%d, alpha = %s, dimension = %d, Blocksize = %d, Jump = %d, #Current Tours= %d.png" %(n,alpha_,dimension,Blocksize,Jump,N+1))
+    #plt.savefig(dir+"Comparing figure, dimension = %d, Blocksize = %d, Jump = %d, #Current Tours= %d.png" %(dimension,Blocksize,Jump,N+1))
+    plt.show()    
 
 def show_gs_slope_figure3(dir,log_gs_length,sim_log_gs_lengths,n,dimension,alpha_,square_error1,Blocksize,Jump,N,test_number):
     plt.figure(figsize=(15, 10), dpi=100)
 
     t = 0
-    plt.scatter([_+1 for _ in range(t,dimension)],[log_gs_length[_] for _ in range(t,dimension) ],marker="^",c='none',edgecolors='k')
-    plt.scatter([_+1 for _ in range(t,len(sim_log_gs_lengths)) ],[sim_log_gs_lengths[_] for _ in range(t,len(sim_log_gs_lengths)) ],marker="x",c='b')
+    plt.scatter([_+1 for _ in range(t,dimension)],[log_gs_length[_] for _ in range(t,dimension) ], marker="^", c='none',edgecolors='k')
+    plt.scatter([_+1 for _ in range(t,len(sim_log_gs_lengths)) ],[sim_log_gs_lengths[_] for _ in range(t,len(sim_log_gs_lengths)) ], marker="x",c='r')
+    # plt.scatter([_+1 for _ in range(t,dimension)],[log_gs_length[_] for _ in range(t,dimension) ], s=80, marker="^", c='none',edgecolors='k')
+    # plt.scatter([_+1 for _ in range(t,len(sim_log_gs_lengths)) ],[sim_log_gs_lengths[_] for _ in range(t,len(sim_log_gs_lengths)) ], s=80, marker="x",c='b')
     plt.xlabel("Index", fontsize=24)
     plt.ylabel("log GS norm", fontsize=24)
-    plt.legend(['Experimental','pnj-BKZ simulator'], fontsize=24)
+    plt.legend(['Experimental','PnJBKZ simulator (LLL)'], fontsize=24)
     #plt.title("n=%d, alpha = %s, dimension = %d, Blocksize = %d, Jump = %d, #Current Tours= %d, prediction error = %f" %(n,alpha_,dimension,Blocksize,Jump,N+1,square_error1))
     plt.title("Dimension = %d, Blocksize = %d, Jump = %d, #Current Tours= %d,SimError = %f" %(dimension,Blocksize,Jump,N+1,square_error1), fontsize=20)
     plt.tick_params(labelsize=22)
 
     plt.savefig(dir+"Comparing figure, n=%d, alpha = %s, dimension = %d, Blocksize = %d, Jump = %d, #Current Tours= %d.png" %(n,alpha_,dimension,Blocksize,Jump,N+1))
-#    plt.show()
-    plt.close()
+    plt.show()   
     
 def show_gs_slope_figure4(dir,log_gs_length,sim_log_gs_lengths,n,dimension,alpha_,square_error1,Blocksize,Jump,N,test_number):
     plt.figure(figsize=(8, 10), dpi=100)
@@ -304,17 +330,16 @@ def show_gs_slope_figure4(dir,log_gs_length,sim_log_gs_lengths,n,dimension,alpha
     plt.plot([1,dimension],[0.95,0.95],c='k',linestyle='--')
     #plt.fill_between([1,dimension],[1.05,1.05],[0.95,0.95],facecolor='gray',edgecolor='k',alpha=0.3)
     
-    plt.legend(['Real ||bi*||/ Sim ||bi*||'])
+    plt.legend(['Real ||bi*||/ Sim ||bi*||'], fontsize=16)
     #plt.legend(['Ratio','Ratio=1','Ratio within [0.95,1.05]'])
-    plt.xlabel("Index")
-    plt.ylabel("Ratio")
-    #plt.legend(['Experimental','pnj-BKZ simulator'])
+    plt.xlabel("Index", fontsize=16)
+    plt.ylabel("Ratio", fontsize=16)
+    #plt.legend(['Experimental','PnJBKZ simulator (LLL)'])
     #plt.title("n=%d, alpha = %s, dimension = %d, Blocksize = %d, Jump = %d, #Current Tours= %d" %(n,alpha_,dimension,Blocksize,Jump,N+1))
     plt.title("Dimension = %d, Blocksize = %d, Jump = %d, #Current Tours= %d" %(dimension,Blocksize,Jump,N+1), fontsize=14)
 
     plt.savefig(dir+"Ratio figure, n=%d, alpha = %s, dimension = %d, Blocksize = %d, Jump = %d, #Current Tours= %d.png" %(n,alpha_,dimension,Blocksize,Jump,N+1))
-#    plt.show()
-    plt.close()
+    plt.show()
        
         
 def ratio_txt(dir,log_gs_length,sim_log_gs_lengths,n,dimension,alpha_,square_error1,Blocksize,Jump,N,test_number):
@@ -324,7 +349,9 @@ def ratio_txt(dir,log_gs_length,sim_log_gs_lengths,n,dimension,alpha_,square_err
     f.close()
     
 def Ratio_figure(dir,log_gs_length,sim_log_gs_lengths,n,dimension,alpha_,square_error1,Blocksize,Jump,N,test_number):
-    f = open(dir+"/ratio, n=%d, alpha = %s, dimension = %d, Blocksize = %d, Jump = %d, #Current Tours= %d.txt"%(n,alpha_,dimension,Blocksize,Jump,1), "r")
+    Current_Tours0 = 1
+    #Current_Tours0 = 3
+    f = open(dir+"/ratio, n=%d, alpha = %s, dimension = %d, Blocksize = %d, Jump = %d, #Current Tours= %d.txt"%(n,alpha_,dimension,Blocksize,Jump,Current_Tours0), "r")
     ratio1_ = f.read()
     ra = ratio1_.split(' ')
     ratio1 = []
@@ -332,10 +359,15 @@ def Ratio_figure(dir,log_gs_length,sim_log_gs_lengths,n,dimension,alpha_,square_
         #print(_)
         if _ !='':
             ratio1.append(float(_))
+    s = 0
+    for i in range(len(ratio1)):
+        s = s + abs(ratio1[i]-1)
+    print("Ratio Abs Average %f, Current Tours = %d"%(s/len(ratio1),Current_Tours0))
     #ratio1_ = [float(_) for _ in ra]
         
     #print(ratio1)
-    Current_Tours1 = 6
+    #Current_Tours1 = 2
+    Current_Tours1 = int(N/2)+1
     f0 = open(dir+"/ratio, n=%d, alpha = %s, dimension = %d, Blocksize = %d, Jump = %d, #Current Tours= %d.txt"%(n,alpha_,dimension,Blocksize,Jump,Current_Tours1), "r")
     ratio4_ = f0.read()
     ra4 = ratio4_.split(' ')
@@ -345,7 +377,8 @@ def Ratio_figure(dir,log_gs_length,sim_log_gs_lengths,n,dimension,alpha_,square_
         if _ !='':
             ratio4.append(float(_))
     
-    Current_Tours2 = 12
+    #Current_Tours2 = 3
+    Current_Tours2 = N-1
     f1 = open(dir+"/ratio, n=%d, alpha = %s, dimension = %d, Blocksize = %d, Jump = %d, #Current Tours= %d.txt"%(n,alpha_,dimension,Blocksize,Jump,Current_Tours2), "r")
     ratio8_ = f1.read()
     ra8 = ratio8_.split(' ')
@@ -360,7 +393,76 @@ def Ratio_figure(dir,log_gs_length,sim_log_gs_lengths,n,dimension,alpha_,square_
     plt.xlabel('Index', fontsize=24)
     plt.ylabel('Ratio', fontsize=24)
     plt.fill_between([0,dimension],0.951,1.049,facecolor = 'gainsboro', alpha = 0.7)
-    plt.scatter(x, ratio1,s=24,marker="*",c='k',edgecolors='k', label=r"$\mathrm{Real}(  {\left \| \left \| \mathbf{b}_{i}^* \right \|  \right \| }) / \mathrm{Sim}  ({\left \| \left \| \mathbf{b}_{i}^* \right \|  \right \| }), \mathrm{Tours}=1$")   
+    plt.scatter(x, ratio1,s=24,marker="*",c='k',edgecolors='k', label=r"$\mathrm{Real}(  {\left \| \left \| \mathbf{b}_{i}^* \right \|  \right \| }) / \mathrm{Sim}  ({\left \| \left \| \mathbf{b}_{i}^* \right \|  \right \| }), \mathrm{Tours}=%d$"%Current_Tours0)   
+    plt.scatter(x, ratio4,s=16,marker="^",c='none',edgecolors='b', label=r"$\mathrm{Real}(  {\left \| \left \| \mathbf{b}_{i}^* \right \|  \right \| }) / \mathrm{Sim}  ({\left \| \left \| \mathbf{b}_{i}^* \right \|  \right \| }), \mathrm{Tours}=%d$"%Current_Tours1)
+    plt.scatter(x, ratio8,s=16,marker="o",c='r',edgecolors='r', label=r"$\mathrm{Real}(  {\left \| \left \| \mathbf{b}_{i}^* \right \|  \right \| }) / \mathrm{Sim}  ({\left \| \left \| \mathbf{b}_{i}^* \right \|  \right \| }), \mathrm{Tours}=%d$"%Current_Tours2)
+    #plt.plot(x, ratio1, 'ok', label='Real ||bi*||/ Sim ||bi*|| Tours=1')
+    #plt.plot(x, ratio8, '^b', label='Real ||bi*||/ Sim ||bi*|| Tours=8')
+    plt.ylim(0.85,1.15)
+    dimension=len(ratio1)
+    plt.plot([1,dimension],[1,1],c='k')
+    plt.plot([1,dimension],[1.1,1.1],c='k',linestyle=':')
+    plt.plot([1,dimension],[0.9,0.9],c='k',linestyle=':')
+    plt.plot([1,dimension],[1.05,1.05],c='k',linestyle='--')
+    plt.plot([1,dimension],[0.95,0.95],c='k',linestyle='--')
+    plt.tick_params(labelsize=20)
+
+
+
+    plt.legend(fontsize=20, loc = 'upper right')
+    plt.title("Dimension = %d, Blocksize = %d, Jump = %d" %(dimension,Blocksize,Jump), fontsize=20)
+    plt.savefig(dir+"Ratio with different tours, Dimension = %d, Blocksize = %d, Jump = %d.png"%(dimension,Blocksize,Jump))
+    
+    
+    
+def Ratio_figure_high_jump(dir,log_gs_length,sim_log_gs_lengths,n,dimension,alpha_,square_error1,Blocksize,Jump,N,test_number):
+    Current_Tours0 = 1
+    f = open(dir+"/ratio, n=%d, alpha = %s, dimension = %d, Blocksize = %d, Jump = %d, #Current Tours= %d.txt"%(n,alpha_,dimension,Blocksize,Jump,Current_Tours0), "r")
+    ratio1_ = f.read()
+    ra = ratio1_.split(' ')
+    ratio1 = []
+    for _ in ra:
+        #print(_)
+        if _ !='':
+            ratio1.append(float(_))
+    #ratio1_ = [float(_) for _ in ra]
+    s = 0
+    for i in range(len(ratio1)):
+        s = s + abs(ratio1[i]-1)
+    print("Ratio Abs Average %f, Current Tours = %d"%(s/len(ratio1),Current_Tours0))
+        
+    #print(ratio1)
+    Current_Tours1 = 2
+    f0 = open(dir+"/ratio, n=%d, alpha = %s, dimension = %d, Blocksize = %d, Jump = %d, #Current Tours= %d.txt"%(n,alpha_,dimension,Blocksize,Jump,Current_Tours1), "r")
+    ratio4_ = f0.read()
+    ra4 = ratio4_.split(' ')
+    ratio4 = []
+    for _ in ra4:
+        #print(_)
+        if _ !='':
+            ratio4.append(float(_))
+    
+    Current_Tours2 = 3
+    f1 = open(dir+"/ratio, n=%d, alpha = %s, dimension = %d, Blocksize = %d, Jump = %d, #Current Tours= %d.txt"%(n,alpha_,dimension,Blocksize,Jump,Current_Tours2), "r")
+    ratio8_ = f1.read()
+    ra8 = ratio8_.split(' ')
+    ratio8 = []
+    for _1 in ra8:
+        #print(_)
+        if _1 !='':
+            ratio8.append(float(_1))
+    
+    s = 0
+    for i in range(len(ratio8)):
+        s = s + abs(ratio8[i]-1)
+    print("Ratio Abs Average %f, Current Tours = %d"%(s/len(ratio8),Current_Tours2))
+    
+    x = [_ for _ in range(len(ratio1))] 
+    plt.figure(figsize=(16, 9), dpi=100)
+    plt.xlabel('Index', fontsize=24)
+    plt.ylabel('Ratio', fontsize=24)
+    plt.fill_between([0,dimension],0.951,1.049,facecolor = 'gainsboro', alpha = 0.7)
+    plt.scatter(x, ratio1,s=24,marker="*",c='k',edgecolors='k', label=r"$\mathrm{Real}(  {\left \| \left \| \mathbf{b}_{i}^* \right \|  \right \| }) / \mathrm{Sim}  ({\left \| \left \| \mathbf{b}_{i}^* \right \|  \right \| }), \mathrm{Tours}=%d$"%Current_Tours0)   
     plt.scatter(x, ratio4,s=16,marker="^",c='none',edgecolors='b', label=r"$\mathrm{Real}(  {\left \| \left \| \mathbf{b}_{i}^* \right \|  \right \| }) / \mathrm{Sim}  ({\left \| \left \| \mathbf{b}_{i}^* \right \|  \right \| }), \mathrm{Tours}=%d$"%Current_Tours1)
     plt.scatter(x, ratio8,s=16,marker="o",c='r',edgecolors='r', label=r"$\mathrm{Real}(  {\left \| \left \| \mathbf{b}_{i}^* \right \|  \right \| }) / \mathrm{Sim}  ({\left \| \left \| \mathbf{b}_{i}^* \right \|  \right \| }), \mathrm{Tours}=%d$"%Current_Tours2)
     #plt.plot(x, ratio1, 'ok', label='Real ||bi*||/ Sim ||bi*|| Tours=1')
@@ -407,17 +509,36 @@ def compute_square_error(list1,list2,flag = 1):
 #=========================================input==============================================
 
 if __name__ == "__main__":
-    n, d, alpha_ , Pumpdown  = 70,235,"005","True"
+    #n, d, alpha_ , Pumpdown  = 70,263,"010","True"
+    #n, d, alpha_ , Pumpdown  = 70,235,"005","True"
+    n, d, alpha_ , Pumpdown  = 60,222,"010","True"
+    #n, d, alpha_ , Pumpdown  = 50,194,"015","True"
+    #n, d, alpha_ , Pumpdown  = 75,252,"005","True"
+
     
-    Blocksize, jump, Tours, test_number = 70, 9, 13, 1
+    Blocksize, jump, Tours, test_number, extra_dim4free = 71, 12, 9, 1, 0
+    #50-015
+    #slope = -0.05127
     
-    slope = -0.04927
+    #60-010
+    slope = -0.04963
+    
+    #75-005
+    #slope = -0.04339
+    
+    
+    #70-005
+    #slope = -0.04927
+    
     # Before simulation the quality of current lattice basis: slope
 
 
     
     Blocksizes = [Blocksize for _ in range(Tours)]
     Sim_Blocksizes = [Blocksize for _ in range(Tours)]
+    
+    # Blocksizes = [80,82,84,86,88,90]
+    # Sim_Blocksizes = [80,82,84,86,88,90]
   
     
 
@@ -468,29 +589,43 @@ if __name__ == "__main__":
     
     
     #调整使用的d4f取法
-    if jump ==  1:
-        d4f_value = "Optimistic d4f value"
-        for i,k in enumerate(Sim_Blocksizes):
-            Sim_Blocksizes[i] = k
-    elif jump/Blocksize<0.051:
-        d4f_value = "Theory conservative d4f value"
-        for i,k in enumerate(Sim_Blocksizes):
-            Sim_Blocksizes[i] = k - d4f_gap(k)
-    elif jump/Blocksize>0.05:
-        d4f_value = "ACCS d4f value"
-        for i,k in enumerate(Sim_Blocksizes):
-            Sim_Blocksizes[i] = k - d4f_gap_accs(k,slope)
-            
-    print("d4f_value = %s" % d4f_value)
+    # if jump ==  1:
+    #     d4f_value = "Optimistic d4f value"
+    #     for i,k in enumerate(Sim_Blocksizes):
+    #         Sim_Blocksizes[i] = k
+    # elif jump/Blocksize<0.051:
+    #     d4f_value = "Theory conservative d4f value"
+    #     for i,k in enumerate(Sim_Blocksizes):
+    #         Sim_Blocksizes[i] = k - d4f_gap(k)
+    # elif jump/Blocksize>0.05:
+    #     d4f_value = "ACCS d4f value"
+    #     for i,k in enumerate(Sim_Blocksizes):
+    #         Sim_Blocksizes[i] = k - d4f_gap_accs(k,slope)
+    # print("d4f_value = %s" % d4f_value)
     
+    # d4f_value = "None d4f value but have extra d4f"
+    # for i,k in enumerate(Sim_Blocksizes):
+    #     Sim_Blocksizes[i] = k + extra_dim4free - jump
+    
+    d4f_value = "None d4f value, None extra d4f"
+    for i,k in enumerate(Sim_Blocksizes):
+        if jump/Blocksize<0.75:
+            Sim_Blocksizes[i] = k - 3
+        else:
+            Sim_Blocksizes[i] = k 
 
-
+#     x = []
+#     for i in range(Blocksize):
+#         CD = lgamma(((i+1)/2.0 + 1))*(1/(i+1))-log(pi)/2
+#         x.append(CD)
+        
+#     print(x)
 
 
     #log_GS_lengths,GS_lengths,dir = read_file(n,alpha_,jump,Pumpdown,Blocksize,Tours,test_number,d) #read
     
-    #Total_test_number represents the number of pnj-BKZ reduction experiments
-    Total_test_number = 20
+    #Total_test_number represents the number of PnJBKZ reduction experiments
+    Total_test_number = 10
     GS_sum = []
     for i in range(Total_test_number):
         log_GS_lengths,GS_lengths,dir = read_file(n,alpha_,jump,Pumpdown,Blocksize,Tours,i+1,d)
@@ -518,6 +653,7 @@ if __name__ == "__main__":
     
     mid_log_gs=[]
     #for N in range(1):
+    
     for N in range(len(Blocksizes)):   
         if N == 0:
             if Blocksizes[0]>44:
@@ -561,9 +697,11 @@ if __name__ == "__main__":
         
         ratio_txt(dir,log_GS_lengths[N+1],sim_log_gs_lengths,n,d,alpha_,square_error1,Blocksizes[N],jump,N,test_number)
         
-        # if (N+1)%4 == 0:
-        #     show_gs_slope_figure5(dir,log_GS_lengths[N+1],sim_log_gs_lengths,n,d,alpha_,square_error1,Blocksizes[N],jump,N,test_number)
+
         
 
 
     Ratio_figure(dir,log_GS_lengths[N+1],sim_log_gs_lengths,n,d,alpha_,square_error1,Blocksizes[N],jump,N,test_number) #多个不同Tours对应的Ratio图画在同一张图上，然后用颜色区分不同的Tours所对应的Ratio
+
+if jump/Blocksizes[0]>0.75:
+    Ratio_figure_high_jump(dir,log_GS_lengths[N+1],sim_log_gs_lengths,n,d,alpha_,square_error1,Blocksizes[N],jump,N,test_number)
