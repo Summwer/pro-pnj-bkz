@@ -1,0 +1,234 @@
+============= Kyber-512 with σs = 1.5 and σe = 1.5
+      Build LWE  instance   
+ n=512   m=512   q=3329 
+dim = 1025, m = 512, dvol = 3944.94061028703, β = 405.5315
+core-SVP estimate, β =  406 beta-f =  377 cost = 110.084000000000
+Generate gs-lengths by GSA assumption.
+Compute cost in average case...
+ Attack Estimation via progressive BKZ + chi_square mode (estimator in [PV21]) , list_decoding_classical =  AGPS20
+
+β= 399, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=1.0451e-040
+β= 400, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=2.4729e-04
+β= 401, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=5.6400e-04
+β= 402, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=1.2397e-03
+β= 403, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=2.6254e-03
+β= 404, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=5.3557e-03
+β= 405, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=1.0519e-02
+β= 406, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=1.9882e-02
+β= 407, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=3.6124e-02
+β= 408, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=6.3009e-02
+β= 409, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=1.0528e-01
+β= 410, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=1.6804e-01
+β= 411, G = 62.01 log2(gate), B =30.88 log2(bit), cum-pr=2.5529e-01
+β= 412, G = 75.20 log2(gate), B =40.66 log2(bit), cum-pr=3.6760e-01
+β= 413, G = 90.75 log2(gate), B =51.95 log2(bit), cum-pr=4.9962e-01
+β= 414, G = 106.54 log2(gate), B =63.50 log2(bit), cum-pr=6.3894e-01
+β= 415, G = 122.03 log2(gate), B =74.29 log2(bit), cum-pr=7.6825e-01
+β= 416, G = 134.24 log2(gate), B =83.09 log2(bit), cum-pr=8.7138e-01
+β= 417, G = 142.25 log2(gate), B =88.86 log2(bit), cum-pr=9.4018e-01
+β= 418, G = 146.40 log2(gate), B =91.85 log2(bit), cum-pr=9.7748e-01
+β= 419, G = 148.18 log2(gate), B =93.13 log2(bit), cum-pr=9.9338e-01
+β= 420, G = 148.77 log2(gate), B =93.56 log2(bit), cum-pr=9.9854e-01
+β= 421, G = 149.07 log2(gate), B =93.77 log2(bit), cum-pr=9.9977e-01
+Cost: 5.377 s
+ dim=1025        ln(dvol) = 3944.9406103         avg_beta=413.28         G = 151.51 log2(gate)        B = 93.77 log2(bit)  
+ 
+ 
+============= Kyber-512 with σs = 1.5 and σe = 1
+      Build LWE  instance   
+ n=512   m=512   q=3329 
+dim = 1025, m = 512, dvol = 4048.73967796272, β = 393.2885
+core-SVP estimate, β =  394 beta-f =  366 cost = 106.872000000000
+Generate gs-lengths by GSA assumption.
+Compute cost in average case...
+ Attack Estimation via progressive BKZ + chi_square mode (estimator in [PV21]) , list_decoding_classical =  AGPS20
+
+β= 387, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=1.1661e-040
+β= 388, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=2.8094e-04
+β= 389, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=6.5107e-04
+β= 390, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=1.4510e-03
+β= 391, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=3.1088e-03
+β= 392, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=6.4018e-03
+β= 393, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=1.2664e-02
+β= 394, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=2.4049e-02
+β= 395, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=4.3787e-02
+β= 396, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=7.6310e-02
+β= 397, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=1.2697e-01
+β= 398, G = 54.93 log2(gate), B =25.45 log2(bit), cum-pr=2.0103e-01
+β= 399, G = 66.43 log2(gate), B =34.10 log2(bit), cum-pr=3.0161e-01
+β= 400, G = 80.93 log2(gate), B =44.45 log2(bit), cum-pr=4.2688e-01
+β= 401, G = 96.31 log2(gate), B =56.11 log2(bit), cum-pr=5.6762e-01
+β= 402, G = 112.24 log2(gate), B =67.61 log2(bit), cum-pr=7.0745e-01
+β= 403, G = 125.90 log2(gate), B =77.09 log2(bit), cum-pr=8.2747e-01
+β= 404, G = 135.72 log2(gate), B =84.16 log2(bit), cum-pr=9.1410e-01
+β= 405, G = 141.66 log2(gate), B =88.44 log2(bit), cum-pr=9.6515e-01
+β= 406, G = 144.33 log2(gate), B =90.36 log2(bit), cum-pr=9.8892e-01
+β= 407, G = 145.22 log2(gate), B =91.00 log2(bit), cum-pr=9.9735e-01
+β= 408, G = 145.51 log2(gate), B =91.21 log2(bit), cum-pr=9.9954e-01
+Cost: 5.166 s
+ dim=1025        ln(dvol) = 4048.7396780         avg_beta=400.81         G = 147.96 log2(gate)        B = 91.21 log2(bit)  
+ 
+ 
+============= Kyber-768
+      Build LWE  instance   
+ n=768   m=768   q=3329 
+dim = 1467, m = 698, dvol = 5661.07821182737, β = 623.4082
+core-SVP estimate, β =  624 beta-f =  584 cost = 170.528000000000
+Generate gs-lengths by GSA assumption.
+Compute cost in average case...
+ Attack Estimation via progressive BKZ + chi_square mode (estimator in [PV21]) , list_decoding_classical =  AGPS20
+
+β= 622, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=1.5268e-041
+β= 623, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=3.2752e-04
+β= 624, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=6.8179e-04
+β= 625, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=1.3771e-03
+β= 626, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=2.6985e-03
+β= 627, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=5.1297e-03
+β= 628, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=9.4570e-03
+β= 629, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=1.6902e-02
+β= 630, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=2.9269e-02
+β= 631, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=4.9065e-02
+β= 632, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=7.9512e-02
+β= 633, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=1.2435e-01
+β= 634, G = 66.69 log2(gate), B =33.87 log2(bit), cum-pr=1.8721e-01
+β= 635, G = 82.05 log2(gate), B =44.89 log2(bit), cum-pr=2.7058e-01
+β= 636, G = 100.27 log2(gate), B =58.50 log2(bit), cum-pr=3.7424e-01
+β= 637, G = 122.13 log2(gate), B =73.86 log2(bit), cum-pr=4.9377e-01
+β= 638, G = 144.20 log2(gate), B =89.72 log2(bit), cum-pr=6.1995e-01
+β= 639, G = 165.86 log2(gate), B =105.27 log2(bit), cum-pr=7.4004e-01
+β= 640, G = 183.90 log2(gate), B =118.22 log2(bit), cum-pr=8.4131e-01
+β= 641, G = 197.32 log2(gate), B =127.53 log2(bit), cum-pr=9.1551e-01
+β= 642, G = 205.58 log2(gate), B =133.45 log2(bit), cum-pr=9.6173e-01
+β= 643, G = 210.00 log2(gate), B =136.62 log2(bit), cum-pr=9.8565e-01
+β= 644, G = 211.76 log2(gate), B =137.89 log2(bit), cum-pr=9.9567e-01
+β= 645, G = 212.35 log2(gate), B =138.31 log2(bit), cum-pr=9.9898e-01
+β= 646, G = 212.65 log2(gate), B =138.52 log2(bit), cum-pr=9.9982e-01
+Cost: 12.773 s
+ dim=1467        ln(dvol) = 5661.0782118         avg_beta=637.30         G = 215.10 log2(gate)        B = 138.52 log2(bit)  
+ 
+ 
+============= Kyber-1024
+      Build LWE  instance   
+ n=1024          m=1024          q=3329 
+dim = 1918, m = 893, dvol = 7242.61152315450, β = 873.2308
+core-SVP estimate, β =  874 beta-f =  823 cost = 240.316000000000
+Generate gs-lengths by GSA assumption.
+Compute cost in average case...
+ Attack Estimation via progressive BKZ + chi_square mode (estimator in [PV21]) , list_decoding_classical =  AGPS20
+
+β= 877, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=1.2725e-040
+β= 878, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=2.5468e-04
+β= 879, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=4.9747e-04
+β= 880, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=9.4837e-04
+β= 881, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=1.7645e-03
+β= 882, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=3.2036e-03
+β= 883, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=5.6757e-03
+β= 884, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=9.8103e-03
+β= 885, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=1.6539e-02
+β= 886, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=2.7185e-02
+β= 887, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=4.3535e-02
+β= 888, G = 0.00 log2(gate), B =0.00 log2(bit), cum-pr=6.7868e-02
+β= 889, G = 59.13 log2(gate), B =28.07 log2(bit), cum-pr=1.0287e-01
+β= 890, G = 71.82 log2(gate), B =37.28 log2(bit), cum-pr=1.5134e-01
+β= 891, G = 88.16 log2(gate), B =49.09 log2(bit), cum-pr=2.1570e-01
+β= 892, G = 108.26 log2(gate), B =63.93 log2(bit), cum-pr=2.9715e-01
+β= 893, G = 133.08 log2(gate), B =81.38 log2(bit), cum-pr=3.9469e-01
+β= 894, G = 160.47 log2(gate), B =101.02 log2(bit), cum-pr=5.0428e-01
+β= 895, G = 188.91 log2(gate), B =121.39 log2(bit), cum-pr=6.1865e-01
+β= 896, G = 216.82 log2(gate), B =141.06 log2(bit), cum-pr=7.2821e-01
+β= 897, G = 240.40 log2(gate), B =157.93 log2(bit), cum-pr=8.2331e-01
+β= 898, G = 258.94 log2(gate), B =171.19 log2(bit), cum-pr=8.9698e-01
+β= 899, G = 271.30 log2(gate), B =180.03 log2(bit), cum-pr=9.4713e-01
+β= 900, G = 278.94 log2(gate), B =185.50 log2(bit), cum-pr=9.7658e-01
+β= 901, G = 282.46 log2(gate), B =188.02 log2(bit), cum-pr=9.9124e-01
+β= 902, G = 283.93 log2(gate), B =189.07 log2(bit), cum-pr=9.9729e-01
+β= 903, G = 284.52 log2(gate), B =189.49 log2(bit), cum-pr=9.9932e-01
+Cost: 23.238 s
+ dim=1918        ln(dvol) = 7242.6115232         avg_beta=894.18         G = 287.26 log2(gate)        B = 189.70 log2(bit) 
+
+
+
+============= Dilithium-I
+      Build LWE  instance   
+ n=1024          m=1024          q=8380417 
+dim = 2049, m = 1024, dvol = 15614.21931724470, β = 423.4283
+Generate gs-lengths by GSA assumption.
+Compute cost in average case...
+ Attack Estimation via progressive BKZ + chi_square mode (leaky-lwe-estimator) , list_decoding_classical =  AGPS20
+
+β= 425,  pr=1.3353e-04,          cum-pr=1.6933e-04       rem-pr=9.9983e-01
+β= 426,  pr=5.4268e-04,          cum-pr=7.1191e-04       rem-pr=9.9929e-01
+β= 427,  pr=1.9473e-03,          cum-pr=2.6578e-03       rem-pr=9.9734e-01
+β= 428,  pr=6.1614e-03,          cum-pr=8.8029e-03       rem-pr=9.9120e-01
+β= 429,  pr=1.7174e-02,          cum-pr=2.5826e-02       rem-pr=9.7417e-01
+β= 430,  pr=4.2160e-02,          cum-pr=6.6897e-02       rem-pr=9.3310e-01
+β= 431,  pr=9.1217e-02,          cum-pr=1.5201e-01       rem-pr=8.4799e-01
+β= 432,  pr=1.7428e-01,          cum-pr=2.9980e-01       rem-pr=7.0020e-01
+β= 433,  pr=2.9516e-01,          cum-pr=5.0647e-01       rem-pr=4.9353e-01
+β= 434,  pr=4.4581e-01,          cum-pr=7.2649e-01       rem-pr=2.7351e-01
+β= 435,  pr=6.0604e-01,          cum-pr=8.9225e-01       rem-pr=1.0775e-01
+β= 436,  pr=7.5094e-01,          cum-pr=9.7316e-01       rem-pr=2.6837e-02
+β= 437,  pr=8.6194e-01,          cum-pr=9.9629e-01       rem-pr=3.7052e-03
+β= 438,  pr=9.3370e-01,          cum-pr=9.9975e-01       rem-pr=2.4567e-04
+Cost: 10.994 s
+ dim=2049        ln(dvol) = 15614.2193172        avg_beta=433.35         G = 158.58 log2(gate)        B = 97.82 log2(bit)  
+
+
+============= Dilithium-II
+      Build LWE  instance   
+ n=1280          m=1536          q=8380417 
+dim = 2654, m = 1373, dvol = 19371.02384334927, β = 623.6116
+Generate gs-lengths by GSA assumption.
+Compute cost in average case...
+ Attack Estimation via progressive BKZ + chi_square mode (leaky-lwe-estimator) , list_decoding_classical =  AGPS20
+
+β= 628,  pr=7.7626e-05,          cum-pr=1.0478e-04       rem-pr=9.9990e-01
+β= 629,  pr=2.6638e-04,          cum-pr=3.7113e-04       rem-pr=9.9963e-01
+β= 630,  pr=8.3548e-04,          cum-pr=1.2063e-03       rem-pr=9.9879e-01
+β= 631,  pr=2.3936e-03,          cum-pr=3.5970e-03       rem-pr=9.9640e-01
+β= 632,  pr=6.2612e-03,          cum-pr=9.8357e-03       rem-pr=9.9016e-01
+β= 633,  pr=1.4951e-02,          cum-pr=2.4639e-02       rem-pr=9.7536e-01
+β= 634,  pr=3.2594e-02,          cum-pr=5.6430e-02       rem-pr=9.4357e-01
+β= 635,  pr=6.4913e-02,          cum-pr=1.1768e-01       rem-pr=8.8232e-01
+β= 636,  pr=1.1824e-01,          cum-pr=2.2200e-01       rem-pr=7.7800e-01
+β= 637,  pr=1.9735e-01,          cum-pr=3.7554e-01       rem-pr=6.2446e-01
+β= 638,  pr=3.0271e-01,          cum-pr=5.6457e-01       rem-pr=4.3543e-01
+β= 639,  pr=4.2846e-01,          cum-pr=7.5114e-01       rem-pr=2.4886e-01
+β= 640,  pr=5.6270e-01,          cum-pr=8.9117e-01       rem-pr=1.0883e-01
+β= 641,  pr=6.9066e-01,          cum-pr=9.6634e-01       rem-pr=3.3665e-02
+β= 642,  pr=7.9940e-01,          cum-pr=9.9325e-01       rem-pr=6.7531e-03
+β= 643,  pr=8.8161e-01,          cum-pr=9.9920e-01       rem-pr=7.9950e-04
+Cost: 21.664 s
+ dim=2654        ln(dvol) = 19371.0238433        avg_beta=638.02         G = 216.67 log2(gate)        B = 138.73 log2(bit)  
+
+
+
+
+============= Dilithium-III
+      Build LWE  instance   
+ n=1792          m=2048          q=8380417 
+dim = 3540, m = 1747, dvol = 26623.11624627578, β = 862.8394
+Generate gs-lengths by GSA assumption.
+Compute cost in average case...
+ Attack Estimation via progressive BKZ + chi_square mode (leaky-lwe-estimator) , list_decoding_classical =  AGPS20
+
+β= 873,  pr=1.3567e-04,          cum-pr=1.9377e-04       rem-pr=9.9981e-01
+β= 874,  pr=4.0700e-04,          cum-pr=6.0068e-04       rem-pr=9.9940e-01
+β= 875,  pr=1.1308e-03,          cum-pr=1.7308e-03       rem-pr=9.9827e-01
+β= 876,  pr=2.9090e-03,          cum-pr=4.6347e-03       rem-pr=9.9537e-01
+β= 877,  pr=6.9282e-03,          cum-pr=1.1531e-02       rem-pr=9.8847e-01
+β= 878,  pr=1.5277e-02,          cum-pr=2.6632e-02       rem-pr=9.7337e-01
+β= 879,  pr=3.1200e-02,          cum-pr=5.7001e-02       rem-pr=9.4300e-01
+β= 880,  pr=5.9049e-02,          cum-pr=1.1268e-01       rem-pr=8.8732e-01
+β= 881,  pr=1.0367e-01,          cum-pr=2.0467e-01       rem-pr=7.9533e-01
+β= 882,  pr=1.6909e-01,          cum-pr=3.3915e-01       rem-pr=6.6085e-01
+β= 883,  pr=2.5676e-01,          cum-pr=5.0883e-01       rem-pr=4.9117e-01
+β= 884,  pr=3.6403e-01,          cum-pr=6.8763e-01       rem-pr=3.1237e-01
+β= 885,  pr=4.8375e-01,          cum-pr=8.3874e-01       rem-pr=1.6126e-01
+β= 886,  pr=6.0545e-01,          cum-pr=9.3637e-01       rem-pr=6.3625e-02
+β= 887,  pr=7.1803e-01,          cum-pr=9.8206e-01       rem-pr=1.7940e-02
+β= 888,  pr=8.1268e-01,          cum-pr=9.9664e-01       rem-pr=3.3605e-03
+β= 889,  pr=8.8492e-01,          cum-pr=9.9961e-01       rem-pr=3.8674e-04
+Cost: 44.381 s
+ dim=3540        ln(dvol) = 26623.1162463        avg_beta=883.29         G = 285.39 log2(gate)        B = 187.39 log2(bit)  
+

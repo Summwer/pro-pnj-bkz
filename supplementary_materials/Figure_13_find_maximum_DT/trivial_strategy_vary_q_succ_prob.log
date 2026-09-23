@@ -1,0 +1,134 @@
+ sage lweinstance-two-step-matzov.sage 
+      Build LWE  instance   
+ n=600   m=600   q=2199023255552 
+sigma =  0.9999998943838584
+dim = 1201, m = 600, dvol = 17051.42064177465, dvol(after normalized) = 17051.42076851403, β = 62.1137
+core-SVP estimate, β =  63 beta-f =  55 cost (not consider d4f)= 18.4 cost (consider d4f)= 16.06
+success_rate =  1.00000000000000
+Generate gs-lengths by GSA assumption.
+Compute cost in average case...
+ Attack Estimation via two-step mode (simply progressive bkz+pump), list_decoding_classical =  MATZOV22, cumulated probalistic estimator proposed in the article `A refined hardness estimation of LWE`,goal_min_cost =  gate_min, success_rate =  1.00000000000000
+β= 109, G = 62.84 log2(gate), G1 = 47.96 log2(gate) B =39.40 log2(bit), GBKZ = 62.63 log2(gate), cum-pr=3.8160e-056314
+slope after PnJBKZs:  -0.0490527111123336
+Cost: 7.496 s
+ dim=1201        ln(dvol) = 17051.4207685        β_strategy=[50,...,109]         dsvp = 160      dsvp_prime = 139        G = 62.84 log2(gate)    B = 39.40 log2(bit)  
+ 
+ 
+      Build LWE  instance   
+ n=600   m=600   q=2199023255552 
+sigma =  0.9999998943838584
+dim = 1201, m = 600, dvol = 17051.42064177465, dvol(after normalized) = 17051.42076851403, β = 62.1137
+core-SVP estimate, β =  63 beta-f =  55 cost (not consider d4f)= 18.4 cost (consider d4f)= 16.06
+success_rate =  0.900000000000000
+Generate gs-lengths by GSA assumption.
+Compute cost in average case...
+ Attack Estimation via two-step mode (simply progressive bkz+pump), list_decoding_classical =  MATZOV22, cumulated probalistic estimator proposed in the article `A refined hardness estimation of LWE`,goal_min_cost =  gate_min, success_rate =  0.900000000000000
+β= 109, G = 62.96 log2(gate), G1 = 47.96 log2(gate) B =39.42 log2(bit), GBKZ = 62.63 log2(gate), cum-pr=3.8160e-056314
+slope after PnJBKZs:  -0.0490527111123336
+Cost: 7.492 s
+ dim=1201        ln(dvol) = 17051.4207685        β_strategy=[50,...,109]         dsvp = 150      dsvp_prime = 130        G = 62.96 log2(gate)    B = 39.42 log2(bit)  
+ 
+ 
+      Build LWE  instance   
+ n=600   m=600   q=2199023255552 
+sigma =  0.9999998943838584
+dim = 1201, m = 600, dvol = 17051.42064177465, dvol(after normalized) = 17051.42076851403, β = 62.1137
+core-SVP estimate, β =  63 beta-f =  55 cost (not consider d4f)= 18.4 cost (consider d4f)= 16.06
+success_rate =  0.800000000000000
+Generate gs-lengths by GSA assumption.
+Compute cost in average case...
+ Attack Estimation via two-step mode (simply progressive bkz+pump), list_decoding_classical =  MATZOV22, cumulated probalistic estimator proposed in the article `A refined hardness estimation of LWE`,goal_min_cost =  gate_min, success_rate =  0.800000000000000
+β= 109, G = 63.10 log2(gate), G1 = 47.96 log2(gate) B =39.38 log2(bit), GBKZ = 62.63 log2(gate), cum-pr=3.8160e-056314
+slope after PnJBKZs:  -0.0490527111123336
+Cost: 7.457 s
+ dim=1201        ln(dvol) = 17051.4207685        β_strategy=[50,...,109]         dsvp = 147      dsvp_prime = 127        G = 63.10 log2(gate)    B = 39.38 log2(bit)  
+ 
+ 
+      Build LWE  instance   
+ n=600   m=600   q=2199023255552 
+sigma =  0.9999998943838584
+dim = 1201, m = 600, dvol = 17051.42064177465, dvol(after normalized) = 17051.42076851403, β = 62.1137
+core-SVP estimate, β =  63 beta-f =  55 cost (not consider d4f)= 18.4 cost (consider d4f)= 16.06
+success_rate =  0.700000000000000
+Generate gs-lengths by GSA assumption.
+Compute cost in average case...
+ Attack Estimation via two-step mode (simply progressive bkz+pump), list_decoding_classical =  MATZOV22, cumulated probalistic estimator proposed in the article `A refined hardness estimation of LWE`,goal_min_cost =  gate_min, success_rate =  0.700000000000000
+β= 109, G = 63.27 log2(gate), G1 = 47.96 log2(gate) B =39.38 log2(bit), GBKZ = 62.63 log2(gate), cum-pr=3.8160e-056314
+slope after PnJBKZs:  -0.0490527111123336
+Cost: 7.294 s
+ dim=1201        ln(dvol) = 17051.4207685        β_strategy=[50,...,109]         dsvp = 145      dsvp_prime = 125        G = 63.27 log2(gate)    B = 39.38 log2(bit)  
+ 
+ 
+      Build LWE  instance   
+ n=600   m=600   q=2199023255552 
+sigma =  0.9999998943838584
+dim = 1201, m = 600, dvol = 17051.42064177465, dvol(after normalized) = 17051.42076851403, β = 62.1137
+core-SVP estimate, β =  63 beta-f =  55 cost (not consider d4f)= 18.4 cost (consider d4f)= 16.06
+success_rate =  0.600000000000000
+Generate gs-lengths by GSA assumption.
+Compute cost in average case...
+ Attack Estimation via two-step mode (simply progressive bkz+pump), list_decoding_classical =  MATZOV22, cumulated probalistic estimator proposed in the article `A refined hardness estimation of LWE`,goal_min_cost =  gate_min, success_rate =  0.600000000000000
+β= 109, G = 63.46 log2(gate), G1 = 47.96 log2(gate) B =39.36 log2(bit), GBKZ = 62.63 log2(gate), cum-pr=3.8160e-056314
+slope after PnJBKZs:  -0.0496694069507258
+Cost: 7.386 s
+ dim=1201        ln(dvol) = 17051.4207685        β_strategy=[50,...,109]         dsvp = 143      dsvp_prime = 123        G = 63.46 log2(gate)    B = 39.36 log2(bit)  
+ 
+ 
+      Build LWE  instance   
+ n=600   m=600   q=2199023255552 
+sigma =  0.9999998943838584
+dim = 1201, m = 600, dvol = 17051.42064177465, dvol(after normalized) = 17051.42076851403, β = 62.1137
+core-SVP estimate, β =  63 beta-f =  55 cost (not consider d4f)= 18.4 cost (consider d4f)= 16.06
+success_rate =  0.500000000000000
+Generate gs-lengths by GSA assumption.
+Compute cost in average case...
+ Attack Estimation via two-step mode (simply progressive bkz+pump), list_decoding_classical =  MATZOV22, cumulated probalistic estimator proposed in the article `A refined hardness estimation of LWE`,goal_min_cost =  gate_min, success_rate =  0.500000000000000
+β= 109, G = 63.72 log2(gate), G1 = 47.96 log2(gate) B =39.48 log2(bit), GBKZ = 62.63 log2(gate), cum-pr=3.8160e-056314
+slope after PnJBKZs:  -0.0496694069507258
+Cost: 7.280 s
+ dim=1201        ln(dvol) = 17051.4207685        β_strategy=[50,...,109]         dsvp = 142      dsvp_prime = 122        G = 63.72 log2(gate)    B = 39.48 log2(bit)  
+
+
+       Build LWE  instance   
+ n=600   m=600   q=2199023255552 
+sigma =  0.9999998943838584
+dim = 1201, m = 600, dvol = 17051.42064177465, dvol(after normalized) = 17051.42076851403, β = 62.1137
+core-SVP estimate, β =  63 beta-f =  55 cost (not consider d4f)= 18.4 cost (consider d4f)= 16.06
+success_rate =  0.400000000000000
+Generate gs-lengths by GSA assumption.
+Compute cost in average case...
+ Attack Estimation via two-step mode (simply progressive bkz+pump), list_decoding_classical =  MATZOV22, cumulated probalistic estimator proposed in the article `A refined hardness estimation of LWE`,goal_min_cost =  gate_min, success_rate =  0.400000000000000
+β= 109, G = 64.02 log2(gate), G1 = 47.96 log2(gate) B =39.49 log2(bit), GBKZ = 62.63 log2(gate), cum-pr=3.8160e-056314
+slope after PnJBKZs:  -0.0496694069507258
+Cost: 7.293 s
+ dim=1201        ln(dvol) = 17051.4207685        β_strategy=[50,...,109]         dsvp = 140      dsvp_prime = 120        G = 64.02 log2(gate)    B = 39.49 log2(bit)  
+ 
+ 
+      Build LWE  instance   
+ n=600   m=600   q=2199023255552 
+sigma =  0.9999998943838584
+dim = 1201, m = 600, dvol = 17051.42064177465, dvol(after normalized) = 17051.42076851403, β = 62.1137
+core-SVP estimate, β =  63 beta-f =  55 cost (not consider d4f)= 18.4 cost (consider d4f)= 16.06
+success_rate =  0.300000000000000
+Generate gs-lengths by GSA assumption.
+Compute cost in average case...
+ Attack Estimation via two-step mode (simply progressive bkz+pump), list_decoding_classical =  MATZOV22, cumulated probalistic estimator proposed in the article `A refined hardness estimation of LWE`,goal_min_cost =  gate_min, success_rate =  0.300000000000000
+β= 109, G = 64.42 log2(gate), G1 = 47.96 log2(gate) B =39.56 log2(bit), GBKZ = 62.63 log2(gate), cum-pr=3.8160e-056319
+slope after PnJBKZs:  -0.0496694069507258
+Cost: 7.241 s
+ dim=1201        ln(dvol) = 17051.4207685        β_strategy=[50,...,109]         dsvp = 138      dsvp_prime = 118        G = 64.42 log2(gate)    B = 39.56 log2(bit)      
+
+       Build LWE  instance   
+ n=600   m=600   q=2199023255552 
+sigma =  0.9999998943838584
+dim = 1201, m = 600, dvol = 17051.42064177465, dvol(after normalized) = 17051.42076851403, β = 62.1137
+core-SVP estimate, β =  63 beta-f =  55 cost (not consider d4f)= 18.4 cost (consider d4f)= 16.06
+success_rate =  0.200000000000000
+Generate gs-lengths by GSA assumption.
+Compute cost in average case...
+ Attack Estimation via two-step mode (simply progressive bkz+pump), list_decoding_classical =  MATZOV22, cumulated probalistic estimator proposed in the article `A refined hardness estimation of LWE`,goal_min_cost =  gate_min, success_rate =  0.200000000000000
+β= 109, G = 65.00 log2(gate), G1 = 47.96 log2(gate) B =39.95 log2(bit), GBKZ = 62.63 log2(gate), cum-pr=3.8160e-056319
+slope after PnJBKZs:  -0.0496694069507258
+Cost: 7.279 s
+ dim=1201        ln(dvol) = 17051.4207685        β_strategy=[50,...,109]         dsvp = 136      dsvp_prime = 117        G = 65.00 log2(gate)    B = 39.95 log2(bit)  
+ 
